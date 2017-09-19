@@ -1,2 +1,6 @@
 # lamdil
-Intro project to text-based video games
+// Text-Based Video Game RPG \\
+by  Liam Abalos
+    Minh Dinh
+    Isaac Leiva
+    
