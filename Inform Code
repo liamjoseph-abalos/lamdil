@@ -1,0 +1,6 @@
+The Cell is a room.
+North of the Cell is a room called the Intersection.
+West of the Intersection is a room the Guard's Room.
+The Iron Door is east of the Intersection and west of the Armoury. The Iron Door is lockable and is locked. The matching key of the Iron Door is the Iron Key.
+North of the Intersection is a room called the Hallway.
+North of the Hallway is a room called the Staircase.
