@@ -1,6 +1,40 @@
-The Cell is a room.
-North of the Cell is a room called the Intersection.
-West of the Intersection is a room the Guard's Room.
-The Iron Door is east of the Intersection and west of the Armoury. The Iron Door is lockable and is locked. The matching key of the Iron Door is the Iron Key.
-North of the Intersection is a room called the Hallway.
-North of the Hallway is a room called the Staircase.
+"Lamdil" by Minh Dinh
+
+Chapter 1 - Lower Prison
+
+The Cell is a room. "You wake up in a cell." 
+
+North of the Cell is a room called the Intersection. The Intersection is a room. "There is a locked door to your east and an open room to your west and a hallway to the north."
+
+The Iron Door is east of the Intersection and west of the Armoury. The Iron Door is a door. The Iron Door is lockable and locked. The matching key of the Iron Door is the Iron Key. The Armoury is a room. In the Armoury is a thing called the Rusty Sword. "You see a Rusty Sword on the floor."
+
+West of Intersection is a room called the Guard's Room. In the Guard's Room is a thing called the Iron Key. "There is something shiny in the corner."
+
+North of the Intersection is a room called the Hallway. The Hallway is a room."Ahead of you there is a staircase."
+
+North of the Hallway is a room called the Staircase. The Staircase is a room."Above you, you hear a rattling of chains and footsteps."
+
+Above the Staircase is a room called the Warden's Chamber. In the Warden's Chamber is a man called The Warden. The Warden wears a chainmail armour. The Warden carries a steel sword. "You see the warden charging at you with a sword."
+
+A person has a number called maximum hit points. A person has a number called current hit points.
+
+The maximum hit points of the player is 15. The maximum hit points of The Warden is 50.
+The current hit points of the player is 20. The current hit points of The Warden is 50.
+
+Section 1 - Fight Mechanic
+
+Instead of attacking someone: 
+	let the damage be a random number between 8 and 13; 
+	say "You attack [the noun], causing [damage] points of damage!"; 
+	decrease the current hit points of the noun by the damage; 
+	if the current hit points of the noun is less than 0: 
+		say "[line break][The noun] falls to his knees and breathes his last breath as he collapses onto the floor. The room trembles under his weight as he fizzles into nothing."; 
+		now the noun is nowhere; 
+		end the story finally; 
+		stop the action; 
+	let the enemy damage be a random number between 3 and 5; 
+	say "[line break][The noun] attacks you, causing [enemy damage] points of damage!"; 
+	decrease the current hit points of the player by the enemy damage; 
+	if the current hit points of the player is less than 0: 
+		say "[line break]YOU DIED!"; 
+		end the story.
