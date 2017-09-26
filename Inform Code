@@ -1,12 +1,11 @@
-"Lamdil" by Minh Dinh
-
+"LAMDIL ALPHA" by Liam Abalos, Minh Dinh, and Isaac Leiva
 Chapter 1 - Lower Prison
 
 The Cell is a room. "You wake up in a cell." 
 
 North of the Cell is a room called the Intersection. The Intersection is a room. "There is a locked door to your east and an open room to your west and a hallway to the north."
 
-The Iron Door is east of the Intersection and west of the Armoury. The Iron Door is a door. The Iron Door is lockable and locked. The matching key of the Iron Door is the Iron Key. The Armoury is a room. In the Armoury is a thing called the Rusty Sword. "You see a Rusty Sword on the floor."
+The Iron Door is east of the Intersection and west of the Armoury. The Iron Door is a door. The Iron Door is lockable and locked. The matching key of the Iron Door is the Iron Key. The Armoury is a room. In the Armoury is a object called the Rusty Sword. "You see a Rusty Sword on the floor."
 
 West of Intersection is a room called the Guard's Room. In the Guard's Room is a thing called the Iron Key. "There is something shiny in the corner."
 
@@ -18,23 +17,60 @@ Above the Staircase is a room called the Warden's Chamber. In the Warden's Chamb
 
 A person has a number called maximum hit points. A person has a number called current hit points.
 
-The maximum hit points of the player is 15. The maximum hit points of The Warden is 50.
+The maximum hit points of the player is 20. The maximum hit points of The Warden is 50.
 The current hit points of the player is 20. The current hit points of The Warden is 50.
 
-Section 1 - Fight Mechanic
+Section 2 - Diagnosis
 
-Instead of attacking someone: 
-	let the damage be a random number between 8 and 13; 
-	say "You attack [the noun], causing [damage] points of damage!"; 
-	decrease the current hit points of the noun by the damage; 
-	if the current hit points of the noun is less than 0: 
+Diagnosing is an action applying to one visible thing. Understand "diagnose [something]" as diagnosing.
+
+Check diagnosing: 
+	if the noun is not a person, say "Only people can have diagnoses." instead.
+Carry out diagnosing: 
+	say "[if the noun is the player]You have[otherwise][The noun] has[end if] [current hit points of the noun] out of a possible [maximum hit points of the noun] hit points remaining."
+
+Section 3 - Weapons
+
+A weapon is a kind of thing. A weapon has a number called the maximum damage. The maximum damage of a weapon is usually 4.
+
+The Warden carries a weapon called a steel sword . The maximum damage of the steel sword is 5. 
+
+The Rusty Sword is a weapon. The maximum damage of the Rusty Sword is 13.
+
+Section 4 - Attacking it with
+
+Understand the commands "attack" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as something new.
+
+Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [someone] with [something preferably held]" as attacking it with.
+
+Understand the commands "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as "attack".
+
+The attacking it with action has a number called the damage inflicted.
+Setting action variables for attacking something with something: 
+	if the second noun is a weapon: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 1 and the maximum attack.
+Check an actor attacking something with something (this is the can't attack with something that isn't a weapon rule): 
+	if the second noun is not a weapon: 
+		if the actor is the player, say "[The second noun] does not qualify as a weapon."; 
+		stop the action.
+Check an actor attacking something with something (this is the can't attack a non-person rule): 
+	if the noun is not a person: 
+		if the actor is the player, say "[The noun] has no life to lose."; 
+		stop the action.
+Carry out an actor attacking something with something (this is the standard attacking it with a weapon rule): 
+	decrease the current hit points of the noun by the damage inflicted; 
+	say "You attack [the noun], causing [damage inflicted] points of damage!"; 
+	if the current hit points of the noun is less than 0:
 		say "[line break][The noun] falls to his knees and breathes his last breath as he collapses onto the floor. The room trembles under his weight as he fizzles into nothing."; 
 		now the noun is nowhere; 
-		end the story finally; 
-		stop the action; 
-	let the enemy damage be a random number between 3 and 5; 
+		end the story finally;
+		stop the action;
+	 let the enemy damage be a random number between 3 and 5; 
 	say "[line break][The noun] attacks you, causing [enemy damage] points of damage!"; 
 	decrease the current hit points of the player by the enemy damage; 
 	if the current hit points of the player is less than 0: 
 		say "[line break]YOU DIED!"; 
 		end the story.
+
+
