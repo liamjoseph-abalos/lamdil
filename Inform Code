@@ -1,4 +1,4 @@
-"LAMDIL ALPHA" by Liam Abalos, Minh Dinh, and Isaac Leiva
+"LAMDIL ALPHA 1.0" by Liam Abalos, Minh Dinh, and Isaac Leiva
 Chapter 1 - Lower Prison
 
 The Cell is a room. "You wake up in a cell." 
@@ -19,6 +19,19 @@ A person has a number called maximum hit points. A person has a number called cu
 
 The maximum hit points of the player is 20. The maximum hit points of The Warden is 50.
 The current hit points of the player is 20. The current hit points of The Warden is 50.
+
+"LAMDIL ALPHA 2.0"
+The Prison Staircase is a room. "Above you hear the sounds of muffled footsteps."
+The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight, yet the air is warm as if someone just scurried away in a rush. To the west you see a door slightly ajar and to the east is a great big Iron Door."
+The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables scrawled across the room. There are chests full of private belongings."
+In the Guard's Room is an openable container called the Guard's Chest. The Guard's Chest is closed. "[if open]You see an Iron Key.[else]The Guard's Chest is closed." In the Guard's Chest is a thing called the Iron Key.
+Rule for printing the name of the Guard's Chest: 
+	say "[printed name of Guard's Chest]";
+	omit contents in listing.
+The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is lockable locked. The Iron Key unlocks the Iron Door. The Armoury is a room. "You see only a few weapons and pieces of gear around the room. You conclude the room was looted." In the Armoury is a Rusty Sword and a Wooden Shield.
+North of the Captain's Staircase is a Hallway. The Hallway is a room. The flaming torch is in the Hallway. The flaming torch is lit. "Ahead of you is a dark room. You see a flaming torch on the wall."
+North of the Hallway is the Warden's Staircase. The Warden's Staircase is a dark room. "Above you hear the sounds of chains rattling and heavy thuds running across the floor."
+Above the Warden's Staircase is a room called the Warden's Room.
 
 Section 2 - Diagnosis
 
