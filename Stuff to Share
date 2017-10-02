@@ -102,3 +102,4 @@ Every turn when the player is in the Prison Staircase (this is the Deranged Pris
 
 Every turn when the player is in the Warden's Room (this is the Warden attack rule):
 	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
+ 
