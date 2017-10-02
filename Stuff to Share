@@ -103,3 +103,28 @@ Every turn when the player is in the Prison Staircase (this is the Deranged Pris
 Every turn when the player is in the Warden's Room (this is the Warden attack rule):
 	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
  
+/////////
+-Room Concepts-
+Cell 6 is a room. "You wake up in your cell." The Note is a thing in Cell 6. The description of the Note is 
+"Welcome to LAMDIL. The command list:[line break]
+North	(N)[line break]
+South	(S)[line break]
+East	(E)[line break]
+West	(W)[line break]
+Up	(Up)[line break]
+Down	(Down)[line break]
+Take (item)[line break]
+Open (item)[line break]
+Open (item) with (item)[line break]
+Unlock (item)[line break]
+Unlock (item) with (item)." 
+Positioning relates various things to various things. The verb to be placed in means the positioning relation. The verb to be placed on implies the positioning relation.
+Room-positioning relates various things to various rooms. The verb to be room-placed in means the room-positioning relation.
+Definition: a thing (called prop) is in-place: 
+	if the prop is in the location and the prop is room-placed in the location, yes; 
+	if the holder of the prop is a thing and the prop is placed in the holder of the prop, yes; 
+	no.
+Definition: a thing is out-of-place if it is not in-place.
+Before listing nondescript items: 
+	now every marked for listing in-place thing is not marked for listing. 
+ 
