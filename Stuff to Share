@@ -259,3 +259,38 @@ Every turn when the player is in the Prison Staircase (this is the Deranged Pris
 
 Every turn when the player is in the Warden's Room (this is the Warden-attack rule):
 	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
+
+//////////////////////////////////////////////////////////////////
+Liam's Version
+Cell 1 is a room. "You wake up in your cell." The Note is a thing in Cell 1. The description of the Note is 
+"Welcome to LAMDIL. The command list:[line break]
+North	(N)[line break]
+South	(S)[line break]
+East	(E)[line break]
+West	(W)[line break]
+Up	(Up)[line break]
+Down	(Down)[line break]
+Take (item)[line break]
+Open (item)[line break]
+Open (item) with (item)[line break]
+Unlock (item)[line break]
+Unlock (item) with (item)."
+Walkway 1 is north of Cell 1. Walkway 1 is a room. "A mysterious silence looms..."
+Walkway 2 is east of Walkway 1. Walkway 2 is a room. "To the south is a dark room and you see something sparkle."
+Cell 2 is south of Walkway 2. The Cell Key is in Cell 2. Cell 2 is a room. 
+The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is locked. The Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "Oddly, a south facing cell is open."
+Cell 3 is south of Cell Door. The Rusty Spoon is in Cell 3. Cell 3 is a room. 
+Walkway 4 is east of Walkway 3. Walkway 4 is a room. "The prison staircase is up ahead."
+Cell 4 is south of Walkway 4. Cell 4 is a room. "There seems to be nothing here."
+The Prison Staircase is east of Walkway 4. Prison Staircase is a room. A Deranged Prisoner is a man in the Prison Staircase. "Quick! A deranged prisoner is charging at you!"
+The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight, yet the air is warm as if someone just scurried away in a rush. To the west you see a door slightly ajar and to the east is a great big Iron Door. To the North you see a bright hallway."
+The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables scrawled across the room. There are chests full of private belongings."
+In the Guard's Room is an openable container called the Guard's Chest. The Guard's Chest is closed. "[if open]You see an Iron Key.[else]The Guard's Chest is closed." In the Guard's Chest is a thing called the Iron Key.
+Rule for printing the name of the Guard's Chest: 
+	say "[printed name of Guard's Chest]";
+	omit contents in listing.
+The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is lockable locked. The Iron Key unlocks the Iron Door. The Armoury is a room. "You see only a few weapons and pieces of gear around the room. You conclude the room was looted." In the Armoury is a Rusty Sword and a Wooden Shield.
+North of the Captain's Staircase is a Hallway. The Hallway is a room. The flaming torch is in the Hallway. The flaming torch is lit. "Ahead of you is a dark room. You see a flaming torch on the wall."
+North of the Hallway is the Warden's Staircase. The Warden's Staircase is a dark room. "Above you hear the sounds of chains rattling and heavy thuds running across the floor."
+Above the Warden's Staircase is a room called the Warden's Room.
+The Warden is a man in the Warden's Room. "The Warden sees you and becomes enraged. He draws his sword and begins to charge directly at you!"
