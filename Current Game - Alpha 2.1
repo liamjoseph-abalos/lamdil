@@ -1,13 +1,25 @@
-Cell 1 is a room. "You wake up in your cell."
+Cell 1 is a room. "You wake up in your cell." The Note is a thing in Cell 1. The description of the Note is 
+"Welcome to LAMDIL. The command list:[line break]
+North	(N)[line break]
+South	(S)[line break]
+East	(E)[line break]
+West	(W)[line break]
+Up	(Up)[line break]
+Down	(Down)[line break]
+Take (item)[line break]
+Open (item)[line break]
+Open (item) with (item)[line break]
+Unlock (item)[line break]
+Unlock (item) with (item)."
 Walkway 1 is north of Cell 1. Walkway 1 is a room. "A mysterious silence looms..."
-Walkway 2 is east of Walkway 1. Walkway 2 is a room. "Oddly, this cell is open."
+Walkway 2 is east of Walkway 1. Walkway 2 is a room. "To the south is a dark room and you see something sparkle."
 Cell 2 is south of Walkway 2. The Cell Key is in Cell 2. Cell 2 is a room. 
-The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is locked. The Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "The cell here is locked."
+The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is locked. The Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "Oddly, a south facing cell is open."
 Cell 3 is south of Cell Door. The Rusty Spoon is in Cell 3. Cell 3 is a room. 
 Walkway 4 is east of Walkway 3. Walkway 4 is a room. "The prison staircase is up ahead."
 Cell 4 is south of Walkway 4. Cell 4 is a room. "There seems to be nothing here."
-The Prison Staircase is east of Walkway 4. Prison Staircase is a room. A Prisoner is a man in the Prison Staircase. "Quick! A deranged prisoner is charging at you!"
-The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight, yet the air is warm as if someone just scurried away in a rush. To the west you see a door slightly ajar and to the east is a great big Iron Door. To the North you see a bright hallway."
+The Prison Staircase is east of Walkway 4. Prison Staircase is a room. A Deranged Prisoner is a man in the Prison Staircase. "Quick! A deranged prisoner is charging at you!"
+The Prison Staircase is below the Captain's Staircase. The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight, yet the air is warm as if someone just scurried away in a rush. To the west you see a door slightly ajar and to the east is a great big Iron Door. To the North you see a bright hallway."
 The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables scrawled across the room. There are chests full of private belongings."
 In the Guard's Room is an openable container called the Guard's Chest. The Guard's Chest is closed. "[if open]You see an Iron Key.[else]The Guard's Chest is closed." In the Guard's Chest is a thing called the Iron Key.
 Rule for printing the name of the Guard's Chest: 
@@ -24,13 +36,11 @@ The Warden is a man in the Warden's Room. "The Warden sees you and becomes enrag
 
 
 
-
-
 A person has a number called maximum hit points. A person has a number called current hit points. 
 The maximum hit points of the player is 20. The maximum hit points of the Deranged Prisoner is 20. 
-The current hit points of the player is 10. The current hit points of the Deranged Prisoner is 3.
+The current hit points of the player is 20. The current hit points of the Deranged Prisoner is 3.
 The maximum hit points of the Warden is 30. The current hit points of the Warden is 30.
-Definition: a person is dead if his current hit points are less than 0. 
+Definition: a person is dead if his current hit points are less than 1. 
 
 Diagnosing is an action applying to one visible thing. Understand "diagnose [something]" as diagnosing. 
 
@@ -39,10 +49,10 @@ Check diagnosing:
 Carry out diagnosing: 
 	say "[if the noun is the player]You have[otherwise][The noun] has[end if] [current hit points of the noun] out of a possible [maximum hit points of the noun] hit points remaining." 
 	
-A weapon is a kind of thing. A weapon has a number called the maximum damage. The maximum damage of a weapon is usually 2. 
-The Deranged Prisoner carries a weapon called broken glass. The maximum damage of the broken glass is 2.
-The Rusty Spoon is a weapon. The maximum damage of the Rusty Spoon is 4. 
-The player carries a weapon called a fist. The maximum damage of the fist is 2.
+A weapon is a kind of thing. A weapon has a number called the maximum damage. The maximum damage of a weapon is usually 1. 
+The Deranged Prisoner carries a weapon called Broken Glass. The maximum damage of the Broken Glass is 2.
+The Rusty Spoon is a weapon. The maximum damage of the Rusty Spoon is 3. 
+The player carries a weapon called a Fist. The maximum damage of the Fist is 2.
 The Warden carries a weapon called a Silver Sword. The maximum damage of the Silver Sword is 4.
 The Rusty Sword is a weapon. The maximum damage of the Rusty Sword is 8. 
 
@@ -53,9 +63,29 @@ Understand the commands "punch" and "destroy" and "kill" and "murder" and "hit" 
 The attacking it with action has a number called the damage inflicted. 
 
 Setting action variables for attacking something with something: 
-	if the second noun is a weapon: 
+	if the second noun is a Broken Glass: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 1 and the maximum attack. 
+		
+Setting action variables for attacking something with something: 
+	if the second noun is a Rusty Spoon: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 3 and the maximum attack. 
+		
+Setting action variables for attacking something with something: 
+	if the second noun is a Fist: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 1 and the maximum attack. 
+		
+Setting action variables for attacking something with something: 
+	if the second noun is a Silver Sword: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 2 and the maximum attack. 
+		
+Setting action variables for attacking something with something: 
+	if the second noun is a Rusty Sword: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 6 and the maximum attack. 
 
 Check an actor attacking something with something (this is the can't attack with something that isn't a weapon rule): 
 	if the second noun is not a weapon: 
@@ -92,11 +122,17 @@ Report someone attacking something with something (this is the standard report a
 Prison Staircase Fight is a scene.
 Prison Staircase Fight begins when the player is in the Prison Staircase.
 When Prison Staircase Fight begins: 
-	now the left hand status line is "You: [current hit points of player]"; 
-	now the right hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]". 
+	now the left hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]"; 
+	now the right hand status line is "You: [current hit points of player]". 
+	
+Warden's Room Fight is a scene.
+Warden's Room Fight begins when the player is in the Warden's Room.
+When Warden's Room Fight begins: 
+	now the left hand status line is "Warden: [current hit points of Warden]"; 
+	now the right hand status line is "You: [current hit points of player]". 
 	
 Every turn when the player is in the Prison Staircase (this is the Deranged Prisoner-attack rule): 
 	if the current hit points of the Deranged Prisoner is greater than 0, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
 
-Every turn when the player is in the Warden's Room (this is the Warden attack rule):
+Every turn when the player is in the Warden's Room (this is the Warden-attack rule):
 	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
