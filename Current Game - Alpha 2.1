@@ -9,7 +9,7 @@ Cell 8 is south of Cell 4. Cell 8 is a room. "You see a dead body." There is a R
 The Cell Door is east of Cell 4. The Cell Door is a door. The Cell Door is locked. The Cell Key unlocks the Cell Door. 
 The Prison Staircase is east of the Cell Door. The Prison Staircase is a room. "You hear a thudding upstairs."
 A Deranged Prisoner is a man in the Prison Staircase. "Quick! A deranged prisoner is charging at you."
-The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight, yet the air is warm as if someone just scurried away in a rush. To the west you see a door slightly ajar and to the east is a great big Iron Door."
+The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight, yet the air is warm as if someone just scurried away in a rush. To the west you see a door slightly ajar and to the east is a great big Iron Door. To the North you see a bright hallway."
 The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables scrawled across the room. There are chests full of private belongings."
 In the Guard's Room is an openable container called the Guard's Chest. The Guard's Chest is closed. "[if open]You see an Iron Key.[else]The Guard's Chest is closed." In the Guard's Chest is a thing called the Iron Key.
 Rule for printing the name of the Guard's Chest: 
@@ -19,6 +19,7 @@ The Iron Door is east of the Captain's Staircase and west of the Armoury. The Ir
 North of the Captain's Staircase is a Hallway. The Hallway is a room. The flaming torch is in the Hallway. The flaming torch is lit. "Ahead of you is a dark room. You see a flaming torch on the wall."
 North of the Hallway is the Warden's Staircase. The Warden's Staircase is a dark room. "Above you hear the sounds of chains rattling and heavy thuds running across the floor."
 Above the Warden's Staircase is a room called the Warden's Room.
+The Warden is a man in the Warden's Room. "The Warden sees you and becomes enraged. He draws his sword and begins to charge directly at you!"
 
 
 
@@ -28,8 +29,9 @@ Above the Warden's Staircase is a room called the Warden's Room.
 
 
 A person has a number called maximum hit points. A person has a number called current hit points. 
-The maximum hit points of the player is 10. The maximum hit points of the Deranged Prisoner is 3. 
+The maximum hit points of the player is 20. The maximum hit points of the Deranged Prisoner is 20. 
 The current hit points of the player is 10. The current hit points of the Deranged Prisoner is 3.
+The maximum hit points of the Warden is 30. The current hit points of the Warden is 30.
 Definition: a person is dead if his current hit points are less than 0. 
 
 Diagnosing is an action applying to one visible thing. Understand "diagnose [something]" as diagnosing. 
@@ -40,8 +42,11 @@ Carry out diagnosing:
 	say "[if the noun is the player]You have[otherwise][The noun] has[end if] [current hit points of the noun] out of a possible [maximum hit points of the noun] hit points remaining." 
 	
 A weapon is a kind of thing. A weapon has a number called the maximum damage. The maximum damage of a weapon is usually 2. 
-The Deranged Prisoner carries a weapon called a fist. The maximum damage of the fist is 2.
+The Deranged Prisoner carries a weapon called broken glass. The maximum damage of the broken glass is 2.
 The Rusty Spoon is a weapon. The maximum damage of the Rusty Spoon is 4. 
+The player carries a weapon called a fist. The maximum damage of the fist is 2.
+The Warden carries a weapon called a Silver Sword. The maximum damage of the Silver Sword is 4.
+The Rusty Sword is a weapon. The maximum damage of the Rusty Sword is 8. 
 
 Understand the commands "attack" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as something new. 
 Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [someone] with [something preferably held]" as attacking it with. 
@@ -94,4 +99,6 @@ When Prison Staircase Fight begins:
 	
 Every turn when the player is in the Prison Staircase (this is the Deranged Prisoner-attack rule): 
 	if the current hit points of the Deranged Prisoner is greater than 0, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
-	
+
+Every turn when the player is in the Warden's Room (this is the Warden attack rule):
+	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
