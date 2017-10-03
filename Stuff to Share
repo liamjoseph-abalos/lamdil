@@ -129,7 +129,12 @@ Before listing nondescript items:
 	now every marked for listing in-place thing is not marked for listing. 
  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Minh's Version
 Section 1 - Story
+
+When play begins:
+	now the left hand status line is "";
+	now the right hand status line is "Health: [current hit points of player]". 
 
 Cell 1 is a room. "You wake up in your cell. North of this cell is a walkway."
 Walkway 1 is north of Cell 1. Walkway 1 is a room. "A strange silence fills the air. There is another walkway to the east."
@@ -163,7 +168,7 @@ A weapon is a kind of thing. A weapon has a number called the maximum damage.
 
 Understand the commands "attack" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as something new. 
 Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [someone] with [something preferably held]" as attacking it with. 
-Understand the commands "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as "attack". 
+Understand the commands "fight" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as "attack". 
 
 The attacking it with action has a number called the damage inflicted. 
 
@@ -221,10 +226,10 @@ Report Deranged Prisoner attacking the player with something when the player is 
 Prison Staircase Fight is a scene.
 Prison Staircase Fight begins when the player is in the Prison Staircase.
 When Prison Staircase Fight begins: 
-	now the left hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]"; 
-	now the right hand status line is "You: [current hit points of player]". 
+	now the left hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]".
 Prison Staircase Fight ends when the Deranged Prisoner is dead.
 When Prison Staircase Fight ends:
+	now the left hand status line is "Deranged Prisoner: 0";
 	say "Behind the prisoner you see a staircase that leads up."
 
 
@@ -282,10 +287,10 @@ Report Mutated Prisoner attacking the player with something when the player is d
 Prison Tunnel Fight is a scene.
 Prison Tunnel Fight begins when the player is in the Prison Tunnel.
 When Prison Tunnel Fight begins: 
-	now the left hand status line is "Mutated Prisoner: [current hit points of Mutated Prisoner]"; 
-	now the right hand status line is "You: [current hit points of player]". 
+	now the left hand status line is "Mutated Prisoner: [current hit points of Mutated Prisoner]".
 Prison Tunnel Fight ends when the Mutated Prisoner is dead.
 When Prison Tunnel Fight ends:
+	now the left hand status line is "Mutated Prisoner: 0";
 	say "Your heart still trembles from the encounter."	
 
 
@@ -316,10 +321,10 @@ Report Warden attacking the player with something when the player is dead (this 
 Warden's Room Fight is a scene.
 Warden's Room Fight begins when the player is in the Warden's Room.
 When Warden's Room Fight begins: 
-	now the left hand status line is "Warden: [current hit points of Warden]"; 
-	now the right hand status line is "You: [current hit points of player]". 
+	now the left hand status line is "Warden: [current hit points of Warden]".
 Warden's Room Fight ends when the Warden is dead.
 When Warden's Room Fight ends:
+	now the left hand status line is "Warden: 0";
 	say "North of the warden's room is the prison entrance."
 
 
