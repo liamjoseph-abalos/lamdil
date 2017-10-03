@@ -236,6 +236,7 @@ The current hit points of the Mutated Prisoner is 15. The maximum hit points of 
 The Mutated Prisoner carries a weapon called Left Hand. The maximum damage of the Left Hand is 4.
 The Mutated Prisoner carries a weapon called Right Hand. The maximum damage of the Right Hand is 4.
 The Mutated Prisoner carries a weapon called Third Hand. The maximum damage of the Third Hand is 5.
+The Mutated Prisoner carries a weapon called Bite. The maximum damage of the Bite is 6.
 
 Setting action variables for attacking something with something: 
 	if the second noun is a Left Hand: 
@@ -252,6 +253,11 @@ Setting action variables for attacking something with something:
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 3 and the maximum attack. 
 		
+Setting action variables for attacking something with something: 
+	if the second noun is a Bite: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 2 and the maximum attack. 
+		
 Every turn when the player is in the Prison Tunnel (this is the Mutated Prisoner-attack rule):
 	if the current hit points of the Mutated Prisoner is greater than 0, try the Mutated Prisoner attacking the player with a random weapon which is carried by the Mutated Prisoner. 
 	
@@ -264,12 +270,15 @@ Report Mutated Prisoner attacking the player with Right Hand (this is the standa
 Report Mutated Prisoner attacking the player with Third Hand (this is the standard report Mutated Prisoner attacking the player with Third Hand rule): 
 	say "The Mutated Prisoner stretches out his third arm and slashes at you, causing [damage inflicted] point[s] of damage!" instead. 
 	
+Report Mutated Prisoner attacking the player with Bite (this is the standard report Mutated Prisoner attacking the player with Bite rule): 
+	say "The Mutated Prisoner bites you with his jagged teeth, causing [damage inflicted] point[s] of damage!" instead. 
+	
 Report attacking a dead Mutated Prisoner with something (this is the Mutated Prisoner's death-report priority rule): 
 	say "The Mutated Prisoner lets out a moan as he shrivels up on the floor." instead. 
 	
 Report Mutated Prisoner attacking the player with something when the player is dead (this is the player's-death by Mutated Prisoner priority rule): 
 	say "The Mutated Prisoner grabs onto your head with all three arms and snaps your neck."; 
-	end the story saying "The Mutated Prisoner chews on the remains of your body"; 
+	end the story saying "Your blood is splatter all over the tunnel as the mutant feasts on your remains"; 
 	stop the action.
 	
 Prison Tunnel Fight is a scene.
@@ -279,7 +288,7 @@ When Prison Tunnel Fight begins:
 	now the right hand status line is "You: [current hit points of player]". 
 Prison Tunnel Fight ends when the Mutated Prisoner is dead.
 When Prison Tunnel Fight ends:
-	say "You let out a sigh of relief."
+	say "Your still trembles from the encounter."
 	
 
 	
