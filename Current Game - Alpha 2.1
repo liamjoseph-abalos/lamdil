@@ -1,3 +1,7 @@
+When play begins:
+	now the left hand status line is "";
+	now the right hand status line is "Health: [current hit points of player]". 
+
 Cell 1 is a room. "You wake up in your cell." The Note is a thing in Cell 1. The description of the Note is 
 "Welcome to LAMDIL. The command list:[line break]
 North	(N)[line break]
@@ -17,7 +21,8 @@ Cell 2 is south of Walkway 2. The Cell Key is in Cell 2. Cell 2 is a room.
 The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is locked. The Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "Oddly, a south facing cell is open."
 Cell 3 is south of Cell Door. The Rusty Spoon is in Cell 3. Cell 3 is a room. 
 Walkway 4 is east of Walkway 3. Walkway 4 is a room. "The prison staircase is up ahead."
-Cell 4 is south of Walkway 4. Cell 4 is a room. "There seems to be nothing here."
+Cell 4 is south of Walkway 4. Cell 4 is a room. "In this cell is a hole big enough for a person to fit through. You probably shouldn't jump down."
+Prison Tunnel is below Cell 4. Prison Tunnel is a room. The Mutated Prisoner is a man in the Prison Tunnel. "A man with three arms instantly turns around and attacks you!"
 The Prison Staircase is east of Walkway 4. Prison Staircase is a room. A Deranged Prisoner is a man in the Prison Staircase. "Quick! A deranged prisoner is charging at you!"
 The Prison Staircase is below the Captain's Staircase. The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight, yet the air is warm as if someone just scurried away in a rush. To the west you see a door slightly ajar and to the east is a great big Iron Door. To the North you see a bright hallway."
 The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables scrawled across the room. There are chests full of private belongings."
@@ -34,17 +39,7 @@ The Warden is a man in the Warden's Room. "The Warden sees you and becomes enrag
 
 
 
-
-
-Section 1 All Character Hit Points
-
-A person has a number called maximum hit points. A person has a number called current hit points. 
-The maximum hit points of the player is 20. The maximum hit points of the Deranged Prisoner is 3. 
-The current hit points of the player is 20. The current hit points of the Deranged Prisoner is 3.
-The maximum hit points of the Warden is 30. The current hit points of the Warden is 30. 
-Definition: a person is dead if his current hit points are less than 1. 
-
-Section 2 Diagnose Command
+Section 1 Diagnose Command
 
 Diagnosing is an action applying to one visible thing. Understand "diagnose [something]" as diagnosing. 
 
@@ -53,27 +48,180 @@ Check diagnosing:
 Carry out diagnosing: 
 	say "[if the noun is the player]You have[otherwise][The noun] has[end if] [current hit points of the noun] out of a possible [maximum hit points of the noun] hit points remaining." 
 	
-Section 3 Weapon Index
+Section 2 - Fight Mechanics
 
-A weapon is a kind of thing. A weapon has a number called the maximum damage. The maximum damage of a weapon is usually 2. 
-The Deranged Prisoner carries a weapon called broken glass. The maximum damage of the broken glass is 2.
-The Rusty Spoon is a weapon. The maximum damage of the Rusty Spoon is 4. 
-The player carries a weapon called a fist. The maximum damage of the fist is 2.
-The Warden carries a weapon called a Silver Sword. The maximum damage of the Silver Sword is 4.
-The Rusty Sword is a weapon. The maximum damage of the Rusty Sword is 8. 
+A person has a number called maximum hit points. A person has a number called current hit points. 
 
-Section  4 Weapon Rules
+Definition: a person is dead if his current hit points are less than 1. 
 
-Understand the commands "attack" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as something new. 
+A weapon is a kind of thing. A weapon has a number called the maximum damage.
+
+Understand the commands "fight" and "attack" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as something new. 
 Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [someone] with [something preferably held]" as attacking it with. 
-Understand the commands "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as "attack". 
+Understand the commands "fight" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as "attack". 
 
 The attacking it with action has a number called the damage inflicted. 
 
+
+
+
+The current hit points of the player is 20. The maximum hit points of the player is 20.
+The player carries a weapon called Fist. The maximum damage of the Fist is 2.
+The Rusty Knife is a weapon. The maximum damage of the Rusty Knife is 3. 
+The Broken Sword is a weapon. The maximum damage of the Broken Sword is 8.
+
 Setting action variables for attacking something with something: 
-	if the second noun is a weapon: 
+	if the second noun is a Fist: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 1 and the maximum attack. 
+		
+Setting action variables for attacking something with something: 
+	if the second noun is a Rusty Knife: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 3 and the maximum attack. 
+		
+Setting action variables for attacking something with something: 
+	if the second noun is a Broken Sword: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 6 and the maximum attack. 
+		
+Report attacking someone with something (this is the normal attacking report rule): 
+	say "You attack [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!" instead. 
+
+
+
+
+The current hit points of the Deranged Prisoner is 3. The maximum hit points of the Deranged Prisoner is 3. 
+The Deranged Prisoner carries a weapon called Broken Glass. The maximum damage of the Broken Glass is 2.
+
+Setting action variables for attacking something with something: 
+	if the second noun is a Broken Glass: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 1 and the maximum attack. 
+		
+Every turn when the player is in the Prison Staircase (this is the Deranged Prisoner-attack rule): 
+	if the current hit points of the Deranged Prisoner is greater than 0, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
+		
+Report Deranged Prisoner attacking the player with something (this is the standard report Deranged Prisoner attacking the player with rule): 
+	say "The Deranged Prisoner slashes at your flesh, dealing [damage inflicted] point[s] of damage!" instead. 
+		
+Report attacking a dead Deranged Prisoner with something (this is the Deranged Prisoner's death-report priority rule): 
+	say "The Deranged Prisoner writhes in pain as he expires." instead. 
+	
+Report Deranged Prisoner attacking the player with something when the player is dead (this is the player's-death by Deranged Prisoner priority rule):
+	now the right hand status line is "You Died"; 
+	say "The Deranged Prisoner quickly stabs your throat."; 
+	end the story saying "The blood drains out of your neck and you fall to the ground"; 
+	stop the action.
+	
+Prison Staircase Fight is a scene.
+Prison Staircase Fight begins when the player is in the Prison Staircase.
+When Prison Staircase Fight begins: 
+	now the left hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]".
+Prison Staircase Fight ends when the Deranged Prisoner is dead.
+When Prison Staircase Fight ends:
+	now the left hand status line is "Deranged Prisoner: Deceased";
+	say "Behind the prisoner you see a staircase that leads up."
+
+
+
+
+The current hit points of the Mutated Prisoner is 15. The maximum hit points of the Mutated Prisoner is 15.
+The Mutated Prisoner carries a weapon called Left Hand. The maximum damage of the Left Hand is 4.
+The Mutated Prisoner carries a weapon called Right Hand. The maximum damage of the Right Hand is 4.
+The Mutated Prisoner carries a weapon called Third Hand. The maximum damage of the Third Hand is 5.
+The Mutated Prisoner carries a weapon called Bite. The maximum damage of the Bite is 4.
+
+Setting action variables for attacking something with something: 
+	if the second noun is a Left Hand: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 2 and the maximum attack. 
+
+Setting action variables for attacking something with something: 
+	if the second noun is a Right Hand: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 3 and the maximum attack. 
+		
+Setting action variables for attacking something with something: 
+	if the second noun is a Third Hand: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 3 and the maximum attack. 
+		
+Setting action variables for attacking something with something: 
+	if the second noun is a Bite: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 2 and the maximum attack. 
+		
+Every turn when the player is in the Prison Tunnel (this is the Mutated Prisoner-attack rule):
+	if the current hit points of the Mutated Prisoner is greater than 0, try the Mutated Prisoner attacking the player with a random weapon which is carried by the Mutated Prisoner. 
+	
+Report Mutated Prisoner attacking the player with Left Hand (this is the standard report Mutated Prisoner attacking the player with Left Hand rule): 
+	say "The Mutated Prisoner claws at you with his left hand, dealing [damage inflicted] point[s] of damage!" instead. 
+	
+Report Mutated Prisoner attacking the player with Right Hand (this is the standard report Mutated Prisoner attacking the player with Right Hand rule): 
+	say "The Mutated Prisoner claws at you with his right hand, dealing [damage inflicted] point[s] of damage!" instead. 
+	
+Report Mutated Prisoner attacking the player with Third Hand (this is the standard report Mutated Prisoner attacking the player with Third Hand rule): 
+	say "The Mutated Prisoner stretches out his third arm and slashes at you, dealing [damage inflicted] point[s] of damage!" instead. 
+	
+Report Mutated Prisoner attacking the player with Bite (this is the standard report Mutated Prisoner attacking the player with Bite rule): 
+	say "The Mutated Prisoner bites you with his jagged teeth, dealing [damage inflicted] point[s] of damage!" instead. 
+	
+Report attacking a dead Mutated Prisoner with something (this is the Mutated Prisoner's death-report priority rule): 
+	say "The Mutated Prisoner lets out a moan as he shrivels up on the floor." instead. 
+	
+Report Mutated Prisoner attacking the player with something when the player is dead (this is the player's-death by Mutated Prisoner priority rule):
+	now the right hand status line is "You Died"; 
+	say "The Mutated Prisoner grabs onto your head with all three arms and tears it clean off."; 
+	end the story saying "Your blood is splattered all over the tunnel as the mutant feasts on your remains"; 
+	stop the action.
+	
+Prison Tunnel Fight is a scene.
+Prison Tunnel Fight begins when the player is in the Prison Tunnel.
+When Prison Tunnel Fight begins: 
+	now the left hand status line is "Mutated Prisoner: [current hit points of Mutated Prisoner]".
+Prison Tunnel Fight ends when the Mutated Prisoner is dead.
+When Prison Tunnel Fight ends:
+	now the left hand status line is "Mutated Prisoner: Deceased";
+	say "Your heart still trembles from the encounter."	
+
+
+
+
+The current hit points of the Warden is 25. The maximum hit points of the Warden is 25.
+The Warden carries a weapon called Silver Sword. The maximum damage of the Silver Sword is 4.
+
+Setting action variables for attacking something with something: 
+	if the second noun is a Silver Sword: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 2 and the maximum attack. 
+		
+Every turn when the player is in the Warden's Room (this is the Warden-attack rule):
+	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
+		
+Report Warden attacking the player with something (this is the standard report Warden attacking the player with rule): 
+	say "The Warden swings at you with his sword, dealing [damage inflicted] point[s] of damage!" instead. 
+
+Report attacking a dead Warden with something (this is the Warden's death-report priority rule): 
+	say "The floor trembles as the Warden collapses to the ground." instead. 
+	
+Report Warden attacking the player with something when the player is dead (this is the player's-death by Warden priority rule):
+	now the right hand status line is "You Died"; 
+	say "The Warden draws back his sword and plunges it through your heart."; 
+	end the story saying "The Warden's laughter echos throughout the prison as your vision fades to black."; 
+	stop the action.
+	
+Warden's Room Fight is a scene.
+Warden's Room Fight begins when the player is in the Warden's Room.
+When Warden's Room Fight begins: 
+	now the left hand status line is "Warden: [current hit points of Warden]".
+Warden's Room Fight ends when the Warden is dead.
+When Warden's Room Fight ends:
+	now the left hand status line is "Warden: Deceased";
+	say "North of the warden's room is the prison entrance."
+
+
+
 
 Check an actor attacking something with something (this is the can't attack with something that isn't a weapon rule): 
 	if the second noun is not a weapon: 
@@ -89,41 +237,6 @@ Carry out an actor attacking something with something (this is the standard atta
 	decrease the current hit points of the noun by the damage inflicted; 
 	if the noun is dead: 
 		now the noun is nowhere. 
-		
-Report attacking a dead person with something (this is the death-report priority rule): 
-	say "You attack with [the second noun], killing [the noun]." instead. 
-
-Report attacking someone with something (this is the normal attacking report rule): 
-	say "You attack [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!" instead. 
-
-Report someone attacking the player with something when the player is dead (this is the player's-death priority rule): 
-	say "[The actor] attacks you with [the second noun], your dead body drops to the floor..."; 
-	end the story; 
-	stop the action 
-
-Report someone attacking the player with something (this is the standard report someone attacking the player with rule): 
-	say "[The actor] attacks you with [the second noun], causing [damage inflicted] point[s] of damage!" instead. 
 
 Report someone attacking something with something (this is the standard report attacking it with rule): 
-	say "[The actor] attacks [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!" instead. 
-
-Section  5 Fight Scenes
-
-Prison Staircase Fight is a scene.
-Prison Staircase Fight begins when the player is in the Prison Staircase.
-When Prison Staircase Fight begins: 
-	now the left hand status line is "You: [current hit points of player]"; 
-	now the right hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]". 
-	
-Every turn when the player is in the Prison Staircase (this is the Deranged Prisoner-attack rule): 
-	if the current hit points of the Deranged Prisoner is greater than 0, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
-
-Warden Boss Fight is a scene. 
-Warden Boss Fight begins when the player is in the Prison Staircase. 
-When Warden Boss Fight begins:
-	now the right hand status line is "Warden: [current hit points of Warden]";
-	now the left hand status line is "You: [current hit points of player]".
-	
-
-Every turn when the player is in the Warden's Room (this is the Warden-attack rule):
-	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
+	say "[The actor] attacks [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!" instead.
