@@ -156,7 +156,7 @@ The Iron Door is east of the Captain's Staircase and west of the Armoury. The Ir
 North of the Captain's Staircase is a Hallway. The Hallway is a room. Flaming Torch is in the Hallway. Flaming Torch is lit. "Ahead of you is a dark room. You see a flaming torch on the wall."
 North of the Hallway is the Warden's Staircase. The Warden's Staircase is a dark room. "Above you hear the sounds of chains rattling and heavy thuds running across the floor."
 The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a room called the Warden's Room. 
-The Warden is a man in the Warden's Room. "The Warden sees you and becomes enraged. He draws his sword and slashes at you!"
+The Warden is a man in the Warden's Room. "Warden: Did you think you were getting out of here alive?"
 
 Section 2 - Fight Mechanics
 
@@ -213,10 +213,10 @@ Every turn when the player is in the Prison Staircase (this is the Deranged Pris
 	if the current hit points of the Deranged Prisoner is greater than 0, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
 		
 Report Deranged Prisoner attacking the player with something (this is the standard report Deranged Prisoner attacking the player with rule): 
-	say "The Deranged Prisoner slashes at your flesh, causing [damage inflicted] point[s] of damage!" instead. 
+	say "The Deranged Prisoner slashes at your flesh, dealing [damage inflicted] point[s] of damage!" instead. 
 		
 Report attacking a dead Deranged Prisoner with something (this is the Deranged Prisoner's death-report priority rule): 
-	say "The Deranged Prisoner writhes in pain before breathing his final breath." instead. 
+	say "The Deranged Prisoner writhes in pain as he expires." instead. 
 	
 Report Deranged Prisoner attacking the player with something when the player is dead (this is the player's-death by Deranged Prisoner priority rule):
 	now the right hand status line is "You Died"; 
@@ -240,7 +240,7 @@ The current hit points of the Mutated Prisoner is 15. The maximum hit points of 
 The Mutated Prisoner carries a weapon called Left Hand. The maximum damage of the Left Hand is 4.
 The Mutated Prisoner carries a weapon called Right Hand. The maximum damage of the Right Hand is 4.
 The Mutated Prisoner carries a weapon called Third Hand. The maximum damage of the Third Hand is 5.
-The Mutated Prisoner carries a weapon called Bite. The maximum damage of the Bite is 6.
+The Mutated Prisoner carries a weapon called Bite. The maximum damage of the Bite is 4.
 
 Setting action variables for attacking something with something: 
 	if the second noun is a Left Hand: 
@@ -266,24 +266,24 @@ Every turn when the player is in the Prison Tunnel (this is the Mutated Prisoner
 	if the current hit points of the Mutated Prisoner is greater than 0, try the Mutated Prisoner attacking the player with a random weapon which is carried by the Mutated Prisoner. 
 	
 Report Mutated Prisoner attacking the player with Left Hand (this is the standard report Mutated Prisoner attacking the player with Left Hand rule): 
-	say "The Mutated Prisoner claws at you with his left hand, causing [damage inflicted] point[s] of damage!" instead. 
+	say "The Mutated Prisoner claws at you with his left hand, dealing [damage inflicted] point[s] of damage!" instead. 
 	
 Report Mutated Prisoner attacking the player with Right Hand (this is the standard report Mutated Prisoner attacking the player with Right Hand rule): 
-	say "The Mutated Prisoner claws at you with his right hand, causing [damage inflicted] point[s] of damage!" instead. 
+	say "The Mutated Prisoner claws at you with his right hand, dealing [damage inflicted] point[s] of damage!" instead. 
 	
 Report Mutated Prisoner attacking the player with Third Hand (this is the standard report Mutated Prisoner attacking the player with Third Hand rule): 
-	say "The Mutated Prisoner stretches out his third arm and slashes at you, causing [damage inflicted] point[s] of damage!" instead. 
+	say "The Mutated Prisoner stretches out his third arm and slashes at you, dealing [damage inflicted] point[s] of damage!" instead. 
 	
 Report Mutated Prisoner attacking the player with Bite (this is the standard report Mutated Prisoner attacking the player with Bite rule): 
-	say "The Mutated Prisoner bites you with his jagged teeth, causing [damage inflicted] point[s] of damage!" instead. 
+	say "The Mutated Prisoner bites you with his jagged teeth, dealing [damage inflicted] point[s] of damage!" instead. 
 	
 Report attacking a dead Mutated Prisoner with something (this is the Mutated Prisoner's death-report priority rule): 
 	say "The Mutated Prisoner lets out a moan as he shrivels up on the floor." instead. 
 	
 Report Mutated Prisoner attacking the player with something when the player is dead (this is the player's-death by Mutated Prisoner priority rule):
 	now the right hand status line is "You Died"; 
-	say "The Mutated Prisoner grabs onto your head with all three arms and snaps your neck."; 
-	end the story saying "Your blood is splatter all over the tunnel as the mutant feasts on your remains"; 
+	say "The Mutated Prisoner grabs onto your head with all three arms and tears it clean off."; 
+	end the story saying "Your blood is splattered all over the tunnel as the mutant feasts on your remains"; 
 	stop the action.
 	
 Prison Tunnel Fight is a scene.
@@ -310,15 +310,15 @@ Every turn when the player is in the Warden's Room (this is the Warden-attack ru
 	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
 		
 Report Warden attacking the player with something (this is the standard report Warden attacking the player with rule): 
-	say "The Warden swings at you with his sword, causing [damage inflicted] point[s] of damage!" instead. 
+	say "The Warden swings at you with his sword, dealing [damage inflicted] point[s] of damage!" instead. 
 
 Report attacking a dead Warden with something (this is the Warden's death-report priority rule): 
 	say "The floor trembles as the Warden collapses to the ground." instead. 
 	
 Report Warden attacking the player with something when the player is dead (this is the player's-death by Warden priority rule):
 	now the right hand status line is "You Died"; 
-	say "The Warden draws his sword back and plunges it through your heart."; 
-	end the story saying "You hear the laughter of the Warden seconds before your vision fades to black"; 
+	say "The Warden draws back his sword and plunges it through your heart."; 
+	end the story saying "The Warden's laughter echos throughout the prison as your vision fades to black."; 
 	stop the action.
 	
 Warden's Room Fight is a scene.
