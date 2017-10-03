@@ -166,7 +166,7 @@ Definition: a person is dead if his current hit points are less than 1.
 
 A weapon is a kind of thing. A weapon has a number called the maximum damage.
 
-Understand the commands "attack" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as something new. 
+Understand the commands "fight" and "attack" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as something new. 
 Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [someone] with [something preferably held]" as attacking it with. 
 Understand the commands "fight" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as "attack". 
 
@@ -218,7 +218,8 @@ Report Deranged Prisoner attacking the player with something (this is the standa
 Report attacking a dead Deranged Prisoner with something (this is the Deranged Prisoner's death-report priority rule): 
 	say "The Deranged Prisoner writhes in pain before breathing his final breath." instead. 
 	
-Report Deranged Prisoner attacking the player with something when the player is dead (this is the player's-death by Deranged Prisoner priority rule): 
+Report Deranged Prisoner attacking the player with something when the player is dead (this is the player's-death by Deranged Prisoner priority rule):
+	now the right hand status line is "You Died"; 
 	say "The Deranged Prisoner quickly stabs your throat."; 
 	end the story saying "The blood drains out of your neck and you fall to the ground"; 
 	stop the action.
@@ -229,7 +230,7 @@ When Prison Staircase Fight begins:
 	now the left hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]".
 Prison Staircase Fight ends when the Deranged Prisoner is dead.
 When Prison Staircase Fight ends:
-	now the left hand status line is "Deranged Prisoner: 0";
+	now the left hand status line is "Deranged Prisoner: Deceased";
 	say "Behind the prisoner you see a staircase that leads up."
 
 
@@ -280,6 +281,7 @@ Report attacking a dead Mutated Prisoner with something (this is the Mutated Pri
 	say "The Mutated Prisoner lets out a moan as he shrivels up on the floor." instead. 
 	
 Report Mutated Prisoner attacking the player with something when the player is dead (this is the player's-death by Mutated Prisoner priority rule):
+	now the right hand status line is "You Died"; 
 	say "The Mutated Prisoner grabs onto your head with all three arms and snaps your neck."; 
 	end the story saying "Your blood is splatter all over the tunnel as the mutant feasts on your remains"; 
 	stop the action.
@@ -290,7 +292,7 @@ When Prison Tunnel Fight begins:
 	now the left hand status line is "Mutated Prisoner: [current hit points of Mutated Prisoner]".
 Prison Tunnel Fight ends when the Mutated Prisoner is dead.
 When Prison Tunnel Fight ends:
-	now the left hand status line is "Mutated Prisoner: 0";
+	now the left hand status line is "Mutated Prisoner: Deceased";
 	say "Your heart still trembles from the encounter."	
 
 
@@ -313,7 +315,8 @@ Report Warden attacking the player with something (this is the standard report W
 Report attacking a dead Warden with something (this is the Warden's death-report priority rule): 
 	say "The floor trembles as the Warden collapses to the ground." instead. 
 	
-Report Warden attacking the player with something when the player is dead (this is the player's-death by Warden priority rule): 
+Report Warden attacking the player with something when the player is dead (this is the player's-death by Warden priority rule):
+	now the right hand status line is "You Died"; 
 	say "The Warden draws his sword back and plunges it through your heart."; 
 	end the story saying "You hear the laughter of the Warden seconds before your vision fades to black"; 
 	stop the action.
@@ -324,7 +327,7 @@ When Warden's Room Fight begins:
 	now the left hand status line is "Warden: [current hit points of Warden]".
 Warden's Room Fight ends when the Warden is dead.
 When Warden's Room Fight ends:
-	now the left hand status line is "Warden: 0";
+	now the left hand status line is "Warden: Deceased";
 	say "North of the warden's room is the prison entrance."
 
 
