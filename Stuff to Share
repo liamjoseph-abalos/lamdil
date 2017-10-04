@@ -508,13 +508,15 @@ Every turn when the player is in the Warden's Room (this is the Warden-attack ru
 	
 Section 6 Food 
 
-A food is a kind of thing. 
-The eat action has a number called health restored.
+A food is a kind of thing. A food has a number called health restored. The health restored of a food is usually 5.
+The player carries a food called Bread. The health restored of Bread is 10.  
 
-Instead of eating a food:
+Instead of eating a food (called the consumable):
 	if the current hit points of the player is less than 20 begin;
-		change the present health of the player to the current hit points of the player +health restored
-		remove food from play;
+		say "You quickly gobble it down. Tasty. [health restored] has been restored to your player.";
+		increase the current hit points of the player by health restored;
+		remove the consumable from play;
 	otherwise;
-		say "Eating the [noun] while your health is [current hit points of the player] will do you no good. Save it for another time.";
+		say "You aren't nearly hungry enough to eat that right now. Save it for another time.";
 	end if.
+
