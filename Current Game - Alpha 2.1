@@ -32,6 +32,7 @@ Section - Prison Fight Mechanics
 Prison Chapter is a scene.
 
 The current hit points of the player is 20. The maximum hit points of the player is 20.
+The Rusty Knife is a weapon. The maximum damage of the Rusty Knife is 3.
 The player carries a weapon called Fist. The maximum damage of the Fist is 2.
 
 Setting action variables for attacking something with something: 
@@ -235,17 +236,3 @@ Warden's Room Fight ends when the Warden is dead.
 When Warden's Room Fight ends:
 	now the left hand status line is "Warden: Deceased";
 	say "North of the warden's room is the prison entrance."
-
-Section 6 Food 
-
-A food is a kind of thing. A food has a number called health restored. The health restored of a food is usually 5.
-The player carries a food called Bread. The health restored of Bread is 10.  
-
-Instead of eating a food (called the consumable):
-	if the current hit points of the player is less than 20 begin;
-		say "You quickly gobble it down. Tasty. [health restored] has been restored to your player.";
-		increase the current hit points of the player by health restored;
-		remove the consumable from play;
-	otherwise;
-		say "You aren't nearly hungry enough to eat that right now. Save it for another time.";
-	end if.
