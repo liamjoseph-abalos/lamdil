@@ -1,6 +1,26 @@
 "LAMDIL" by lamdil
 
+Section - Help
 
+Include Menus by Emily Short.
+
+Table of Basic Help Options
+title	subtable (a table name)	description	toggle (a rule)
+"Instructions for Play"	Table of Instruction Options	--
+
+Table of Instruction Options
+title	subtable	description	
+"What to do with [command prompt]"	--	"The [command prompt] sign is where the game says, 'Okay, what do you want to do now?'  You may respond by typing an instruction -- usually an imperative verb, possibly followed by prepositions and objects.  So, for instance, LOOK, TAKE KEY, UNLOCK DOOR."	
+"How to move"	--	"Communicate using compass directions: (GO NORTH). You omit the word GO and abbreviate the compass directions as (N = North, S = South, E = East, W = West) In some locations, IN and OUT as well as UP and DOWN will also be useful."	
+"Objects"	--	"Throughout the game there will be assorted objects that you can do things with. Most importantly, you may TAKE or GET items, and (when you are tired of them) DROP them again. INVENTORY (abbreviated I) will list the items you are currently holding. [paragraph break]There are usually assorted things you may do with these objects. OPEN, CLOSE, WEAR, EAT, LOCK, and UNLOCK are especially common.[paragraph break]Occasionally, you will find that the game does not recognize the name of an object even though it has been described as being in the room with you. If this is the case, the object is just there for scenery, and you may assume that you do not need to interact with it."	
+
+Understand "help" or "hint" or "hints" or "about" or "info" as asking for help.
+Asking for help is an action out of world.
+Carry out asking for help (this is the help request rule):
+   now the current menu is the Table of Basic Help Options;
+   carry out the displaying activity;
+   clear the screen;
+   try looking.
 
 Section - Game Mechanics
 
@@ -26,10 +46,9 @@ Carry out an actor attacking something with something (this is the standard atta
 	decrease the current hit points of the noun by the damage inflicted; 
 	if the noun is dead: 
 		now the noun is nowhere. 
+The carrying capacity of the player is 15.
 
 Section - Prison Fight Mechanics
-
-Prison Chapter is a scene.
 
 The current hit points of the player is 20. The maximum hit points of the player is 20.
 The Rusty Knife is a weapon. The maximum damage of the Rusty Knife is 3.
@@ -123,31 +142,20 @@ Report Mutated Prisoner attacking the player with something when the player is d
 Chapter 1 The Prison
 	
 Prison Chapter is a scene.
-When play begins:
+Prison Chapter begins when the Player is in Cell 1.
+When Prison Chapter begins:
 	now the left hand status line is "";
 	now the right hand status line is "Health: [current hit points of player]". 
 
 Cell 1 is a room. "You wake up in your cell." 
 The Note is a thing in Cell 1. The description of the Note is 
-"Welcome to LAMDIL. The command list:[line break]
-North	(N)[line break]
-South	(S)[line break]
-East	(E)[line break]
-West	(W)[line break]
-Up	(Up)[line break]
-Down	(Down)[line break]
-Take (item)[line break]
-Open (item)[line break]
-Open (item) with (item)[line break]
-Unlock (item)[line break]
-Unlock (item) with (item)."
-
+"If you ever get lost or don't know what to do, use the Help command."
 Walkway 1 is north of Cell 1. Walkway 1 is a room. "A mysterious silence looms and you see a long hallway to the east..."
 Walkway 2 is east of Walkway 1. Walkway 2 is a room. "To the south is a dark room and you see something sparkle."
 Cell 2 is south of Walkway 2. The Cell Key is in Cell 2. Cell 2 is a room. 
 The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is locked. The Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "Oddly, a south facing cell is open."
 Cell 3 is south of Cell Door. The Rusty Knife is in Cell 3. Cell 3 is a room. 
-Walkway 4 is east of Walkway 3. Walkway 4 is a room. "The prison staircase is up ahead."
+Walkway 4 is east of Walkway 3. Walkway 4 is a room. "The prison staircase is up ahead. You hear quick footsteps shuffling around the room."
 Cell 4 is south of Walkway 4. Cell 4 is a room. "In this cell is a hole big enough for a person to fit through. You probably shouldn't jump down."
 Prison Tunnel is below Cell 4. Prison Tunnel is a room. The Mutated Prisoner is a man in the Prison Tunnel. "A man with three arms instantly turns around and attacks you!"
 
@@ -228,6 +236,11 @@ When Captain's Chapter begins:
 	now the right hand status line is "Health: [current hit points of player]". 
 	
 Above the Warden's Staircase is a room called the Warden's Room.
+Before going to the Warden's Room:
+	If the player does not carry the Rusty Sword:
+		move the player to Warden's Staircase, without printing a room description;
+		say "You are defenseless and based on your previous encounter, you might not want to move on without a better weapon.";
+		stop the action.
 The Warden is a man in the Warden's Room. "The Warden sees you and becomes enraged. He draws his sword and begins to charge directly at you!"
 
 Warden's Room Fight is a scene.
