@@ -22,6 +22,92 @@ Carry out asking for help (this is the help request rule):
    clear the screen;
    try looking.
 
+Section - Compass
+
+Include Basic Screen Effects by Emily Short.
+
+When play begins:
+	 center "[story title]";
+	 center "[story headline]";
+	 center "by [story author]";
+	 leave space;
+	 center "Press SPACE to begin.";
+	 wait for the SPACE key;
+	 clear the screen;
+	 leave space.
+	
+To turn screen black:
+	 say white letters;
+	 turn the background black;
+	 clear the screen;
+	 leave space;
+
+To turn screen white:
+	 turn the background white;
+	 say black letters;
+	 clear the screen;
+	 leave space.
+
+To leave space:
+	 say paragraph break;
+	 say paragraph break;
+	 say paragraph break;
+	 say paragraph break.
+
+Table of Fancy Status
+left	central	right 
+" [if in darkness]Darkness[otherwise][location][end if]"	""	"[top rose]" 
+" "	"You [status of the player] (Health: [the current hit points of the player])[line break]"	"[middle rose]" 
+" " 
+
+To say red reverse:
+	 turn the background red.
+
+To say black reverse:
+	 turn the background black.
+
+To say white reverse:
+	 turn the background white.
+	
+To say rose (way - a direction):
+	 let place be the room way from the location;
+	 if the place is a room, say "[if the place is unvisited][red reverse][end if][way abbreviation][default letters]"; otherwise say "[way spacing]";
+	
+To say (way - a direction) abbreviation:
+	 choose row with a chosen way of way in the Table of Various Directions;
+	 say abbrev entry.
+
+To say (way - a direction) spacing:
+	 choose row with a chosen way of way in the Table of Various Directions;
+	 say spacing entry.
+
+Table of Various Directions
+chosen way	abbrev	spacing 
+up	"U "	" " 
+northwest	"NW"	" " 
+north	" N "	" " 
+northeast	"NE"	" " 
+east	" E"	" " 
+west	"W "	" " 
+southeast	"SE"	" " 
+south	" S "	" " 
+southwest	"SW"	" " 
+down	"D "	" " 
+
+To say top rose:
+	 say "[rose up][rose northwest][rose north][rose northeast]".
+
+To say middle rose:
+	 say " [rose west] . [rose east]";
+
+To say bottom rose:
+	 say "[rose down][rose southwest][rose south][rose southeast]".
+
+Rule for constructing the status line:
+	 fill status bar with Table of Fancy Status;
+	 say default letters;
+	 rule succeeds.
+
 Section - Game Mechanics
 
 A person has a number called maximum hit points. A person has a number called current hit points. 
@@ -47,6 +133,26 @@ Carry out an actor attacking something with something (this is the standard atta
 	if the noun is dead: 
 		now the noun is nowhere. 
 The carrying capacity of the player is 15.
+To say status of the player:
+	let x be the current hit points of the player;
+	if x is 20:
+		say "are in perfect health";
+	otherwise if x is at most 2:
+		say "are near death";
+	otherwise if x is at most 4:
+		say "are in serious condition";
+	otherwise if x is at most 6:
+		say "have taken quite a beating";
+	otherwise if x is at most 12:
+		say "have definately been better, but you could be worse";
+	otherwise if x is at most 14:
+		say "are a little beaten up";
+	otherwise if x is at most 16:
+		say "can almost hide the fact that you have been in a fight";
+	otherwise if x is at most 18:
+		say "have some scrapes and bruises, but you have looked worse";
+	otherwise:
+		say "are a little banged up, but still good-looking".
 
 Section - Prison Fight Mechanics
 
@@ -143,9 +249,6 @@ Chapter 1 The Prison
 	
 Prison Chapter is a scene.
 Prison Chapter begins when the Player is in Cell 1.
-When Prison Chapter begins:
-	now the left hand status line is "";
-	now the right hand status line is "Health: [current hit points of player]". 
 
 Cell 1 is a room. "You wake up in your cell." 
 The Note is a thing in Cell 1. The description of the Note is 
@@ -185,10 +288,6 @@ Captain's Chapter is a scene.
 Captain's Chapter begins when Prison Chapter ends.
 
 Chapter 2 The Captain's Quarters
-
-When Captain's Chapter begins:
-	now the left hand status line is "";
-	now the right hand status line is "Health: [current hit points of player]". 
 	
 The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables scrawled across the room. There are chests full of private belongings."
 In the Guard's Room is an openable container called the Guard's Chest. The Guard's Chest is closed. "[if open]You see an Iron Key.[else]The Guard's Chest is closed." In the Guard's Chest is a thing called the Iron Key.
@@ -230,10 +329,6 @@ Report Warden attacking the player with something when the player is dead (this 
 	stop the action.
 
 Chapter 3 The Warden
-
-When Captain's Chapter begins:
-	now the left hand status line is "";
-	now the right hand status line is "Health: [current hit points of player]". 
 	
 Above the Warden's Staircase is a room called the Warden's Room.
 Before going to the Warden's Room:
