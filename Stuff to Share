@@ -130,11 +130,15 @@ Before listing nondescript items:
  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Minh's Version
-Section 1 - Story
+Volume 1 - Story
+
+Book 1 - Inner Prison
 
 When play begins:
 	now the left hand status line is "";
 	now the right hand status line is "Health: [current hit points of player]". 
+	
+Dual Daggers is a thing.
 
 Cell 1 is a room. "You wake up in your cell. North of this cell is a walkway."
 Walkway 1 is north of Cell 1. Walkway 1 is a room. "A strange silence fills the air. There is another walkway to the east."
@@ -143,8 +147,9 @@ Cell 2 is south of Walkway 2. Cell Key is in Cell 2. Cell 2 is a room.
 The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is locked. Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "There is something in the nearby cell. The cell is south of the walkway. To the east is another walkway."
 Cell 3 is south of Cell Door. Rusty Knife is in Cell 3. Cell 3 is a room. 
 Walkway 4 is east of Walkway 3. Walkway 4 is a room. "To the east is the staircase."
-Cell 4 is south of Walkway 4. Cell 4 is a room. "In this cell is a hole big enough for a person to fit through. You probably shouldn't jump down."
+Cell 4 is south of Walkway 4. Cell 4 is a room. "In this cell is a hole big enough for a person to fit through. You probably shouldn't go down."
 Prison Tunnel is below Cell 4. Prison Tunnel is a room. The Mutated Prisoner is a man in the Prison Tunnel. "A man with three arms instantly turns around and attacks you!"
+The Tunnel Extension is south of Prison Tunnel. Tunnel Extension is a room. The Tunnel Wall is in Tunnel Extension. "You knock on the southern wall of the tunnel. It sounds hollow." Heavy Pickaxe is a thing. Heavy Pickaxe can be found or lost. Heavy Pickaxe is lost. 
 The Prison Staircase is east of Walkway 4. Prison Staircase is a room. A Deranged Prisoner is a man in the Prison Staircase. "Quick! A deranged prisoner is charging at you!"
 The Prison Staircase is below the Captain's Staircase. The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight, yet the air is warm as if someone just scurried away in a rush. To the west you see a door slightly ajar and to the east is a great big iron door. To the North you see a bright hallway."
 The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables sprawled across the room. There are chests full of private belongings."
@@ -157,49 +162,171 @@ North of the Captain's Staircase is a Hallway. The Hallway is a room. Flaming To
 North of the Hallway is the Warden's Staircase. The Warden's Staircase is a dark room. "Above you hear the sounds of chains rattling and heavy thuds running across the floor."
 The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a room called the Warden's Room. 
 The Warden is a man in the Warden's Room. "Warden: Did you think you were getting out of here alive?"
+The Prison Entrance is north of the Warden's Room. The Prison Entrance is a room. "Its been awhile since you've seen sunlight. There is a door to the north." The Prison Door is north of the Prison Entrance.  The Prison Door is a door. The Prison Door is closed. 
 
-Section 2 - Fight Mechanics
+Book 2 - Outer Prison
+
+Prison Yard 5 is north of the Prison Door. Prison Yard 5 is a room. "The walls surrounding the prison are preventing your escape."
+Prison Yard 4 is west of Prison Yard 5. Prison Yard 4 is a room. "There is a wall here."
+Prison Yard 6 is east of Prison Yard 5. Prison Yard 6 is a room. "There is a wall here."
+Prison Yard 1 is north of Prison Yard 4. Prison Yard 1 is a room.  "The wall here is a bit cracked."
+Prison Yard 3 is north of Prison Yard 6. Prison Yard 3 is a room. "There is something in the grass." Rock Hammer is in Prison Yard 3. 
+Prison Yard 2 is east of Prison Yard 1 and north of Prison Yard 5 and west of Prison Yard 3. Prison Yard 2 is a room. The Prison Gates is north of Prison Yard 2. The Prison Gates is a door. The Prison Gates is locked. "The prison gate is to the north."
+
+
+
+
+Volume 2 - Mechanics
+
+Book 1 - Fight Mechanics
 
 A person has a number called maximum hit points. A person has a number called current hit points. 
 
 Definition: a person is dead if his current hit points are less than 1. 
 
-A weapon is a kind of thing. A weapon has a number called the maximum damage.
+A weapon is a kind of thing. A weapon has a number called the maximum damage. A weapon has a number called current turns. A weapon has a number called multihits.
 
-Understand the commands "fight" and "attack" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as something new. 
+Understand the commands "fight" and "attack" and "punch" and "kill" and "murder" and "hit" and "thump" and "torture" and "stab" as something new. 
 Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [someone] with [something preferably held]" as attacking it with. 
-Understand the commands "fight" and "punch" and "destroy" and "kill" and "murder" and "hit" and "thump" and "break" and "smash" and "torture" and "wreck" as "attack". 
+Understand the commands "fight" and "punch" and "kill" and "murder" and "hit" and "thump" and "torture" and "stab" as "attack". 
 
-The attacking it with action has a number called the damage inflicted. 
+The attacking it with action has a number called the damage inflicted.
 
+Check an actor attacking something with something (this is the can't attack with something that isn't a weapon rule): 
+	if the second noun is not a weapon: 
+		if the actor is the player, say "[The second noun] does not qualify as a weapon."; 
+		stop the action. 
 
+Check an actor attacking something with something (this is the can't attack a non-person rule): 
+	if the noun is not a person: 
+		if the actor is the player, say "[The noun] has no life to lose."; 
+		stop the action. 
+			
+Carry out the player attacking player with something (this is the standard attacking player with a weapon rule): 
+	decrease the current hit points of the player by the damage inflicted; 
+	if the player is dead:
+		now the right hand status line is "You Died";
+		end the story saying "You accidentally commit suicide".
 
+Part 1 - Player
+
+Chapter 1 - Light Weapons
 
 The current hit points of the player is 20. The maximum hit points of the player is 20.
+	
 The player carries a weapon called Fist. The maximum damage of the Fist is 2.
-The Rusty Knife is a weapon. The maximum damage of the Rusty Knife is 3. 
-The Broken Sword is a weapon. The maximum damage of the Broken Sword is 8.
 
 Setting action variables for attacking something with something: 
 	if the second noun is a Fist: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 1 and the maximum attack. 
 		
+Report attacking someone with something (this is the normal attacking with Fist report rule):
+	if second noun is a Fist:
+		say "You punch [the noun] with your fist, dealing [damage inflicted] point[s] of damage!" instead. 
+		
+Carry out an actor attacking something with Fist (this is the standard attacking it with a Fist rule): 
+	decrease the current hit points of the noun by the damage inflicted; 
+	if the noun is dead: 
+		if the noun is not the player:
+			now the noun is nowhere. 
+		
+
+		
+The Rusty Knife is a weapon. The maximum damage of the Rusty Knife is 3. 
+
 Setting action variables for attacking something with something: 
 	if the second noun is a Rusty Knife: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 3 and the maximum attack. 
 		
+Report attacking someone with something (this is the normal attacking with Rusty Knife report rule):
+	if second noun is a Rusty Knife:
+		say "You stab [the noun] with the rusty knife, dealing [damage inflicted] point[s] of damage!" instead. 
+		
+Carry out an actor attacking something with Rusty Knife (this is the standard attacking it with a Rusty Knife rule): 
+	decrease the current hit points of the noun by the damage inflicted; 
+	if the noun is dead: 
+		if the noun is not the player:
+			now the noun is nowhere. 
+		
+
+		
+The Broken Sword is a weapon. The maximum damage of the Broken Sword is 10.
+
 Setting action variables for attacking something with something: 
 	if the second noun is a Broken Sword: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 6 and the maximum attack. 
 		
-Report attacking someone with something (this is the normal attacking report rule): 
-	say "You attack [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!" instead. 
+Report attacking someone with something (this is the normal attacking with Broken Sword report rule):
+	if second noun is a Broken Sword:
+		say "You slash at [the noun] with the broken sword, dealing [damage inflicted] point[s] of damage!" instead. 
+		
+Carry out an actor attacking something with Broken Sword (this is the standard attacking it with a Broken Sword rule): 
+	decrease the current hit points of the noun by the damage inflicted; 
+	if the noun is dead: 
+		if the noun is not the player:
+			now the noun is nowhere. 
+		
+Chapter 2 - Heavy Weapons
 
+The Heavy Pickaxe is a weapon. The maximum damage of the Heavy Pickaxe is 20. The current turns of the Heavy Pickaxe is 1.
 
+Setting action variables for attacking something with something: 
+	if the second noun is a Heavy Pickaxe: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 18 and the maximum attack. 
+		
+Report attacking someone with something (this is the normal attacking with Heavy Pickaxe report rule):
+	if the second noun is a Heavy Pickaxe:
+		if the current turns of the Heavy Pickaxe is 0:
+			say "You swing the heavy pickaxe over your shoulder." instead;
+		if the current turns of the Heavy Pickaxe is 1:
+			say "You slam the heavy pickaxe onto [the noun], dealing [damage inflicted] point[s] of damage!" instead.
+		
+Carry out an actor attacking something with Heavy Pickaxe (this is the standard attacking it with a Heavy Pickaxe rule):
+	if the noun is dead: 
+		if the noun is not the player:
+			now the noun is nowhere;
+	if the current turns of the Heavy Pickaxe is 1:
+		now the current turns of the Heavy Pickaxe is 0;
+		stop the action;
+	if the current turns of the Heavy Pickaxe is 0:
+		decrease the current hit points of the noun by the damage inflicted; 
+		now the current turns of the Heavy Pickaxe is 1;
+		stop the action.
+		
+Chapter 3 - Dual Weapons
 
+The Dual Daggers is a weapon. The maximum damage of the Dual Daggers is 8. The multihits of the Dual Daggers is 1.
+
+Setting action variables for attacking something with something: 
+	if the second noun is a Dual Daggers: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 2 and the maximum attack. 
+		
+Report attacking someone with something (this is the normal attacking with Dual Daggers 0 report rule):
+	if second noun is a Dual Daggers:
+		if the multihits of the Dual Daggers is 1:
+			say "Then you swipe the Dual Daggers up, dealing [damage inflicted] more point[s] of damage!" instead.
+		
+Carry out an actor attacking something with Dual Daggers (this is the standard attacking it with a Dual Daggers rule):
+	if the noun is dead: 
+		if the noun is not the player:
+			now the noun is nowhere;
+	if the multihits of the Dual Daggers is 1:
+		decrease the current hit points of the noun by the damage inflicted; 
+		say "You stab the Dual Daggers into [the noun], dealing [damage inflicted] point[s] of damage!";
+		now the multihits of the Dual Daggers is 0;
+	if the multihits of the Dual Daggers is 0:
+		decrease the current hit points of the noun by the damage inflicted; 
+		now the multihits of the Dual Daggers is 1;
+		stop the action.
+
+Part 2 - Enemies
+
+Chapter 1 - Inner Prison Enemies
 
 The current hit points of the Deranged Prisoner is 3. The maximum hit points of the Deranged Prisoner is 3. 
 The Deranged Prisoner carries a weapon called Broken Glass. The maximum damage of the Broken Glass is 2.
@@ -224,6 +351,9 @@ Report Deranged Prisoner attacking the player with something when the player is 
 	end the story saying "The blood drains out of your neck and you fall to the ground"; 
 	stop the action.
 	
+Carry out Deranged Prisoner attacking someone with something (this is the standard Deranged Prisoner attacking it with rule): 
+	decrease the current hit points of the noun by the damage inflicted.
+	
 Prison Staircase Fight is a scene.
 Prison Staircase Fight begins when the player is in the Prison Staircase.
 When Prison Staircase Fight begins: 
@@ -232,7 +362,6 @@ Prison Staircase Fight ends when the Deranged Prisoner is dead.
 When Prison Staircase Fight ends:
 	now the left hand status line is "Deranged Prisoner: Deceased";
 	say "Behind the prisoner you see a staircase that leads up."
-
 
 
 
@@ -277,7 +406,7 @@ Report Mutated Prisoner attacking the player with Third Hand (this is the standa
 Report Mutated Prisoner attacking the player with Bite (this is the standard report Mutated Prisoner attacking the player with Bite rule): 
 	say "The Mutated Prisoner bites you with his jagged teeth, dealing [damage inflicted] point[s] of damage!" instead. 
 	
-Report attacking a dead Mutated Prisoner with something (this is the Mutated Prisoner's death-report priority rule): 
+Report attacking a dead Mutated Prisoner with a weapon (this is the Mutated Prisoner's death-report priority rule): 
 	say "The Mutated Prisoner lets out a moan as he shrivels up on the floor." instead. 
 	
 Report Mutated Prisoner attacking the player with something when the player is dead (this is the player's-death by Mutated Prisoner priority rule):
@@ -286,6 +415,9 @@ Report Mutated Prisoner attacking the player with something when the player is d
 	end the story saying "Your blood is splattered all over the tunnel as the mutant feasts on your remains"; 
 	stop the action.
 	
+Carry out Mutated Prisoner attacking someone with something (this is the standard Mutated Prisoner attacking it with rule): 
+	decrease the current hit points of the noun by the damage inflicted.
+	
 Prison Tunnel Fight is a scene.
 Prison Tunnel Fight begins when the player is in the Prison Tunnel.
 When Prison Tunnel Fight begins: 
@@ -293,8 +425,7 @@ When Prison Tunnel Fight begins:
 Prison Tunnel Fight ends when the Mutated Prisoner is dead.
 When Prison Tunnel Fight ends:
 	now the left hand status line is "Mutated Prisoner: Deceased";
-	say "Your heart still trembles from the encounter."	
-
+	say "You can hear your heart pounding. To the south is a Tunnel Extension."	
 
 
 
@@ -321,6 +452,9 @@ Report Warden attacking the player with something when the player is dead (this 
 	end the story saying "The Warden's laughter echos throughout the prison as your vision fades to black."; 
 	stop the action.
 	
+Carry out Warden attacking someone with something (this is the standard Warden attacking it with rule): 
+	decrease the current hit points of the noun by the damage inflicted.
+	
 Warden's Room Fight is a scene.
 Warden's Room Fight begins when the player is in the Warden's Room.
 When Warden's Room Fight begins: 
@@ -328,28 +462,61 @@ When Warden's Room Fight begins:
 Warden's Room Fight ends when the Warden is dead.
 When Warden's Room Fight ends:
 	now the left hand status line is "Warden: Deceased";
-	say "North of the warden's room is the prison entrance."
+	say "North of the Warden's room is the prison entrance."
+	
+Chapter 2 - Outer Prison Enemies
 
+Book 2 - Breaking Walls
 
+A breakable wall is a kind of thing. A breakable wall has a number called maximum break points. A breakable wall has a number called current break points. 
 
+Definition: a breakable wall is broken if its current break points is less than 1. 
 
-Check an actor attacking something with something (this is the can't attack with something that isn't a weapon rule): 
-	if the second noun is not a weapon: 
-		if the actor is the player, say "[The second noun] does not qualify as a weapon."; 
+A wall breaker is a kind of thing. A wall breaker has a number called the maximum break damage.
+
+Understand the commands "break" and "destroy" and "smash" and "wreck" and "demolish" as something new. 
+Breaking it with is an action applying to one visible thing and one carried thing. Understand "break [breakable wall] with [something preferably held]" as breaking it with. 
+Understand the commands "destroy" and "smash" and "wreck" and "demolish" as "break".
+
+Breaking it with action has a number called the break damage.
+
+Check an actor breaking something with something (this is the can't break with something that isn't a wall breaker rule): 
+	if the second noun is not a wall breaker: 
+		if the actor is the player, say "You can't break walls with [the second noun]."; 
+		stop the action. 
+		
+Check an actor breaking something with something (this is the can't break a non-breakable wall rule): 
+	if the noun is not a breakable wall: 
+		if the actor is the player, say "You can't break that."; 
 		stop the action. 
 
-Check an actor attacking something with something (this is the can't attack a non-person rule): 
-	if the noun is not a person: 
-		if the actor is the player, say "[The noun] has no life to lose."; 
-		stop the action. 
+Part 1 - Wall Breakers
 
-Carry out an actor attacking something with something (this is the standard attacking it with a weapon rule): 
-	decrease the current hit points of the noun by the damage inflicted; 
-	if the noun is dead: 
-		now the noun is nowhere. 
+The Rock Hammer is a wall breaker. The maximum break damage of the Rock Hammer is 1.
 
-Report someone attacking something with something (this is the standard report attacking it with rule): 
-	say "[The actor] attacks [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!" instead. 
+Setting action variables for breaking something with something: 
+	if the second noun is a Rock Hammer: 
+		let the maximum breakage be the maximum break damage of the second noun; 
+		now the break damage is a random number between 1 and the maximum breakage. 
+		
+Part 2 - Walls
+
+The Tunnel Wall is a breakable wall. The maximum break points of the Tunnel Wall is 1. The current break points of the Tunnel Wall is 1.
+
+Report breaking Tunnel Wall with something (this is the normal breaking report rule): 
+	say "You slam the wall with great force." instead. 
+	
+Carry out an actor breaking Tunnel Wall with something (this is the standard breaking Tunnel Wall with a wall breaker rule): 
+	decrease the current break points of the noun by the break damage; 
+	if the noun is broken:
+		now the noun is nowhere;
+		now the Heavy Pickaxe is found;
+		move Heavy Pickaxe to Tunnel Extension.
+		
+Tunnel Wall Breaking is a scene.
+Tunnel Wall Breaking begins when Tunnel Wall is broken.
+When Tunnel Wall Breaking begins:
+	say "The wall crumbles to reveal a heavy pickaxe.".
 //////////////////////////////////////////////////////////////////
 Liam's Version
 Cell 1 is a room. "You wake up in your cell." The Note is a thing in Cell 1. The description of the Note is 
