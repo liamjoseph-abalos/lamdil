@@ -257,15 +257,39 @@ The player carries a weapon called Fist. The maximum damage of the Fist is 2.
 
 The current hit points of the Deranged Prisoner is 3. The maximum hit points of the Deranged Prisoner is 3. 
 The Deranged Prisoner carries a weapon called Broken Glass. The maximum damage of the Broken Glass is 2.
+Setting action variables for attacking something with something: 
+	if the second noun is a Broken Glass: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 1 and the maximum attack. 
 
 The current hit points of the Mutated Prisoner is 15. The maximum hit points of the Mutated Prisoner is 15.
 The Mutated Prisoner carries a weapon called Left Hand. The maximum damage of the Left Hand is 4.
 The Mutated Prisoner carries a weapon called Right Hand. The maximum damage of the Right Hand is 4.
 The Mutated Prisoner carries a weapon called Third Hand. The maximum damage of the Third Hand is 5.
 The Mutated Prisoner carries a weapon called Bite. The maximum damage of the Bite is 4.
+Setting action variables for attacking something with something: 
+	if the second noun is a Left Hand: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 2 and the maximum attack. 
+Setting action variables for attacking something with something: 
+	if the second noun is a Right Hand: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 3 and the maximum attack. 
+Setting action variables for attacking something with something: 
+	if the second noun is a Third Hand: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 3 and the maximum attack. 
+Setting action variables for attacking something with something: 
+	if the second noun is a Bite: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 2 and the maximum attack. 
 
 The current hit points of the Warden is 25. The maximum hit points of the Warden is 25.
 The Warden carries a weapon called Silver Sword. The maximum damage of the Silver Sword is 4.
+Setting action variables for attacking something with something: 
+	if the second noun is a Silver Sword: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 2 and the maximum attack. 
 
 Section - Prison Fight Mechanics
 
