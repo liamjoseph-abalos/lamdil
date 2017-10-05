@@ -210,7 +210,7 @@ Carry out the player attacking player with something (this is the standard attac
 
 Part 1 - Player
 
-Chapter 1 - Light Weapons
+Chapter 1 - Medium Weapons
 
 The current hit points of the player is 20. The maximum hit points of the player is 20.
 	
@@ -297,7 +297,7 @@ Carry out an actor attacking something with Heavy Pickaxe (this is the standard 
 		now the current turns of the Heavy Pickaxe is 1;
 		stop the action.
 		
-Chapter 3 - Dual Weapons
+Chapter 3 - Light Weapons
 
 The Dual Daggers is a weapon. The maximum damage of the Dual Daggers is 8. The multihits of the Dual Daggers is 1.
 
