@@ -269,6 +269,9 @@ The Warden carries a weapon called Silver Sword. The maximum damage of the Silve
 
 Section - Prison Fight Mechanics
 
+Every turn when the player is in the Prison Staircase (this is the Deranged Prisoner-attack rule): 
+	if the current hit points of the Deranged Prisoner is greater than 0, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
+
 Report Deranged Prisoner attacking the player with something (this is the standard report Deranged Prisoner attacking the player with rule): 
 	say "The Deranged Prisoner slashes at your flesh, dealing [damage inflicted] point[s] of damage!" instead. 
 		
@@ -282,6 +285,9 @@ Report Deranged Prisoner attacking the player with something when the player is 
 	stop the action.
 	
 Section - Mutated Fight
+
+Every turn when the player is in the Prison Tunnel (this is the Mutated Prisoner-attack rule):
+	if the current hit points of the Mutated Prisoner is greater than 0, try the Mutated Prisoner attacking the player with a random weapon which is carried by the Mutated Prisoner. 
 
 Report Mutated Prisoner attacking the player with Left Hand (this is the standard report Mutated Prisoner attacking the player with Left Hand rule): 
 	say "The Mutated Prisoner claws at you with his left hand, dealing [damage inflicted] point[s] of damage!" instead. 
@@ -363,6 +369,9 @@ Warden's Chapter is a scene.
 Warden's Chapter begins when Captain's Chapter ends.
 
 Section - Warden's Fight
+
+Every turn when the player is in the Warden's Room (this is the Warden-attack rule):
+	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
 
 Report Warden attacking the player with something (this is the standard report Warden attacking the player with rule): 
 	say "The Warden swings at you with his sword, dealing [damage inflicted] point[s] of damage!" instead. 
