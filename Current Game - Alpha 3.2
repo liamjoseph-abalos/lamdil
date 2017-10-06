@@ -137,8 +137,22 @@ To say status of the player:
 		say "have some scrapes and bruises, but you have looked worse";
 	otherwise:
 		say "are a little banged up, but still good-looking".
+		
+Book 2 - Food
 
-Book 2 - Combat
+A food is a kind of thing. A food has a number called health restored. The health restored of a food is usually 5.
+Stale Bread is a food. The health restored of Stale Bread is 10.  
+
+Instead of eating a food (called the consumable):
+	if the current hit points of the player is less than 20 begin;
+		say "You quickly gobble it down. Tasty. [health restored] has been restored to your player.";
+		increase the current hit points of the player by health restored;
+		remove the consumable from play;
+	otherwise;
+		say "You aren't nearly hungry enough to eat that right now. Save it for another time.";
+	end if.
+
+Book 3 - Combat
 
 A person has a number called maximum hit points. A person has a number called current hit points.
 Definition: a person is dead if his current hit points are less than 1. 
@@ -347,7 +361,7 @@ Carry out Warden attacking someone with something (this is the standard Warden a
 	
 Chapter 2 - Outer Prison Enemies
 	
-Book 2 - Breaking Walls
+Book 4 - Breaking Walls
 
 A breakable wall is a kind of thing. A breakable wall has a number called maximum break points. A breakable wall has a number called current break points. 
 Definition: a breakable wall is broken if its current break points is less than 1. 
@@ -385,7 +399,7 @@ Carry out an actor breaking Tunnel Wall with something (this is the standard bre
 		now the Heavy Pickaxe is found;
 		move Heavy Pickaxe to Tunnel Extension.
 
-Book 3 - Inventory
+Book 5 - Inventory
 
 Part 1 - Carrying Capacity
 
@@ -458,7 +472,7 @@ Captain's Chapter is a scene.
 Captain's Chapter begins when Prison Chapter ends.
 
 The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables sprawled across the room. There are chests full of private belongings."
-In the Guard's Room is an openable container called Guard's Chest. Guard's Chest is closed. "[if open]You see an Iron Key.[else]The Guard's Chest is closed." In Guard's Chest is a thing called Iron Key.
+In the Guard's Room is an openable container called Guard's Chest. Guard's Chest is closed. "[if open]You see an Iron Key and stale bread wrapped in cloth.[else]The Guard's Chest is closed." In Guard's Chest is a thing called Iron Key. In Guard's Chest is a thing called Stale Bread. Stale Bread can be lost or found.
 Rule for printing the name of Guard's Chest: 
 	say "[printed name of Guard's Chest]";
 	omit contents in listing.
