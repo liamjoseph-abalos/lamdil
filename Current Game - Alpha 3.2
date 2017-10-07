@@ -340,20 +340,32 @@ Carry out Mutated Prisoner attacking someone with something (this is the standar
 	decrease the current hit points of the noun by the damage inflicted.
 
 The current hit points of the Warden is 25. The maximum hit points of the Warden is 25.
-The Warden carries a weapon called Silver Sword. The maximum damage of the Silver Sword is 4.
+The Warden carries a weapon called Silver Sword. The maximum damage of the Silver Sword is 3.
+The Warden carries a weapon called Steel Chain. The maximum damage of the Steel Chain is 4.
 Setting action variables for attacking something with something: 
 	if the second noun is a Silver Sword: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 2 and the maximum attack. 
+Setting action variables for attacking something with something: 
+	if the second noun is a Steel Chain: 
+		let the maximum attack be the maximum damage of the second noun; 
+		now the damage inflicted is a random number between 2 and the maximum attack. 
 Every turn when the player is in the Warden's Room (this is the Warden-attack rule):
 	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
-Report Warden attacking the player with something (this is the standard report Warden attacking the player with rule): 
+Report Warden attacking the player with Silver Sword (this is the standard report Warden attacking the player with Silver Sword rule): 
 	say "The Warden swings at you with his sword, dealing [damage inflicted] point[s] of damage!" instead. 
+Report Warden attacking the player with Steel Chain (this is the standard report Warden attacking the player with Steel Chain rule): 
+	say "The Warden whips you with his chain, dealing [damage inflicted] point[s] of damage!" instead. 
 Report attacking a dead Warden with something (this is the Warden's death-report priority rule): 
 	say "The floor trembles as the Warden collapses to the ground." instead. 
-Report Warden attacking the player with something when the player is dead (this is the player's-death by Warden priority rule):
+Report Warden attacking the player with Silver Sword when the player is dead (this is the player's-death by Warden with Silver Sword priority rule):
 	now the current hit points of the player is 0;
 	say "The Warden draws back his sword and plunges it through your heart."; 
+	end the story saying "The Warden's laughter echos throughout the prison as blood gushes out your chest."; 
+	stop the action.
+Report Warden attacking the player with Steel Chain when the player is dead (this is the player's-death by Warden with Steel Chain priority rule):
+	now the current hit points of the player is 0;
+	say "The Warden suffocates you with his chain."; 
 	end the story saying "The Warden's laughter echos throughout the prison as your vision fades to black."; 
 	stop the action.
 Carry out Warden attacking someone with something (this is the standard Warden attacking it with rule): 
