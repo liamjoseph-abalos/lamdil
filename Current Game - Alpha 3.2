@@ -359,8 +359,6 @@ Report Warden attacking the player with something when the player is dead (this 
 Carry out Warden attacking someone with something (this is the standard Warden attacking it with rule): 
 	decrease the current hit points of the noun by the damage inflicted.
 	
-Chapter 2 - Outer Prison Enemies
-	
 Book 4 - Breaking Walls
 
 A breakable wall is a kind of thing. A breakable wall has a number called maximum break points. A breakable wall has a number called current break points. 
@@ -390,13 +388,21 @@ Setting action variables for breaking something with something:
 Part 2 - Walls
 
 The Tunnel Wall is a breakable wall. The maximum break points of the Tunnel Wall is 1. The current break points of the Tunnel Wall is 1.
-Report breaking Tunnel Wall with something (this is the normal breaking report rule): 
+Report breaking Tunnel Wall with something (this is the normal breaking Tunnel Wall report rule): 
 	say "You slam the wall with great force." instead. 
 Carry out an actor breaking Tunnel Wall with something (this is the standard breaking Tunnel Wall with a wall breaker rule): 
 	decrease the current break points of the noun by the break damage; 
 	if the noun is broken:
 		now the noun is nowhere;
 		move Diamond Pickaxe to Tunnel Extension.
+		
+The Prison Wall is a breakable wall. The maximum break points of the Prison Wall is 1. The current break points of the Prison Wall is 1.
+Report breaking Prison Wall with something (this is the normal breaking Prison Wall report rule): 
+	say "You strike the cracked wall." instead. 
+Carry out an actor breaking Prison Wall with something (this is the standard breaking Prison Wall with a wall breaker rule): 
+	decrease the current break points of the noun by the break damage; 
+	if the noun is broken:
+		now the noun is nowhere.
 
 Book 5 - Inventory
 
@@ -428,7 +434,7 @@ Note is a thing in Cell 1. The description of the Note is "If you ever get lost 
 Walkway 1 is north of Cell 1. Walkway 1 is a room. "A strange silence fills the air."
 Walkway 2 is east of Walkway 1. Walkway 2 is a room. "Oddly, the cell here is open."
 Cell 2 is south of Walkway 2. Cell Key is in Cell 2. Cell 2 is a room. "Someone used to stay here."
-The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is locked. Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "[if Rusty Knife is in Cell 3]There is something in the nearby cell."
+The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is scenery. The Cell Door is locked. Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "[if Rusty Knife is in Cell 3]There is something in the nearby cell."
 Cell 3 is south of Cell Door. Rusty Knife is in Cell 3. Cell 3 is a room. "[if Rusty Knife is in Cell 3]The guy in this cell was always the violent one."
 Walkway 4 is east of Walkway 3. Walkway 4 is a room. "[if Deranged Prisoner is not dead]You hear someone muttering quietly."
 
@@ -438,7 +444,7 @@ Instead of listening to Walkway 4:
 	otherwise:
 		say "You hear nothing unexpected.".
 
-Cell 4 is south of Walkway 4. Cell 4 is a room. "There is a hole big enough for a person to fit through. [if Mutated Prisoner is not dead]You probably shouldn't go down."
+Cell 4 is south of Walkway 4. Cell 4 is a room. "There is a hole big enough for a person to fit through.[if Mutated Prisoner is not dead] You probably shouldn't go down."
 Prison Tunnel is below Cell 4. Prison Tunnel is a room. The Mutated Prisoner is a man in the Prison Tunnel. "[if Mutated Prisoner is not dead]A man with three arms instantly turns around and attacks you!"
 
 Prison Tunnel Fight is a recurring scene.
@@ -452,7 +458,7 @@ Prison Tunnel Fight ends when the player is not in the Prison Tunnel.
 When Prison Tunnel Fight ends:
 	now the left hand status line is "".
 	
-The Tunnel Extension is south of Prison Tunnel. Tunnel Extension is a room. The Tunnel Wall is in Tunnel Extension. "[if Tunnel Wall is not broken]You knock on the wall of the tunnel. It sounds hollow." Diamond Pickaxe is a thing.
+The Tunnel Extension is south of Prison Tunnel. Tunnel Extension is a room. "[if Tunnel Wall is not broken]You knock on the wall of the tunnel. It sounds hollow." The Tunnel Wall is in Tunnel Extension. The Tunnel Wall is scenery. Diamond Pickaxe is a thing.
 
 Tunnel Wall Breaking is a scene.
 Tunnel Wall Breaking begins when Tunnel Wall is broken.
@@ -480,15 +486,23 @@ Part 2 - Captain's Chapter
 Captain's Chapter is a scene.
 Captain's Chapter begins when Prison Chapter ends.
 
-The Prison Staircase is below the Captain's Staircase. The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight [if Warden is not dead]yet the air is warm as if someone just hurried away in a rush."
+The Prison Staircase is below the Captain's Staircase. The Captain's Staircase is a room above the Prison Staircase. "There is no soul in sight[if Warden is not dead] yet the air is warm as if someone just hurried away in a rush[end if]."
 The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables sprawled across the room. There are chests full of private belongings."
-In the Guard's Room is an openable container called Guard's Chest. Guard's Chest is closed. "[if open][else]The Guard's Chest is closed." In Guard's Chest is a thing called Iron Key. In Guard's Chest is a thing called Stale Bread. In Guard's Chest is a thing called Guard's Satchel.
+In the Guard's Room is an openable container called Guard's Chest. Guard's Chest is closed. The Guard's Chest is fixed in place. "[if open]The Guard's Chest is open.[else]The Guard's Chest is closed." In Guard's Chest is a thing called Iron Key. In Guard's Chest is a thing called Stale Bread. In Guard's Chest is a thing called Guard's Satchel.
+
 Rule for printing the name of Guard's Chest: 
 	say "[printed name of Guard's Chest]";
 	omit contents in listing.
-The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is lockable locked. Iron Key unlocks the Iron Door. The Armoury is a room. "You see only a few weapons and pieces of gear around the room. You conclude the room was looted." In the Armoury is Broken Sword and Wooden Shield.
-North of the Captain's Staircase is a Hallway. The Hallway is a room. Flaming Torch is in the Hallway. Flaming Torch is lit. "The room up ahead is dark. [if Flaming Torch is in Hallway]It would be wise to take the flaming torch."
-North of the Hallway is the Warden's Staircase. The Warden's Staircase is a dark room. "[if Warden is not dead] Above you hear the sounds of chains rattling and heavy thuds running across the floor."
+	
+The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is scenery. The Iron Door is locked. Iron Key unlocks the Iron Door. The Armoury is a room. "You see only a few weapons and pieces of gear around the room. You conclude the room was looted." In the Armoury is Broken Sword and Wooden Shield.
+North of the Captain's Staircase is a Hallway. The Hallway is a room. Flaming Torch is in the Hallway. Flaming Torch is lit. "The room up ahead is dark.[if Flaming Torch is in Hallway] It would be wise to take the flaming torch."
+North of the Hallway is the Warden's Staircase. The Warden's Staircase is a dark room. "[if Warden is not dead]Above you hear the sounds of chains rattling and heavy thuds running across the floor."
+
+Instead of listening to Warden's Staircase:
+	if Warden is not dead:
+		say "You hear rattling chains and heavy thuds.";
+	otherwise:
+		say "You hear nothing unexpected.".
 
 Captain's Chapter ends when the Player is in the Warden's Staircase.
 
@@ -499,6 +513,12 @@ Warden's Chapter begins when Captain's Chapter ends.
 
 The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a room called the Warden's Room. 
 The Warden is a man in the Warden's Room. "[if Warden is not dead]Warden: Nobody escapes this prison."
+
+Instead of listening to Warden's Room:
+	if Warden is not dead:
+		say "Warden: Traitors like you do not deserve to live!";
+	otherwise:
+		say "You hear nothing unexpected.".
 
 Warden's Room Fight is a recurring scene.
 Warden's Room Fight begins when the player is in the Warden's Room.
@@ -512,13 +532,11 @@ Warden's Room Fight ends when the player is not in the Warden's Room.
 When Warden's Room Fight ends:
 	now the left hand status line is "".
 
-The Prison Door is north of the Warden's Room. The Prison Door is a door. The Prison Door is locked. The Prison Entrance is north of the Prison Door. The Prison Entrance is a room. "Its been awhile since you've seen sunlight."
+The Prison Door is north of the Warden's Room. The Prison Door is a door. The Prison Door is scenery. The Prison Door is locked. The Prison Entrance is north of the Prison Door. The Prison Entrance is a room. "Its been awhile since you've seen sunlight."
 
 Warden's Chapter ends when the Warden is dead.
 
-Book 2 - Outer Prison
-
-Part 1 -Yard Chapter
+Part 3 - Yard Chapter
 
 Yard Chapter is a scene.
 Yard Chapter begins when Warden's Chapter ends.
@@ -526,6 +544,34 @@ Yard Chapter begins when Warden's Chapter ends.
 Prison Yard 5 is north of the Prison Entrance. Prison Yard 5 is a room. "The walls surrounding the prison are preventing your escape."
 Prison Yard 4 is west of Prison Yard 5. Prison Yard 4 is a room. "There is a wall here."
 Prison Yard 6 is east of Prison Yard 5. Prison Yard 6 is a room. "There is a wall here."
-Prison Yard 1 is north of Prison Yard 4. Prison Yard 1 is a room.  "The wall here is a bit cracked."
 Prison Yard 3 is north of Prison Yard 6. Prison Yard 3 is a room. "[if Rock Hammer is in Prison Yard 3]There is something in the grass." Rock Hammer is in Prison Yard 3. 
 Prison Yard 2 is east of Prison Yard 1 and north of Prison Yard 5 and west of Prison Yard 3. Prison Yard 2 is a room. "Freedom is within your grasp..." The Prison Gate is north of Prison Yard 2. The Prison Gate is a door. The Prison Gate is locked.
+Prison Yard 1 is north of Prison Yard 4. Prison Yard 1 is a room. "[if Prison Wall is not broken]The wall here is a bit cracked.[else]You can now escape the prison." The Prison Wall is in Prison Yard 1. The Prison Wall is scenery.
+Prison Yard Placeholder is north of Prison Yard 1. Prison Yard Placeholder is a room.
+
+Prison Wall Breaking is a scene.
+Prison Wall Breaking begins when Prison Wall is broken.
+When Prison Wall Breaking begins:
+	say "The wall gives away to reveal the outside world".
+Prison Wall Breaking ends when Prison Wall is nowhere.
+
+Instead of going north when the player is in Prison Yard 1:
+	if Prison Wall is not broken:
+		say "You can't go that way.";
+		move player to Prison Yard 1;
+	otherwise:
+		move player to Island.
+
+Yard Chapter ends when Prison Wall is broken.
+
+Book 2 - Prison Island
+
+Part 1 - Island Chapter
+
+Island Chapter is a scene.
+Island Chapter begins when Yard Chapter ends.
+
+Island is north of Prison Yard Placeholder. Island is a room.
+
+Instead of going south when the player is in Island:
+	move player to Prison Yard 1.
