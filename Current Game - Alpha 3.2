@@ -427,14 +427,20 @@ Prison Chapter is a scene.
 Prison Chapter begins when the Player is in Cell 1.
 
 Cell 1 is a room. "You wake up in your cell."
-Note is a thing in Cell 1. The description of the Note is 
-"If you ever get lost or don't know what to do, use the Help command."
+Note is a thing in Cell 1. The description of the Note is "If you ever get lost or don't know what to do, use the Help command."
 Walkway 1 is north of Cell 1. Walkway 1 is a room. "A strange silence fills the air."
 Walkway 2 is east of Walkway 1. Walkway 2 is a room. "Oddly, the cell here is open."
-Cell 2 is south of Walkway 2. Cell Key is in Cell 2. Cell 2 is a room. 
+Cell 2 is south of Walkway 2. Cell Key is in Cell 2. Cell 2 is a room. "Someone used to stay here."
 The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is locked. Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "[if Rusty Knife is in Cell 3]There is something in the nearby cell."
-Cell 3 is south of Cell Door. Rusty Knife is in Cell 3. Cell 3 is a room. 
-Walkway 4 is east of Walkway 3. Walkway 4 is a room.
+Cell 3 is south of Cell Door. Rusty Knife is in Cell 3. Cell 3 is a room. "[if Rusty Knife is in Cell 3]The guy in this cell was always the violent one."
+Walkway 4 is east of Walkway 3. Walkway 4 is a room. "[if Deranged Prisoner is not dead]You hear someone muttering quietly."
+
+Instead of listening to Walkway 4:
+	if Deranged Prisoner is not dead:
+		say "I'll kill those sons of bitches... I'll kill 'em...";
+	otherwise:
+		say "You hear nothing unexpected.".
+
 Cell 4 is south of Walkway 4. Cell 4 is a room. "There is a hole big enough for a person to fit through. [if Mutated Prisoner is not dead]You probably shouldn't go down."
 Prison Tunnel is below Cell 4. Prison Tunnel is a room. The Mutated Prisoner is a man in the Prison Tunnel. "[if Mutated Prisoner is not dead]A man with three arms instantly turns around and attacks you!"
 
@@ -495,7 +501,7 @@ Warden's Chapter is a scene.
 Warden's Chapter begins when Captain's Chapter ends.
 
 The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a room called the Warden's Room. 
-The Warden is a man in the Warden's Room. "[if Warden is not dead]Warden: Did you think you were getting out of here alive?"
+The Warden is a man in the Warden's Room. "[if Warden is not dead]Warden: Nobody escapes this prison."
 
 Warden's Room Fight is a recurring scene.
 Warden's Room Fight begins when the player is in the Warden's Room.
