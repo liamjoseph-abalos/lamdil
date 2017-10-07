@@ -130,7 +130,7 @@ Before listing nondescript items:
  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Minh's Version
-The carrying capacity of the player is 1.
+The carrying capacity of the player is 5.
 
 Instead of taking Guard's Satchel: 
 	let inventory space be carrying capacity of the player;
