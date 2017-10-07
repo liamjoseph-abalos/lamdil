@@ -136,14 +136,16 @@ To say status of the player:
 	otherwise:
 		say "are a little banged up, but still good-looking".
 		
-Book 2 - Food
+Book 2 - Consumables
 
-A food is a kind of thing. A food has a number called health restored. The health restored of a food is usually 5.
+Part 1 - Food
+
+A food is a kind of thing. A food has a number called health restored.
 Stale Bread is a food. The health restored of Stale Bread is 10.  
 
 Instead of eating a food (called the consumable):
 	if the current hit points of the player is less than 20 begin;
-		say "You quickly gobble it down. Tasty. [health restored] has been restored to your player.";
+		say "You quickly gobble it down. Tasty. [health restored] health has been restored to your player.";
 		increase the current hit points of the player by health restored;
 		remove the consumable from play;
 	otherwise;
