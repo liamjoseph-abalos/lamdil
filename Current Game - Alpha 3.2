@@ -1,5 +1,3 @@
-"LAMDIL" by lamdil
-
 Volume 1 - Mechanics
 
 Book 1 - Menu
@@ -155,7 +153,7 @@ Instead of eating a food (called the consumable):
 Book 3 - Combat
 
 A person has a number called maximum hit points. A person has a number called current hit points.
-Definition: a person is dead if his current hit points are less than 1. 
+Definition: a person is dead if their current hit points are less than 1. 
 A weapon is a kind of thing. A weapon has a number called the maximum damage. A weapon has a number called current turns. A weapon has a number called multihits.
 Understand the commands "fight" and "attack" and "punch" and "kill" and "murder" and "hit" and "thump" and "torture" and "stab" as something new. 
 Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [someone] with [something preferably held]" as attacking it with. 
@@ -207,15 +205,15 @@ Carry out an actor attacking something with Dual Daggers (this is the standard a
 	
 Chapter 2 - Medium Weapons
 
-The player carries a weapon called Fist. The maximum damage of the Fist is 2.
+The player carries a weapon called Shank. The maximum damage of the Shank is 2.
 Setting action variables for attacking something with something: 
-	if the second noun is a Fist: 
+	if the second noun is a Shank: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 1 and the maximum attack. 
-Report attacking someone with something (this is the normal attacking with Fist report rule):
-	if second noun is a Fist:
-		say "You punch [the noun] with your fist, dealing [damage inflicted] point[s] of damage!" instead. 
-Carry out an actor attacking something with Fist (this is the standard attacking it with a Fist rule): 
+Report attacking someone with something (this is the normal attacking with Shank report rule):
+	if second noun is a Shank:
+		say "You stab [the noun] with the shank, dealing [damage inflicted] point[s] of damage!" instead. 
+Carry out an actor attacking something with Shank (this is the standard attacking it with a Shank rule): 
 	decrease the current hit points of the noun by the damage inflicted; 
 	if the noun is dead: 
 		if the noun is not the player:
@@ -403,7 +401,13 @@ Book 5 - Inventory
 
 Part 1 - Carrying Capacity
 
-The carrying capacity of the player is 15.
+The carrying capacity of the player is 5.
+
+Instead of taking Guard's Satchel: 
+	let inventory space be carrying capacity of the player;
+	now the carrying capacity of the player is inventory space plus 5;
+	say "You can now hold 5 more items.";
+	remove the noun from play.
 	
 Volume 2 - Story 
 
@@ -472,7 +476,7 @@ Captain's Chapter is a scene.
 Captain's Chapter begins when Prison Chapter ends.
 
 The Guard's Room is west of the Captain's Staircase. The Guard's Room is a room. "You see beds and tables sprawled across the room. There are chests full of private belongings."
-In the Guard's Room is an openable container called Guard's Chest. Guard's Chest is closed. "[if open]You see an Iron Key and stale bread wrapped in cloth.[else]The Guard's Chest is closed." In Guard's Chest is a thing called Iron Key. In Guard's Chest is a thing called Stale Bread. Stale Bread can be lost or found.
+In the Guard's Room is an openable container called Guard's Chest. Guard's Chest is closed. "[if open]You see an Iron Key and stale bread wrapped in cloth.[else]The Guard's Chest is closed." In Guard's Chest is a thing called Iron Key. In Guard's Chest is a thing called Stale Bread. In Guard's Chest is a thing called Guard's Satchel.
 Rule for printing the name of Guard's Chest: 
 	say "[printed name of Guard's Chest]";
 	omit contents in listing.
@@ -517,4 +521,4 @@ Prison Yard 4 is west of Prison Yard 5. Prison Yard 4 is a room. "There is a wal
 Prison Yard 6 is east of Prison Yard 5. Prison Yard 6 is a room. "There is a wall here."
 Prison Yard 1 is north of Prison Yard 4. Prison Yard 1 is a room.  "The wall here is a bit cracked."
 Prison Yard 3 is north of Prison Yard 6. Prison Yard 3 is a room. "[if Rock Hammer is in Prison Yard 3]There is something in the grass." Rock Hammer is in Prison Yard 3. 
-Prison Yard 2 is east of Prison Yard 1 and north of Prison Yard 5 and west of Prison Yard 3. Prison Yard 2 is a room. "Freedom is within your grasp..." The Prison Gate is north of Prison Yard 2. The Prison Gate is a door. The Prison Gate is locked. 
+Prison Yard 2 is east of Prison Yard 1 and north of Prison Yard 5 and west of Prison Yard 3. Prison Yard 2 is a room. "Freedom is within your grasp..." The Prison Gate is north of Prison Yard 2. The Prison Gate is a door. The Prison Gate is locked.
