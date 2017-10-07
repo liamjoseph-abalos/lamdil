@@ -445,7 +445,20 @@ Instead of listening to Walkway 4:
 		say "You hear nothing unexpected.".
 
 Cell 4 is south of Walkway 4. Cell 4 is a room. "There is a hole big enough for a person to fit through.[if Mutated Prisoner is not dead] You probably shouldn't go down."
+
+Instead of listening to Cell 4:
+	if Mutated Prisoner is not dead:
+		say "You hear something growling.";
+	otherwise:
+		say "You hear nothing unexpected.".
+
 Prison Tunnel is below Cell 4. Prison Tunnel is a room. The Mutated Prisoner is a man in the Prison Tunnel. "[if Mutated Prisoner is not dead]A man with three arms instantly turns around and attacks you!"
+
+Instead of listening to Prison Tunnel:
+	if Mutated Prisoner is not dead:
+		say "The Mutated Prisoner screams at you.";
+	otherwise:
+		say "You hear nothing unexpected.".
 
 Prison Tunnel Fight is a recurring scene.
 Prison Tunnel Fight begins when the player is in the Prison Tunnel.
@@ -467,6 +480,12 @@ When Tunnel Wall Breaking begins:
 Tunnel Wall Breaking ends when Tunnel Wall is nowhere.
 	
 The Prison Staircase is east of Walkway 4. Prison Staircase is a room. A Deranged Prisoner is a man in the Prison Staircase. "[if Deranged Prisoner is not dead]Quick! A deranged prisoner is charging at you!"
+
+Instead of listening to Prison Staircase:
+	if Deranged Prisoner is not dead:
+		say "Deranged Prisoner: I'll kill you!";
+	otherwise:
+		say "You hear nothing unexpected.".
 
 Prison Staircase Fight is a recurring scene.
 Prison Staircase Fight begins when the player is in the Prison Staircase.
