@@ -430,13 +430,40 @@ Prison Chapter is a scene.
 Prison Chapter begins when the Player is in Cell 1.
 
 Cell 1 is a room. "You wake up in your cell".
+
+Rule for printing the name of Cell 1:
+	say "Cell".
+
 Note is a thing in Cell 1. The description of the Note is "If you ever get lost or don't know what to do, use the Help command."
 Walkway 1 is north of Cell 1. Walkway 1 is a room. "A strange silence fills the air."
+
+Rule for printing the name of Walkway 1:
+	say "Walkway".
+
 Walkway 2 is east of Walkway 1. Walkway 2 is a room. "Oddly, the cell here is open."
+
+Rule for printing the name of Walkway 2:
+	say "Walkway".
+
 Cell 2 is south of Walkway 2. Cell Key is in Cell 2. Cell 2 is a room. "Someone used to stay here."
+
+Rule for printing the name of Cell 2:
+	say "Cell".
+
 The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is scenery. The Cell Door is locked. Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a room. "[if Rusty Knife is in Cell 3]There is something in the nearby cell."
+
+Rule for printing the name of Walkway 3:
+	say "Walkway".
+
 Cell 3 is south of Cell Door. Rusty Knife is in Cell 3. Cell 3 is a room. "[if Rusty Knife is in Cell 3]The guy in this cell was always the violent one."
+
+Rule for printing the name of Cell 3:
+	say "Cell".
+
 Walkway 4 is east of Walkway 3. Walkway 4 is a room. "[if Deranged Prisoner is not dead]You hear someone muttering quietly."
+
+Rule for printing the name of Walkway 4:
+	say "Walkway".
 
 Instead of listening to Walkway 4:
 	if Deranged Prisoner is not dead:
@@ -445,6 +472,9 @@ Instead of listening to Walkway 4:
 		say "You hear nothing unexpected.".
 
 Cell 4 is south of Walkway 4. Cell 4 is a room. "There is a hole big enough for a person to fit through.[if Mutated Prisoner is not dead] You probably shouldn't go down."
+
+Rule for printing the name of Cell 4:
+	say "Cell".
 
 Instead of listening to Cell 4:
 	if Mutated Prisoner is not dead:
@@ -561,12 +591,36 @@ Yard Chapter is a scene.
 Yard Chapter begins when Warden's Chapter ends.
 
 Prison Yard 5 is north of the Prison Entrance. Prison Yard 5 is a room. "The walls surrounding the prison are preventing your escape."
+
+Rule for printing the name of Prison Yard 5:
+	say "Prison Yard". 
+
 Prison Yard 4 is west of Prison Yard 5. Prison Yard 4 is a room. "There is a wall here."
+
+Rule for printing the name of Prison Yard 4:
+	say "Prison Yard". 
+
 Prison Yard 6 is east of Prison Yard 5. Prison Yard 6 is a room. "There is a wall here."
+
+Rule for printing the name of Prison Yard 6:
+	say "Prison Yard". 
+
 Prison Yard 3 is north of Prison Yard 6. Prison Yard 3 is a room. "[if Rock Hammer is in Prison Yard 3]There is something in the grass." Rock Hammer is in Prison Yard 3. 
+
+Rule for printing the name of Prison Yard 3:
+	say "Prison Yard". 
+
 Prison Yard 2 is east of Prison Yard 1 and north of Prison Yard 5 and west of Prison Yard 3. Prison Yard 2 is a room. "Freedom is within your grasp..." The Prison Gate is north of Prison Yard 2. The Prison Gate is a door. The Prison Gate is scenery. The Prison Gate is locked.
+
+Rule for printing the name of Prison Yard 2:
+	say "Prison Yard". 
+
 Prison Yard Fake Exit is north of Prison Gate. Prison Yard Fake Exit is a room.
 Prison Yard 1 is north of Prison Yard 4. Prison Yard 1 is a room. "[if Prison Wall is not broken]The wall here is a bit cracked.[else]You can now escape the prison." The Prison Wall is in Prison Yard 1. The Prison Wall is scenery.
+
+Rule for printing the name of Prison Yard 1:
+	say "Prison Yard". 
+
 Prison Yard Placeholder is north of Prison Yard 1. Prison Yard Placeholder is a room.
 
 Rule for printing the name of Prison Yard Placeholder:
