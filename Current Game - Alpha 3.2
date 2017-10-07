@@ -550,6 +550,9 @@ Prison Yard Fake Exit is north of Prison Gate. Prison Yard Fake Exit is a room.
 Prison Yard 1 is north of Prison Yard 4. Prison Yard 1 is a room. "[if Prison Wall is not broken]The wall here is a bit cracked.[else]You can now escape the prison." The Prison Wall is in Prison Yard 1. The Prison Wall is scenery.
 Prison Yard Placeholder is north of Prison Yard 1. Prison Yard Placeholder is a room.
 
+Rule for printing the name of Prison Yard Placeholder:
+	say "".
+
 Prison Wall Breaking is a scene.
 Prison Wall Breaking begins when Prison Wall is broken.
 When Prison Wall Breaking begins:
@@ -561,6 +564,7 @@ Instead of going north when the player is in Prison Yard 1:
 		say "You can't go that way.";
 		move player to Prison Yard 1;
 	otherwise:
+		move player to Prison Yard Placeholder;
 		move player to Island.
 
 Yard Chapter ends when Prison Wall is broken.
