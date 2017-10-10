@@ -152,6 +152,11 @@ Instead of eating a food (called the consumable):
 		say "You aren't nearly hungry enough to eat that right now. Save it for another time.";
 	end if.
 
+Every turn (this is the overheal rule):
+	if the current hit points of the player is greater than the maximum hit points of the player begin;
+		now the current hit points of the player is the maximum hit points of the player;
+	end if. 
+
 Book 3 - Combat
 
 A person has a number called maximum hit points. A person has a number called current hit points.
