@@ -4,14 +4,15 @@ Part 2 - Enemy Mechanics
 	
 Chapter 1 - Inner Prison Enemies
 
-The current hit points of the Deranged Prisoner is 3. The maximum hit points of the Deranged Prisoner is 3. 
+The current hit points of the Deranged Prisoner is 3. The maximum hit points of the Deranged Prisoner is 3.
+The Deranged Prisoner is hostile. 
 The Deranged Prisoner carries a weapon called Broken Glass. The maximum damage of the Broken Glass is 2.
 Setting action variables for attacking something with something: 
 	if the second noun is a Broken Glass: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 1 and the maximum attack. 
 Every turn when the player is in the Prison Staircase (this is the Deranged Prisoner-attack rule): 
-	if the current hit points of the Deranged Prisoner is greater than 0, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
+	if the Deranged Prisoner is hostile, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
 Report Deranged Prisoner attacking the player with something (this is the standard report Deranged Prisoner attacking the player with rule): 
 	say "The Deranged Prisoner slashes at your flesh, dealing [damage inflicted] point[s] of damage!" instead. 	
 Report attacking a dead Deranged Prisoner with something (this is the Deranged Prisoner's death-report priority rule): 
@@ -25,6 +26,7 @@ Carry out Deranged Prisoner attacking someone with something (this is the standa
 	decrease the current hit points of the noun by the damage inflicted.
 
 The current hit points of the Mutated Prisoner is 15. The maximum hit points of the Mutated Prisoner is 15.
+The Mutated Prisoner is hostile. 
 The Mutated Prisoner carries a weapon called Left Hand. The maximum damage of the Left Hand is 4.
 The Mutated Prisoner carries a weapon called Right Hand. The maximum damage of the Right Hand is 4.
 The Mutated Prisoner carries a weapon called Third Hand. The maximum damage of the Third Hand is 5.
@@ -46,7 +48,7 @@ Setting action variables for attacking something with something:
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 2 and the maximum attack. 
 Every turn when the player is in the Prison Tunnel (this is the Mutated Prisoner-attack rule):
-	if the current hit points of the Mutated Prisoner is greater than 0, try the Mutated Prisoner attacking the player with a random weapon which is carried by the Mutated Prisoner. 
+	if the Mutated Prisoner is hostile, try the Mutated Prisoner attacking the player with a random weapon which is carried by the Mutated Prisoner. 
 Report Mutated Prisoner attacking the player with Left Hand (this is the standard report Mutated Prisoner attacking the player with Left Hand rule): 
 	say "The Mutated Prisoner claws at you with his left hand, dealing [damage inflicted] point[s] of damage!" instead. 
 Report Mutated Prisoner attacking the player with Right Hand (this is the standard report Mutated Prisoner attacking the player with Right Hand rule): 
@@ -66,6 +68,7 @@ Carry out Mutated Prisoner attacking someone with something (this is the standar
 	decrease the current hit points of the noun by the damage inflicted.
 
 The current hit points of the Warden is 25. The maximum hit points of the Warden is 25.
+The Warden is docile.
 The Warden carries a weapon called Silver Sword. The maximum damage of the Silver Sword is 3.
 The Warden carries a weapon called Steel Chain. The maximum damage of the Steel Chain is 4.
 Setting action variables for attacking something with something: 
@@ -77,7 +80,7 @@ Setting action variables for attacking something with something:
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 2 and the maximum attack. 
 Every turn when the player is in the Warden's Room (this is the Warden-attack rule):
-	if the current hit points of the Warden is greater than 0, try the Warden attacking the player with a random weapon which is carried by the Warden. 
+	if the Warden is hostile, try the Warden attacking the player with a random weapon which is carried by the Warden. 
 Report Warden attacking the player with Silver Sword (this is the standard report Warden attacking the player with Silver Sword rule): 
 	say "The Warden swings at you with his sword, dealing [damage inflicted] point[s] of damage!" instead. 
 Report Warden attacking the player with Steel Chain (this is the standard report Warden attacking the player with Steel Chain rule): 
@@ -99,14 +102,15 @@ Carry out Warden attacking someone with something (this is the standard Warden a
 	
 Chapter 2 - Prison Island Enemies
 
-The current hit points of the Southern Tower Sentinel is 20. The maximum hit points of the Southern Tower Sentinel is 20. 
+The current hit points of the Southern Tower Sentinel is 20. The maximum hit points of the Southern Tower Sentinel is 20.
+The Southern Tower Sentinel is hostile. 
 The Southern Tower Sentinel carries a weapon called Sentinel Spear. The maximum damage of the Sentinel Spear is 5.
 Setting action variables for attacking something with something: 
 	if the second noun is a Sentinel Spear: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 3 and the maximum attack. 
 Every turn when the player is in the Southern Tower Entrance (this is the Southern Tower Sentinel-attack rule): 
-	if the current hit points of the Southern Tower Sentinel is greater than 0, try the Southern Tower Sentinel attacking the player with a random weapon which is carried by the Southern Tower Sentinel. 
+	if the Southern Tower Sentinel is hostile, try the Southern Tower Sentinel attacking the player with a random weapon which is carried by the Southern Tower Sentinel. 
 Report Southern Tower Sentinel attacking the player with something (this is the standard report Southern Tower Sentinel attacking the player with rule): 
 	say "The Southern Tower Sentinel stabs you with his spear, dealing [damage inflicted] point[s] of damage!" instead. 	
 Report attacking a dead Southern Tower Sentinel with something (this is the Southern Tower Sentinel's death-report priority rule): 
@@ -119,14 +123,15 @@ Report Southern Tower Sentinel attacking the player with something when the play
 Carry out Southern Tower Sentinel attacking someone with something (this is the standard Southern Tower Sentinel attacking it with rule): 
 	decrease the current hit points of the noun by the damage inflicted.
 	
-The current hit points of the Western Tower Sentinel is 30. The maximum hit points of the Western Tower Sentinel is 30. 
+The current hit points of the Western Tower Sentinel is 30. The maximum hit points of the Western Tower Sentinel is 30.
+The Western Tower Sentinel is hostile.
 The Western Tower Sentinel carries a weapon called Sentinel Sword. The maximum damage of the Sentinel Sword is 3.
 Setting action variables for attacking something with something: 
 	if the second noun is a Sentinel Sword: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 2 and the maximum attack. 
 Every turn when the player is in the Western Tower Entrance (this is the Western Tower Sentinel-attack rule): 
-	if the current hit points of the Western Tower Sentinel is greater than 0, try the Western Tower Sentinel attacking the player with a random weapon which is carried by the Western Tower Sentinel. 
+	if the Western Tower Sentinel is hostile, try the Western Tower Sentinel attacking the player with a random weapon which is carried by the Western Tower Sentinel. 
 Report Western Tower Sentinel attacking the player with something (this is the standard report Western Tower Sentinel attacking the player with rule): 
 	say "The Western Tower Sentinel slashes you with his sword, dealing [damage inflicted] point[s] of damage!" instead. 	
 Report attacking a dead Western Tower Sentinel with something (this is the Western Tower Sentinel's death-report priority rule): 
@@ -139,14 +144,15 @@ Report Western Tower Sentinel attacking the player with something when the playe
 Carry out Western Tower Sentinel attacking someone with something (this is the standard Western Tower Sentinel attacking it with rule): 
 	decrease the current hit points of the noun by the damage inflicted.
 	
-The current hit points of the Eastern Tower Sentinel is 15. The maximum hit points of the Eastern Tower Sentinel is 15. 
+The current hit points of the Eastern Tower Sentinel is 15. The maximum hit points of the Eastern Tower Sentinel is 15.
+The Eastern Tower Sentinel is hostile.
 The Eastern Tower Sentinel carries a weapon called Sentinel Mace. The maximum damage of the Sentinel Mace is 7.
 Setting action variables for attacking something with something: 
 	if the second noun is a Sentinel Mace: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 5 and the maximum attack. 
 Every turn when the player is in the Eastern Tower Entrance (this is the Eastern Tower Sentinel-attack rule): 
-	if the current hit points of the Eastern Tower Sentinel is greater than 0, try the Eastern Tower Sentinel attacking the player with a random weapon which is carried by the Eastern Tower Sentinel. 
+	if the Eastern Tower Sentinel is hostile, try the Eastern Tower Sentinel attacking the player with a random weapon which is carried by the Eastern Tower Sentinel. 
 Report Eastern Tower Sentinel attacking the player with something (this is the standard report Eastern Tower Sentinel attacking the player with rule): 
 	say "The Eastern Tower Sentinel slams you with his mace, dealing [damage inflicted] point[s] of damage!" instead. 	
 Report attacking a dead Eastern Tower Sentinel with something (this is the Eastern Tower Sentinel's death-report priority rule): 
@@ -159,7 +165,8 @@ Report Eastern Tower Sentinel attacking the player with something when the playe
 Carry out Eastern Tower Sentinel attacking someone with something (this is the standard Eastern Tower Sentinel attacking it with rule): 
 	decrease the current hit points of the noun by the damage inflicted.
 	
-The current hit points of the Armoured Guard is 20. The maximum hit points of the Armoured Guard is 20. 
+The current hit points of the Armoured Guard is 20. The maximum hit points of the Armoured Guard is 20.
+The Armoured Guard is hostile.
 The Armoured Guard carries a weapon called Heavy Shield. The maximum damage of the Heavy Shield is 10. The current turns of the Heavy Shield is 1.
 Setting action variables for attacking something with something: 
 	if the second noun is a Heavy Shield: 
@@ -196,7 +203,7 @@ Setting action variables for attacking something with something:
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 7 and the maximum attack. 
 Every turn when the player is in the Tower Hallway (this is the Reinforced Guard-attack rule): 
-	if the current hit points of the Reinforced Guard is greater than 0, try the Reinforced Guard attacking the player with a random weapon which is carried by the Reinforced Guard. 
+	if the Reinforced Guard is hostile, try the Reinforced Guard attacking the player with a random weapon which is carried by the Reinforced Guard. 
 Report Reinforced Guard attacking the player with something (this is the standard report Reinforced Guard attacking the player with rule):
 	if the second noun is Greatsword:
 		if the current turns of the Greatsword is 0:
@@ -219,14 +226,15 @@ Carry out Reinforced Guard attacking someone with something (this is the standar
 		now the current turns of the Greatsword is 1;
 		stop the action.
 		
-The current hit points of the Overseer is 40. The maximum hit points of the Overseer is 40. 
+The current hit points of the Overseer is 40. The maximum hit points of the Overseer is 40.
+The Overseer is docile. 
 The Overseer carries a weapon called Spiked Flail. The maximum damage of the Spiked Flail is 12. The current turns of the Spiked Flail is 1.
 Setting action variables for attacking something with something: 
 	if the second noun is a Spiked Flail: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 8 and the maximum attack. 
 Every turn when the player is in the Northern Outlook (this is the Overseer-attack rule): 
-	if the current hit points of the Overseer is greater than 0, try the Overseer attacking the player with a random weapon which is carried by the Overseer. 
+	if the Overseer is hostile, try the Overseer attacking the player with a random weapon which is carried by the Overseer. 
 Report Overseer attacking the player with something (this is the standard report Overseer attacking the player with rule):
 	if the second noun is Spiked Flail:
 		if the current turns of the Spiked Flail is 0:
