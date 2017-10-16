@@ -3,7 +3,10 @@ Combat Mechanics by Lamdil begins here.
 Chapter 1 - Player
 
 A person has a number called maximum hit points. A person has a number called current hit points.
-Definition: a person is dead if their current hit points are less than 1. 
+A person can be hostile or docile. A person is usually docile. The player is docile. 
+Definition: a person is dead if their current hit points are less than 1.
+Definition: a person is docile if a person is dead.
+
 
 The current hit points of the player is 20. The maximum hit points of the player is 20.
 Carry out the player attacking player with something (this is the standard attacking player with a weapon rule): 
@@ -47,10 +50,13 @@ Carry out an actor attacking something with Dual Daggers (this is the standard a
 	if the noun is dead: 
 		if the noun is not the player:
 			now the noun is nowhere;
+			now the noun is docile;
 	if the multihits of the Dual Daggers is 1:
 		decrease the current hit points of the noun by the damage inflicted; 
 		say "You stab the Dual Daggers into [the noun], dealing [damage inflicted] point[s] of damage!";
 		now the multihits of the Dual Daggers is 0;
+		if the noun is not the player:
+			now the noun is hostile;
 	if the multihits of the Dual Daggers is 0:
 		decrease the current hit points of the noun by the damage inflicted; 
 		now the multihits of the Dual Daggers is 1;
@@ -62,7 +68,9 @@ The player carries a weapon called Shank. The maximum damage of the Shank is 2.
 Setting action variables for attacking something with something: 
 	if the second noun is a Shank: 
 		let the maximum attack be the maximum damage of the second noun; 
-		now the damage inflicted is a random number between 1 and the maximum attack. 
+		now the damage inflicted is a random number between 1 and the maximum attack;
+		if the noun is not the player:
+			now the noun is hostile;
 Report attacking someone with something (this is the normal attacking with Shank report rule):
 	if second noun is a Shank:
 		say "You stab [the noun] with the shank, dealing [damage inflicted] point[s] of damage!" instead. 
@@ -70,13 +78,16 @@ Carry out an actor attacking something with Shank (this is the standard attackin
 	decrease the current hit points of the noun by the damage inflicted; 
 	if the noun is dead: 
 		if the noun is not the player:
+			now the noun is docile;
 			now the noun is nowhere. 
 			
 Rusty Knife is a weapon. The maximum damage of the Rusty Knife is 3. 
 Setting action variables for attacking something with something: 
 	if the second noun is a Rusty Knife: 
 		let the maximum attack be the maximum damage of the second noun; 
-		now the damage inflicted is a random number between 3 and the maximum attack. 
+		now the damage inflicted is a random number between 3 and the maximum attack;
+		if the noun is not the player:
+			now the noun is hostile;
 Report attacking someone with something (this is the normal attacking with Rusty Knife report rule):
 	if second noun is a Rusty Knife:
 		say "You stab [the noun] with the rusty knife, dealing [damage inflicted] point[s] of damage!" instead. 
@@ -84,13 +95,16 @@ Carry out an actor attacking something with Rusty Knife (this is the standard at
 	decrease the current hit points of the noun by the damage inflicted; 
 	if the noun is dead: 
 		if the noun is not the player:
+			now the noun is docile;
 			now the noun is nowhere. 
 			
 Broken Sword is a weapon. The maximum damage of the Broken Sword is 10.
 Setting action variables for attacking something with something: 
 	if the second noun is a Broken Sword: 
 		let the maximum attack be the maximum damage of the second noun; 
-		now the damage inflicted is a random number between 6 and the maximum attack. 
+		now the damage inflicted is a random number between 6 and the maximum attack;
+		if the noun is not the player:
+			now the noun is hostile;
 Report attacking someone with something (this is the normal attacking with Broken Sword report rule):
 	if second noun is a Broken Sword:
 		say "You slash at [the noun] with the broken sword, dealing [damage inflicted] point[s] of damage!" instead. 
@@ -98,8 +112,9 @@ Carry out an actor attacking something with Broken Sword (this is the standard a
 	decrease the current hit points of the noun by the damage inflicted; 
 	if the noun is dead: 
 		if the noun is not the player:
+			now the noun is docile;
 			now the noun is nowhere. 
-
+			
 Steel Sword is a weapon. The maximum damage of the Steel Sword is 12.
 Setting action variables for attacking something with something: 
 	if the second noun is a Steel Sword: 
@@ -130,14 +145,18 @@ Report attacking someone with something (this is the normal attacking with Diamo
 Carry out an actor attacking something with Diamond Pickaxe (this is the standard attacking it with a Diamond Pickaxe rule):
 	if the noun is dead: 
 		if the noun is not the player:
+			now the noun is docile;
 			now the noun is nowhere;
 	if the current turns of the Diamond Pickaxe is 1:
 		now the current turns of the Diamond Pickaxe is 0;
 		stop the action;
 	if the current turns of the Diamond Pickaxe is 0:
-		decrease the current hit points of the noun by the damage inflicted; 
+		decrease the current hit points of the noun by the damage inflicted;
+		if the noun is not the player:
+			now the noun is hostile; 
 		now the current turns of the Diamond Pickaxe is 1;
 		stop the action.
+
 
 Overseer's Flail is a weapon. The maximum damage of the Overseer's Flail is 26. The current turns of the Overseer's Flail is 1.
 Setting action variables for attacking something with something: 
@@ -153,12 +172,15 @@ Report attacking someone with something (this is the normal attacking with Overs
 Carry out an actor attacking something with Overseer's Flail (this is the standard attacking it with a Overseer's Flail rule):
 	if the noun is dead: 
 		if the noun is not the player:
+			now the noun is docile;
 			now the noun is nowhere;
 	if the current turns of the Overseer's Flail is 1:
 		now the current turns of the Overseer's Flail is 0;
 		stop the action;
 	if the current turns of the Overseer's Flail is 0:
 		decrease the current hit points of the noun by the damage inflicted; 
+		if the noun is not the player:
+			now the noun is hostile;
 		now the current turns of the Overseer's Flail is 1;
 		stop the action.
 	
