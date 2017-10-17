@@ -4,12 +4,24 @@ Book  - Descriptions
 
 Chapter 1 - Weapon Descriptions
 
-The description of the Shank is "A small concealed knife you managed to smuggle in the prison. It's not nearly big enough to do any serious damage."
-The description of the Dual Daggers is "You should know better not to cheat."
-The description of the Rusty Knife is "Fresh blood drips of the rather dull blade of this knife. You might wanna get a tetanus shot after this." 
-The description of the Broken Sword is "The blade is merely a shell of what it once was. Thankfull it is still quite sharp and could probably pack a punch."
-The description of the Diamond Pickaxe is "Someone had to slay a lot of creepers to make this. It looks perfect for mining diamonds." 
-The description of the Rock Hammer is "This hammer looks like it could easily destroy a weak wall. Too bad most of the prison is completely solid."
+Section 1 - Light Weapons
+
+The description of the Dual Daggers is "You should know better not to cheat.[line break]- Light weapon[line break]- Deals 2-8 damage[line break]- Hits 2 times"
+
+Section 2 - Medium Weapons
+
+The description of the Shank is "A small concealed knife you managed to smuggle in the prison. It's not nearly big enough to do any serious damage.[line break]- Medium weapon[line break]- Deals 1-2 damage"
+The description of the Rusty Knife is "Fresh blood drips of the rather dull blade of this knife. You might wanna get a tetanus shot after this.[line break]- Medium weapon[line break]- Deals 3 damage" 
+The description of the Broken Sword is "The blade is merely a shell of what it once was. Thankfull it is still quite sharp and could probably pack a punch.[line break]- Medium weapon[line break]- Deals 6-10 damage"
+The description of 
+
+Section 3 - Heavy Weapons
+
+The description of the Diamond Pickaxe is "Someone had to slay a lot of creepers to make this. It looks perfect for mining diamonds.[line break]- Heavy weapon[line break]- Deals 18-20 damage[line break]- Takes 2 turns to attack" 
+
+Section 4 - Wall Breakers
+
+The description of the Rock Hammer is "This hammer looks like it could easily destroy a weak wall. Too bad most of the prison is completely solid.[line break]- Can be used to break walls"
 
 Chapter 2 - Consumable Descriptions
 
