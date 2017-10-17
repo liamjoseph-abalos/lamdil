@@ -213,7 +213,7 @@ Setting action variables for attacking something with something:
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 7 and the maximum attack minus the damageReduction of the player. 
 Every turn when the player is in the Dim Hallway (this is the Armoured Guard-attack rule): 
-	if the current hit points of the Armoured Guard is greater than 0, try the Armoured Guard attacking the player with a random weapon which is carried by the Armoured Guard. 
+	if the Armoured Guard is hostile, try the Armoured Guard attacking the player with a random weapon which is carried by the Armoured Guard. 
 Report Armoured Guard attacking the player with something (this is the standard report Armoured Guard attacking the player with rule):
 	if the second noun is Heavy Shield:
 		if the current turns of the Heavy Shield is 0:
@@ -241,6 +241,7 @@ Carry out Armoured Guard attacking someone with something (this is the standard 
 		stop the action.
 
 The current hit points of the Reinforced Guard is 20. The maximum hit points of the Reinforced Guard is 20. 
+The Reinforced Guard is hostile.
 The Reinforced Guard carries a weapon called Greatsword. The maximum damage of the Greatsword is 12. The current turns of the Greatsword is 1.
 Setting action variables for attacking something with something: 
 	if the second noun is a Greatsword: 
