@@ -7,7 +7,6 @@ A person can be hostile or docile. A person is usually docile. The player is doc
 Definition: a person is dead if their current hit points are less than 1.
 Definition: a person is docile if a person is dead.
 
-
 The current hit points of the player is 20. The maximum hit points of the player is 20.
 Carry out the player attacking player with something (this is the standard attacking player with a weapon rule): 
 	decrease the current hit points of the player by the damage inflicted; 
@@ -119,7 +118,9 @@ Steel Sword is a weapon. The maximum damage of the Steel Sword is 12.
 Setting action variables for attacking something with something: 
 	if the second noun is a Steel Sword: 
 		let the maximum attack be the maximum damage of the second noun; 
-		now the damage inflicted is a random number between 9 and the maximum attack. 
+		now the damage inflicted is a random number between 9 and the maximum attack;
+		if the noun is not the player:
+			now the noun is hostile;
 Report attacking someone with something (this is the normal attacking with Steel Sword report rule):
 	if second noun is a Steel Sword:
 		say "You swing at [the noun] with the steel sword, dealing [damage inflicted] point[s] of damage!" instead. 
@@ -127,6 +128,7 @@ Carry out an actor attacking something with Steel Sword(this is the standard att
 	decrease the current hit points of the noun by the damage inflicted; 
 	if the noun is dead: 
 		if the noun is not the player:
+			now the noun is docile;
 			now the noun is nowhere. 
 			
 Section 3 - Heavy Weapons
