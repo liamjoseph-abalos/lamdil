@@ -3,32 +3,61 @@ Enemy Mechanics by Lamdil begins here.
 Part 2 - Enemy Mechanics
 	
 Chapter 1 - Inner Prison Enemies
-
-The current hit points of the Deranged Prisoner is 3. The maximum hit points of the Deranged Prisoner is 3.
+		
+The current hit points of the Deranged Prisoner is 4. The maximum hit points of the Deranged Prisoner is 4.
 The Deranged Prisoner is hostile. 
-The Deranged Prisoner carries a weapon called Broken Glass. The maximum damage of the Broken Glass is 2.
+The Deranged Prisoner carries a weapon called Broken Glass. The maximum damage of the Broken Glass is 5. The current turns of the Broken Glass is 1.
 Setting action variables for attacking something with something: 
 	if the second noun is a Broken Glass: 
 		let the maximum attack be the maximum damage of the second noun; 
-		now the damage inflicted is a random number between 1 and the maximum attack minus the damageReduction of the player. 
+		now the damage inflicted is a random number between 3 and the maximum attack minus the damageReduction of the player. 
 Every turn when the player is in the Prison Staircase (this is the Deranged Prisoner-attack rule): 
 	if the Deranged Prisoner is hostile, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
 Report Deranged Prisoner attacking the player with something (this is the standard report Deranged Prisoner attacking the player with rule):
-	if damage inflicted > 0:
-		say "The Deranged Prisoner slashes at your flesh, dealing [damage inflicted] point[s] of damage!" instead;
-	otherwise:
-		say "The Deranged Prisoner is unable to penetrate your armour.".	
-Report attacking a dead Deranged Prisoner with something (this is the Deranged Prisoner's death-report priority rule): 
-	say "The Deranged Prisoner writhes in pain as he expires." instead. 
+	if the second noun is Broken Glass:
+		if the current turns of the Broken Glass is 0:
+			say "The Deranged Prisoner gets ready to charge." instead;
+		if the current turns of the Broken Glass is 1:
+			if the dodgeTrue of the player is 1:
+				say "The Deranged Prisoner charges past you and misses.";
+				now the dodgeTrue is 0;
+			otherwise if the parryTrue of the player is 1:
+				say "The Deranged Prisoner is knocked off guard.[line break][line break]";
+				decrease the current hit points of the Deranged Prisoner by the riposteDamage of the player;
+				if the Deranged Prisoner is dead:
+					say "You riposte the Deranged Prisoner, dealing [riposteDamage of the player] damage![line break][line break]";
+					say "The Deranged Prisoner writhes in pain before going limp.";
+					now the Deranged Prisoner is nowhere;
+					now the Deranged Prisoner is docile;
+				otherwise:
+					say "You riposte the Deranged Prisoner, dealing [riposteDamage of the player] damage!";
+				now the parryTrue is 0;
+			otherwise if damage inflicted > 0:
+				say "The Deranged Prisoner charges and slashes you with broken glass, dealing [damage inflicted] point[s] of damage!" instead;
+			otherwise:
+				say "The Deranged Prisoner is unable to penetrate your armour.".	
+Report attacking a dead Deranged Prisoner with something (this is the Deranged Prisoner's death-report rule):
+		say "The Deranged Prisoner writhes in pain before going limp." instead.
 Report Deranged Prisoner attacking the player with something when the player is dead (this is the player's-death by Deranged Prisoner priority rule):
 	now the current hit points of the player is 0; 
 	say "The Deranged Prisoner quickly stabs your throat."; 
-	end the story saying "The blood drains out of your neck and you fall to the ground"; 
+	end the story saying "The blood drains out your neck and you fall to the ground"; 
 	stop the action.
 Carry out Deranged Prisoner attacking someone with something (this is the standard Deranged Prisoner attacking it with rule): 
-	if damage inflicted > 0:
-		decrease the current hit points of the noun by the damage inflicted.
-		
+	if the current turns of the Broken Glass is 1:
+		now the player is hit;
+		now the current turns of the Broken Glass is 0;
+		stop the action;
+	if the current turns of the Broken Glass is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Broken Glass is 1;
+		stop the action.	
 
 The current hit points of the Mutated Prisoner is 15. The maximum hit points of the Mutated Prisoner is 15.
 The Mutated Prisoner is hostile. 
