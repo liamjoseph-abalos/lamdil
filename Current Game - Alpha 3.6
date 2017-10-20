@@ -5,6 +5,7 @@ Include Combat Mechanics by Lamdil.
 Include Armour Mechanics by Lamdil.
 Include Enemy Mechanics by Lamdil.
 Include Miscellaneous Mechanics by Lamdil.
+Include Descriptions by Lamdil.
 Include Locksmith by Emily Short.
 
 Volume 1 - Story 
@@ -22,7 +23,7 @@ Note is a thing in Cell 1. The description of the Note is "If you ever get lost 
 Walkway 1 is north of Cell 1. Walkway 1 is a room. "A strange silence fills the air."
 Rule for printing the name of Walkway 1:
 	say "Walkway".
-
+	
 Walkway 2 is east of Walkway 1. Walkway 2 is a room. "Oddly, the cell here is open."
 Rule for printing the name of Walkway 2:
 	say "Walkway".
@@ -54,11 +55,16 @@ Prison Tunnel Fight is a recurring scene.
 Prison Tunnel Fight begins when the player is in the Prison Tunnel.
 Every turn during the Prison Tunnel Fight:
 	now the left hand status line is "Mutated Prisoner: [current hit points of Mutated Prisoner]";
+	now the player is hostile;
 	if the Mutated Prisoner is dead:
+		now the player is docile;
+		now the player is notHit;
 		now the left hand status line is "Mutated Prisoner: Deceased";
 		now the Mutated Prisoner is nowhere.
 Prison Tunnel Fight ends when the player is not in the Prison Tunnel.	
 When Prison Tunnel Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 	
 The Tunnel Extension is south of Prison Tunnel. Tunnel Extension is a room. "[if Tunnel Wall is not broken]You knock on the wall of the tunnel. It sounds hollow." The Tunnel Wall is in Tunnel Extension. The Tunnel Wall is scenery. Diamond Pickaxe is a thing.
@@ -69,20 +75,20 @@ When Tunnel Wall Breaking begins:
 Tunnel Wall Breaking ends when Tunnel Wall is nowhere.
 	
 The Prison Staircase is east of Walkway 4. Prison Staircase is a room. A Deranged Prisoner is a man in the Prison Staircase. "Quick! A deranged prisoner is charging at you!"
-Instead of listening to Prison Staircase:
-	if Deranged Prisoner is not dead:
-		say "Deranged Prisoner: I'll kill you!";
-	otherwise:
-		say "You hear nothing unexpected.".
 Prison Staircase Fight is a recurring scene.
 Prison Staircase Fight begins when the player is in the Prison Staircase.
 Every turn during Prison Staircase Fight: 
 	now the left hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]";
+	now the player is hostile;
 	if the Deranged Prisoner is dead:
+		now the player is docile;
+		now the player is notHit;
 		now the left hand status line is "Deranged Prisoner: Deceased";
 		now the Deranged Prisoner is nowhere.
 Prison Staircase Fight ends when the player is not in the Prison Staircase.
 When Prison Staircase Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 
 Part 2 - Captain's Chapter
@@ -105,23 +111,23 @@ Instead of listening to Warden's Staircase:
 
 Part 3 - Warden's Chapter
 
-The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a room called the Warden's Room. The Warden is a man in the Warden's Room. "Warden: Nobody escapes this prison. The Warden draws his Silver Sword and points it at you. If you want to survive you must fight!"
-Instead of listening to Warden's Room:
-	if Warden is not dead:
-		say "Warden: Scum like you does not deserve to live!";
-	otherwise:
-		say "You hear nothing unexpected.".
+The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a room called the Warden's Room. The Warden is a man in the Warden's Room. "Warden: 'Nobody escapes this prison.'"
 Warden's Room Fight is a recurring scene.
 Warden's Room Fight begins when the player is in the Warden's Room.
 Every turn during Warden's Room Fight: 
 	now the left hand status line is "Warden: [current hit points of Warden]";
+	now the player is hostile;
 	if the Warden is dead:
+		now the player is docile;
+		now the player is notHit;
 		now the left hand status line is "Warden: Deceased";
 		now the Prison Door is unlocked;
 		say "Now the prison door is unlocked.";
 		now the Warden is nowhere.
 Warden's Room Fight ends when the player is not in the Warden's Room.
 When Warden's Room Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 
 The Prison Door is north of the Warden's Room. The Prison Door is a door. The Prison Door is scenery. The Prison Door is locked. The Prison Entrance is north of the Prison Door. The Prison Entrance is a room. "Its been awhile since you've seen sunlight."
@@ -244,13 +250,18 @@ Southern Tower Entrance Fight is a recurring scene.
 Southern Tower Entrance Fight begins when the player is in the Southern Tower Entrance .
 Every turn during the Southern Tower Entrance Fight:
 	now the left hand status line is "Southern Tower Sentinel: [current hit points of Southern Tower Sentinel]";
+	now the player is hostile;
 	if the Southern Tower Sentinel is dead:
+		now the player is docile;
+		now the player is notHit;
 		now the left hand status line is "Southern Tower Sentinel: Deceased";
 		now the Southern Tower Door is unlocked;
 		say "Now the southern tower door is unlocked.";
 		now the Southern Tower Sentinel is nowhere.
 Southern Tower Entrance Fight ends when the player is not in the Southern Tower Entrance .	
 When Southern Tower Entrance Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 
 Jungle 10 is east of Southern Tower Entrance and north of Jungle 4. Jungle 10 is a room. "[if Southern Tower Sentinel is not dead]You feel someone watching you..."
@@ -314,13 +325,18 @@ Western Tower Entrance Fight is a recurring scene.
 Western Tower Entrance Fight begins when the player is in the Western Tower Entrance.
 Every turn during the Western Tower Entrance Fight:
 	now the left hand status line is "Western Tower Sentinel: [current hit points of Western Tower Sentinel]";
+	now the player is hostile;
 	if the Western Tower Sentinel is dead:
+		now the player is docile;
+		now the player is notHit;
 		now the left hand status line is "Western Tower Sentinel: Deceased";
 		now the Western Tower Door is unlocked;
 		say "Now the western tower door is unlocked.";
 		now the Western Tower Sentinel is nowhere.
 Western Tower Entrance Fight ends when the player is not in the Western Tower Entrance.	
 When Western Tower Entrance Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 	
 Eastern Tower Entrance is north of Jungle 18. Eastern Tower Entrance is a room. Eastern Tower Sentinel is a man in Eastern Tower Entrance. "[if Eastern Tower Sentinel is not dead]The Eastern Tower Sentinel slowly moves from his rigid position." Eastern Tower Door is west of Eastern Tower Entrance. Eastern Tower Door is a door. Eastern Tower Door is locked. Eastern Tower Door is scenery.
@@ -328,13 +344,18 @@ Eastern Tower Entrance Fight is a recurring scene.
 Eastern Tower Entrance Fight begins when the player is in the Eastern Tower Entrance.
 Every turn during the Eastern Tower Entrance Fight:
 	now the left hand status line is "Eastern Tower Sentinel: [current hit points of Eastern Tower Sentinel]";
+	now the player is hostile;
 	if the Eastern Tower Sentinel is dead:
+		now the player is docile;
+		now the player is notHit;
 		now the left hand status line is "Eastern Tower Sentinel: Deceased";
 		now the Eastern Tower Door is unlocked;
 		say "Now the eastern tower door is unlocked.";
 		now the Eastern Tower Sentinel is nowhere.
 Eastern Tower Entrance Fight ends when the player is not in the Eastern Tower Entrance.	
 When Eastern Tower Entrance Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 	
 Jungle 26 is east of Eastern Tower Entrance and north of Jungle 19. Jungle 26 is a room. "[if Eastern Tower Sentinel is not dead]You feel someone watching you..."
@@ -470,7 +491,7 @@ Ground Floor 3 is east of Ground Floor 2 and north of Ground Floor 6. Ground Flo
 Rule for printing the name of Ground Floor 3:
 	say "Ground Floor".
 	
-Ground Floor 4 is east of Western Tower Door. Ground Floor 4 is a room. "The walls are cracked and molding."
+Ground Floor 4 is east of Western Tower Door. Ground Floor 4 is a room. "The walls are molding."
 Rule for printing the name of Ground Floor 4:
 	say "Ground Floor".
 	
@@ -538,13 +559,18 @@ Dim Hallway Fight is a recurring scene.
 Dim Hallway Fight begins when the player is in the Dim Hallway.
 Every turn during the Dim Hallway Fight:
 	now the left hand status line is "Armoured Guard: [current hit points of Armoured Guard]";
+	now the player is hostile;
 	if the Armoured Guard is dead:
 		now the left hand status line is "Armoured Guard: Deceased";
+		now the player is docile;
+		now the player is notHit;
 		now the Second Floor Door is unlocked;
 		say "Now the second floor door is unlocked.";
 		now the Armoured Guard is nowhere.
 Dim Hallway Fight ends when the player is not in the Dim Hallway.	
 When Dim Hallway Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 
 Second Floor Door is south of Dim Hallway. Second Floor Door is a door. Second Floor Door is locked. Second Floor Door is scenery.
@@ -560,13 +586,18 @@ Tower Hallway Fight is a recurring scene.
 Tower Hallway Fight begins when the player is in the Tower Hallway.
 Every turn during the Tower Hallway Fight:
 	now the left hand status line is "Reinforced Guard: [current hit points of Reinforced Guard]";
+	now the player is hostile;
 	if the Reinforced Guard is dead:
+		now the player is docile;
+		now the player is notHit;
 		now the left hand status line is "Reinforced Guard: Deceased";
 		now the Third Floor Door is unlocked;
 		say "Now the third floor door is unlocked.";
 		now the Reinforced Guard is nowhere.
 Tower Hallway Fight ends when the player is not in the Tower Hallway.	
 When Tower Hallway Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 
 Third Floor Door is west of Tower Hallway. Third Floor Door is a door. Third Floor Door is locked. Third Floor Door is scenery.
@@ -581,16 +612,19 @@ Dusty Stairwell End is south of Dusty Stairwell Corner. Dusty Stairwell End is a
 Rule for printing the name of Dusty Stairwell End:
 	say "Dusty Stairwell".
 	
-Top Floor is above Dusty Stairwell End. Top Floor is a room. "You can see the entire island from here."
+Top Floor is above Dusty Stairwell End. Top Floor is a room. "[if Overseer is not dead]There is a person quietly looking out to the sea."
 Western Outlook is west of Top Floor. Western Outlook is a room. "The jungle stretches beyond the horizon."
 Eastern Outlook is east of Top Floor. Eastern Outlook is a room. "The jungle looks beautiful yet scary."
 Southern Outlook is south of Top Floor. Southern Outlook is a room. "The prison looks small in this immense jungle."
-Northern Outlook is north of Top Floor. Northern Outlook is a room. The Overseer is a man in Northern Outlook. "Overseer: You should see how frightened you are."
+Northern Outlook is north of Top Floor. Northern Outlook is a room. The Overseer is a man in Northern Outlook. "The Overseer turns around.[line break]Overseer: 'I can see fear in your eyes.'"
 Northern Outlook Fight is a recurring scene.
 Northern Outlook Fight begins when the player is in the Northern Outlook.
 Every turn during the Northern Outlook Fight:
 	now the left hand status line is "Overseer: [current hit points of Overseer]";
+	now the player is hostile;
 	if the Overseer is dead:
+		now the player is docile;
+		now the player is notHit;
 		now the left hand status line is "Overseer: Deceased";
 		now the Overseer's Door is unlocked;
 		say "You see a boat in the distance[if Dented Compass is in Beach 5] and something shiny on the east end of the beach[end if]. Now the Overseer's door is unlocked.";
@@ -598,6 +632,8 @@ Every turn during the Northern Outlook Fight:
 		move the Overseer's Flail to Northern Tower Entrance.
 Northern Outlook Fight ends when the player is not in the Northern Outlook.	
 When Northern Outlook Fight ends:
+	now the player is docile;
+	now the player is notHit;
 	now the left hand status line is "".
 
 Overseer's Door is east of Northern Outlook. Overseer's Door is a door. Overseer's Door is locked. Overseer's Door is scenery.
@@ -614,7 +650,9 @@ Instead of going south when player is in Placeholder Room:
 
 
 
+Book 4 - Loot Tables
 
+[Mutated Prisoner Loot]
 
 
 
