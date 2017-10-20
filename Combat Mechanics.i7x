@@ -2,10 +2,11 @@ Combat Mechanics by Lamdil begins here.
 
 Chapter 1 - Player
 
-A person has a number called maximum hit points. A person has a number called current hit points.
+A person has a number called maximum hit points. A person has a number called current hit points. 
 A person can be hostile or docile. A person is usually docile. The player is docile. 
 Definition: a person is dead if their current hit points are less than 1.
 Definition: a person is docile if a person is dead.
+A gotHit is a kind of value. The gotHits are hit, notHit. The player has a gotHit. The player is notHit.
 
 The current hit points of the player is 20. The maximum hit points of the player is 20.
 Carry out the player attacking player with something (this is the standard attacking player with a weapon rule): 
@@ -13,14 +14,72 @@ Carry out the player attacking player with something (this is the standard attac
 	if the player is dead:
 		now the current hit points of the player is 0;
 		end the story saying "You accidentally commit suicide".
+		
+Chapter 2 - Dodging
 
-Chapter 2 - Weapons
+The player has a number called dodgeTrue. The dodgeTrue of the player is 0.
+The player has a number called minDodge. The minDodge of the player is 16.
+Understand "dodge" and "evade" as dodging. Dodging is an action applying to nothing.
+Check dodging:
+	if the player is not hostile:
+		say "You are not engaged in combat.";
+		stop the action.
+Carry out dodging:
+	let x be a random number between minDodge of the player and 20;
+	if x is 20:
+		if the player is hit:
+			say "You swiftly evade the attack.";
+			now dodgeTrue of the player is 1;
+		otherwise:
+			say "You dodged too early.";
+			now the dodgeTrue of the player is 0;
+	otherwise:
+		if the player is hit:
+			say "You are too slow to avoid the hit.";
+			now the dodgeTrue of the player is 0;
+		otherwise:
+			say "You dodged too early.";
+			now the dodgeTrue of the player is 0.
+			
+Chapter 3 - Blocking
 
-A weapon is a kind of thing. A weapon has a number called the maximum damage. A weapon has a number called current turns. A weapon has a number called multihits.
+Chapter 4 - Parrying
+
+The player has a number called parryTrue. The parryTrue of the player is 0.
+The player has a number called minParry. The minParry of the player is 11.
+The player has a number called riposteDamage. The riposteDamage of the player is 5.
+Understand "parry" and "counter" and "riposte" as parrying. Parrying is an action applying to nothing.
+Check parrying:
+	if the player is not hostile:
+		say "You are not engaged in combat.";
+		stop the action.
+Carry out parrying:
+	let x be a random number between minParry of the player and 20;
+	if x is 20:
+		if the player is hit:
+			say "You fend off the attack.";
+			now the parryTrue of the player is 1;
+		otherwise:
+			say "You parried too early.";
+			now the parryTrue of the player is 0;
+	otherwise:
+		if the player is hit:
+			say "You greatly mistime the counter.";
+			now the parryTrue of the player is 0;
+		otherwise:
+			say "You parried too early.";
+			now the parryTrue of the player is 0.
+
+Chapter 5 - Staggering
+
+Chapter 6 - Weapons
+
+[REVAMP COMBAT]
+
+A weapon is a kind of thing. A weapon is always wearable. A weapon has a number called the maximum damage. A weapon has a number called current turns. A weapon has a number called multihits.
 Understand the commands "fight" and "attack" and "punch" and "kill" and "murder" and "hit" and "thump" and "torture" and "stab" as something new. 
 Attacking it with is an action applying to one visible thing and one carried thing. Understand "attack [someone] with [something preferably held]" as attacking it with. 
 Understand the commands "fight" and "punch" and "kill" and "murder" and "hit" and "thump" and "torture" and "stab" as "attack". 
-
 The attacking it with action has a number called the damage inflicted.
 
 Check an actor attacking something with something (this is the can't attack with something that isn't a weapon rule): 
@@ -34,31 +93,29 @@ Check an actor attacking something with something (this is the can't attack a no
 
 Section 1 - Light Weapons
 
-Dual Daggers is a thing. 
-
-Dual Daggers is a weapon. The maximum damage of the Dual Daggers is 8. The multihits of the Dual Daggers is 1.
+Warden’s Chain is a weapon. The maximum damage of the Warden’s Chain is 8. The multihits of the Warden’s Chain is 1.
 Setting action variables for attacking something with something: 
-	if the second noun is a Dual Daggers: 
+	if the second noun is a Warden’s Chain: 
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 2 and the maximum attack. 	
-Report attacking someone with something (this is the normal attacking with Dual Daggers 0 report rule):
-	if second noun is a Dual Daggers:
-		if the multihits of the Dual Daggers is 1:
-			say "Then you swipe the Dual Daggers up, dealing [damage inflicted] more point[s] of damage!" instead.	
-Carry out an actor attacking something with Dual Daggers (this is the standard attacking it with a Dual Daggers rule):
+Report attacking someone with something (this is the normal attacking with Warden’s Chain report rule):
+	if second noun is a Warden’s Chain:
+		if the multihits of the Warden’s Chain is 1:
+			say "Then you slam the Warden's Chain onto [the noun], dealing [damage inflicted] more point[s] of damage!" instead.	
+Carry out an actor attacking something with Warden’s Chain (this is the standard attacking it with a Warden’s Chain rule):
 	if the noun is dead: 
 		if the noun is not the player:
 			now the noun is nowhere;
 			now the noun is docile;
-	if the multihits of the Dual Daggers is 1:
+	if the multihits of the Warden’s Chain is 1:
 		decrease the current hit points of the noun by the damage inflicted; 
-		say "You stab the Dual Daggers into [the noun], dealing [damage inflicted] point[s] of damage!";
-		now the multihits of the Dual Daggers is 0;
+		say "You swipe up with the Warden's Chain, dealing [damage inflicted] point[s] of damage!";
+		now the multihits of the Warden’s Chain is 0;
 		if the noun is not the player:
 			now the noun is hostile;
-	if the multihits of the Dual Daggers is 0:
+	if the multihits of the Warden’s Chain is 0:
 		decrease the current hit points of the noun by the damage inflicted; 
-		now the multihits of the Dual Daggers is 1;
+		now the multihits of the Warden’s Chain is 1;
 		stop the action.
 		
 Section  2 - Medium Weapons
@@ -133,9 +190,9 @@ Carry out an actor attacking something with Steel Sword(this is the standard att
 			
 Section 3 - Heavy Weapons
 
-Diamond Pickaxe is a weapon. The maximum damage of the Diamond Pickaxe is 20. The current turns of the Diamond Pickaxe is 1.
+Diamond Pickaxe is a weapon. The maximum damage of the Diamond Pickaxe is 20. The current turns of the Diamond Pickaxe is 1. 
 Setting action variables for attacking something with something: 
-	if the second noun is a Diamond Pickaxe: 
+	if the second noun is a Diamond Pickaxe:
 		let the maximum attack be the maximum damage of the second noun; 
 		now the damage inflicted is a random number between 18 and the maximum attack. 	
 Report attacking someone with something (this is the normal attacking with Diamond Pickaxe report rule):
@@ -153,6 +210,7 @@ Carry out an actor attacking something with Diamond Pickaxe (this is the standar
 		now the current turns of the Diamond Pickaxe is 0;
 		stop the action;
 	if the current turns of the Diamond Pickaxe is 0:
+		let x be a random number between 1 and 2;
 		decrease the current hit points of the noun by the damage inflicted;
 		if the noun is not the player:
 			now the noun is hostile; 
