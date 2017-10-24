@@ -10,7 +10,11 @@ The Deranged Prisoner carries a weapon called Broken Glass. The maximum damage o
 Setting action variables for attacking something with something: 
 	if the second noun is a Broken Glass: 
 		let the maximum attack be the maximum damage of the second noun; 
-		now the damage inflicted is a random number between 3 and the maximum attack minus the damageReduction of the player. 
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 3 and the maximum attack minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 3 and the maximum attack minus x;
 Every turn when the player is in the Prison Staircase (this is the Deranged Prisoner-attack rule): 
 	if the Deranged Prisoner is hostile, try the Deranged Prisoner attacking the player with a random weapon which is carried by the Deranged Prisoner. 
 Report Deranged Prisoner attacking the player with something (this is the standard report Deranged Prisoner attacking the player with rule):
@@ -23,7 +27,6 @@ Report Deranged Prisoner attacking the player with something (this is the standa
 				now the dodgeTrue is 0;
 			otherwise if the parryTrue of the player is 1:
 				say "The Deranged Prisoner is knocked off guard.[line break][line break]";
-				decrease the current hit points of the Deranged Prisoner by the riposteDamage of the player;
 				if the Deranged Prisoner is dead:
 					say "You riposte the Deranged Prisoner, dealing [riposteDamage of the player] damage![line break][line break]";
 					say "The Deranged Prisoner writhes in pain before going limp.";
@@ -32,8 +35,15 @@ Report Deranged Prisoner attacking the player with something (this is the standa
 				otherwise:
 					say "You riposte the Deranged Prisoner, dealing [riposteDamage of the player] damage!";
 				now the parryTrue is 0;
+			otherwise if the blockTrue of the the player is 1:
+				if damage inflicted > 0:
+					decrease the current hit points of the player by the damage inflicted;
+					say "The Deranged Prisoner strikes your shield, dealing [damage inflicted] point[s] of damage!";
+				otherwise:
+					say "The Deranged Prisoner is unable to penetrate your shield.";
+				now the blockTrue of the player is 0;
 			otherwise if damage inflicted > 0:
-				say "The Deranged Prisoner charges and slashes you with broken glass, dealing [damage inflicted] point[s] of damage!" instead;
+				say "The Deranged Prisoner charges and slashes you with broken glass, dealing [damage inflicted] point[s] of damage!";
 			otherwise:
 				say "The Deranged Prisoner is unable to penetrate your armour.".	
 Report attacking a dead Deranged Prisoner with something (this is the Deranged Prisoner's death-report rule):
@@ -53,6 +63,8 @@ Carry out Deranged Prisoner attacking someone with something (this is the standa
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Deranged Prisoner by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
 			do nothing;
 		otherwise if damage inflicted > 0:
 			decrease the current hit points of the noun by the damage inflicted;
