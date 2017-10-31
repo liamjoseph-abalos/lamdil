@@ -3,11 +3,12 @@ Armour Mechanics by Lamdil begins here.
 Book 6 - Armour
 
 A player has a number called damageReduction. The damageReduction of the player is 0.
+A player has a number called damagePrevented. The damagePrevented of the player is 0.
 Understand the command "equip" as "wear".
 Understand the command "unequip" as "remove".
 Check the player wearing something (this is the can't wear something that is not wearable rule):
 	if the noun is not wearable:
-		say "You can't wear [noun].";
+		say "You can't equip [noun].";
 		stop the action.
 	
 Part 1 - Head Equipment
@@ -144,5 +145,39 @@ Carry out the player taking off foot equipment (this is the carry out player rem
 		now the current hit points of the player is the maximum hit points of the player.
 	
 Iron Shoes is foot equipment. The footPoints of Iron Shoes is 2. The footDamageReduction of the Iron Shoes is 1.
+
+Part 6 - Shields 
+
+A shield is a kind of thing. A shield is always wearable. A shield has a number called shieldPoints. A shield has a number called shieldDamageReduction. A shield has a number called damageBlocked. A shield has a number called incMaxBlock.
+Check the player wearing something (this is the standard already equipping shield rule):
+	if the noun is shield:
+		if the player is wearing shield:
+			say "You already have a shield equipped.";
+			stop the action.
+Report the player wearing shield (this is the report player wearing shield rule):
+	instead say "You equip [noun] on your off-hand.".
+Report the player taking off shield (this is the report player taking off shield rule):
+	instead say "You unequip [noun] from your off-hand.".
+Carry out the player wearing shield (this is the carry out player wearing shield rule):
+	let x be the maximum hit points of the player;
+	now the maximum hit points of the player is x plus shieldPoints of the noun;
+	let y be the damageReduction of the player;
+	now the damageReduction of the player is y plus shieldDamageReduction of the noun;
+	let z be the damagePrevented of the player;
+	now the damagePrevented of the player is z plus damageBlocked of the noun;
+	let w be the maxBlock of the player;
+	now the maxBlock of the player is w plus incMaxBlock of the noun.
+Carry out the player taking off shield (this is the carry out player removing shield rule):
+	let x be the the maximum hit points of the player;
+	now the maximum hit points of the player is x minus shieldPoints of the noun;
+	let y be the damageReduction of the player;
+	now the damageReduction of the player is y minus shieldDamageReduction of the noun;
+	let z be the damagePrevented of the player;
+	now the damagePrevented of the player is z minus damageBlocked of the noun;
+	now the maxBlock of the player is 0;
+	if the current hit points of the player is greater than the maximum hit points of the player:
+		now the current hit points of the player is the maximum hit points of the player.
+		
+Wooden Buckler is shield. The shieldPoints of the Wooden Buckler is 1. The shieldDamageReduction of the Wooden Buckler is 1. The damageBlocked of the Wooden Buckler is 3. The incMaxBlock of the Wooden Buckler is 5.
 
 Armour Mechanics ends here.
