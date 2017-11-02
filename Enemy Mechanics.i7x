@@ -128,44 +128,72 @@ Carry out Mutated Prisoner attacking someone with something (this is the standar
 		decrease the current hit points of the noun by the damage inflicted.
 
 The current hit points of the Warden is 25. The maximum hit points of the Warden is 25.
-The Warden is docile.
-The Warden carries a weapon called Silver Sword. The maximum damage of the Silver Sword is 3.
-The Warden carries a weapon called Steel Chain. The maximum damage of the Steel Chain is 4.
-Setting action variables for attacking something with something: 
-	if the second noun is a Silver Sword: 
-		let the maximum attack be the maximum damage of the second noun; 
-		now the damage inflicted is a random number between 2 and the maximum attack minus the damageReduction of the player. 
-Setting action variables for attacking something with something: 
-	if the second noun is a Steel Chain: 
-		let the maximum attack be the maximum damage of the second noun; 
-		now the damage inflicted is a random number between 2 and the maximum attack minus the damageReduction of the player. 
-Every turn when the player is in the Warden's Room (this is the Warden-attack rule):
-	if the Warden is hostile, try the Warden attacking the player with a random weapon which is carried by the Warden. 
-Report Warden attacking the player with Silver Sword (this is the standard report Warden attacking the player with Silver Sword rule):
-	if damage inflicted > 0:
-		say "The Warden swings at you with his sword, dealing [damage inflicted] point[s] of damage!" instead;
-	otherwise:
-		say "The Warden is unable to penetrate your armour.".
-Report Warden attacking the player with Steel Chain (this is the standard report Warden attacking the player with Steel Chain rule):
-	if damage inflicted > 0:
-		say "The Warden whips you with his chain, dealing [damage inflicted] point[s] of damage!" instead;
-	otherwise:
-		say "The Warden is unable to penetrate your armour.".
-Report attacking a dead Warden with something (this is the Warden's death-report priority rule): 
-	say "The floor trembles as the Warden collapses to the ground." instead. 
-Report Warden attacking the player with Silver Sword when the player is dead (this is the player's-death by Warden with Silver Sword priority rule):
-	now the current hit points of the player is 0;
-	say "The Warden draws back his sword and plunges it through your heart."; 
-	end the story saying "The Warden's laughter echos throughout the prison as blood gushes out your chest."; 
+The Warden is docile. 
+The Warden carries a weapon called Silver Sword. The current turns of the Silver Sword is 1.
+Setting action variables for an actor hitting:
+	if the actor is Warden:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 9 and 13 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 3 and 5 minus x.
+Every turn when the player is in the Warden's Room: 
+	if the Warden is hostile, try Warden hitting the player. 
+Report Warden hitting the player:
+	if the current turns of the Silver Sword is 0:
+		say "The Warden hoists his Silver Sword high into the air as it begins to draw in a massive amount of energy around it." instead;
+	if the current turns of the Silver Sword is 1:
+		if the dodgeTrue of the player is 1:
+			say "The Warden unleashes a powerful beam of energy towards you, but you are able to quickly dodge it!";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "Mustering all your strength you swing your weapon absorbing the incoming beam of energy and ready a counter attack![line break][line break]";
+			if the Warden is dead:
+				say "You riposte the Warden, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Warden clutches his chest as he breathes his last breath, and falls to the ground.";
+				now the Warden is nowhere;
+				now the Warden is docile;
+			otherwise:
+				say "You riposte the Warden, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "A crackling beam of energy is hurled towards you from the Warden's Silver Sword and connects with your shield. You aren't able to absorb all of it dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Warden is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The collected energy from the Warden's Silver Sword connects directly with your body, dealing a massive [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Warden is unable to penetrate your armour.".	
+Report hitting a dead Warden:
+		say "The Warden clutches his chest as he breathes his last breath, and falls to the ground." instead.
+
+Report Warden hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The brute strength of the Warden is too much for your body to handle as he constantly pummels your body. Your vision is beginning to fade."; 
+	end the story saying "The Warden delivers a final blow to your head cutting it clean off. YOU DIED."; 
 	stop the action.
-Report Warden attacking the player with Steel Chain when the player is dead (this is the player's-death by Warden with Steel Chain priority rule):
-	now the current hit points of the player is 0;
-	say "The Warden suffocates you with his chain."; 
-	end the story saying "The Warden's laughter echos throughout the prison as your vision fades to black."; 
-	stop the action.
-Carry out Warden attacking someone with something (this is the standard Warden attacking it with rule): 
-	if damage inflicted > 0:
-		decrease the current hit points of the noun by the damage inflicted.
+Carry out Warden hitting the player:
+	if the current turns of the Silver Sword is 1:
+		now the player is hit;
+		now the current turns of the Silver Sword is 0;
+		stop the action;
+	if the current turns of the Silver Sword is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Warden by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Silver Sword is 1;
+		stop the action.	
+	
+
 	
 Chapter 2 - Prison Island Enemies
 
