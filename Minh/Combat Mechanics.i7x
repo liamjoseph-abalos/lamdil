@@ -165,7 +165,7 @@ Carry out the player hitting something:
 		
 Section 1 - Light Weapons
 
-Warden’s Chain is a weapon. The multihits of the Warden’s Chain is 1. The wepParry of Warden's Chain is -3. The wepRiposte of the Warden's Chain is 9. The wepDodge of the Warden's Chain is 1.
+Warden’s Chain is a weapon. The multihits of the Warden’s Chain is 1. The wepParry of Warden's Chain is -3. The wepRiposte of the Warden's Chain is 8. The wepDodge of the Warden's Chain is 1.
 Setting action variables an actor hitting:
 	if the actor is the player:
 		if the player is wearing Warden's Chain: 
@@ -345,7 +345,7 @@ Carry out the player hitting something:
 				now the noun is docile;
 				now the noun is nowhere. 
 			
-Steel Sword is a weapon. The wepParry of the Steel Sword is 2. The wepRiposte of the Steel Sword is 24. The wepDodge of the Steel Sword is -1. 
+Steel Sword is a weapon. The wepParry of the Steel Sword is 2. The wepRiposte of the Steel Sword is 24. The wepDodge of the Steel Sword is -2. 
 Setting action variables for an actor hitting:
 	if the actor is the player:
 		if the player is wearing Steel Sword: 
@@ -363,7 +363,7 @@ Carry out the player hitting something:
 				now the noun is docile;
 				now the noun is nowhere. 
 				
-Runic Claymore is a weapon. The wepParry of the Runic Claymore is 3. The wepRiposte of the Runic Claymore is 37. The wepDodge of the Runic Claymore is -2.
+Runic Claymore is a weapon. The wepParry of the Runic Claymore is 3. The wepRiposte of the Runic Claymore is 37. The wepDodge of the Runic Claymore is -3.
 Setting action variables for an actor hitting:
 	if the actor is the player:
 		if the player is wearing Runic Claymore: 
@@ -381,7 +381,7 @@ Carry out the player hitting something:
 				now the noun is docile;
 				now the noun is nowhere. 
 				
-Treacherous Zweihander is a weapon. The wepParry of the Treacherous Zweihander is 4. The wepRiposte of the Treacherous Zweihander is 53. The wepDodge of the Treacherous Zweihander is -3.
+Treacherous Zweihander is a weapon. The wepParry of the Treacherous Zweihander is 4. The wepRiposte of the Treacherous Zweihander is 53. The wepDodge of the Treacherous Zweihander is -4.
 Setting action variables for an actor hitting:
 	if the actor is the player:
 		if the player is wearing Treacherous Zweihander: 
