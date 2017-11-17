@@ -507,7 +507,7 @@ Carry out Reinforced Guard hitting the player:
 		stop the action.
 
 
-The current hit points of the Overseer is 5. The maximum hit points of the Overseer is 5.
+The current hit points of the Overseer is 25. The maximum hit points of the Overseer is 25.
 The Overseer is hostile. 
 The Overseer carries a weapon called Spiked Flail. The current turns of the Spiked Flail is 1.
 Setting action variables for an actor hitting:
