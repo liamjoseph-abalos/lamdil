@@ -36,7 +36,11 @@ Carry out the player taking off head equipment (this is the carry out player rem
 	if the current hit points of the player is greater than the maximum hit points of the player:
 		now the current hit points of the player is the maximum hit points of the player.
 
-Guard's Helmet is head equipment. The headPoints of Guard's Helmet is 3. The headDamageReduction of the Guard's Helmet is 1.
+Rugged Cap is head equipment. The headPoints of Rugged Cap is 3. The headDamageReduction of the Rugged Cap is 1.
+Guard Helmet is head equipment. The headPoints of Guard Helmet is 6. The headDamageReduction of the Guard Helmet is 2.
+Defender Sallet is head equipment. The headPoints of Defender Sallet is 12. The headDamageReduction of the Defender Sallet is 3.
+Vicious Burgonet is head equipment. The headPoints of Vicious Burgonet is 24. The headDamageReduction of the Vicious Burgonet is 4.
+Executioner Bascinet is head equipment. The headPoints of Executioner Bascinet is 48. The headDamageReduction of the Executioner Bascinet is 5.
 
 Part 2 - Body Equipment
 
@@ -63,7 +67,11 @@ Carry out the player taking off body equipment (this is the carry out player rem
 	if the current hit points of the player is greater than the maximum hit points of the player:
 		now the current hit points of the player is the maximum hit points of the player.
 		
-Damaged Chainmail is body equipment. The bodyPoints of the Damaged Chainmail is 5. The bodyDamageReduction of the Damaged Chainmail is 1.
+Damaged Chainmail is body equipment. The bodyPoints of the Damaged Chainmail is 5. The bodyDamageReduction of the Damaged Chainmail is 3.
+Knightly Plate is body equipment. The bodyPoints of the Knightly Plate is 10. The bodyDamageReduction of the Knightly Plate is 6.
+Righteous Armour is body equipment. The bodyPoints of the Righteous Armour is 20. The bodyDamageReduction of the Righteous Armour is 9.
+Spiked Suit is body equipment. The bodyPoints of the Spiked Suit is 40. The bodyDamageReduction of the Spiked Suit is 12.
+Bloodstained Chestplate is body equipment. The bodyPoints of the Bloodstained Chestplate is 80. The bodyDamageReduction of the Bloodstained Chestplate is 15.
 
 Part 3 - Hand Equipment
 
@@ -90,7 +98,11 @@ Carry out the player taking off hand equipment (this is the carry out player rem
 	if the current hit points of the player is greater than the maximum hit points of the player:
 		now the current hit points of the player is the maximum hit points of the player.
 
-Iron Bracelets is hand equipment. The handPoints of the Iron Bracelets is 2. The handDamageReduction of the Iron Bracelets is 1.
+Rusty Bracelets is hand equipment. The handPoints of the Rusty Bracelets is 2. The handDamageReduction of the Rusty Bracelets is 1.
+Leather Gloves is hand equipment. The handPoints of the Leather Gloves is 4. The handDamageReduction of the Leather Gloves is 1.
+Royal Gauntlets is hand equipment. The handPoints of the Royal Gauntlets is 8. The handDamageReduction of the Royal Gauntlets is 2.
+Cursed Mitts is hand equipment. The handPoints of the Cursed Mitts is 16. The handDamageReduction of the Cursed Mitts is 2.
+Heavy Shackles is hand equipment. The handPoints of the Heavy Shackles is 32. The handDamageReduction of the Heavy Shackles is 3.
 
 Part 4 - Leg Equipment
 
@@ -117,7 +129,11 @@ Carry out the player taking off leg equipment (this is the carry out player remo
 	if the current hit points of the player is greater than the maximum hit points of the player:
 		now the current hit points of the player is the maximum hit points of the player.
 		
-Iron Leggings is leg equipment. The legPoints of Iron Leggings is 4. The legDamageReduction of the Iron Leggings is 1.
+Torn Trousers is leg equipment. The legPoints of Torn Trousers is 4. The legDamageReduction of the Torn Trousers is 2.
+Plated Leggings is leg equipment. The legPoints of Plated Leggings is 8. The legDamageReduction of the Plated Leggings is 4.
+Guardian Leggings is leg equipment. The legPoints of Guardian Leggings is 16. The legDamageReduction of the Guardian Leggings is 6.
+Desecrated Leggings is leg equipment. The legPoints of Desecrated Leggings is 32. The legDamageReduction of the Desecrated Leggings is 8.
+Juggernaut Leggings is leg equipment. The legPoints of Juggernaut Leggings is 64. The legDamageReduction of the Juggernaut Leggings is 10.
 
 Part 5 - Feet Equipment
 
@@ -144,7 +160,11 @@ Carry out the player taking off foot equipment (this is the carry out player rem
 	if the current hit points of the player is greater than the maximum hit points of the player:
 		now the current hit points of the player is the maximum hit points of the player.
 	
-Iron Shoes is foot equipment. The footPoints of Iron Shoes is 2. The footDamageReduction of the Iron Shoes is 1.
+Battered Shoes is foot equipment. The footPoints of Battered Shoes is 1. The footDamageReduction of the Battered Shoes is 1.
+Steel Boots is foot equipment. The footPoints of Steel Boots is 2. The footDamageReduction of the Steel Boots is 1.
+Blessed Strides is foot equipment. The footPoints of Blessed Strides is 4. The footDamageReduction of the Blessed Strides is 1.
+Torment Boots is foot equipment. The footPoints of Torment Boots is 8. The footDamageReduction of the Torment Boots is 2.
+Destroyer Strides is foot equipment. The footPoints of Destroyer Strides is 16. The footDamageReduction of the Destroyer Strides is 2.
 
 Part 6 - Shields 
 
@@ -181,6 +201,10 @@ Carry out the player taking off shield (this is the carry out player removing sh
 	if the current hit points of the player is greater than the maximum hit points of the player:
 		now the current hit points of the player is the maximum hit points of the player.
 		
-Wooden Buckler is shield. The shieldPoints of the Wooden Buckler is 1. The shieldDamageReduction of the Wooden Buckler is 1. The damageBlocked of the Wooden Buckler is 3. The incMaxBlock of the Wooden Buckler is 5.
+Wooden Buckler is shield. The shieldPoints of the Wooden Buckler is 2. The shieldDamageReduction of the Wooden Buckler is 1. The damageBlocked of the Wooden Buckler is 3. The incMaxBlock of the Wooden Buckler is 5.
+Armoured Kite Shield is shield. The shieldPoints of the Armoured Kite Shield is 4. The shieldDamageReduction of the Armoured Kite Shield is 2. The damageBlocked of the Armoured Kite Shield is 6. The incMaxBlock of the Armoured Kite Shield is 6.
+Protector Parma is shield. The shieldPoints of the Protector Parma is 8. The shieldDamageReduction of the Protector Parma is 3. The damageBlocked of the Protector Parma is 9. The incMaxBlock of the Protector Parma is 7.
+Hexed Pavise is shield. The shieldPoints of the Hexed Pavise is 16. The shieldDamageReduction of the Hexed Pavise is 4. The damageBlocked of the Hexed Pavise is 12. The incMaxBlock of the Hexed Pavise is 8.
+Warmonger Greatshield is shield. The shieldPoints of the Warmonger Greatshield is 32. The shieldDamageReduction of the Warmonger Greatshield is 5. The damageBlocked of the Warmonger Greatshield is 15. The incMaxBlock of the Warmonger Greatshield is 9.
 
 Armour Mechanics ends here.
