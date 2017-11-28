@@ -722,19 +722,22 @@ Every turn during the Northern Outlook Fight:
 	now the left hand status line is "Overseer: [current hit points of Overseer]";
 	now the player is hostile;
 	if the Overseer is dead:
+		now the Overseer is nowhere; 
+		now the left hand status line is "Corrupted Entity: [current hit points of Corrupted Entity]";
+		now the Corrupted Entity is in the Northern Outlook;
+	if the Corrupted Entity is dead:
 		now the player is docile;
 		now the player is notHit;
-		now the left hand status line is "Overseer: Deceased";
+		now the left hand status line is "Corrupted Entity: Deceased";
 		now the Overseer's Door is unlocked;
 		say "You see a boat in the distance[if Dented Compass is in Beach 5] and something shiny on the east end of the beach[end if]. Now the Overseer's door is unlocked.";
-		now the Overseer is nowhere;
+		now the Corrupted Entity is nowhere;
 		move the Overseer's Flail to Northern Tower Entrance.
 Northern Outlook Fight ends when the player is not in the Northern Outlook.	
 When Northern Outlook Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "".
-
 Overseer's Door is east of Northern Outlook. Overseer's Door is a door. Overseer's Door is locked. Overseer's Door is scenery.
 Overseer's Room is east of Overseer's Door. Overseer's Room is a room. "The room is bare with the exception of a bed and table. At least it has a good view of the island."
 In Overseer's Room is an openable container called Overseer's Cache. Overseer's Cache is closed. Overseer's Cache is fixed in place. "[if open]The Overseer's Cache is open.[else]The Overseer's Cache is closed." In Overseer's Cache is a thing called Sea Map.
