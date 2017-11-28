@@ -4,13 +4,15 @@ A player has a number called level. The level of the player is 1.
 
 Chapter 1 - Level From Killing Enemies
 
-When Shadow Finale ends:
-	wait for any key;
+Shadow Scene Part Three is a scene.
+Shadow Scene Part Three begins when player is in Prison Staircase.
+Shadow Scene Part Three ends when Deranged Prisoner is dead.
+When Shadow Scene Part Three ends:
 	increase the level of the player by 1;
 	say ".                                                                                                                                ~~))[line break]~~))                                                                                                                             ,||.[line break].   ,||~------------------------------------------------------------------------ í    |[line break].  |    |             __         _____ __             __  ____ _              __       __  ____                    |    |[line break].  |    |             |  |       |   ____\   \        /   / ____|  |            |   |     |   |   __  \    |   |         |    |[line break].  |    |             |  |       |  |__     \   \    /   /|  |__   |  |            |   |     |   |  |__)  |   |   |         |    |[line break].  |    |             |  |       |   __|      \   \/   /  |   __|  |  |            |   |     |   |   ___/    |__|         |    |[line break].  |    |             |  |____|   |____     \     /    |  |____|  |____     |   |___|   |   |           __          |    |[line break].  |    |             |______|______|      \ /      |______|______|    \______/|__|          |__|         |    |[line break].  |    |                                                                                                                           |    |[line break].  |    ;¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯`||'[line break].   `||'                                                                                                                        ~~))[line break]~~))[line break][line break]";
 	increase maximum hit points of the player by 1;
 	increase damageReduction of the player by 1;
-	say "The soul of the Deranged Prisoner flies out and enters your body | +1 to max hp | +1 to damage reduction.".
+	say "The soul of the Deranged Prisoner flies out and enters your body | +1 to max hp | +1 to damage reduction".
 	
 Mutated Prisoner Alive is a scene.
 Mutated Prisoner Alive begins when the player is in Prison Tunnel.
@@ -84,7 +86,7 @@ When Reinforced Guard Alive ends:
 	
 Overseer Alive is a scene.
 Overseer Alive begins when the player is in Top Floor.
-Overseer Alive ends when the Reinforced Guard is dead.
+Overseer Alive ends when the Overseer is dead.
 When Overseer Alive ends:
 	increase the level of the player by 1;
 	say ".                                                                                                                                ~~))[line break]~~))                                                                                                                             ,||.[line break].   ,||~------------------------------------------------------------------------ í    |[line break].  |    |             __         _____ __             __  ____ _              __       __  ____                    |    |[line break].  |    |             |  |       |   ____\   \        /   / ____|  |            |   |     |   |   __  \    |   |         |    |[line break].  |    |             |  |       |  |__     \   \    /   /|  |__   |  |            |   |     |   |  |__)  |   |   |         |    |[line break].  |    |             |  |       |   __|      \   \/   /  |   __|  |  |            |   |     |   |   ___/    |__|         |    |[line break].  |    |             |  |____|   |____     \     /    |  |____|  |____     |   |___|   |   |           __          |    |[line break].  |    |             |______|______|      \ /      |______|______|    \______/|__|          |__|         |    |[line break].  |    |                                                                                                                           |    |[line break].  |    ;¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯`||'[line break].   `||'                                                                                                                        ~~))[line break]~~))[line break][line break]";
