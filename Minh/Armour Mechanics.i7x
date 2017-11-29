@@ -4,8 +4,8 @@ Book 6 - Armour
 
 A player has a number called damageReduction. The damageReduction of the player is 0.
 A player has a number called damagePrevented. The damagePrevented of the player is 0.
-Understand the command "equip" as "wear".
-Understand the command "unequip" as "remove".
+Understand the command "equip" and "eq" as "wear".
+Understand the command "unequip" and "un" as "remove".
 Check the player wearing something (this is the can't wear something that is not wearable rule):
 	if the noun is not wearable:
 		say "You can't equip [noun].";
