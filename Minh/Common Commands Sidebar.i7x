@@ -270,7 +270,8 @@ Displayed Command (a text)	Listed Command (a text)	Command Label (a command-labe
 "Eat (something)"
 "Break"
 "Attack (a)"
-"Un/equip (un)/(eq) (something)"
+"Equip (eq) (something)"'
+"Unequip (un) (something)"
 "Block (b)"
 "Dodge (do)"
 "Parry (p)"
