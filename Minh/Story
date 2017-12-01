@@ -186,7 +186,7 @@ Shadow Finale ends when the player is in Prison Staircase.
 
 Part 3 - Captain's Chapter
 
-The Staircase Door is above the Prison Staircase. The Staircase Door is a door. The Staircase Door is scenery. The Staircase Door is locked. The Captain's Staircase is above the Staircase Door. The Captain's Staircase is a dark room above the Prison Staircase. "There's not a soul in sight, but the air feels warm as if someone had scurried away in a hurry."
+The Staircase Door is above the Prison Staircase. The Staircase Door is a door. The Staircase Door is scenery. The Staircase Door is locked. The Captain's Staircase is above the Staircase Door. "There's not a soul in sight, but the air feels warm as if someone had scurried away in a hurry."
 The Guard's Quarters is west of the Captain's Staircase. The Guard's Quarters is a dark room. "You enter what appears to be the room where the guards of the prison sleep. By each bed is a chest full of belongings. Each chest is chained and locked shut, except for one. ".
 In the Guard's Quarters is an openable container called Chest. Chest is closed. The Chest is fixed in place. "[if open]The chest is open.[else]You see one chest, in the corner of the room hidden from the light, might be able to open if you pry enough." In Chest is a thing called Iron Key. In Chest is a thing called Stale Bread. In Chest is a thing called Guard's Satchel.
 Rule for printing the name of Guard's Chest: 
