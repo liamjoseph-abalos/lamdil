@@ -92,6 +92,7 @@ Every turn during Prison Staircase Fight:
 		now the player is docile;
 		now the player is notHit;
 		now the left hand status line is "Deranged Prisoner: Deceased";
+		now the Staircase Door is unlocked;
 		now the Deranged Prisoner is nowhere.
 Prison Staircase Fight ends when the Deranged Prisoner is dead.
 
@@ -129,7 +130,7 @@ When Shadow Prison Scene begins:
 	say "You take a step forward and instantly you transport back into your cell. You stare at the door in front of you."
 Shadow Door is a thing in Shadow Prison. Shadow Door is fixed in place.
 Instead of opening Shadow Door:
-	say "Ethiram appears in front of you and says, 'Welcome to the prison. But this isn't the prison you grew to know. This is the prison I knew. I, along with many others, lived in the prison for decades. Just like you, we all awoke one day within the cold walls. In time, we met The Warden.'";
+	say "Ethiram appears in front of you and says, 'Welcome to the prison. But this isn't the prison you grew to know. This is the prison I knew. I, along with many others, lived in the prison for decades. Just like you, we all awoke one day within the cold walls. In time, we met the Warden.'";
 	now the Shadow Door is nowhere;
 	wait for any key;
 	move player to The Warden's Quarters.
@@ -166,8 +167,7 @@ Shadow Finale begins when Shadow Warden ends.
 When Shadow Finale begins:
 	say "Your body passes through the purple clouds and you appear back where you first met Ethiram. He notices your presence.[line break]'He killed everyone...' his voice trails off.";
 	wait for any key;
-	say "'...but he didn't get me. Some prisoners and I made a break for it. We found a way out of the prisoner and we ran. We ran as far as our legs would take us. And we discovered, The Jungle. I need you to get to The Jungle. I'm trapped here, but with your help, you can get me out, and in turn, I'll take you back to your home.
-	wait for any key'";
+	say "'...but he didn't get me. Some prisoners and I made a break for it. We found a way out of the prison and we ran. We ran as far as our legs would take us. And we discovered, the Jungle. I need you to get to the Jungle. I'm trapped here, but with your help, you can get me out, and in turn, I'll take you back to your home.'";
 	wait for any key;
 	say "'You'll encounter another foe in The Jungle, much stronger than the Warden. Thus, I will infuse your soul with the ability to absorb the powers of those you've slain.'"; 
 	wait for any key;
@@ -186,14 +186,14 @@ Shadow Finale ends when the player is in Prison Staircase.
 
 Part 3 - Captain's Chapter
 
-The Prison Staircase is below the Captain's Staircase. The Captain's Staircase is a dark room above the Prison Staircase. "There's not a soul in sight, but the air feels warm as if someone had scurried away in a hurry."
-The Guard's Quarters is west of the Captain's Staircase. The Guard's Quarters is a dark room. "You enter what appears to be the room where the Guard's of the prisoner sleep. By each bed is a chest full of belongings. Each chest is chained and locked shut, except for one. ".
-In the Guard's Quarters is an openable container called Chest. Chest is closed. The Chest is fixed in place. "[if open]The chest is open and nothing of importance remains.[else]You see one chest, in the corner of the room hidden from the light, might be able to open if you pry enough." In Chest is a thing called Iron Key. In Chest is a thing called Stale Bread. In Chest is a thing called Guard's Satchel.
+The Staircase Door is above the Prison Staircase. The Staircase Door is a door. The Staircase Door is scenery. The Staircase Door is locked. The Captain's Staircase is above the Staircase Door. The Captain's Staircase is a dark room above the Prison Staircase. "There's not a soul in sight, but the air feels warm as if someone had scurried away in a hurry."
+The Guard's Quarters is west of the Captain's Staircase. The Guard's Quarters is a dark room. "You enter what appears to be the room where the guards of the prison sleep. By each bed is a chest full of belongings. Each chest is chained and locked shut, except for one. ".
+In the Guard's Quarters is an openable container called Chest. Chest is closed. The Chest is fixed in place. "[if open]The chest is open.[else]You see one chest, in the corner of the room hidden from the light, might be able to open if you pry enough." In Chest is a thing called Iron Key. In Chest is a thing called Stale Bread. In Chest is a thing called Guard's Satchel.
 Rule for printing the name of Guard's Chest: 
 	say "[printed name of Guard's Chest]";
 	omit contents in listing.
 	
-The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is scenery. The Iron Door is locked. Iron Key unlocks the Iron Door. The Armoury is a dark room. "As you enter the room, the light from your torch reveals an armoury. However, little remains. You think to yourself that it was all taken in Ethiram's skirmish. Scrawled across the floor is a broken sowrd and a helmet." In the Armoury is Broken Sword and Guard's Helmet.
+The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is scenery. The Iron Door is locked. Iron Key unlocks the Iron Door. The Armoury is a dark room. "As you enter the room, the light from your torch reveals an armoury. However, little remains. You think to yourself that it was all taken in Ethiram's skirmish. Scrawled across the floor is a broken sowrd and a helmet." In the Armoury is Broken Sword and Rugged Cap.
 North of the Captain's Staircase is a Hallway. The Hallway is a dark room. 
 North of the Hallway is the Warden's Staircase. "You stare at the long hallway in front of you. You can't help but feel deja vu."
 Instead of listening to Warden's Staircase:
@@ -208,9 +208,9 @@ The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase 
 Warden Introduction is a scene.
 Warden Introduction begins when the player is in the Warden's Room.
 When Warden Introduction begins:
-	say "Climbing up the staircase, you see a man in full metal armour waiting for you.";
+	say "Climbing up the staircase, you see a man in full metal armour.";
 	wait for any key;
-	say "'I've been waiting for you.' he patiently slaps his steel sword against the stone cold floor and brandishes his steel chain awaiting your move.".
+	say "'I've been waiting for you.' He patiently slaps his steel sword against the stone cold floor and brandishes his steel chain awaiting your move.".
 Warden's Room Fight is a recurring scene.
 Warden's Room Fight begins when the player is in the Warden's Room.
 Every turn during Warden's Room Fight: 
@@ -220,8 +220,8 @@ Every turn during Warden's Room Fight:
 		now the player is docile;
 		now the player is notHit;
 		now the left hand status line is "Warden: Deceased";
-		now the Prison Door is unlocked;
-		say "Now the prison door is unlocked.";
+		now the Prison Exit is unlocked;
+		say "Now the prison exit is unlocked.";
 		now the Warden is nowhere.
 Warden's Room Fight ends when the player is not in the Warden's Room.
 When Warden's Room Fight ends:
@@ -229,7 +229,7 @@ When Warden's Room Fight ends:
 	now the player is notHit;
 	now the left hand status line is "".
 
-The Prison Door is north of the Warden's Room. The Prison Door is a door. The Prison Door is scenery. The Prison Door is locked. The Prison Entrance is north of the Prison Door. The Prison Entrance is a room. "Its been awhile since you've seen sunlight."
+The Prison Exit is north of the Warden's Room. The Prison Exit is a door. The Prison Exit is scenery. The Prison Exit is locked. The Prison Opening is north of the Prison Exit. The Prison Opening is a room. "Its been awhile since you've seen sunlight."
 
 Part 4 - Yard Chapter
 
