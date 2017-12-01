@@ -193,7 +193,7 @@ Rule for printing the name of Guard's Chest:
 	say "[printed name of Guard's Chest]";
 	omit contents in listing.
 	
-The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is scenery. The Iron Door is locked. Iron Key unlocks the Iron Door. The Armoury is a dark room. "As you enter the room, the light from your torch reveals an armoury. However, little remains. You think to yourself that it was all taken in Ethiram's skirmish. Scrawled across the floor is a broken sowrd and a helmet." In the Armoury is Broken Sword and Rugged Cap.
+The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is scenery. The Iron Door is locked. Iron Key unlocks the Iron Door. The Armoury is a dark room. "As you enter the room, the light from your torch reveals an armoury. However, little remains. You think to yourself that it was all taken in Ethiram's skirmish. Scrawled across the floor is a broken sword and a helmet." In the Armoury is Broken Sword and Rugged Cap.
 North of the Captain's Staircase is a Hallway. The Hallway is a dark room. 
 North of the Hallway is the Warden's Staircase. "You stare at the long hallway in front of you. You can't help but feel deja vu."
 Instead of listening to Warden's Staircase:
