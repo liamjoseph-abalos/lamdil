@@ -215,7 +215,7 @@ Every turn during Warden's Room Fight:
 		now the player is docile;
 		now the player is notHit;
 		now the left hand status line is "Warden: Deceased";
-		now the Prison Door is unlocked;
+		now the Prison Exit is unlocked;
 		now the Armoury Door is unlocked;
 		say "The Warden's heavy body thumps to the ground, and over his corpse you see an opening in the massive wall at the far end of the room. To the left you see a plaque above another room labled, 'Armoury'.";
 		now the Warden is nowhere.
@@ -621,8 +621,6 @@ When Loose Stone Moving begins:
 	move Rusty Metal Key to Ground Floor 9.
 Loose Stone Moving ends when Rusty Metal Key is in Ground Floor 9.
 
-[During Ethiram's revolution, he and his fellow rebels escape the prison and disappear into the jungle. At the jungle, they find a mysterious marble tower guarded by sentintels. At the northern entrance of the tower, they kill the northern sentinel and slip inside. There they see a mysterious metal grating and drop below. They seem to fall for what seems like an eternity until they are greeted by a small light coming from a torch. For some reason they were already standing up when they saw the torch. When they went to pick up the torch, the flame grows in size and fills the entire room with a bright light. Revealed to the group of rebels are 8 cages, suspended in air, chains dropping from what looks like an endless ceiling, dangling metal boxes containing prisoneres covered in rags. The group is stunned and they hear a voice. The voice calls to them, and begs them to come close. The voice convinces Ethiram to unlock him and help him escape with the Ethiram. When unlocked, the voice turns into a body. The body's hand grasps at Ethiram and sucks the soul out of him. The body morphs into Ethiram and ]
-
 Underground Entrance is east of Ground Floor 4 and south of Ground Floor 2. Underground Entrance is a room. "There's a metal grating on the floor. You wonder what is down there." Metal Grating is below Underground Entrance. Metal Grating is a door. Metal Grating is locked. The Rusty Metal Key unlocks the Metal Grating. Metal Grating is scenery.	
 
 Abandoned Cages is below Metal Grating. Abandoned Cages is a room. "You see eight empty cages in each direction."
@@ -753,6 +751,24 @@ Instead of going south when player is in Placeholder Room:
 Book 4 - Loot Tables
 
 [Mutated Prisoner Loot lol xd]
+
+[During Ethiram's revolution, he and his fellow rebels escape the prison and disappear into the jungle. At the jungle, they find a mysterious marble tower guarded by sentintels. At the northern entrance of the tower, they kill the northern sentinel and slip inside. There they see a mysterious metal grating and drop below. They seem to fall for what seems like an eternity until they are greeted by a small light coming from a torch. For some reason they were already standing up when they saw the torch. When they went to pick up the torch, the flame grows in size and fills the entire room with a bright light. Revealed to the group of rebels are 8 cages, suspended in air, chains dropping from what looks like an endless ceiling, dangling metal boxes containing prisoneres covered in rags. The group is stunned and they hear a voice. The voice calls to them, and begs them to come close. The voice asks who Ethiram and his rebels are. Ethiram explains. The voice weakly explains that he's been a prisoner here as well and would like to escape with them. He convicnes Ethiram to help him and unlocks his gate. Once unlocked, nothing happens for a moment. Ethiram and his rebels peer into the dark cage waiting for someone to come out. Suddently, a black, shadowy hand plunges from the darkness and grabs Ethiram by the neck. Ethiram is pulled into the cage and a gut wrenching scream is heard. The rebels begin to panic, but a voice familiar to them emerges from the dark cage. It's Ethiram. Walking out of the cage and onto the bridge is Ethiram, whose face is covered in blood and scars, the whites of his eyes turned black. He stands amongst his rebels, who cower in fear away from their leader, afraid of what has happened to him. Ethiram opens his mouth, his jaw unhinged far greater than it should be, and a black cloud escapes his gaping mouth and forces itself onto the others. Shadowy tendrils wrap the rebels and Ethiram eyes emit a white light, and in an instant, they vanish. ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
