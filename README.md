@@ -26,4 +26,5 @@ your soul?
 This game was created by Liam Abalos, Minh Dinh, and Isaac Leiva as a secondary project for
 an AP Computer Science course. To make the game, Inform 7 was used, an interactive fiction
 design system based off of natural language instead of "complicated computer code". The game
-has been through many 
+has been through many stages of story and gameplay to finally end up with the version you 
+see before you.
