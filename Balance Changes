@@ -1,1 +1,14 @@
+Teleport to beach. Sees boat in the distance.
+Game prompts message, "If ya still got the torch on ya, you can raise it"
+Player "raises torch"
+Boat sees it
+Game ends.
+
+Alt ending
+
+If player does not have torch
+The boat drifts away
+You're trapped on the island.
+Game ends.
+
 ### Deranged Prisoner
