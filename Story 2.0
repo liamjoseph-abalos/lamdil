@@ -199,7 +199,7 @@ The Warden's Staircase is a dark room. "[if Warden is not dead]Above you hear he
 
 Part 4 - Warden's Chapter
 
-The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a dark room called the Warden's Room. The Warden is a man in the Warden's Room.
+The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a dark room called the Warden's Room. The Warden is a man in the Warden's Room. "Climbing up the staircase, you see a man in full metal armour."
 Warden Introduction is a scene.
 Warden Introduction begins when the player is in the Warden's Room.
 When Warden Introduction begins:
@@ -225,14 +225,60 @@ When Warden's Room Fight ends:
 	now the player is notHit;
 	now the left hand status line is "".
 	
-Armoury Door is west of the Warden's Room. Armoury Door is a door. Armoury Door is scenery. Armoury Door is locked. Warden's Armoury is west of Armoury Door. Warden's Armoury is a dark room. "The walls of the room are stacked with weapons upon weapons. Random pieces of gear litter the floor. Armour Racks and Mannequins display full metal armour.[line break]A few weapons call to you: Sacrificial Kris, Steel Sword, and the Overseer's Flail. It would be wise to only choose one of these three.[line break]You see enough pieces of equipment to complete a set of gear: Damaged Chainmail, Rusty Bracelets, Torn Trousers, Battered Shoes, and a Wooden Buckler (does not work with the Overseer's Flail)".
-Sacrifical Kris is in the Warden's Armoury. Steel Sword is in the Warden's Armoury. Overseer's Flail is in the Warden's Armoury. Damaged Chainmail is in the Warden's Armoury. Rusty Bracelets is in the Warden's Armoury. Torn Trousers is in the Warden's Armoury. Battered Shoes is in the Warden's Armoury. Wooden Buckler is in the Warden's Armoury.
+Armoury Door is west of the Warden's Room. Armoury Door is a door. Armoury Door is scenery. Armoury Door is locked. Warden's Armoury is west of Armoury Door. Warden's Armoury is a dark room. "The walls of the room are stacked with weapons upon weapons. Random pieces of gear litter the floor. Armour Racks and Mannequins display full metal armour.[line break]A few weapons call to you: Sacrificial Kris, Steel Sword, and the Overseer's Flail. It would be wise to only choose one of these three.[line break]You see enough pieces of equipment to complete a set of gear: Damaged Chainmail, Rusty Bracelets, Torn Trousers, Battered Shoes, and a Wooden Buckler (does not work with the Overseer's Flail).".
+Sacrifical Kris is in the Warden's Armoury. Steel Sword is in the Warden's Armoury. Warden's Flail is in the Warden's Armoury. Damaged Chainmail is in the Warden's Armoury. Rusty Bracelets is in the Warden's Armoury. Torn Trousers is in the Warden's Armoury. Battered Shoes is in the Warden's Armoury. Wooden Buckler is in the Warden's Armoury.
 
-The Prison Exit is north of the Warden's Room. The Prison Exit is a door. The Prison Exit is scenery. The Prison Exit is locked. The Prison Opening is north of the Prison Exit. The Prison Opening is a room. "As you walk through the opening, you are greeted by rays of sunlight and a cool breeze grazes your skin. You're free at last."
+The Prison Exit is north of the Warden's Room. The Prison Exit is a door. The Prison Exit is scenery. The Prison Exit is locked. The Prison Opening is north of the Prison Exit. The Prison Opening is a room. "As you walk through the opening, you are greeted by rays of sunlight and a cool breeze grazes your skin. You're free. But this feeling of freedom doesn't last. You feel your soul being sucked into nothingness. The rays of sun and the breeze disappear and the coolness you feel is from the coldness of nothing."
 
-Part 4 - Yard Chapter
+Instead of going north when the Player is in Prison Opening:
+	move the Player to Shadow Realm 2.
+	
+Part 4 - Shadow Realm (Again)
 
-Prison Yard 5 is north of the Prison Entrance. Prison Yard 5 is a room. "The walls surrounding the prison are preventing your escape."
+Shadow Meeting is a scene. Shadow Meeting begins when the player is in Shadow Realm 2.
+Shadow Realm 2 is a room. "You see Ethiram standing, waiting for you."
+Rule for printing the name of Shadow Realm 2:
+	say "Shadow Realm".
+When Shadow Meeting begins:
+	move Ethiram to Shadow Realm 2.
+	
+Instead of asking Ethiram to try doing something:
+	repeat through Table of Ethiram's Commentary:
+		if player's command includes topic entry:
+			say "[commentary entry][paragraph break]";
+			rule succeeds;
+	say "'Hmmf,' says Ethiram."
+	
+Understand the commands "ask" and "tell" and "say" and "answer" as something new.
+
+Understand "ask [text]" or "tell [text]" or "answer [text]" or "say [text]" as a mistake ("[talk to instead]").
+
+Instead of asking someone to try doing something:
+	say "[talk to instead][paragraph break]".
+
+Instead of answering someone that something:
+	say "[talk to instead][paragraph break]".
+
+To say talk to instead:
+	say "(To communicate in [story title], TALK TO a character.) "
+
+Understand "talk to [someone]" as talking to. Understand "talk to [something]" as talking to. Talking to is an action applying to one visible thing.
+
+Instead of talking to Ethiram during Shadow Meeting:
+	say "'Sorry for the intrusion, but there's more I have to tell you. Congratulations for killing the warden. However, the task ahead is far more daunting, but if you succeed, you and I can finally get off this god forsaken island. In the jungle there's a marble tower. And in this tower awaits the Overseer. Kill him you'll obtain the key to what used to be a prison below a prison. Cast the Mobilieum spell to go back to the material world.' Ethiram vanishes in a black puff.";
+	now the Player is in the Prison Yard.
+	
+Understand "Mobilorus" as casting xyzzyz.
+Casting xyzzyz is an action applying to nothing. 
+Carry out casting xyzzyz:
+	clear main window;
+	move the player to Prison Yard. 
+Report casting xyzzyz:
+	say "This time with confidence you say 'Mobilorus' and a black swirl envelopes you and for a moment you are covered in darkness. The swirling cloud of blackness starts to unravel itself, and you appear back in the normal world and realize that the prison is behind you. In front of you is what looks like a yard. Tall stone walls surround you. Hopefully there's a way out.".
+	
+Part 5 - Yard Chapter
+
+Prison Yard 5 is north of the Prison Opening. Prison Yard 5 is a room. "You appear back in the normal world and realize that the prison is behind you. In front of you is what looks like a yard. Tall stone walls surround you. Hopefully there's a way out."
 Rule for printing the name of Prison Yard 5:
 	say "Prison Yard". 
 
@@ -284,7 +330,7 @@ Instead of going west when the player is in Near Prison 1:
 	say "The trees prevent you from going further.";
 	stop the action.
 	
-Front of Prison Gate is east of Near Prison 2 and north of Prison Gate. Front of Prison Gate is a room. "You can see the prison in the background and think to yourself how much you won't miss it."
+Front of Prison Gate is east of Near Prison 2 and north of Prison Gate. Front of Prison Gate is a room. "You can see the prison in the background and think to yourself how much you won't miss it, but at the same time, what more there is to come..."
 Near Prison 4 is east of Front of Prison Gate. Near Prison 4 is a room.
 Rule for printing the name of Near Prison 4:
 	say "Near Prison".
@@ -340,10 +386,10 @@ Jungle 8 is east of Jungle 7 and north of Jungle 2. Jungle 8 is a room. "[if Sou
 Rule for printing the name of Jungle 8:
 	say "Jungle".
 Instead of going north when the player is in Jungle 8:
-	say "There is a tall wall here.";
+	say "A tall, marble wall blocks your path.";
 	stop the action.
 	
-Southern Tower Entrance is east of Jungle 8 and north of Jungle 3. Southern Tower Entrance is a room. The Southern Tower Sentinel is a man in the Southern Tower Entrance. "[if Southern Tower Sentinel is not dead]The Southern Tower Sentinel gets into an offensive position." Southern Tower Door is north of Southern Tower Entrance. Southern Tower Door is a door. Southern Tower Door is locked. Southern Tower door is scenery.
+Southern Tower Entrance is east of Jungle 8 and north of Jungle 3. Southern Tower Entrance is a room. The Southern Tower Sentinel is a man in the Southern Tower Entrance. "[if Southern Tower Sentinel is not dead]A sentinal sees you round the corner of his post and yells 'HALT!' He readies his blade, awaiting your strike." Southern Tower Door is north of Southern Tower Entrance. Southern Tower Door is a door. Southern Tower Door is locked. Southern Tower door is scenery.
 Southern Tower Entrance Fight is a recurring scene.
 Southern Tower Entrance Fight begins when the player is in the Southern Tower Entrance .
 Every turn during the Southern Tower Entrance Fight:
@@ -354,7 +400,7 @@ Every turn during the Southern Tower Entrance Fight:
 		now the player is notHit;
 		now the left hand status line is "Southern Tower Sentinel: Deceased";
 		now the Southern Tower Door is unlocked;
-		say "Now the southern tower door is unlocked.";
+		say "With the sentinel dispatched, the southern entrance to the Marble Tower is unblocked.";
 		now the Southern Tower Sentinel is nowhere.
 Southern Tower Entrance Fight ends when the player is not in the Southern Tower Entrance .	
 When Southern Tower Entrance Fight ends:
@@ -366,7 +412,7 @@ Jungle 10 is east of Southern Tower Entrance and north of Jungle 4. Jungle 10 is
 Rule for printing the name of Jungle 10:
 	say "Jungle".
 Instead of going north when the player is in Jungle 10:
-	say "There is a tall wall here.";
+	say "A tall, marble wall blocks your path.";
 	stop the action.
 	
 Jungle 11 is east of Jungle 10 and north of Jungle 5. Jungle 11 is a room.
@@ -394,14 +440,14 @@ Jungle 14 is east of Jungle 13 and north of Jungle 7. Jungle 14 is a room. "[if 
 Rule for printing the name Jungle 14:
 	say "Jungle".
 Instead of going east when the player is in Jungle 14:
-	say "There is a tall wall here.";
+	say "A tall, marble wall blocks your path.";
 	stop the action.
 	
 Jungle 18 is north of Jungle 11. Jungle 18 is a room. "[if Eastern Tower Sentinel is not dead]You feel someone watching you..."
 Rule for printing the name of Jungle 18:
 	say "Jungle".
 Instead of going west when the player is in Jungle 18:
-	say "There is a tall wall here.";
+	say "A tall, marble wall blocks your path.";
 	stop the action.
 	
 Jungle 19 is east of Jungle 18 and north of Jungle 12. Jungle 19 is a room.
@@ -418,7 +464,7 @@ Instead of going west when the player is in Jungle 20:
 	say "The trees prevent you from going further.";
 	stop the action.
 
-Western Tower Entrance is east of Jungle 20 and north of Jungle 14. Western Tower Entrance is a room. Western Tower Sentinel is a man in Western Tower Entrance. "[If Western Tower Sentinel is not dead]The Western Tower Sentinel points his sword at you." Western Tower Door is east of Western Tower Entrance. Western Tower Door is a door. Western Tower Door is locked. Western Tower Door is scenery.
+Western Tower Entrance is east of Jungle 20 and north of Jungle 14. Western Tower Entrance is a room. Western Tower Sentinel is a man in Western Tower Entrance. "[If Western Tower Sentinel is not dead]A sentinel sees you round the corner of his post and yells 'HALT!'. He readies his blade, awaiting your strike." Western Tower Door is east of Western Tower Entrance. Western Tower Door is a door. Western Tower Door is locked. Western Tower Door is scenery.
 Western Tower Entrance Fight is a recurring scene.
 Western Tower Entrance Fight begins when the player is in the Western Tower Entrance.
 Every turn during the Western Tower Entrance Fight:
@@ -429,7 +475,7 @@ Every turn during the Western Tower Entrance Fight:
 		now the player is notHit;
 		now the left hand status line is "Western Tower Sentinel: Deceased";
 		now the Western Tower Door is unlocked;
-		say "Now the western tower door is unlocked.";
+		say "With the sentinel dispatched, the western entrance to the Marble Tower is unblocked.";
 		now the Western Tower Sentinel is nowhere.
 Western Tower Entrance Fight ends when the player is not in the Western Tower Entrance.	
 When Western Tower Entrance Fight ends:
@@ -437,7 +483,7 @@ When Western Tower Entrance Fight ends:
 	now the player is notHit;
 	now the left hand status line is "".
 	
-Eastern Tower Entrance is north of Jungle 18. Eastern Tower Entrance is a room. Eastern Tower Sentinel is a man in Eastern Tower Entrance. "[if Eastern Tower Sentinel is not dead]The Eastern Tower Sentinel slowly moves from his rigid position." Eastern Tower Door is west of Eastern Tower Entrance. Eastern Tower Door is a door. Eastern Tower Door is locked. Eastern Tower Door is scenery.
+Eastern Tower Entrance is north of Jungle 18. Eastern Tower Entrance is a room. Eastern Tower Sentinel is a man in Eastern Tower Entrance. "[if Eastern Tower Sentinel is not dead]A sentinel sees you round the corner of his post and yells 'HALT!'. He readies his blade, awaiting your strike." Eastern Tower Door is west of Eastern Tower Entrance. Eastern Tower Door is a door. Eastern Tower Door is locked. Eastern Tower Door is scenery.
 Eastern Tower Entrance Fight is a recurring scene.
 Eastern Tower Entrance Fight begins when the player is in the Eastern Tower Entrance.
 Every turn during the Eastern Tower Entrance Fight:
@@ -448,7 +494,7 @@ Every turn during the Eastern Tower Entrance Fight:
 		now the player is notHit;
 		now the left hand status line is "Eastern Tower Sentinel: Deceased";
 		now the Eastern Tower Door is unlocked;
-		say "Now the eastern tower door is unlocked.";
+		say "With the sentinel dispatched, the western entrance to the Marble Tower is unblocked.";
 		now the Eastern Tower Sentinel is nowhere.
 Eastern Tower Entrance Fight ends when the player is not in the Eastern Tower Entrance.	
 When Eastern Tower Entrance Fight ends:
@@ -474,7 +520,7 @@ Jungle 28 is east of Jungle 27 and north of Western Tower Entrance. Jungle 28 is
 Rule for printing the name of Jungle 28:
 	say "Jungle".
 Instead of going east when the player is in Jungle 28:
-	say "There is a tall wall here.";
+	say "A tall, marble wall blocks your path.";
 	stop the action.
 	
 Jungle 32 is north of Eastern Tower Entrance. Jungle 32 is a room. "[if Eastern Tower Sentinel is not dead]You feel someone watching you..."
@@ -509,15 +555,15 @@ Jungle 36 is east of Jungle 35. Jungle 36 is a room.
 Rule for printing the name of Jungle 36:
 	say "Jungle".
 Instead of going south when the player is in Jungle 36:
-	say "There is a tall wall here.";
+	say "A tall, marble wall blocks your path.";
 	stop the action.
 	
-Northern Tower Entrance is east of Jungle 36. Northern Tower Entrance is a room. "The door here doesn't seem to be locked.[if Overseer is dead] The Overseer's body lies limp on the floor." Northern Tower Door is south of Northern Tower Entrance. Northern Tower Door is a door. Northern Tower Door is scenery. 
+Northern Tower Entrance is east of Jungle 36. Northern Tower Entrance is a room. "There doesn't appear to be anyone protecting the northern entrance of the Marble Tower." Northern Tower Door is south of Northern Tower Entrance. Northern Tower Door is a door. Northern Tower Door is scenery. 
 Jungle 38 is east of Northern Tower Entrance. Jungle 38 is a room.
 Rule for printing the name of Jungle 38:
 	say "Jungle".
 Instead of going south when the player is in Jungle 38:
-	say "There is a tall wall here.";
+	say "A tall, marble wall blocks your path.";
 	stop the action.
 	
 Jungle 39 is east of Jungle 38 and north of Jungle 32. Jungle 39 is a room.
@@ -534,54 +580,48 @@ Instead of going north when the player is in Jungle 40:
 	say "There are dangerous creatures in the water.";
 	stop the action.
 	
-Beach 1 is north of Jungle 35. Beach 1 is a room. "The ocean breeze refreshes you."
+Beach 1 is north of Jungle 35. Beach 1 is a room. "The ocean breeze refreshes you. You can't wait to be off this god forsaken island."
 Rule for printing the name of Beach 1:
 	say "Beach".
 Instead of going west when the player is in Beach 1:
-	say "There are dangerous creatures in the water.";
+	say "Unfortunately you don't know how to swim. It would be unwise to jump into the water.";
 	stop the action.
 Instead of going north when the player is in Beach 1:
-	say "There are dangerous creatures in the water.";
+	say "You peer out into the ocean and see a gigantic figure wading in the waters below. You fear what sort of creatures and monsters reside in the deep ocean depths.";
 	stop the action.
 	
-Beach 2 is east of Beach 1 and north of Jungle 36. Beach 2 is a room. "There should be a boat nearby."
+Beach 2 is east of Beach 1 and north of Jungle 36. Beach 2 is a room. "You see a broken up rowboat with two paddles strewn across the sand. The wood is rotting and the paddles are covered in algae."
 Rule for printing the name of Beach 2:
 	say "Beach".
 Instead of going north when the player is in Beach 2:
-	say "There are dangerous creatures in the water.";
+	say "The ocean breeze refreshes you. You can't wait to be off this god forsaken island.";
 	stop the action.
 	
-Beach 4 is east of Beach 3 and north of Jungle 38. Beach 4 is a room. "There should be a boat nearby."
+Beach 4 is east of Beach 3 and north of Jungle 38. Beach 4 is a room. "You see a broken up rowboat with two paddles strewn across the sand. The wood is rotting and the paddles are covered in algae."
 Rule for printing the name of Beach 4:
 	say "Beach".
 Instead of going north when the player is in Beach 4:
-	say "There are dangerous creatures in the water.";
+	say "Unfortunately you don't know how to swim. It would be unwise to jump into the water.";
 	stop the action.
 	
 Beach 5 is east of Beach 4 and north of Jungle 39. Beach 5 is a room. Dented Compass is in Beach 5.
 Rule for printing the name of Beach 5:
 	say "Beach".
 Instead of going north when the player is in Beach 5:
-	say "There are dangerous creatures in the water.";
+	say "You peer out into the ocean and see a gigantic figure wading in the waters below. You fear what sort of creatures and monsters reside in the deep ocean depths.";
 	stop the action.
 Instead of going east when the player is in Beach 5:
-	say "There are dangerous creatures in the water.";
+	say "The ocean breeze refreshes you. You can't wait to be off this god forsaken island.";
 	stop the action.
 	
 Beach 3 is east of Beach 2 and north of Northern Tower Entrance. Beach 3 is a room. "There's a boat here but you need a map and compass if you want to get back to the mainland safely."
 Rule for printing the name of Beach 3:
 	say "Beach".
-Instead of going north when the player is in Beach 3:
-	if player is carrying Dented Compass and player is carrying Sea Map:
-		move player to Placeholder Room;
-	otherwise:
-		say "You can't go out to sea yet.";
-		stop the action.
 
 Part 2 - Overseer's Tower Chapter
 
-Ground Floor Staircase is west of Ground Floor 2 and north of Ground Floor 4. Ground Floor Staircase is a room. "[if Overseer is not dead]You fear what lies up in the tower."
-Ground Floor 2 is south of Northern Tower Door. Ground Floor 2 is a room. "It is musty in here."
+Ground Floor Staircase is west of Ground Floor 2 and north of Ground Floor 4. Ground Floor Staircase is a room. "[if Overseer is not dead]You fear what lives up above in the Marble Tower."
+Ground Floor 2 is south of Northern Tower Door. Ground Floor 2 is a room. "You're greeted by a musky scent and a wave of paranoia. 'What's a Marble Twoer doing randomly in the middle of a jungle?'"
 Rule for printing the name of Ground Floor 2:
 	say "Ground Floor".
 	
@@ -589,15 +629,15 @@ Ground Floor 3 is east of Ground Floor 2 and north of Ground Floor 6. Ground Flo
 Rule for printing the name of Ground Floor 3:
 	say "Ground Floor".
 	
-Ground Floor 4 is east of Western Tower Door. Ground Floor 4 is a room. "The walls are molding."
+Ground Floor 4 is east of Western Tower Door. Ground Floor 4 is a room. "You notice that the walls are crystal clean and that everything remains polished. Extremely odd for a wretched island."
 Rule for printing the name of Ground Floor 4:
 	say "Ground Floor".
 	
-Ground Floor 6 is east of Underground Entrance and west of Eastern Tower Door. Ground Floor 6 is a room. "The carpet here is torn and blood-stained."
+Ground Floor 6 is east of Underground Entrance and west of Eastern Tower Door. Ground Floor 6 is a room. "The furniture of the room is grandeur. A red velvet carpet is the centerpiece of the room, with a chandelier hanging from the ceiling. Display cases showcasing formidable weapons are placed strategically as to boast about one's collection of unique gear."
 Rule for printing the name of Ground Floor 6:
 	say "Ground Floor".
 	
-Ground Floor 7 is south of Ground Floor 4. Ground Floor 7 is a room. "The room is decorated with statues."
+Ground Floor 7 is south of Ground Floor 4. Ground Floor 7 is a room. "A few "
 Rule for printing the name of Ground Floor 7:
 	say "Ground Floor".
 In Ground Floor 7 is an openable container called Overseer's Chest. Overseer's Chest is closed. The Overseer's Chest is fixed in place. "[if open]The Overseer's Chest is open.[else]The Overseer's Chest is closed." In Overseer's Chest is a thing called Dried Fish. In Overseer's Chest is a thing called Knightly Plate. In the Overseer's Chest is a thing called Leather Pouch.
@@ -620,6 +660,8 @@ Loose Stone Moving begins when the Loose Stone is nowhere.
 When Loose Stone Moving begins:
 	move Rusty Metal Key to Ground Floor 9.
 Loose Stone Moving ends when Rusty Metal Key is in Ground Floor 9.
+
+[During Ethiram's revolution, he and his fellow rebels escape the prison and disappear into the jungle. At the jungle, they find a mysterious marble tower guarded by sentintels. At the northern entrance of the tower, they kill the northern sentinel and slip inside. There they see a mysterious metal grating and drop below. They seem to fall for what seems like an eternity until they are greeted by a small light coming from a torch. For some reason they were already standing up when they saw the torch. When they went to pick up the torch, the flame grows in size and fills the entire room with a bright light. Revealed to the group of rebels are 8 cages, suspended in air, chains dropping from what looks like an endless ceiling, dangling metal boxes containing prisoneres covered in rags. The group is stunned and they hear a voice. The voice calls to them, and begs them to come close. The voice convinces Ethiram to unlock him and help him escape with the Ethiram. When unlocked, the voice turns into a body. The body's hand grasps at Ethiram and sucks the soul out of him. The body morphs into Ethiram and ]
 
 Underground Entrance is east of Ground Floor 4 and south of Ground Floor 2. Underground Entrance is a room. "There's a metal grating on the floor. You wonder what is down there." Metal Grating is below Underground Entrance. Metal Grating is a door. Metal Grating is locked. The Rusty Metal Key unlocks the Metal Grating. Metal Grating is scenery.	
 
@@ -751,24 +793,6 @@ Instead of going south when player is in Placeholder Room:
 Book 4 - Loot Tables
 
 [Mutated Prisoner Loot lol xd]
-
-[During Ethiram's revolution, he and his fellow rebels escape the prison and disappear into the jungle. At the jungle, they find a mysterious marble tower guarded by sentintels. At the northern entrance of the tower, they kill the northern sentinel and slip inside. There they see a mysterious metal grating and drop below. They seem to fall for what seems like an eternity until they are greeted by a small light coming from a torch. For some reason they were already standing up when they saw the torch. When they went to pick up the torch, the flame grows in size and fills the entire room with a bright light. Revealed to the group of rebels are 8 cages, suspended in air, chains dropping from what looks like an endless ceiling, dangling metal boxes containing prisoneres covered in rags. The group is stunned and they hear a voice. The voice calls to them, and begs them to come close. The voice asks who Ethiram and his rebels are. Ethiram explains. The voice weakly explains that he's been a prisoner here as well and would like to escape with them. He convicnes Ethiram to help him and unlocks his gate. Once unlocked, nothing happens for a moment. Ethiram and his rebels peer into the dark cage waiting for someone to come out. Suddently, a black, shadowy hand plunges from the darkness and grabs Ethiram by the neck. Ethiram is pulled into the cage and a gut wrenching scream is heard. The rebels begin to panic, but a voice familiar to them emerges from the dark cage. It's Ethiram. Walking out of the cage and onto the bridge is Ethiram, whose face is covered in blood and scars, the whites of his eyes turned black. He stands amongst his rebels, who cower in fear away from their leader, afraid of what has happened to him. Ethiram opens his mouth, his jaw unhinged far greater than it should be, and a black cloud escapes his gaping mouth and forces itself onto the others. Shadowy tendrils wrap the rebels and Ethiram eyes emit a white light, and in an instant, they vanish. ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
