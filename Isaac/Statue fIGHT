@@ -27,7 +27,7 @@ When Living Statue Fight ends:
   
   
   
- The current hit points of the Living Statue is 10. The maximum hit points of the Living Statue is 10.
+The current hit points of the Living Statue is 10. The maximum hit points of the Living Statue is 10.
 The Living Statue is docile. 
 The Deranged Prisoner carries a weapon called Runic Sword . The current turns of the Runic Sword is 1.
 Setting action variables for an actor hitting:
@@ -92,3 +92,32 @@ Carry out Living Statue hitting the player:
 			decrease the current hit points of the noun by the damage inflicted;
 		now the current turns of the Runic Sword is 1;
 		stop the action.	
+		
+		
+		
+		
+Ground Floor 3 is east of Ground Floor 2 and north of Ground Floor 6. Ground Floor 3 is a room. Runic Claymore is in Ground Floor 3. Living Statue is a man in Ground Floor 3."There is a statue of a guard holding a Runic Claymore."
+Rule for printing the name of Ground Floor 3:
+	say "Ground Floor".
+Living Statue Fight is a scene. 
+Instead of taking the Runic Claymore: 
+	if the current hit points of the Living Statue is greater than 0:
+		say "As you reach out to grab the Runic Claymore the eyes of the statue begin to glow as it comes to life!";
+		now the Runic Claymore is nowhere. 
+Living Statue Fight begins when Runic Claymore is nowhere. 
+Every turn during the Living Statue fight: 
+	now the left hand status line is "Living Statue: [current hit points of Living Statue]";
+	now the player is hostile;
+	if the Living Statue is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the Living Statue is docile; 
+		now the left hand status line is "Living Statue: Deceased";
+		now the Living Statue is nowhere. 
+Living Statue Fight ends when the Living Statue is dead.
+When Living Statue Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "";
+	say "The Runic Claymore falls to the floor and lies underneath the rubble of the Living Statue.";
+	now the Runic Claymore is in Ground Floor 3.
