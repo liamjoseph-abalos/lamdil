@@ -8,7 +8,9 @@ wonder how you got here. With the light from a nearby torch in the room, you see
 # LAMDIL
 
 Text-Based Video Game RPG
-by  Liam Abalos
+by  
+    
+    Liam Abalos
 
     Minh Dinh
     
