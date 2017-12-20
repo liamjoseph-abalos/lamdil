@@ -9,7 +9,9 @@ wonder how you got here. With the light from a nearby torch in the room, you see
 
 Text-Based Video Game RPG
 by  Liam Abalos
+
     Minh Dinh
+    
     Isaac Leiva
 
 ## Summary
