@@ -1,0 +1,128 @@
+The Ghostly Apparition is a man. The Ghostly Apparition is in Void.
+The current hit points of the Ghostly Apparition is 10. The maximum hit points of the Ghostly Apparition is 10.
+The Ghostly Apparition is hostile. 
+The Ghostly Apparition carries a weapon called Animate Claws. The current turns of the Animate Claws is 1.
+Setting action variables for an actor hitting:
+	if the actor is Ghostly Apparition:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 3 and 5 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 3 and 5 minus x.
+Every turn when the player is in the Void: 
+	if the Ghostly Apparition is hostile, try Ghostly Apparition hitting the player. 
+Report Ghostly Apparition hitting the player:
+	if the current turns of the Animate Claws is 0:
+		say "The Ghostly Apparition begins to recite an incomprehensible incantation. The ground around you seems restless." instead;
+	if the current turns of the Animate Claws is 1:
+		if the dodgeTrue of the player is 1:
+			say "Noticing a rupture in the ground beneath you, you are able to quickly dodge out of the grasp of the Apparition's specteral claws!";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You land a clean slice into one of the Apparition's specteral claws severing it completely. The Apparition screams in pain. [line break][line break]";
+			if the Ghostly Apparition is dead:
+				say "Taking advantage of this opening you swing at the Ghostly Apparition, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Ghostly Apparition fades into the floor as its voice echoes through the room.";
+				now the Ghostly Apparition is nowhere;
+				now the Ghostly Apparition is docile;
+			otherwise:
+				say "Taking advantage of this opening you swing at the Ghostly Apparition, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Ghostly Apparition's specteral claws grab hold of your shield and lash out towards you, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Ghostly Apparition is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Ghostly Apparition's specteral claws burst through the floor below you and claw at your flesh, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Ghostly Apparition is unable to penetrate your armour.".	
+Report hitting a dead Ghostly Apparition:
+		say "The Ghostly Apparition fades into the floor as its voice echoes through the room. " instead.
+
+Report Ghostly Apparition hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Ghostly Apparition's specteral claws grabs hold of you and tears your arm from your body."; 
+	end the story saying "More claws sprout from the ground clasping every limb in your body as they snap your neck. The claws pull you under the floor never to be seen again as the Apparition laughs."; 
+	stop the action.
+Carry out Ghostly Apparition hitting the player:
+	if the current turns of the Animate Claws is 1:
+		now the player is hit;
+		now the current turns of the Animate Claws is 0;
+		stop the action;
+	if the current turns of the Animate Claws is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Ghostly Apparition by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Animate Claws is 1;
+		stop the action.	
+
+The Fiery Apparition is a man. The Fiery Apparition is in Void.
+Rule for printing the name of Fiery Apparition:
+	say "Ghostly Apparition".
+The current hit points of the Fiery Apparition is 10. The maximum hit points of the Fiery Apparition is 10.
+The Fiery Apparition is hostile. 
+The Fiery Apparition carries a weapon called Living Fires. The current turns of the Living Fires is 1.
+Setting action variables for an actor hitting:
+	if the actor is Fiery Apparition:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 3 and 5 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 3 and 5 minus x.
+Every turn when the player is in the Void: 
+	if the Fiery Apparition is hostile, try Fiery Apparition hitting the player. 
+Report Fiery Apparition hitting the player:
+	if the current turns of the Living Fires is 0:
+		say "The Ghostly Apparition begins to recite an incomprehensible incantation. Living fires start to swirl around the apparition's body." instead;
+	if the current turns of the Living Fires is 1:
+		if the dodgeTrue of the player is 1:
+			say "The living fires whiz straight past your body as you manage to narrowly avoid them.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You forgot that it is impossible to parry a spell.";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Ghostly Apparition's living flames burn through your shield, igniting it to unfathomable temperatures, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Ghostly Apparition's flames are unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Ghostly Apparition's living flames scorch every bone in your body with an unfathomable amount of heat, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Ghostly Apparition's flames are unable to penetrate your armour.".	
+Report hitting a dead Fiery Apparition:
+		say "The Ghostly Apparition fades into the floor as its voice echoes through the room. The room grows dim. " instead.
+
+Report Fiery Apparition hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Fiery Apparition's flames are relentless as you feel every ounce of your body being burnt to a crisp."; 
+	end the story saying "Your consciousness drifts away as all your senses are washed away into the bright blue light of the apparition's fire."; 
+	stop the action.
+Carry out Fiery Apparition hitting the player:
+	if the current turns of the Living Fires is 1:
+		now the player is hit;
+		now the current turns of the Living Fires is 0;
+		stop the action;
+	if the current turns of the Living Fires is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Fiery Apparition by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Living Fires is 1;
+		stop the action.	
