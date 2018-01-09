@@ -16,10 +16,14 @@ Report Ghostly Apparition hitting the player:
 		say "The Ghostly Apparition begins to recite an incomprehensible incantation. The ground around you seems restless." instead;
 	if the current turns of the Animate Claws is 1:
 		if the dodgeTrue of the player is 1:
-			say "Noticing a rupture in the ground beneath you, you are able to quickly dodge out of the grasp of the Apparition's specteral claws!";
+			say "Noticing a rupture in the ground beneath you, you are able to quickly dodge out of the grasp of the Apparition's 
+			
+			
+			
+			claws!";
 			now the dodgeTrue is 0;
 		otherwise if the parryTrue of the player is 1:
-			say "You land a clean slice into one of the Apparition's specteral claws severing it completely. The Apparition screams in pain. [line break][line break]";
+			say "You land a clean blow into one of the Apparition's specteral claws severing it completely. The Apparition screams in pain. [line break][line break]";
 			if the Ghostly Apparition is dead:
 				say "Taking advantage of this opening you swing at the Ghostly Apparition, dealing [riposteDamage of the player] damage![line break][line break]";
 				say "The Ghostly Apparition fades into the floor as its voice echoes through the room.";
@@ -44,8 +48,8 @@ Report hitting a dead Ghostly Apparition:
 
 Report Ghostly Apparition hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
-	say "The Ghostly Apparition's specteral claws grabs hold of you and tears your arm from your body."; 
-	end the story saying "More claws sprout from the ground clasping every limb in your body as they snap your neck. The claws pull you under the floor never to be seen again as the Apparition laughs."; 
+	say "The Ghostly Apparition's spectral claws grabs hold of you and tears your arm from your body."; 
+	end the story saying "More claws sprout from the ground clasping every limb in your body as they snap your neck. The claws pull you under the floor never to be seen again."; 
 	stop the action.
 Carry out Ghostly Apparition hitting the player:
 	if the current turns of the Animate Claws is 1:
@@ -93,7 +97,7 @@ Report Fiery Apparition hitting the player:
 		otherwise if the blockTrue of the the player is 1:
 			if damage inflicted > 0:
 				decrease the current hit points of the player by the damage inflicted;
-				say "The Ghostly Apparition's living flames burn through your shield, igniting it to unfathomable temperatures, dealing [damage inflicted] point[s] of damage!";
+				say "The Ghostly Apparition's living flames burn through your shield, igniting it to unbearable temperatures, dealing [damage inflicted] point[s] of damage!";
 			otherwise:
 				say "The Ghostly Apparition's flames are unable to penetrate your shield.";
 			now the blockTrue of the player is 0;
