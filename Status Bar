@@ -1,0 +1,5 @@
+Table of Lamdil Status
+left	central	right
+"[location]"	"Level: [level of the player]"	"Dodge: %" 
+"[left hand status line]"	"HP: [current hit points of the player]/[maximum hit points of the player]"	"Parry: % "
+"[right hand status line]"	"Dmg Red: [damageReduction of the player]"	"Block: % "
