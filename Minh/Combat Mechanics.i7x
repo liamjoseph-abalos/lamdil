@@ -12,15 +12,15 @@ The current hit points of the player is 20. The maximum hit points of the player
 Chapter 2 - Dodging
 
 The player has a number called dodgeTrue. The dodgeTrue of the player is 0.
-The player has a number called minDodge. The minDodge of the player is 9.
+The player has a number called minDodge. The minDodge of the player is 45.
 Understand "dodge" and "evade" and "do" as dodging. Dodging is an action applying to nothing.
 Check dodging:
 	if the player is not hostile:
 		say "You are not engaged in combat.";
 		stop the action.
 Carry out dodging:
-	let x be a random number between 1 and 20;
-	if x <= 20 and x >= minDodge of the player:
+	let x be a random number between 1 and 100;
+	if x <= 100 and x >= minDodge of the player:
 		if the player is hit:
 			say "You swiftly evade the attack.";
 			now dodgeTrue of the player is 1;
@@ -63,7 +63,7 @@ Carry out blocking:
 Chapter 4 - Parrying
 
 The player has a number called parryTrue. The parryTrue of the player is 0.
-The player has a number called minParry. The minParry of the player is 13.
+The player has a number called minParry. The minParry of the player is 55.
 The player has a number called riposteDamage. The riposteDamage of the player is 1.
 Understand "parry" and "counter" and "riposte" and "p" as parrying. Parrying is an action applying to nothing.
 Check parrying:
@@ -74,8 +74,8 @@ Check parrying:
 		say "You do not have a weapon to parry with.";
 		stop the action.
 Carry out parrying:
-	let x be a random number between 1 and 20;
-	if x <= 20 and x >= minParry of the player:
+	let x be a random number between 1 and 100;
+	if x <= 100 and x >= minParry of the player:
 		if the player is hit:
 			say "You fend off the attack.";
 			now the parryTrue of the player is 1;
