@@ -113,7 +113,7 @@ Report Spectral Apparition hitting the player:
 			now the dodgeTrue is 0;
 		otherwise if the parryTrue of the player is 1:
 			say "You land a clean slice into one of the Apparition's specteral claws severing it completely. The Apparition screams in pain. [line break][line break]";
-			if the Ghostly Apparition is dead:
+			if the Spectral Apparition is dead:
 				say "Taking advantage of this opening you swing at the Ghostly Apparition, dealing [riposteDamage of the player] damage![line break][line break]";
 				say "The Ghostly Apparition fades into the floor as its voice echoes through the room.";
 				now the Spectral Apparition is nowhere;
