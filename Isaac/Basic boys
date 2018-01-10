@@ -232,6 +232,18 @@ Carry out Fiery Apparition hitting the player:
 		now the current turns of the Living Fires is 1;
 		stop the action.
 		
+Fiery Fight is a scene.
+Fiery Fight begins when the player is in the Void.
+Every turn during Fiery Fight: 
+	now the left hand status line is "Ghostly Apparition: [current hit points of Fiery Apparition]";
+	now the player is hostile;
+	if the Fiery Apparition is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Fiery Apparition: Deceased";
+		now the Fiery Apparition is nowhere.
+Fiery Fight ends when the Fiery Apparition is dead.
+		
 		
 The Bloody Apparition is a man. The Bloody Apparition is in Jungle 7.
 Rule for printing the name of Bloody Apparition:
@@ -296,11 +308,11 @@ Carry out Bloody Apparition hitting the player:
 Bloody Fight is a scene.
 Bloody Fight begins when the player is in the Jungle 7.
 Every turn during Bloody Fight: 
-	now the left hand status line is "Bloody Apparition: [current hit points of Bloody Apparition]";
+	now the left hand status line is "Ghostly Apparition: [current hit points of Bloody Apparition]";
 	now the player is hostile;
 	if the Bloody Apparition is dead:
 		now the player is docile;
 		now the player is notHit;
-		now the left hand status line is "Bloody Apparition: Deceased";
+		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition is nowhere.
 Bloody Fight ends when the Bloody Apparition is dead.
