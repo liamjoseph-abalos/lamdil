@@ -22,7 +22,6 @@ Carry out dodging:
 	let x be a random number between 1 and 100;
 	if x <= 100 and x >= minDodge of the player:
 		if the player is hit:
-			say "You swiftly evade the attack.";
 			now dodgeTrue of the player is 1;
 		otherwise:
 			say "You dodged too early.";
@@ -77,7 +76,6 @@ Carry out parrying:
 	let x be a random number between 1 and 100;
 	if x <= 100 and x >= minParry of the player:
 		if the player is hit:
-			say "You fend off the attack.";
 			now the parryTrue of the player is 1;
 		otherwise:
 			say "You parried too early.";
