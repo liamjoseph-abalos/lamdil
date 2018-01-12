@@ -44,7 +44,7 @@ Check blocking:
 		say "You are not engaged in combat.";
 		stop the action;
 	otherwise if the player is not wearing a shield:
-		say "You can't block with your current equipment.";
+		say "You can't block without a shield.";
 		stop the action.
 Carry out blocking:
 	if maxBlock of the player > 0:

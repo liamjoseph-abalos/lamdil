@@ -741,9 +741,9 @@ Before constructing the status line (this is the automap add adjacent rooms to m
 
 Table of Lamdil Status
 left	central	right
-"[location]"	""	"Level: [level of the player]" 
-"[left hand status line]"	""	"HP: [current hit points of the player]/[maximum hit points of the player]"
-"[right hand status line]"	""	""
+"[location]"	"Level: [level of the player]"	"Dodge: [100 minus minDodge of the player]%" 
+"[left hand status line]"	"HP: [current hit points of the player]/[maximum hit points of the player]"	"Parry: [100 minus minParry of the player]%"
+"[right hand status line]"	"Dmg Red: [damageReduction of the player]"	"Block: [maxBlock of the player] uses"
 
 Rule for constructing the status line (this is the automap standard status line rule):
 	fill status bar with table of lamdil status and map.
