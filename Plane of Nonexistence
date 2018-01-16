@@ -351,16 +351,15 @@ S83 is a room. S83 is east of S80 and north of S78. "[if the player is in the S8
 Rule for printing the name of S83:
 	say "Plane of Nonexistence".
 	
-S84 is a room. S84 is east of S83. "You hear something grumbling... the sound isn't human."[make sure this line only runs when the cannibal is alive]
+S84 is a room. S84 is east of S83. "[if the Cannibal is not dead]You hear something grumbling... the sound isn't human."
+
 Rule for printing the name of S84:
 	say "Plane of Nonexistence".
-
-[	
+	
 Instead of listening to S84:
 	if Cannibal is not dead:
 		say "The growling continues in the distance.";
 	otherwise:
-		say "You hear nothing unexpected.".
-]	
+		say "You hear nothing unexpected.".	
 
-Cannibal Arena is a room. Cannibal Arena is north of S84. "A large, disfigured creature approaches you from the darkness; it stares at you with bloodlusting eyes and bares its ferocious teeth."[make sure this line only runs when the cannibal is alive]
+Cannibal Arena is a room. Cannibal Arena is north of S84. "[if the Cannibal is not dead]A large, disfigured creature approaches you from the darkness; it stares at you with bloodlusting eyes and bares its ferocious teeth."
