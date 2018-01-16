@@ -363,3 +363,19 @@ Instead of listening to S84:
 		say "You hear nothing unexpected.".	
 
 Cannibal Arena is a room. Cannibal Arena is north of S84. "[if the Cannibal is not dead]A large, disfigured creature approaches you from the darkness; it stares at you with bloodlusting eyes and bares its ferocious teeth."
+
+Cannibal Fight is a recurring scene.
+Cannibal Fight begins when the player is in the Temple.
+Every turn during the Cannibal Fight:
+	now the left hand status line is "Cannibal: [current hit points of Cannibal]";
+	now the player is hostile;
+	if the Cannibal is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Cannibal: Deceased";
+		now the Cannibal is nowhere.
+Cannibal Fight ends when the player is not in the Temple.	
+When Cannibal Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
