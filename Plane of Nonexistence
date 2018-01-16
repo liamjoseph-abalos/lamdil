@@ -1,0 +1,366 @@
+Shadow Start is a room. "All around you is a foreboding darkness."
+Shadow Realm Starting is a scene.
+Shadow Realm Starting begins when the player is in Shadow Start.
+When Shadow Realm Starting begins:
+	say "'Oh no... something went wrong with my incantation... Hurry... find your way back to me...'".
+Shadow Realm Starting ends when the player is in Shadow Start.
+Rule for printing the name of Shadow Start:
+	say "Plane of Nonexistence".
+	
+S1 is a room. S1 is north of Shadow Start. 
+Rule for printing the name of S1:
+	say "Plane of Nonexistence".
+
+[
+"[if the player is in the S1 for the first time]Your footsteps echo in the lonely expanse."
+"[if the player is in the S1 for the first time]Your will is being drained as you wander around aimlessly."
+"[if the player is in the S1 for the first time]You start talking to yourself to fill the emptiness."
+"[if the player is in the S1 for the first time]You notice your hands starting to become transparent."
+"[if the player is in the S1 for the first time]The silence is deceiving, you feel as if there are other people in this hopeless place."
+"[if the player is in the S1 for the first time]Cautiously, you turn around to look behind, nobody is there."
+"[if the player is in the S1 for the first time]You wonder if you will ever make it out of this place." 
+"[if the player is in the S1 for the first time]Fear overwhelms your senses, but you have to continue on."
+"[if the player is in the S1 for the first time]You've already forgotten what the world looks like."
+]
+
+S2 is a room. S2 is west of Shadow Start. 
+Rule for printing the name of S2:
+	say "Plane of Nonexistence".
+	
+S3 is a room. S3 is west of S2. 
+Rule for printing the name of S3:
+	say "Plane of Nonexistence".
+	
+S4 is a room. S4 is south of S3. 
+Rule for printing the name of S4:
+	say "Plane of Nonexistence".
+	
+S5 is a room. S5 is west of S4. "[if the player is in the S5 for the first time]Cautiously, you turn around to look behind, nobody is there."
+Rule for printing the name of S5:
+	say "Plane of Nonexistence".
+	
+S6 is a room. S6 is south of S4. 
+Rule for printing the name of S6:
+	say "Plane of Nonexistence".
+	
+S7 is a room. S7 is south of S6. 
+Rule for printing the name of S7:
+	say "Plane of Nonexistence".
+	
+S8 is a room. S8 is southeast of S7. 
+Rule for printing the name of S8:
+	say "Plane of Nonexistence".
+	
+S9 is a room. S9 is northeast of S8. "[if the player is in the S9 for the first time]You notice your hands starting to become transparent."
+Rule for printing the name of S9:
+	say "Plane of Nonexistence".
+	
+S10 is a room. S10 is southeast of S9. 
+Rule for printing the name of S10:
+	say "Plane of Nonexistence".
+	
+S11 is a room. S11 is east of S10. "[if the player is in the S11 for the first time]Your footsteps echo in the lonely expanse."
+Rule for printing the name of S11:
+	say "Plane of Nonexistence".
+	
+S12 is a room. S12 is east of S11.
+Rule for printing the name of S12:
+	say "Plane of Nonexistence".
+	
+S13 is a room. S13 is northeast of S12.
+Rule for printing the name of S13:
+	say "Plane of Nonexistence".
+	
+S14 is a room. S14 is northwest of S13. "[if the player is in the S14 for the first time]You wonder if you will ever make it out of this place."
+Rule for printing the name of S14:
+	say "Plane of Nonexistence".
+	
+S15 is a room. S15 is west of S14.
+Rule for printing the name of S15:
+	say "Plane of Nonexistence".
+	
+S16 is a room. S16 is north of S9.
+Rule for printing the name of S16:
+	say "Plane of Nonexistence".
+	
+S17 is a room. S17 is southeast of Shadow Start and northeast of S16 and northwest of S15. 
+Rule for printing the name of S17:
+	say "Plane of Nonexistence".
+	
+S18 is a room. S18 is northeast of S14.
+Rule for printing the name of S18:
+	say "Plane of Nonexistence".
+	
+S19 is a room. S19 is east of S18.
+Rule for printing the name of S19:
+	say "Plane of Nonexistence".
+	
+S20 is a room. S20 is northeast of S19. "[if the player is in the S20 for the first time]Your footsteps echo in the lonely expanse."
+Rule for printing the name of S20:
+	say "Plane of Nonexistence".
+	
+S21 is a room. S21 is southeast of S20.
+Rule for printing the name of S21:
+	say "Plane of Nonexistence".
+	
+S22 is a room. S22 is southeast of S21.
+Rule for printing the name of S22:
+	say "Plane of Nonexistence".
+	
+S23 is a room. S23 is east of S22.
+Rule for printing the name of S23:
+	say "Plane of Nonexistence".
+	
+S24 is a room. S24 is northeast of S23.
+Rule for printing the name of S24:
+	say "Plane of Nonexistence".
+	
+S25 is a room. S25 is north of S24. "[if the player is in the S25 for the first time]You wonder if you will ever make it out of this place."
+Rule for printing the name of S25:
+	say "Plane of Nonexistence".
+	
+S26 is a room. S26 is northwest of S25.
+Rule for printing the name of S26:
+	say "Plane of Nonexistence".
+	
+S27 is a room. S27 is northeast of S25.
+Rule for printing the name of S27:
+	say "Plane of Nonexistence".
+	
+S28 is a room. S28 is northeast of S26 and northwest of S27. "[if the player is in the S28 for the first time]You start talking to yourself to fill the emptiness."
+Rule for printing the name of S28:
+	say "Plane of Nonexistence".
+	
+S29 is a room. S29 is north of S28.
+Rule for printing the name of S29:
+	say "Plane of Nonexistence".
+	
+S30 is a room. S30 is west of S29.
+Rule for printing the name of S30:
+	say "Plane of Nonexistence".
+	
+S31 is a room. S31 is west of S30.
+Rule for printing the name of S31:
+	say "Plane of Nonexistence".
+	
+S32 is a room. S32 is southwest of S31. "[if the player is in the S31 for the first time]Fear overwhelms your senses, but you have to continue on."
+Rule for printing the name of S32:
+	say "Plane of Nonexistence".
+	
+S33 is a room. S33 is west of S32.
+Rule for printing the name of S33:
+	say "Plane of Nonexistence".
+	
+S34 is a room. S34 is northwest of S33.
+Rule for printing the name of S34:
+	say "Plane of Nonexistence".
+	
+S35 is a room. S35 is southwest of S34. "[if the player is in the S35 for the first time]You start talking to yourself to fill the emptiness."
+Rule for printing the name of S35:
+	say "Plane of Nonexistence".
+	
+S36 is a room. S36 is south of S35.
+Rule for printing the name of S36:
+	say "Plane of Nonexistence".
+	
+S37 is a room. S37 is west of S36.
+Rule for printing the name of S37:
+	say "Plane of Nonexistence".
+	
+S38 is a room. S38 is west of S37.
+Rule for printing the name of S38:
+	say "Plane of Nonexistence".
+	
+S39 is a room. S39 is northwest of S38 and northeast of S1.
+Rule for printing the name of S39:
+	say "Plane of Nonexistence".
+	
+S40 is a room. S40 is northwest of S5. "[if the player is in the S40 for the first time]Cautiously, you turn around to look behind, nobody is there."
+Rule for printing the name of S40:
+	say "Plane of Nonexistence".
+	
+S41 is a room. S41 is north of S40.
+Rule for printing the name of S41:
+	say "Plane of Nonexistence".
+	
+S42 is a room. S42 is northeast of S41.
+Rule for printing the name of S42:
+	say "Plane of Nonexistence".
+	
+S43 is a room. S43 is northeast of S42.
+Rule for printing the name of S43:
+	say "Plane of Nonexistence".
+	
+S44 is a room. S44 is north of S43.
+Rule for printing the name of S44:
+	say "Plane of Nonexistence".
+	
+S45 is a room. S45 is west of S44.
+Rule for printing the name of S45:
+	say "Plane of Nonexistence".
+	
+S46 is a room. S46 is north of S45.
+Rule for printing the name of S46:
+	say "Plane of Nonexistence".
+	
+S47 is a room. S47 is west of S46. "[if the player is in the S1 for the first time]You've already forgotten what the world looks like."
+Rule for printing the name of S47:
+	say "Plane of Nonexistence".
+	
+S48 is a room. S48 is north of S46.
+Rule for printing the name of S48:
+	say "Plane of Nonexistence".
+	
+S49 is a room. S49 is northeast of S48.
+Rule for printing the name of S49:
+	say "Plane of Nonexistence".
+	
+S50 is a room. S50 is east of S49. "[if the player is in the S49 for the first time]You've already forgotten what the world looks like."
+Rule for printing the name of S50:
+	say "Plane of Nonexistence".
+	
+S51 is a room. S51 is east of S50.
+Rule for printing the name of S51:
+	say "Plane of Nonexistence".
+	
+S52 is a room. S52 is south of S51.
+Rule for printing the name of S52:
+	say "Plane of Nonexistence".
+	
+S53 is a room. S53 is southwest of S52 and northeast of S44.
+Rule for printing the name of S53:
+	say "Plane of Nonexistence".
+	
+S54 is a room. S54 is southeast of S53.
+Rule for printing the name of S54:
+	say "Plane of Nonexistence". 	
+	
+S55 is a room. S55 is south of S54.
+Rule for printing the name of S55:
+	say "Plane of Nonexistence".
+	
+S56 is a room. S56 is east of S55 and north of S39.
+Rule for printing the name of S56:
+	say "Plane of Nonexistence".
+	
+S57 is a room. S57 is north of S34. "[if the player is in the S57 for the first time]The silence is deceiving, you feel as if there are other people in this hopeless place."
+Rule for printing the name of S57:
+	say "Plane of Nonexistence". 	
+	
+S58 is a room. S58 is west of S57.
+Rule for printing the name of S58:
+	say "Plane of Nonexistence".
+	
+S59 is a room. S59 is north of S58.
+Rule for printing the name of S59:
+	say "Plane of Nonexistence".
+	
+S60 is a room. S60 is northwest of S59. "[if the player is in the S60 for the first time]You notice your hands starting to become transparent."
+Rule for printing the name of S60:
+	say "Plane of Nonexistence".
+	
+S61 is a room. S61 is west of S60.
+Rule for printing the name of S61:
+	say "Plane of Nonexistence".
+	
+S62 is a room. S62 is south of S61.
+Rule for printing the name of S62:
+	say "Plane of Nonexistence".
+	
+S63 is a room. S63 is north of S60.
+Rule for printing the name of S63:
+	say "Plane of Nonexistence".
+	
+S64 is a room. S64 is northeast of S63.
+Rule for printing the name of S64:
+	say "Plane of Nonexistence".
+	
+S65 is a room. S65 is northeast of S51.
+Rule for printing the name of S65:
+	say "Plane of Nonexistence".
+	
+S66 is a room. S66 is northwest of S65. "[if the player is in the S66 for the first time]Your will is being drained as you wander around aimlessly."
+Rule for printing the name of S66:
+	say "Plane of Nonexistence".
+	
+S67 is a room. S67 is north of S66.
+Rule for printing the name of S67:
+	say "Plane of Nonexistence".
+	
+S68 is a room. S68 is north of S67.
+Rule for printing the name of S68:
+	say "Plane of Nonexistence".
+	
+S69 is a room. S69 is east of S68.
+Rule for printing the name of S69:
+	say "Plane of Nonexistence".
+	
+S70 is a room. S70 is southeast of S69.
+Rule for printing the name of S70:
+	say "Plane of Nonexistence".
+	
+S71 is a room. S71 is east of S70.
+Rule for printing the name of S71:
+	say "Plane of Nonexistence".
+	
+S72 is a room. S72 is east of S71.
+Rule for printing the name of S72:
+	say "Plane of Nonexistence".
+	
+S73 is a room. S73 is north of S31.
+Rule for printing the name of S73:
+	say "Plane of Nonexistence".
+	
+S74 is a room. S74 is west of S73. "[if the player is in the S74 for the first time]The silence is deceiving, you feel as if there are other people in this hopeless place."
+Rule for printing the name of S74:
+	say "Plane of Nonexistence".
+	
+S75 is a room. S75 is northeast of S73.
+Rule for printing the name of S75:
+	say "Plane of Nonexistence".
+	
+S76 is a room. S76 is northwest of S75. "[if the player is in the S76 for the first time]Your will is being drained as you wander around aimlessly."
+Rule for printing the name of S76:
+	say "Plane of Nonexistence".
+	
+S77 is a room. S77 is west of S76.
+Rule for printing the name of S77:
+	say "Plane of Nonexistence".
+	
+S78 is a room. S78 is north of S77.
+Rule for printing the name of S78:
+	say "Plane of Nonexistence".
+	
+S79 is a room. S79 is west of S78.
+Rule for printing the name of S79:
+	say "Plane of Nonexistence".
+	
+S80 is a room. S80 is north of S79.
+Rule for printing the name of S80:
+	say "Plane of Nonexistence".
+	
+S81 is a room. S81 is north of S80. "[if the player is in the S81 for the first time]Fear overwhelms your senses, but you have to continue on."
+Rule for printing the name of S81:
+	say "Plane of Nonexistence".
+	
+S82 is a room. S82 is west of S81 and southeast of S72 and northeast of S64.
+Rule for printing the name of S82:
+	say "Plane of Nonexistence".
+	
+S83 is a room. S83 is east of S80 and north of S78. "[if the player is in the S83 for the first time]The scent of raw meat and blood lingers in the room."
+Rule for printing the name of S83:
+	say "Plane of Nonexistence".
+	
+S84 is a room. S84 is east of S83. "You hear something grumbling... the sound isn't human."[make sure this line only runs when the cannibal is alive]
+Rule for printing the name of S84:
+	say "Plane of Nonexistence".
+
+[	
+Instead of listening to S84:
+	if Cannibal is not dead:
+		say "The growling continues in the distance.";
+	otherwise:
+		say "You hear nothing unexpected.".
+]	
+
+Cannibal Arena is a room. Cannibal Arena is north of S84. "A large, disfigured creature approaches you from the darkness; it stares at you with bloodlusting eyes and bares its ferocious teeth."[make sure this line only runs when the cannibal is alive]
