@@ -7,7 +7,6 @@ A person can be hostile or docile. A person is usually docile. The player is doc
 Definition: a person is dead if their current hit points are less than 1.
 Definition: a person is docile if a person is dead.
 A gotHit is a kind of value. The gotHits are hit, notHit. The player has a gotHit. The player is notHit.
-A gotCurse is a kind of value. The gotCurses are cursed, notCursed. The player has a gotCurse. The player is notCurse.
 The current hit points of the player is 20. The maximum hit points of the player is 20.
 		
 Chapter 2 - Dodging
