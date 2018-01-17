@@ -81,7 +81,7 @@ Setting action variables for an actor hitting:
 		otherwise:
 			let x be the damageReduction of the player plus the damagePrevented of the player;
 			now the damage inflicted is a random number between 3 and 5 minus x.
-Every turn when the player is in the Cannibal Arena: 
+Every turn when the player is in the Temple: 
 	if the Cannibal is hostile, try Cannibal hitting the player. 
 Report Cannibal hitting the player:
 	if the current turns of the Vicious Claws is 3:
@@ -112,11 +112,6 @@ Report Cannibal hitting the player:
 		otherwise:
 			say "The Cannibal is unable to penetrate your armour.";	
 	if the current turns of the Vicious Claws is 1:
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 6 and 8 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 6 and 8 minus x;
 		if the dodgeTrue of the player is 1:
 			say "You evade the Cannibal's vicious uppercut.";
 			now the dodgeTrue is 0;
@@ -142,11 +137,6 @@ Report Cannibal hitting the player:
 		otherwise:
 			say "The Cannibal is unable to penetrate your armour.";
 	if the current turns of the Vicious Claws is 0:
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 9 and 11 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 9 and 11 minus x;
 		if the dodgeTrue of the player is 1:
 			say "The Cannibal tries to grab you, but you break free of his grasp.";
 			now the dodgeTrue is 0;
@@ -200,6 +190,11 @@ Carry out Cannibal hitting the player:
 		stop the action;
 	if the current turns of the Vicious Claws is 2:
 		now the player is hit;
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 6 and 8 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 6 and 8 minus x;
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
@@ -212,6 +207,11 @@ Carry out Cannibal hitting the player:
 		stop the action;
 	if the current turns of the Vicious Claws is 1:
 		now the player is notHit;
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 9 and 11 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 9 and 11 minus x;
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
@@ -230,7 +230,7 @@ Carry out Cannibal hitting the player:
 [
 The current hit points of the Heretic is 4. The maximum hit points of the Heretic is 4.
 The Heretic is hostile. 
-The Heretic carries a weapon called Profaned Book. The current turns of the Profaned Book is 1.
+The Heretic carries a weapon called Profaned Book. The current turns of the Profaned Book is 4.
 Setting action variables for an actor hitting:
 	if the actor is Heretic:
 		if the blockTrue of the player is 0:
@@ -241,9 +241,38 @@ Setting action variables for an actor hitting:
 Every turn when the player is in the Prison Staircase: 
 	if the Heretic is hostile, try Heretic hitting the player. 
 Report Heretic hitting the player:
+	if the current turns of the Profaned Book is 3:
+		say "The Heretic opens her book and begins muttering a curse." instead;
+	if the current turns of the Profaned Book is 2:
+		if the dodgeTrue of the player is 1:
+			say "The Heretic launches a hex towards you but misses by a hair.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "Before the Heretic can finish preparing her curse, you strike her, interrupting the chant.[line break][line break]";
+			if the Heretic is dead:
+				say "You slam your weapon down onto the Cannibal, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Cannibal screams in agony as the soul of a prisoner escapes its body.[line break][line break]As the spirit fades away, it whispers to you, 'I have been set free...'";
+				now the Cannibal is nowhere;
+				now the Cannibal is docile;
+			otherwise:
+				say "You slam your weapon down onto the Cannibal, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Cannibal's claws knock your shield back, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Cannibal is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Cannibal manages to grab you and sinks his long teeth into your flesh, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Cannibal is unable to penetrate your armour.";
+	if the current turns of the Profaned Book is 1:
+		say "add stuff here" instead;
 	if the current turns of the Profaned Book is 0:
 		say "add stuff here" instead;
-	if the current turns of the Profaned Book is 1:
+	if the current turns of the Profaned Book is 4:
 		if the dodgeTrue of the player is 1:
 			say "add stuff here";
 			now the dodgeTrue is 0;
@@ -277,12 +306,35 @@ Report Heretic hitting the player when the player is dead:
 	end the story saying "add stuff here"; 
 	stop the action.
 Carry out Heretic hitting the player:
+	if the current turns of the Profaned Book is 4:
+		now the player is notHit;
+		now the current turns of the Profaned Book is 3;
+		stop the action;
+	if the current turns of the Profaned Book is 3:
+		now the player is notHit;
+		if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Profaned Book is 2;
+		stop the action;
+	if the current turns of the Profaned Book is 2:
+		now the player is notHit;
+		if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Profaned Book is 1;
+		stop the action;
 	if the current turns of the Profaned Book is 1:
 		now the player is hit;
+		if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
 		now the current turns of the Profaned Book is 0;
 		stop the action;
 	if the current turns of the Profaned Book is 0:
 		now the player is notHit;
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 9 and 11 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 9 and 11 minus x;
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
@@ -291,7 +343,7 @@ Carry out Heretic hitting the player:
 			do nothing;
 		otherwise if damage inflicted > 0:
 			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Broken Glass is 1;
+		now the current turns of the Profaned Book is 4;
 		stop the action.	
 ]
 
