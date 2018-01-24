@@ -227,10 +227,12 @@ Carry out Cannibal hitting the player:
 		now the current turns of the Vicious Claws is 4;
 		stop the action.	
 	
-[
+
+The player has a number called curse. The curse of the player is 0.
+The player has a number called dread. The dread of the player is 0.
 The current hit points of the Heretic is 4. The maximum hit points of the Heretic is 4.
 The Heretic is hostile. 
-The Heretic carries a weapon called Profaned Book. The current turns of the Profaned Book is 4.
+The Heretic carries a weapon called Profaned Book. The current turns of the Profaned Book is 5.
 Setting action variables for an actor hitting:
 	if the actor is Heretic:
 		if the blockTrue of the player is 0:
@@ -238,103 +240,85 @@ Setting action variables for an actor hitting:
 		otherwise:
 			let x be the damageReduction of the player plus the damagePrevented of the player;
 			now the damage inflicted is a random number between 3 and 5 minus x.
-Every turn when the player is in the Prison Staircase: 
+Every turn when the player is in the Heretic's Arena: 
 	if the Heretic is hostile, try Heretic hitting the player. 
 Report Heretic hitting the player:
-	if the current turns of the Profaned Book is 3:
+	if the current turns of the Profaned Book is 4:
 		say "The Heretic opens her book and begins muttering a curse." instead;
-	if the current turns of the Profaned Book is 2:
+	if the current turns of the Profaned Book is 3:
 		if the dodgeTrue of the player is 1:
 			say "The Heretic launches a hex towards you but misses by a hair.";
 			now the dodgeTrue is 0;
 		otherwise if the parryTrue of the player is 1:
-			say "Before the Heretic can finish preparing her curse, you strike her, interrupting the chant.[line break][line break]";
+			say "Before the Heretic can finish preparing her curse, you strike the tome out of her hands, interrupting the chant.[line break][line break]";
 			if the Heretic is dead:
-				say "You slam your weapon down onto the Cannibal, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Cannibal screams in agony as the soul of a prisoner escapes its body.[line break][line break]As the spirit fades away, it whispers to you, 'I have been set free...'";
-				now the Cannibal is nowhere;
-				now the Cannibal is docile;
-			otherwise:
-				say "You slam your weapon down onto the Cannibal, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "The Cannibal's claws knock your shield back, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "The Cannibal is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "The Cannibal manages to grab you and sinks his long teeth into your flesh, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "The Cannibal is unable to penetrate your armour.";
-	if the current turns of the Profaned Book is 1:
-		say "add stuff here" instead;
-	if the current turns of the Profaned Book is 0:
-		say "add stuff here" instead;
-	if the current turns of the Profaned Book is 4:
-		if the dodgeTrue of the player is 1:
-			say "add stuff here";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "add stuff here[line break][line break]";
-			if the Heretic is dead:
-				say "add stuff here riposte the Deranged Prisoner, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "add stuff here";
+				say "As the Heretic scrambles to find her book, you go in for a lethal blow, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Heretic's skin begins to disintegrate as the tome consumes her flesh.[line break][line break]You see a spirit escape from the body and fade into the darkness.";
 				now the Heretic is nowhere;
 				now the Heretic is docile;
 			otherwise:
-				say "add stuff here riposte the Deranged Prisoner, dealing [riposteDamage of the player] damage!";
+				say "As the Heretic scrambles to find her book, you go in for a lethal blow, dealing [riposteDamage of the player] damage![line break][line break]";
 			now the parryTrue is 0;
 		otherwise if the blockTrue of the the player is 1:
 			if damage inflicted > 0:
 				decrease the current hit points of the player by the damage inflicted;
-				say "add stuff here, dealing [damage inflicted] point[s] of damage!";
+				say "The Heretic hurls a hex right into your shield, dealing [damage inflicted] point[s] of damage!";
 			otherwise:
 				say "The Heretic is unable to penetrate your shield.";
 			now the blockTrue of the player is 0;
 		otherwise if damage inflicted > 0:
-			say "add stuff here, dealing [damage inflicted] point[s] of damage!";
+			say "A hex bursts from the Heretic's hand and strikes your chest, dealing [damage inflicted] point[s] of damage!";
+			now the curse of the player is 3;
 		otherwise:
-			say "The Heretic is unable to penetrate your armour.".	
+			say "The Heretic is unable to penetrate your armour.";
+	if the current turns of the Profaned Book is 2:
+		say "The Heretic grows tired from expending her energy." instead;
+	if the current turns of the Profaned Book is 1:
+		say "The Heretic regains her strength and beings absorbing corrupted energy into her body." instead;
+	if the current turns of the Profaned Book is 0:
+		if the dodgeTrue of the player is 1:
+			say "An aura of dread expands from the Heretic but you step back enough to avoid the hit.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You knock the Heretic off balance, interrupting her focus.[line break][line break]";
+			if the Heretic is dead:
+				say "The energy around the Heretic becomes less menacing; you go in for a devastating strike, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Heretic's skin begins to disintegrate as the tome consumes her flesh.[line break][line break]You see a spirit escape from the body and fade into the darkness.";
+				now the Heretic is nowhere;
+				now the Heretic is docile;
+			otherwise:
+				say "The energy around the Heretic becomes less menacing; you go in for a devastating strike, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "An aura of dread surrounds the Heretic and strikes your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Heretic is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Heretic casts a pulsing aura of dread, dealing [damage inflicted] point[s] of damage!";
+			now the dread of the player is 2;
+		otherwise:
+			say "The Heretic is unable to penetrate your armour.";
+	if the current turns of the Profaned Book is 5:
+		say "The Heretic abruptly closes her book." instead.
 Report hitting a dead Heretic:
-		say "add stuff here" instead.
+		now the curse of the player is 0;
+		say "The Heretic's skin begins to disintegrate as the tome consumes her flesh.[line break][line break]You see a spirit escape from the body and fade into the darkness." instead.
 
 Report Heretic hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
-	say "add stuff here"; 
-	end the story saying "add stuff here"; 
+	say "The Heretic conjures a curse, binding you in place."; 
+	end the story saying "The Heretic opens her tome and begins draining your soul"; 
 	stop the action.
 Carry out Heretic hitting the player:
+	if the current turns of the Profaned Book is 5:
+		now the player is hit;
+		now the current turns of the Profaned Book is 4;
+		stop the action;
 	if the current turns of the Profaned Book is 4:
 		now the player is notHit;
-		now the current turns of the Profaned Book is 3;
-		stop the action;
-	if the current turns of the Profaned Book is 3:
-		now the player is notHit;
-		if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Profaned Book is 2;
-		stop the action;
-	if the current turns of the Profaned Book is 2:
-		now the player is notHit;
-		if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Profaned Book is 1;
-		stop the action;
-	if the current turns of the Profaned Book is 1:
-		now the player is hit;
-		if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Profaned Book is 0;
-		stop the action;
-	if the current turns of the Profaned Book is 0:
-		now the player is notHit;
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 9 and 11 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 9 and 11 minus x;
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
@@ -343,8 +327,49 @@ Carry out Heretic hitting the player:
 			do nothing;
 		otherwise if damage inflicted > 0:
 			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Profaned Book is 4;
+		now the current turns of the Profaned Book is 3;
+		stop the action;
+	if the current turns of the Profaned Book is 3:
+		now the player is notHit;
+		now the current turns of the Profaned Book is 2;
+		stop the action;
+	if the current turns of the Profaned Book is 2:
+		now the player is hit;
+		now the current turns of the Profaned Book is 1;
+		stop the action;
+	if the current turns of the Profaned Book is 1:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Heretic by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+			now the dread of the player is 1;
+		now the current turns of the Profaned Book is 0;
+		stop the action;
+	if the current turns of the Profaned Book is 0:
+		now the player is notHit;
+		now the current turns of the Profaned Book is 5;
 		stop the action.	
-]
+Every turn when the curse of the player is greater than 0:
+	let x be a random number between 1 and 2;
+	decrease the current hit points of the player by x;
+	say "The curse withers away your soul, dealing [x] point[s] of damage!";
+	decrease the curse of the player by 1;
+	if the player is dead:
+		end the story saying "Your body succumbs to the curse as you wither away".
+Every turn when the dread of the player is greater than 0:
+	if the dread of the player is 2:
+		decrease the dread of the player by 1;
+	otherwise:
+		let x be a random number between 3 and 5;
+		decrease the current hit points of the player by x;
+		say "The aura around the Heretic erupts in a blast of corrupted energy, dealing [x] point[s] of damage!";
+		decrease the dread of the player by 1;
+	if the player is dead:
+		end the story saying "As you lie dying on the ground, you can feel the demons feeding at your soul".
 
 Shadow Enemies ends here.
