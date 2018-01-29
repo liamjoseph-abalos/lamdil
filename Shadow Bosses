@@ -153,7 +153,21 @@ Carry out Cannibal hitting the player:
 		now the player is notHit;
 		now the current turns of the Vicious Claws is 4;
 		stop the action.	
-	
+Cannibal Fight is a recurring scene.
+Cannibal Fight begins when the player is in the Temple.
+Every turn during the Cannibal Fight:
+	now the left hand status line is "Consumer of Men: [current hit points of Cannibal]";
+	now the player is hostile;
+	if the Cannibal is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Consumer of Men: Deceased";
+		now the Cannibal is nowhere.
+Cannibal Fight ends when the player is not in the Temple.	
+When Cannibal Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
 
 The player has a number called curse. The curse of the player is 0.
 The player has a number called dread. The dread of the player is 0.
@@ -298,3 +312,18 @@ Every turn when the dread of the player is greater than 0:
 		decrease the dread of the player by 1;
 	if the player is dead:
 		end the story saying "As you lie dying on the ground, you can feel you soul being dragged to Hell".
+Heretic Fight is a recurring scene.
+Heretic Fight begins when the player is in the Desecrated Chapel.
+Every turn during the Heretic Fight:
+	now the left hand status line is "Blasphemer of Gods: [current hit points of Heretic]";
+	now the player is hostile;
+	if the Heretic is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Blasphemer of Gods: Deceased";
+		now the Heretic is nowhere.
+Heretic Fight ends when the player is not in the Desecrated Chapel.	
+When Heretic Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
