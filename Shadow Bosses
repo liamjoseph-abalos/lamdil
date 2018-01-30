@@ -631,7 +631,6 @@ Report Cutthroat hitting the player:
 	if the current turns of the Steel Knives is 8:
 		if the dodgeTrue of the player is 1:
 			say "You roll away from the falling barrage of knives.";
-			now the dodgeTrue is 0;
 		otherwise if the parryTrue of the player is 1:
 			say "The Cutthroat leaps into the air but you catch him on the way up.[line break][line break]";
 			if the Cutthroat is dead:
@@ -641,14 +640,12 @@ Report Cutthroat hitting the player:
 				now the Cutthroat is docile;
 			otherwise:
 				say "You pull the Cutthroat down onto the ground and gash him with your weapon, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
 		otherwise if the blockTrue of the the player is 1:
 			if damage inflicted > 0:
 				decrease the current hit points of the player by the damage inflicted;
 				say "The Cutthroat leaps into the air and launches a barrage of knives into your shield, dealing [damage inflicted] point[s] of damage!";
 			otherwise:
 				say "The Cutthroat is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
 		otherwise if damage inflicted > 0:
 			say "The Cutthroat leaps into the air and launches a barrage of knives at you, dealing [damage inflicted] point[s] of damage!";
 		otherwise:
@@ -884,7 +881,7 @@ Carry out Mercenary hitting the player:
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+			decrease the current hit points of the Mercenary by the riposteDamage of the player;
 		otherwise if blockTrue of the player is 1:
 			do nothing;
 		otherwise if damage inflicted > 0:
@@ -900,7 +897,7 @@ Carry out Mercenary hitting the player:
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+			decrease the current hit points of the Mercenary by the riposteDamage of the player;
 		otherwise if blockTrue of the player is 1:
 			do nothing;
 		otherwise if damage inflicted > 0:
@@ -912,7 +909,7 @@ Carry out Mercenary hitting the player:
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+			decrease the current hit points of the Mercenary by the riposteDamage of the player;
 		otherwise if blockTrue of the player is 1:
 			do nothing;
 		otherwise if damage inflicted > 0:
@@ -924,7 +921,7 @@ Carry out Mercenary hitting the player:
 		if dodgeTrue of the player is 1:
 			do nothing;
 		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+			decrease the current hit points of the Mercenary by the riposteDamage of the player;
 		otherwise if blockTrue of the player is 1:
 			do nothing;
 		otherwise if damage inflicted > 0:
