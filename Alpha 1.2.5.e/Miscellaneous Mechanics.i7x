@@ -119,5 +119,9 @@ Report Player hitting Ethiram:
 	say "'You think you can fight me?!' Ethiram rises above you and a beam of pure energy strikes your chest and pummels your body into the Earth.";
 	end the story saying "Now is not the time to fight this being. Learn from your mistakes when you try to fight a Mysterious Entity."; 
 	stop the action.
+	
+Section - Unlock Forcefield
+
+The player has a number called Unlock. The unlock of the player is 0.
 
 Miscellaneous Mechanics ends here.
