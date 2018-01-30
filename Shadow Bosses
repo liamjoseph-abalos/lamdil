@@ -529,3 +529,428 @@ When Arsonist Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "".
+
+The current hit points of the Cutthroat is 4. The maximum hit points of the Cutthroat is 4.
+The Cutthroat is hostile. 
+The Cutthroat carries a weapon called Steel Knives. The current turns of the Steel Knives is 8.
+Setting action variables for an actor hitting:
+	if the actor is Cutthroat:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 3 and 5 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 3 and 5 minus x.
+Every turn when the player is in the Dilapidated Chamber:
+	if the Cutthroat is hostile, try Cutthroat hitting the player. 
+Report Cutthroat hitting the player:
+	if the current turns of the Steel Knives is 7:
+		say "The Cutthroat pulls out ten knives from his pockets." instead;
+	if the current turns of the Steel Knives is 6:
+		say "The Cutthroat throws five of his knives into the air." instead;
+	if the current turns of the Steel Knives is 5:
+		if the dodgeTrue of the player is 1:
+			say "You lean backwards as the knives fly across your face.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You deflect the knives flying towards you.[line break][line break]";
+			if the Cutthroat is dead:
+				say "You dash towards the Cutthroat, landing a blow to his chest, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Cutthroat falls to his knees and takes in one more breath as his body falls to the ground.[line break][line break]A soul silently emerges from the Cutthroat's body and walks into the darkness.";
+				now the Cutthroat is nowhere;
+				now the Cutthroat is docile;
+			otherwise:
+				say "You dash towards the Cutthroat, landing a blow to his chest, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Cutthroat throws five knives which pierce your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Cutthroat is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Cutthroat flings five more knives towards your chest, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Cutthroat is unable to penetrate your armour.";
+	if the current turns of the Steel Knives is 4:
+		if the dodgeTrue of the player is 1:
+			say "You leap away from the rain of knives.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You catch one of the falling knives.[line break][line break]";
+			if the Cutthroat is dead:
+				say "With deadly accuracy, you throw the knife into the Cutthroat's leg, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Cutthroat falls to his knees and takes in one more breath as his body falls to the ground.[line break][line break]A soul silently emerges from the Cutthroat's body and walks into the darkness.";
+				now the Cutthroat is nowhere;
+				now the Cutthroat is docile;
+			otherwise:
+				say "With deadly accuracy, you throw the knife into the Cutthroat's leg, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "You raise your shield as you brace the impact of the falling knives, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Cutthroat is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "Five knives fall down from above and pierce your skin, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Cutthroat is unable to penetrate your armour.";
+	if the current turns of the Steel Knives is 3:
+		say "The Cutthroat reaches into his sleeve for another knife." instead;
+	if the current turns of the Steel Knives is 2:
+		if the dodgeTrue of the player is 1:
+			say "The Cutthroat throws his knife but you sidestep the projectile.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "The Cutthroat hurls his knife towards you but you strike the knife midair.[line break][line break]";
+			if the Cutthroat is dead:
+				say "You swing upwards with your weapon, hitting the Cutthroat in the chin, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Cutthroat falls to his knees and takes in one more breath as his body falls to the ground.[line break][line break]A soul silently emerges from the Cutthroat's body and walks into the darkness.";
+				now the Cutthroat is nowhere;
+				now the Cutthroat is docile;
+			otherwise:
+				say "You swing upwards with your weapon, hitting the Cutthroat in the chin, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "A long, silver knife flies straight into your shield, stabbing through the shield and into your arm, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Cutthroat is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "A long, silver knife flies rapidly into your shoulder, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Cutthroat is unable to penetrate your armour.";
+	if the current turns of the Steel Knives is 1:
+		say "The Cutthroat pulls out ten more knives from his belt." instead;
+	if the current turns of the Steel Knives is 0:
+		say "The Cutthroat crouches down low, preparing to strike." instead;
+	if the current turns of the Steel Knives is 8:
+		if the dodgeTrue of the player is 1:
+			say "You roll away from the falling barrage of knives.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "The Cutthroat leaps into the air but you catch him on the way up.[line break][line break]";
+			if the Cutthroat is dead:
+				say "You pull the Cutthroat down onto the ground and gash him with your weapon, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Cutthroat falls to his knees and takes in one more breath as his body falls to the ground.[line break][line break]A soul silently emerges from the Cutthroat's body and walks into the darkness.";
+				now the Cutthroat is nowhere;
+				now the Cutthroat is docile;
+			otherwise:
+				say "You pull the Cutthroat down onto the ground and gash him with your weapon, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Cutthroat leaps into the air and launches a barrage of knives into your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Cutthroat is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Cutthroat leaps into the air and launches a barrage of knives at you, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Cutthroat is unable to penetrate your armour.".
+Report hitting a dead Cutthroat:
+		say "The Cutthroat falls to his knees and takes in one more breath as his body falls to the ground.[line break][line break]A soul silently emerges from the Cutthroat's body and walks into the darkness." instead.
+
+Report Cutthroat hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Cutthroat pulls out two knives and hurls them into your feet, pinning you to the ground."; 
+	end the story saying "The Cutthroat unleashes a flurry blades towards you, tearing all the flesh from your bones"; 
+	stop the action.
+Carry out Cutthroat hitting the player:
+	if the current turns of the Steel Knives is 8:
+		now the player is notHit;
+		now the current turns of the Steel Knives is 7;
+		stop the action;
+	if the current turns of the Steel Knives is 7:
+		now the player is hit;
+		now the current turns of the Steel Knives is 6;
+		stop the action;
+	if the current turns of the Steel Knives is 6: 
+		now the player is hit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Steel Knives is 5;
+		stop the action;	
+	if the current turns of the Steel Knives is 5: 
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Steel Knives is 4;
+		stop the action;	
+	if the current turns of the Steel Knives is 4: 
+		now the player is hit;
+		now the current turns of the Steel Knives is 3;
+		stop the action;
+	if the current turns of the Steel Knives is 3: 
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Steel Knives is 2;
+		stop the action;	
+	if the current turns of the Steel Knives is 2: 
+		now the player is notHit;
+		now the current turns of the Steel Knives is 1;
+		stop the action;
+	if the current turns of the Steel Knives is 1: 
+		now the player is hit;
+		now the current turns of the Steel Knives is 0;
+		stop the action;
+	if the current turns of the Steel Knives is 0: 
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Steel Knives is 8;
+		stop the action.
+	
+The current hit points of the Mercenary is 4. The maximum hit points of the Mercenary is 4.
+The Mercenary is hostile. 
+The Mercenary carries a weapon called Jagged Blade. The current turns of the Jagged Blade is 8.
+Setting action variables for an actor hitting:
+	if the actor is Mercenary:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 3 and 5 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 3 and 5 minus x.
+Every turn when the player is in the Dilapidated Chamber:
+	if the Mercenary is hostile, try Mercenary hitting the player. 
+Report Mercenary hitting the player:
+	if the current turns of the Jagged Blade is 7:
+		say "The Mercenary senses you through his blindfold." instead;
+	if the current turns of the Jagged Blade is 6:
+		say "The Mercenary sharpens his blade against his dagger." instead;
+	if the current turns of the Jagged Blade is 5:
+		say "The Mercenary grips his sword tightly." instead;
+	if the current turns of the Jagged Blade is 4:
+		say "The Mercenary bounds in your direction with terrifying speed." instead;
+	if the current turns of the Jagged Blade is 3:
+		if the dodgeTrue of the player is 1:
+			say "You dodge the Mercenary's uppercut as his sword goes past your ear.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You parry the Mercenary's swift uppercut.[line break][line break]";
+			if the Mercenary is dead:
+				say "You drive your weapon into the Mercenary's stomach, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "Blood gushes out the mouth of the Mercenary as he collapses to the floor.[line break][line break]A spirit breaks free from the body of the Mercenary and disappears.";
+				now the Mercenary is nowhere;
+				now the Mercenary is docile;
+			otherwise:
+				say "You drive your weapon into the Mercenary's stomach, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "Anticipating the attack, you raise your shield to block his strike, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Mercenary is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Mercenary dashes up to you and lands a painful uppercut with his blade, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Mercenary is unable to penetrate your armour.";
+	if the current turns of the Jagged Blade is 2:
+		say "The Mercenary leaps backwards and prepares for another assault." instead;
+	if the current turns of the Jagged Blade is 1:
+		if the dodgeTrue of the player is 1:
+			say "You roll out of the way as the Mercenary blinks behind you.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You quickly turn around and parry the Mercenary as he goes in for a backstab.[line break][line break]";
+			if the Mercenary is dead:
+				say "While the Mercenary's guard is down, you quickly jab his chest, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "Blood gushes out the mouth of the Mercenary as he collapses to the floor.[line break][line break]A spirit breaks free from the body of the Mercenary and disappears.";
+				now the Mercenary is nowhere;
+				now the Mercenary is docile;
+			otherwise:
+				say "While the Mercenary's guard is down, you quickly jab his chest, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Mercenary blinks behind you and stabs your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Mercenary is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Mercenary blinks behind you and stabs you in the back, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Mercenary is unable to penetrate your armour.";
+	if the current turns of the Jagged Blade is 0:
+		if the dodgeTrue of the player is 1:
+			say "The Mercenary blinks away and dashes towards you but you avoid his attack.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You strike the Mercenary as he tries to blink away.[line break][line break]";
+			if the Mercenary is dead:
+				say "You land a crushing blow to his skull, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "Blood gushes out the mouth of the Mercenary as he collapses to the floor.[line break][line break]A spirit breaks free from the body of the Mercenary and disappears.";
+				now the Mercenary is nowhere;
+				now the Mercenary is docile;
+			otherwise:
+				say "You land a crushing blow to his skull, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Mercenary blinks away and dashes into your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Mercenary is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Mercenary blinks away and dashes across you, slicing your stomach, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Mercenary is unable to penetrate your armour.";
+	if the current turns of the Jagged Blade is 8:
+		if the dodgeTrue of the player is 1:
+			say "The Mercenary blinks away and dashes towards you but you avoid his attack.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "You counter the Mercenary's swing, knocking him off balance.[line break][line break]";
+			if the Mercenary is dead:
+				say "You swing your weapon across the Mercenary's face, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "Blood gushes out the mouth of the Mercenary as he collapses to the floor.[line break][line break]A spirit breaks free from the body of the Mercenary and disappears.";
+				now the Mercenary is nowhere;
+				now the Mercenary is docile;
+			otherwise:
+				say "You swing your weapon across the Mercenary's face, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Mercenary blinks above you and crashes his sword onto your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Mercenary is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Mercenary strikes you into the air and blinks above you, slamming you back onto the ground, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Mercenary is unable to penetrate your armour.".
+Report hitting a dead Mercenary:
+		say "Blood gushes out the mouth of the Mercenary as he collapses to the floor.[line break][line break]A spirit breaks free from the body of the Mercenary and disappears." instead.
+
+Report Mercenary hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Mercenary blinks behind you and slices off one of your arms."; 
+	end the story saying "The Mercenary dashes through you, ripping your body in half"; 
+	stop the action.
+Carry out Mercenary hitting the player:
+	if the current turns of the Jagged Blade is 8: 
+		now the player is notHit;
+		now the current turns of the Jagged Blade is 7;
+		stop the action;
+	if the current turns of the Jagged Blade is 7: 
+		now the player is notHit;
+		now the current turns of the Jagged Blade is 6;
+		stop the action;
+	if the current turns of the Jagged Blade is 6: 
+		now the player is notHit;
+		now the current turns of the Jagged Blade is 5;
+		stop the action;
+	if the current turns of the Jagged Blade is 5: 
+		now the player is hit;
+		now the current turns of the Jagged Blade is 4;
+		stop the action;
+	if the current turns of the Jagged Blade is 4: 
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Jagged Blade is 3;
+		stop the action;	
+	if the current turns of the Jagged Blade is 3: 
+		now the player is hit;
+		now the current turns of the Jagged Blade is 2;
+		stop the action;
+	if the current turns of the Jagged Blade is 2: 
+		now the player is hit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Jagged Blade is 1;
+		stop the action;	
+	if the current turns of the Jagged Blade is 1: 
+		now the player is hit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Jagged Blade is 0;
+		stop the action;	
+	if the current turns of the Jagged Blade is 0: 
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Cutthroat by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Jagged Blade is 8;
+		stop the action.
+		
+Twin Fight is a recurring scene.
+Twin Fight begins when the player is in the Dilapidated Chamber.
+Every turn during the Twin Fight:
+	now the left hand status line is "Disciple of Death: [current hit points of Cutthroat]";
+	now the right hand status line is "Herald of Agony: [current hit points of Mercenary]";
+	now the player is hostile;
+	if the Cutthroat is dead:
+		now the left hand status line is "Disciple of Death: Deceased";
+		now the Cutthroat is nowhere;
+	if the Mercenary is dead:
+		now the right hand status line is "Herald of Agony: Deceased";
+		now the Mercenary is nowhere;
+	if the Cutthroat is dead:
+		if the Mercenary is dead:
+			now the player is notHit;
+			now the player is docile.
+Twin Fight ends when the player is not in the Dilapidated Chamber.	
+When Twin Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "";
+	now the right hand status line is "".
