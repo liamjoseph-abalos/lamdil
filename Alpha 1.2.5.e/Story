@@ -372,21 +372,6 @@ Rule for printing the name of Jungle 5:
 Instead of going east when the player is in Jungle 5:
 	say "The jungle thickens and prevents you from going further.";
 	stop the action.
-Jungle Guard Fight 1 is a scene. 
-Jungle Guard Fight 1 begins when the player is in Jungle 5.
-Every turn during the Jungle Guard Fight 1:
-	now the left hand status line is "Prison Guard: [current hit points of Prison Guard 1]";
-	now the player is hostile;
-	if the Prison Guard 1 is dead:
-		now the player is docile;
-		now the player is notHit;
-		now the left hand status line is "Prison Guard: Deceased";
-		now the Prison Guard 1 is nowhere.
-Jungle Guard Fight 1 ends when the player is not in the Jungle 5.	
-When Jungle Guard Fight 1 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "".
 	
 Jungle 6 is west of Jungle 7. Jungle 6 is a room.
 Rule for printing the name of Jungle 6:
@@ -401,22 +386,6 @@ Instead of going south when the player is in Jungle 6:
 Jungle 7 is north of Jungle 1. Jungle 7 is a room. 
 Rule for printing the name of Jungle 7:
 	say "Jungle".
-	
-Jungle Guard Fight 2 is a scene. 
-Jungle Guard Fight 2 begins when the player is in Jungle 7.
-Every turn during the Jungle Guard Fight 2:
-	now the left hand status line is "Prison Guard: [current hit points of Prison Guard 2]";
-	now the player is hostile;
-	if the Prison Guard 2 is dead:
-		now the player is docile;
-		now the player is notHit;
-		now the left hand status line is "Prison Guard: Deceased";
-		now the Prison Guard 2 is nowhere.
-Jungle Guard Fight 2 ends when the player is not in the Jungle 7.	
-When Jungle Guard Fight 2 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "".
 	
 Jungle 8 is east of Jungle 7 and north of Jungle 2. Jungle 8 is a room. "[if Southern Tower Sentinel is not dead]You feel someone watching you..."
 Rule for printing the name of Jungle 8:
@@ -575,21 +544,6 @@ Rule for printing the name of Jungle 33:
 Instead of going east when the player is in Jungle 33:
 	say "The jungle thickens and prevents you from going further.";
 	stop the action.
-Jungle Guard Fight 4 is a scene. 
-Jungle Guard Fight 4 begins when the player is in Jungle 33.
-Every turn during the Jungle Guard Fight 4:
-	now the left hand status line is "Prison Guard: [current hit points of Prison Guard 4]";
-	now the player is hostile;
-	if the Prison Guard 4 is dead:
-		now the player is docile;
-		now the player is notHit;
-		now the left hand status line is "Prison Guard: Deceased";
-		now the Prison Guard 4 is nowhere.
-Jungle Guard Fight 4 ends when the player is not in the Jungle 33.	
-When Jungle Guard Fight 4 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "".
 	
 Jungle 34 is north of Jungle 27. Jungle 34 is a room. 
 Rule for printing the name of Jungle 34:
@@ -600,21 +554,6 @@ Instead of going west when the player is in Jungle 34:
 Instead of going north when the player is in Jungle 34:
 	say "There are dangerous creatures in the water.";
 	stop the action.
-Jungle Guard Fight 3 is a scene. 
-Jungle Guard Fight 3 begins when the player is in Jungle 34.
-Every turn during the Jungle Guard Fight 3:
-	now the left hand status line is "Prison Guard: [current hit points of Prison Guard 3]";
-	now the player is hostile;
-	if the Prison Guard 3 is dead:
-		now the player is docile;
-		now the player is notHit;
-		now the left hand status line is "Prison Guard: Deceased";
-		now the Prison Guard 3 is nowhere.
-Jungle Guard Fight 3 ends when the player is not in the Jungle 34.	
-When Jungle Guard Fight 3 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "".
 	
 Jungle 35 is east of Jungle 34 and north of Jungle 28.
 Rule for printing the name of Jungle 35:
@@ -742,6 +681,9 @@ Rule for printing the name of Ground Floor 8:
 	say "Ground Floor".
 	
 Ground Floor 9 is east of Ground Floor 8 and south of Ground Floor 6. Ground Floor 9 is a room. Loose Brick is a thing in Ground Floor 9. Loose Brick is fixed in place."One of the bricks of the Marble Tower slightly protrudes from the wall." Diamond is a thing.
+Instead of taking Diamond:
+	play the sound of levelup;
+	end the story finally saying "You pick up the shiny jewel, hold it up to the light, and you hear a twinkle. Nothing in this world matters more than diamonds.".
 Rule for printing the name of Ground Floor 9:
 	say "Ground Floor".
 Instead of pulling the Loose Brick:
@@ -1352,7 +1294,7 @@ F13 is a room. F13 is northeast of F12.
 Rule for printing the name of F13:
 	say "Sanctuary of the Forgotten".
 	
-F13 is a room. F14 is northeast of F13.
+F13 is a room.
 Rule for printing the name of F14:
 	say "Sanctuary of the Forgotten".
 	
@@ -1368,7 +1310,7 @@ F17 is a room. F17 is north of F16.
 Rule for printing the name of F17:
 	say "Sanctuary of the Forgotten".
 	
-F18 is a room. F18 is northwest of F14. "[if the player is in F19 for the first time]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]You fear what lies in the next room with the cursed whispers.".
+F18 is a room. F18 is north of F13. "[if the player is in F18 for the first time]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]You fear what lies in the next room with the cursed whispers.".
 Rule for printing the name of F18:
 	say "Sanctuary of the Forgotten".
 	
@@ -1534,7 +1476,7 @@ F51 is a room. F51 is southeast of F50 and north of Desecrated Chapel.
 Rule for printing the name of F51:
 	say "Sanctuary of the Forgotten".
 	
-F52 is a room. F52 is northeast of F51.
+F52 is a room. 
 Rule for printing the name of F52:
 	say "Sanctuary of the Forgotten".
 	
@@ -1574,7 +1516,7 @@ F61 is a room. F61 is north of F60.
 Rule for printing the name of F61:
 	say "Sanctuary of the Forgotten".
 	
-F62 is a room. F62 is northeast of F61.
+F62 is a room. 
 Rule for printing the name of F62:
 	say "Sanctuary of the Forgotten".
 	
@@ -1676,9 +1618,31 @@ F86 is a room. F86 is north of F85.
 Rule for printing the name of F86:
 	say "Sanctuary of the Forgotten".
 	
-Cutthroat Arena is a room. Cutthroat Arena is northeast of F86.
+Dilapidated Chamber is a room. Dilapidated Chamber is northeast of F86.
+Twin Fight is a recurring scene.
+Twin Fight begins when the player is in the Dilapidated Chamber.
+Every turn during the Twin Fight:
+	now the left hand status line is "Disciple of Death: [current hit points of Cutthroat]";
+	now the right hand status line is "Herald of Agony: [current hit points of Mercenary]";
+	now the player is hostile;
+	if the Cutthroat is dead:
+		now the left hand status line is "Disciple of Death: Deceased";
+		now the Cutthroat is nowhere;
+	if the Mercenary is dead:
+		now the right hand status line is "Herald of Agony: Deceased";
+		now the Mercenary is nowhere;
+	if the Cutthroat is dead:
+		if the Mercenary is dead:
+			now the player is notHit;
+			now the player is docile.
+Twin Fight ends when the player is not in the Dilapidated Chamber.	
+When Twin Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "";
+	now the right hand status line is "".
 
-F87 is a room. F87 is east of Cutthroat Arena.
+F87 is a room. F87 is east of Dilapidated Chamber.
 Rule for printing the name of F87:
 	say "Sanctuary of the Forgotten".
 	
@@ -1722,9 +1686,24 @@ F97 is a room. F97 is northeast of F96.
 Rule for printing the name of F97:
 	say "Sanctuary of the Forgotten".
 	
-Alchemist Arena is a room. Alchemist Arena is east of F97.
+Scorched Wasteland is a room. Scorched Wasteland is east of F97.
+Arsonist Fight is a recurring scene.
+Arsonist Fight begins when the player is in the Scorched Wasteland.
+Every turn during the Arsonist Fight:
+	now the left hand status line is "Omen of Flame: [current hit points of Arsonist]";
+	now the player is hostile;
+	if the Arsonist is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Omen of Flame: Deceased";
+		now the Arsonist is nowhere.
+Arsonist Fight ends when the player is not in the Scorched Wasteland.	
+When Arsonist Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
 
-F98 is a room. F98 is northeast of Alchemist Arena.
+F98 is a room. F98 is northeast of Scorched Wasteland.
 Rule for printing the name of F98:
 	say "Sanctuary of the Forgotten".
 	
@@ -1760,11 +1739,11 @@ F106 is a room. F106 is north of F104.
 Rule for printing the name of F106:
 	say "Sanctuary of the Forgotten".
 	
-F107 is a room. F107 is northeast of F106.
+F107 is a room. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. 
 Rule for printing the name of F107:
-	say "Sanctuary of the Forgotten".
+	say "The Beginning of the End".
 	
-F108 is a room. F108 is northwest of F107.
+F108 is a room. 
 Rule for printing the name of F108:
 	say "Sanctuary of the Forgotten".
 	
@@ -1870,7 +1849,7 @@ F133 is a room. F133 is south of F132 and north of F111.
 Rule for printing the name of F133:
 	say "Sanctuary of the Forgotten".
 	
-F134 is a room. F134 is northwest of F98.
+F134 is a room. 
 Rule for printing the name of F134:
 	say "Sanctuary of the Forgotten".
 	
