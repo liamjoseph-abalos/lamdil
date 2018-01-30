@@ -384,7 +384,337 @@ Carry out Eastern Tower Sentinel hitting the player:
 			decrease the current hit points of the noun by the damage inflicted;
 		now the current turns of the Sentinel Mace is 1;
 		stop the action.	
+		
+The Prison Guard 1 is in Jungle 5. 
+Rule for printing the name of Prison Guard 1:
+	say "Prison Guard".
+The current hit points of the Prison Guard 1 is 25. The maximum hit points of the Prison Guard 1 is 25.
+The Prison Guard 1 is hostile. 
+The Prison Guard 1 carries a weapon called Iron Spear 1. The current turns of the Iron Spear 1 is 1.
+Setting action variables for an actor hitting:
+	if the actor is Prison Guard 1:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 10 and 12 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 10 and 12 minus x.
+Every turn when the player is in the Jungle 5: 
+	if the Prison Guard 1 is hostile, try Prison Guard 1 hitting the player;
+	if the current hit points of the Prison Guard 1 is greater than 0:
+		if the Prison Guard 1 is hostile:
+			if the current hit points of the Prison Guard 1 is greater than 15:
+				if the current hit points of the Prison Guard 1 is less than 20:
+					say " 'Is that the best you got! I'm barely getting started!' the prison guard remarks as if to taunt you. " ;
+			otherwise if the current hit points of the Prison Guard 1 is greater than 10:
+				if the current hit points of the Prison Guard 1 is less than 14:
+					say " 'I could keep doing this all day!', the prison guard yells as you sever his arm clean off.";
+			otherwise if the current hit points of the Prison Guard 1 is greater than 5:
+				if the current hit points of the Prison Guard 1 is less than 9:
+					say " 'It's too late for you! I've already gained the upper ground!', the prison guard screams in pain as you take his leg.";
+			otherwise if the current hit points of the Prison Guard 1 is greater than 0:
+				if the current hit points of the Prison Guard 1 is less than 4:
+					say " 'You're finished! Just wait until I use my final attack!', the prison guard exclaims as you prepare to finish him off.".		
 
+Report Prison Guard 1 hitting the player:
+	if the current turns of the Iron Spear 1 is 0:
+		say " 'HALT! By strict order straight from the Overseer himself, I cannot allow you to pass! Turn away NOW or taste my spear!', the prison guard yells as he draws his spear." instead;
+	if the current turns of the Iron Spear 1 is 1:
+		if the dodgeTrue of the player is 1:
+			say " 'IMPOSSIBLE! THERE IS NO WAY YOU COULD HAVE DODGED MY LIGHTNING QUICK ATTACKS!', the prison guard exclaims as you easily dodge his attack. ";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say " 'INCONCEIVABLE! I've been trained by the Overseer himself! There is no way a weakling like you could overpower me!', the prison guard shouts as you sucessfully manage to parry his blows.[line break][line break]";
+			if the Prison Guard 1 is dead:
+				say "You riposte the prison guard, dealing [riposteDamage of the player] damage![line break][line break]";
+				say " 'We'll call it a draw...', the prison guard cries as he utters his last breath.";
+				now the Prison Guard 1 is nowhere;
+				now the Prison Guard 1 is docile;
+			otherwise:
+				say "You riposte the Prison Guard, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The prison guard strikes your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The prison guard is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say " 'Nobody can best my fury!', the prison guard yells as he lands a clean hit on your body, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The prison guard is unable to penetrate your armour.".	
+Report hitting a dead Prison Guard 1:
+		say "'We'll call it a draw...', the prison guard cries as he utters his last breath." instead.
+
+Report Prison Guard 1 hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say " 'I'm unstoppable! My strength is limitless!', the prison guard triumphantly yells as he knocks you to the floor."; 
+	end the story saying "You seriously lost to him? Wow."; 
+	stop the action.
+Carry out Prison Guard 1 hitting the player:
+	if the current turns of the Iron Spear 1 is 1:
+		now the player is hit;
+		now the current turns of the Iron Spear 1 is 0;
+		stop the action;
+	if the current turns of the Iron Spear 1 is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Prison Guard 1 by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Iron Spear 1 is 1;
+		stop the action.	
+	
+The Prison Guard 2 is in Jungle 7. 
+Rule for printing the name of Prison Guard 2:
+	say "Prison Guard".
+The current hit points of the Prison Guard 2 is 25. The maximum hit points of the Prison Guard 2 is 25.
+The Prison Guard 2 is hostile. 
+The Prison Guard 2 carries a weapon called Iron Spear 2. The current turns of the Iron Spear 2 is 1.
+Setting action variables for an actor hitting:
+	if the actor is Prison Guard 2:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 10 and 12 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 10 and 12 minus x.
+Every turn when the player is in the Jungle 7: 
+	if the Prison Guard 2 is hostile, try Prison Guard 2 hitting the player;
+	if the current hit points of the Prison Guard 2 is greater than 0:
+		if the Prison Guard 2 is hostile:
+			if the current hit points of the Prison Guard 2 is greater than 15:
+				if the current hit points of the Prison Guard 2 is less than 20:
+					say " 'Is that the best you got! I'm barely getting started!' the prison guard remarks as if to taunt you. " ;
+			otherwise if the current hit points of the Prison Guard 2 is greater than 10:
+				if the current hit points of the Prison Guard 2 is less than 14:
+					say " 'I could keep doing this all day!', the prison guard yells as you sever his arm clean off.";
+			otherwise if the current hit points of the Prison Guard 2 is greater than 5:
+				if the current hit points of the Prison Guard 2 is less than 9:
+					say " 'It's too late for you! I've already gained the upper ground!', the prison guard screams in pain as you take his leg.";
+			otherwise if the current hit points of the Prison Guard 2 is greater than 0:
+				if the current hit points of the Prison Guard 2 is less than 4:
+					say " 'You're finished! Just wait until I use my final attack!', the prison guard exclaims as you prepare to finish him off.".		
+Report Prison Guard 2 hitting the player:
+	if the current turns of the Iron Spear 2 is 0:
+		say " 'HALT! By strict order straight from the Overseer himself, I cannot allow you to pass! Turn away NOW or taste my spear!', the prison guard yells as he draws his spear." instead;
+	if the current turns of the Iron Spear 2 is 1:
+		if the dodgeTrue of the player is 1:
+			say " 'IMPOSSIBLE! THERE IS NO WAY YOU COULD HAVE DODGED MY LIGHTNING QUICK ATTACKS!', the prison guard exclaims as you easily dodge his attack. ";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say " 'INCONCEIVABLE! I've been trained by the Overseer himself! There is no way a weakling like you could overpower me!', the prison guard shouts as you sucessfully manage to parry his blows.[line break][line break]";
+			if the Prison Guard 2 is dead:
+				say "You riposte the prison guard, dealing [riposteDamage of the player] damage![line break][line break]";
+				say " 'We'll call it a draw...', the prison guard cries as he utters his last breath.";
+				now the Prison Guard 2 is nowhere;
+				now the Prison Guard 2 is docile;
+			otherwise:
+				say "You riposte the Prison Guard, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The prison guard strikes your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The prison guard is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say " 'Nobody can best my fury!', the prison guard yells as he lands a clean hit on your body, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The prison guard is unable to penetrate your armour.".	
+Report hitting a dead Prison Guard 2:
+		say "'We'll call it a draw...', the prison guard cries as he utters his last breath." instead.
+Report Prison Guard 2 hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say " 'I'm unstoppable! My strength is limitless!', the prison guard triumphantly yells as he knocks you to the floor."; 
+	end the story saying "You seriously lost to him? Wow."; 
+	stop the action.
+Carry out Prison Guard 2 hitting the player:
+	if the current turns of the Iron Spear 2 is 1:
+		now the player is hit;
+		now the current turns of the Iron Spear 2 is 0;
+		stop the action;
+	if the current turns of the Iron Spear 2 is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Prison Guard 2 by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Iron Spear 2 is 1;
+		stop the action.	
+
+
+The Prison Guard 3 is in Jungle 34. 
+Rule for printing the name of Prison Guard 3:
+	say "Prison Guard".
+The current hit points of the Prison Guard 3 is 25. The maximum hit points of the Prison Guard 3 is 25.
+The Prison Guard 3 is hostile. 
+The Prison Guard 3 carries a weapon called Iron Spear 3. The current turns of the Iron Spear 3 is 1.
+Setting action variables for an actor hitting:
+	if the actor is Prison Guard 3:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 10 and 12 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 10 and 12 minus x.
+Every turn when the player is in the Jungle 34: 
+	if the Prison Guard 3 is hostile, try Prison Guard 3 hitting the player;
+	if the current hit points of the Prison Guard 3 is greater than 0:
+		if the Prison Guard 3 is hostile:
+			if the current hit points of the Prison Guard 3 is greater than 15:
+				if the current hit points of the Prison Guard 3 is less than 20:
+					say " 'Is that the best you got! I'm barely getting started!' the prison guard remarks as if to taunt you. " ;
+			otherwise if the current hit points of the Prison Guard 3 is greater than 10:
+				if the current hit points of the Prison Guard 3 is less than 14:
+					say " 'I could keep doing this all day!', the prison guard yells as you sever his arm clean off.";
+			otherwise if the current hit points of the Prison Guard 3 is greater than 5:
+				if the current hit points of the Prison Guard 3 is less than 9:
+					say " 'It's too late for you! I've already gained the upper ground!', the prison guard screams in pain as you take his leg.";
+			otherwise if the current hit points of the Prison Guard 3 is greater than 0:
+				if the current hit points of the Prison Guard 3 is less than 4:
+					say " 'You're finished! Just wait until I use my final attack!', the prison guard exclaims as you prepare to finish him off.".		
+Report Prison Guard 3 hitting the player:
+	if the current turns of the Iron Spear 3 is 0:
+		say " 'HALT! By strict order straight from the Overseer himself, I cannot allow you to pass! Turn away NOW or taste my spear!', the prison guard yells as he draws his spear." instead;
+	if the current turns of the Iron Spear 3 is 1:
+		if the dodgeTrue of the player is 1:
+			say " 'IMPOSSIBLE! THERE IS NO WAY YOU COULD HAVE DODGED MY LIGHTNING QUICK ATTACKS!', the prison guard exclaims as you easily dodge his attack. ";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say " 'INCONCEIVABLE! I've been trained by the Overseer himself! There is no way a weakling like you could overpower me!', the prison guard shouts as you sucessfully manage to parry his blows.[line break][line break]";
+			if the Prison Guard 3 is dead:
+				say "You riposte the prison guard, dealing [riposteDamage of the player] damage![line break][line break]";
+				say " 'We'll call it a draw...', the prison guard cries as he utters his last breath.";
+				now the Prison Guard 3 is nowhere;
+				now the Prison Guard 3 is docile;
+			otherwise:
+				say "You riposte the Prison Guard, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The prison guard strikes your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The prison guard is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say " 'Nobody can best my fury!', the prison guard yells as he lands a clean hit on your body, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The prison guard is unable to penetrate your armour.".	
+Report hitting a dead Prison Guard 3:
+		say "'We'll call it a draw...', the prison guard cries as he utters his last breath." instead.
+Report Prison Guard 3 hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say " 'I'm unstoppable! My strength is limitless!', the prison guard triumphantly yells as he knocks you to the floor."; 
+	end the story saying "You seriously lost to him? Wow."; 
+	stop the action.
+Carry out Prison Guard 3 hitting the player:
+	if the current turns of the Iron Spear 3 is 1:
+		now the player is hit;
+		now the current turns of the Iron Spear 3 is 0;
+		stop the action;
+	if the current turns of the Iron Spear 3 is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Prison Guard 3 by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Iron Spear 3 is 1;
+		stop the action.	
+
+The Prison Guard 4 is in Jungle 33. 
+Rule for printing the name of Prison Guard 4:
+	say "Prison Guard".
+The current hit points of the Prison Guard 4 is 25. The maximum hit points of the Prison Guard 4 is 25.
+The Prison Guard 4 is hostile. 
+The Prison Guard 4 carries a weapon called Iron Spear 4. The current turns of the Iron Spear 4 is 1.
+Setting action variables for an actor hitting:
+	if the actor is Prison Guard 4:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 10 and 12 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 10 and 12 minus x.
+Every turn when the player is in the Jungle 33: 
+	if the Prison Guard 4 is hostile, try Prison Guard 4 hitting the player;
+	if the current hit points of the Prison Guard 4 is greater than 0:
+		if the Prison Guard 4 is hostile:
+			if the current hit points of the Prison Guard 4 is greater than 15:
+				if the current hit points of the Prison Guard 4 is less than 20:
+					say " 'Is that the best you got! I'm barely getting started!' the prison guard remarks as if to taunt you. " ;
+			otherwise if the current hit points of the Prison Guard 4 is greater than 10:
+				if the current hit points of the Prison Guard 4 is less than 14:
+					say " 'I could keep doing this all day!', the prison guard yells as you sever his arm clean off.";
+			otherwise if the current hit points of the Prison Guard 4 is greater than 5:
+				if the current hit points of the Prison Guard 4 is less than 9:
+					say " 'It's too late for you! I've already gained the upper ground!', the prison guard screams in pain as you take his leg.";
+			otherwise if the current hit points of the Prison Guard 4 is greater than 0:
+				if the current hit points of the Prison Guard 4 is less than 4:
+					say " 'You're finished! Just wait until I use my final attack!', the prison guard exclaims as you prepare to finish him off.".		
+Report Prison Guard 4 hitting the player:
+	if the current turns of the Iron Spear 4 is 0:
+		say " 'HALT! By strict order straight from the Overseer himself, I cannot allow you to pass! Turn away NOW or taste my spear!', the prison guard yells as he draws his spear." instead;
+	if the current turns of the Iron Spear 4 is 1:
+		if the dodgeTrue of the player is 1:
+			say " 'IMPOSSIBLE! THERE IS NO WAY YOU COULD HAVE DODGED MY LIGHTNING QUICK ATTACKS!', the prison guard exclaims as you easily dodge his attack. ";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say " 'INCONCEIVABLE! I've been trained by the Overseer himself! There is no way a weakling like you could overpower me!', the prison guard shouts as you sucessfully manage to parry his blows.[line break][line break]";
+			if the Prison Guard 4 is dead:
+				say "You riposte the prison guard, dealing [riposteDamage of the player] damage![line break][line break]";
+				say " 'We'll call it a draw...', the prison guard cries as he utters his last breath.";
+				now the Prison Guard 4 is nowhere;
+				now the Prison Guard 4 is docile;
+			otherwise:
+				say "You riposte the Prison Guard, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The prison guard strikes your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The prison guard is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say " 'Nobody can best my fury!', the prison guard yells as he lands a clean hit on your body, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The prison guard is unable to penetrate your armour.".	
+Report hitting a dead Prison Guard 4:
+		say "'We'll call it a draw...', the prison guard cries as he utters his last breath." instead.
+Report Prison Guard 4 hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say " 'I'm unstoppable! My strength is limitless!', the prison guard triumphantly yells as he knocks you to the floor."; 
+	end the story saying "You seriously lost to him? Wow."; 
+	stop the action.
+Carry out Prison Guard 4 hitting the player:
+	if the current turns of the Iron Spear 4 is 1:
+		now the player is hit;
+		now the current turns of the Iron Spear 4 is 0;
+		stop the action;
+	if the current turns of the Iron Spear 4 is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Prison Guard 4 by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Iron Spear 4 is 1;
+		stop the action.	
 
 The current hit points of the Armoured Guard is 20. The maximum hit points of the Armoured Guard is 20.
 The Armoured Guard is hostile. 
