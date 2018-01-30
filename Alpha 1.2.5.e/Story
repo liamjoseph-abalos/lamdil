@@ -1339,7 +1339,8 @@ When Heretic Fight ends:
 Heretic Reveal is a scene.
 Heretic Reveal begins when Heretic Fight ends.
 When Heretic Reveal begins:
-	say "it is unsafe for me to speak these words, however, if you are already reading this, then I must be no longer. Perhaps that is for the better. Be warned, Ethiram is not who he claims to be. He is a powerful and dangerous being. Stay way and cautious at all times. Good luck.".
+	say "it is unsafe for me to speak these words, however, if you are already reading this, then I must be no longer. Perhaps that is for the better. Be warned, Ethiram is not who he claims to be. He is a powerful and dangerous being. Stay way and cautious at all times. Good luck.";
+	increase the unlock of the player by 1.
 Heretic Reveal ends when player is in F51.
 
 F19 is a room. F19 is west of Desecrated Chapel. "[if the player is in F19 for the first time]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]You fear what lies in the next room with the cursed whispers.".
@@ -1739,9 +1740,14 @@ F106 is a room. F106 is north of F104.
 Rule for printing the name of F106:
 	say "Sanctuary of the Forgotten".
 	
-F107 is a room. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. 
+F107 is a room. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. Forcefield is below 107.
+When the unlock of the player is 1:
+	now Forcefield is revealed;
+	now Forcefield is open.
 Rule for printing the name of F107:
 	say "The Beginning of the End".
+	
+Endless Void is a room. Endless void is below Forcefield.
 	
 F108 is a room. 
 Rule for printing the name of F108:
