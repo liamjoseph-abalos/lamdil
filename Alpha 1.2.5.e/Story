@@ -372,6 +372,21 @@ Rule for printing the name of Jungle 5:
 Instead of going east when the player is in Jungle 5:
 	say "The jungle thickens and prevents you from going further.";
 	stop the action.
+Jungle Guard Fight 1 is a scene. 
+Jungle Guard Fight 1 begins when the player is in Jungle 5.
+Every turn during the Jungle Guard Fight 1:
+	now the left hand status line is "Prison Guard: [current hit points of Prison Guard 1]";
+	now the player is hostile;
+	if the Prison Guard 1 is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Prison Guard: Deceased";
+		now the Prison Guard 1 is nowhere.
+Jungle Guard Fight 1 ends when the player is not in the Jungle 5.	
+When Jungle Guard Fight 1 ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
 	
 Jungle 6 is west of Jungle 7. Jungle 6 is a room.
 Rule for printing the name of Jungle 6:
@@ -386,6 +401,22 @@ Instead of going south when the player is in Jungle 6:
 Jungle 7 is north of Jungle 1. Jungle 7 is a room. 
 Rule for printing the name of Jungle 7:
 	say "Jungle".
+	
+Jungle Guard Fight 2 is a scene. 
+Jungle Guard Fight 2 begins when the player is in Jungle 7.
+Every turn during the Jungle Guard Fight 2:
+	now the left hand status line is "Prison Guard: [current hit points of Prison Guard 2]";
+	now the player is hostile;
+	if the Prison Guard 2 is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Prison Guard: Deceased";
+		now the Prison Guard 2 is nowhere.
+Jungle Guard Fight 2 ends when the player is not in the Jungle 7.	
+When Jungle Guard Fight 2 ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
 	
 Jungle 8 is east of Jungle 7 and north of Jungle 2. Jungle 8 is a room. "[if Southern Tower Sentinel is not dead]You feel someone watching you..."
 Rule for printing the name of Jungle 8:
@@ -544,6 +575,21 @@ Rule for printing the name of Jungle 33:
 Instead of going east when the player is in Jungle 33:
 	say "The jungle thickens and prevents you from going further.";
 	stop the action.
+Jungle Guard Fight 4 is a scene. 
+Jungle Guard Fight 4 begins when the player is in Jungle 33.
+Every turn during the Jungle Guard Fight 4:
+	now the left hand status line is "Prison Guard: [current hit points of Prison Guard 4]";
+	now the player is hostile;
+	if the Prison Guard 4 is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Prison Guard: Deceased";
+		now the Prison Guard 4 is nowhere.
+Jungle Guard Fight 4 ends when the player is not in the Jungle 33.	
+When Jungle Guard Fight 4 ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
 	
 Jungle 34 is north of Jungle 27. Jungle 34 is a room. 
 Rule for printing the name of Jungle 34:
@@ -554,6 +600,21 @@ Instead of going west when the player is in Jungle 34:
 Instead of going north when the player is in Jungle 34:
 	say "There are dangerous creatures in the water.";
 	stop the action.
+Jungle Guard Fight 3 is a scene. 
+Jungle Guard Fight 3 begins when the player is in Jungle 34.
+Every turn during the Jungle Guard Fight 3:
+	now the left hand status line is "Prison Guard: [current hit points of Prison Guard 3]";
+	now the player is hostile;
+	if the Prison Guard 3 is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Prison Guard: Deceased";
+		now the Prison Guard 3 is nowhere.
+Jungle Guard Fight 3 ends when the player is not in the Jungle 34.	
+When Jungle Guard Fight 3 ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
 	
 Jungle 35 is east of Jungle 34 and north of Jungle 28.
 Rule for printing the name of Jungle 35:
