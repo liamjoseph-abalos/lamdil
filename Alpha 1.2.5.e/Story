@@ -1229,10 +1229,11 @@ When Cannibal Fight ends:
 	now the left hand status line is "";
 	now the Freed Prisoner is in Temple.
 Freed Talking is a scene. 
-Freed talking begins when Cannibal Fight ends.
+Freed Talking begins when Cannibal Fight ends.
 Understand "Cannibal" and "him" as Freed Prisoner.
 Instead of talking to Freed Prisoner during Freed Talking:
-	say "'Ethiram...is not what he seems...' the Cannibal said. 'He turned me...into what you just killed...there are more...like me...' and the Cannibal, but who now looks like a prisoner from the Island, is no more. A dark shade erupts from his corpse and dissipates into the air.[line break]You look up from the cold, dead body and notice that in the center of the room is a trapdoor."
+	say "'Ethiram...is not what he seems...' the Cannibal said. 'He turned me...into what you just killed...there are more...like me...' and the Cannibal, but who now looks like a prisoner from the Island, is no more. A dark shade erupts from his corpse and dissipates into the air.[line break]You look up from the cold, dead body and notice that in the center of the room is a trapdoor.".
+Freed Talking ends when the player is not in the Temple.
 
 F1 is a room. F1 is below Trapdoor.
 Rule for printing the name of F1:
@@ -1319,9 +1320,9 @@ Tome of Ancient Magicks is a thing in the Desecrated Chapel. The description of 
 Understand "Tome" as Tome of Ancient Magicks.
 The Heretic is a man in the Desecrated Chapel.
 Heretic Fight is a recurring scene.
-Heretic Fight begins when the player is in the Desecrated Chapel.
 When Heretic Fight begins:
 	now the time of day is 1:00 AM.
+Heretic Fight begins when the player is in the Desecrated Chapel.
 Every turn during the Heretic Fight:
 	now the left hand status line is "Blasphemer of Gods: [current hit points of Heretic]";
 	now the player is hostile;
@@ -1336,12 +1337,12 @@ When Heretic Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "".
-Heretic Reveal is a scene.
-Heretic Reveal begins when Heretic Fight ends.
-When Heretic Reveal begins:
-	say "it is unsafe for me to speak these words, however, if you are already reading this, then I must be no longer. Perhaps that is for the better. Be warned, Ethiram is not who he claims to be. He is a powerful and dangerous being. Stay way and cautious at all times. Good luck.";
+Heretic Tome is a scene.
+Heretic Tome begins when Heretic Fight ends.
+When Heretic tome begins:
+	say "The tome wielded by the Heretic drops to the floor as her body turns to ashes and is blown away by a mysterious wind. The tome lies on the cold stone floor of the chapel, vibrating and jittering in place.";
 	increase the unlock of the player by 1.
-Heretic Reveal ends when player is in F51.
+Heretic Tome ends when the player is not in Desecrated Chapel.
 
 F19 is a room. F19 is west of Desecrated Chapel. "[if the player is in F19 for the first time]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]You fear what lies in the next room with the cursed whispers.".
 Rule for printing the name of F19:
@@ -1615,13 +1616,15 @@ F85 is a room. F85 is northwest of F84.
 Rule for printing the name of F85:
 	say "Sanctuary of the Forgotten".
 	
-F86 is a room. F86 is north of F85.
+F86 is a room. F86 is north of F85. "[if the player is in F86 for the first time]You hear whispering and giggles coming from the approaching room.[else]Who could be giggling like a little girl in a place like this?".
 Rule for printing the name of F86:
 	say "Sanctuary of the Forgotten".
 	
-Dilapidated Chamber is a room. Dilapidated Chamber is northeast of F86.
+Dilapidated Chamber is a room. Dilapidated Chamber is northeast of F86. "Walking into the next area you see two men standing in the center of a broken down chamber, laughing and crying with each other. Your presence breaks their fun and they look at one another and grin."
 Twin Fight is a recurring scene.
 Twin Fight begins when the player is in the Dilapidated Chamber.
+When Twin Fight begins:
+	now the time of day is 1:00 AM.
 Every turn during the Twin Fight:
 	now the left hand status line is "Disciple of Death: [current hit points of Cutthroat]";
 	now the right hand status line is "Herald of Agony: [current hit points of Mercenary]";
@@ -1635,13 +1638,27 @@ Every turn during the Twin Fight:
 	if the Cutthroat is dead:
 		if the Mercenary is dead:
 			now the player is notHit;
-			now the player is docile.
-Twin Fight ends when the player is not in the Dilapidated Chamber.	
+			now the player is docile;
+			now the time of day is 3:00 AM.
+Twin Fight ends when the time of day is 3:01 AM.
 When Twin Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "";
 	now the right hand status line is "".
+Twin Reveal is a scene.
+Twin Reveal begins when Twin Fight ends.
+When Twin Reveal begins:
+	say "The two men bloodily kneel on the floor of the chamber. They acknowledge your battle prowess. The Mercenary says, 'Brother, I'm glad he won.'";
+	wait for any key;
+	say "'As am I.'";
+	wait for any key;
+	say "'Should we tell him?'";
+	wait for any key;
+	say "'Of course.'";
+	wait for any key;
+	say "The Cutthroat looks straight into your eyes and says, 'Kill. Ethiram.' Both of the brothers cough up blood and sit back to back in the center of the chamber and wait for death to come.".
+Twin Reveal ends when the player is not in the Dilapidated Chamber.
 
 F87 is a room. F87 is east of Dilapidated Chamber.
 Rule for printing the name of F87:
@@ -1659,7 +1676,7 @@ F90 is a room. F90 is east of F89 and west of F61.
 Rule for printing the name of F90:
 	say "Sanctuary of the Forgotten".
 	
-F91 is a room. F91 is northwest of F86.
+F91 is a room. F91 is north of F75.
 Rule for printing the name of F91:
 	say "Sanctuary of the Forgotten".
 	
@@ -1736,18 +1753,21 @@ F105 is a room. F105 is southeast of F104 and north of F89.
 Rule for printing the name of F105:
 	say "Sanctuary of the Forgotten".
 	
-F106 is a room. F106 is north of F104.
+F106 is a room. F106 is north of F104. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. Forcefield is below F106 and above Endless Void.
+Forcefield Scene is a recurring scene.
+Forcefield Scene begins when player is in F106.
+Every turn during Forcefield Scene:
+	If the unlock of the player is 3:
+		now Forcefield is revealed;
+		now Forcefield is open.
 Rule for printing the name of F106:
-	say "Sanctuary of the Forgotten".
+	say "Mysterious Forcefield".
 	
-F107 is a room. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. Forcefield is below 107.
-When the unlock of the player is 1:
-	now Forcefield is revealed;
-	now Forcefield is open.
+Endless Void is a room. 
+
+F107 is a room.
 Rule for printing the name of F107:
-	say "The Beginning of the End".
-	
-Endless Void is a room. Endless void is below Forcefield.
+	say "Sanctuary of the Forgotten".
 	
 F108 is a room. 
 Rule for printing the name of F108:
