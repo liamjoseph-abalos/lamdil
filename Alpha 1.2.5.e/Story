@@ -1174,7 +1174,7 @@ S77 is a room. S77 is west of S76.
 Rule for printing the name of S77:
 	say "Plane of Nonexistence".
 	
-S78 is a room. S78 is north of S77. "[if the player is in S78 for the first time]Approaching the corner of the shadows, you hear a low rumbling.[else]You still hear the low rumbling coming ahead."
+S78 is a room. S78 is north of S77. "[if the Cannibal is not dead]Approaching the corner of the shadows, you hear a low rumbling.[else]The low rumbling is engraved in your mind now."
 Rule for printing the name of S78:
 	say "Plane of Nonexistence".
 	
@@ -1194,11 +1194,11 @@ S82 is a room. S82 is west of S81 and southeast of S72 and northeast of S64.
 Rule for printing the name of S82:
 	say "Plane of Nonexistence".
 	
-S83 is a room. S83 is east of S80 and north of S78. "[if the player is in S83 for the first time]As you step closer, the rumbling gets louder. The ground begins to shake.[else]You realize this is the direction you need to go in. You brace yourself, preparing for whatever comes next."
+S83 is a room. S83 is east of S80 and north of S78. "[if the Cannibal is not dead]As you step closer, the rumbling gets louder. The ground begins to shake.[else]You brace yourself, in preparation of what is to come."
 Rule for printing the name of S83:
 	say "Plane of Nonexistence".
 	
-S84 is a room. S84 is east of S83. "[if the player is in S84 for the first time]The rumbling is almost deafening, the ground is shaking as if there were an earthquake, you wonder what in God's creation could await you.[else]Walking away for the first time might have been easiest, but you can't escape the shadows if you don't find out what awaits you."
+S84 is a room. S84 is east of S83. "[if the Cannibal is not dead]The rumbling is almost deafening, the ground is shaking as if there were an earthquake, you wonder what in God's creation could await you.[else]Walking away for the first time might have been easiest, but you can't escape the shadows if you don't find out what awaits you."
 Rule for printing the name of S84:
 	say "Plane of Nonexistence".
 	
@@ -1311,7 +1311,7 @@ F17 is a room. F17 is north of F16.
 Rule for printing the name of F17:
 	say "Sanctuary of the Forgotten".
 	
-F18 is a room. F18 is north of F13. "[if the player is in F18 for the first time]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]You fear what lies in the next room with the cursed whispers.".
+F18 is a room. F18 is north of F13. "[if the Heretic is not dead]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]The cursed whispering and muttering was not a pleasant sound.".
 Rule for printing the name of F18:
 	say "Sanctuary of the Forgotten".
 	
@@ -1344,7 +1344,7 @@ When Heretic tome begins:
 	increase the unlock of the player by 1.
 Heretic Tome ends when the player is not in Desecrated Chapel.
 
-F19 is a room. F19 is west of Desecrated Chapel. "[if the player is in F19 for the first time]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]You fear what lies in the next room with the cursed whispers.".
+F19 is a room. F19 is west of Desecrated Chapel. "[if the Heretic is not dead]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]The cursed whispering and muttering was not a pleasant sound.".
 Rule for printing the name of F19:
 	say "Sanctuary of the Forgotten".
 	
@@ -1616,11 +1616,11 @@ F85 is a room. F85 is northwest of F84.
 Rule for printing the name of F85:
 	say "Sanctuary of the Forgotten".
 	
-F86 is a room. F86 is north of F85. "[if the player is in F86 for the first time]You hear whispering and giggles coming from the approaching room.[else]Who could be giggling like a little girl in a place like this?".
+F86 is a room. F86 is north of F85. "[if the Cutthroat is not dead]You hear whispering and giggles coming from the approaching room.[else]The sound of giggling will haunt your dreams.".
 Rule for printing the name of F86:
 	say "Sanctuary of the Forgotten".
 	
-Dilapidated Chamber is a room. Dilapidated Chamber is northeast of F86. "Walking into the next area you see two men standing in the center of a broken down chamber, laughing and crying with each other. Your presence breaks their fun and they look at one another and grin."
+Dilapidated Chamber is a room. Dilapidated Chamber is northeast of F86. The Cutthroat is a man in the Dilapidated Chamber. The Mercenary is a man in the Dilapidated Chamber. "Walking into the next area you see two men standing in the center of a broken down chamber, laughing and crying with each other. Your presence breaks their fun and they look at one another and grin."
 Twin Fight is a recurring scene.
 Twin Fight begins when the player is in the Dilapidated Chamber.
 When Twin Fight begins:
@@ -1645,7 +1645,8 @@ When Twin Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "";
-	now the right hand status line is "".
+	now the right hand status line is "";
+	increase the unlock of the player by 1.
 Twin Reveal is a scene.
 Twin Reveal begins when Twin Fight ends.
 When Twin Reveal begins:
@@ -1700,13 +1701,15 @@ F96 is a room. F96 is northwest of F95.
 Rule for printing the name of F96:
 	say "Sanctuary of the Forgotten".
 	
-F97 is a room. F97 is northeast of F96.
+F97 is a room. F97 is northeast of F96. "[if the Arsonist is not dead]The floor is coated with charcoal and the air becomes hard to breath. The temperature of the area seems to have increased and you begin to sweat profusely.[else]".
 Rule for printing the name of F97:
 	say "Sanctuary of the Forgotten".
 	
-Scorched Wasteland is a room. Scorched Wasteland is east of F97.
-Arsonist Fight is a recurring scene.
+Scorched Wasteland is a room. Scorched Wasteland is east of F97. Arsonist is a man in the Scorched Wasteland. "You step into a room full of blinding light and suddenly feel a wave of heat from behind you. You turn to see what it is and are greeted by a wall of flame blocking your exit. A man stands in the middle of a burning wasteland and says 'Burn baby, BURN!'"
+Arsonist Fight is a scene.
 Arsonist Fight begins when the player is in the Scorched Wasteland.
+When Arsonist Fight begins:
+	now the time of day is 1:00 AM.
 Every turn during the Arsonist Fight:
 	now the left hand status line is "Omen of Flame: [current hit points of Arsonist]";
 	now the player is hostile;
@@ -1714,14 +1717,20 @@ Every turn during the Arsonist Fight:
 		now the player is docile;
 		now the player is notHit;
 		now the left hand status line is "Omen of Flame: Deceased";
-		now the Arsonist is nowhere.
-Arsonist Fight ends when the player is not in the Scorched Wasteland.	
+		now the Arsonist is nowhere;
+		now the time of day is 3:00 AM.
+Arsonist Fight ends when the time of day is 3:01 AM.	
 When Arsonist Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	increase the unlock of the player by 1.
+Arsonist Reveal is a scene.
+Arsonist Reveal begins when Arsonist Fight ends.
+When Arsonist Reveal begins:
+	say "Lying on the ground in a huddled mass, the Arsonist incoherently begins snarling and growling at himself. You can't make out much, but you can hear 'Ethiram...agh!...Bastard...Ethi...Ethirammmmm...cc..ccuuu...CURSE YOU!...curse you...' The Arsonist stops murmuring to himself and instead begins to cry softly as he rocks his body back and forth.".
 
-F98 is a room. F98 is northeast of Scorched Wasteland.
+F98 is a room. F98 is northeast of Scorched Wasteland. "[if the Arsonist is not dead]The floor is coated with charcoal and the air becomes hard to breath. The temperature of the area seems to have increased and you begin to sweat profusely.[else]".
 Rule for printing the name of F98:
 	say "Sanctuary of the Forgotten".
 	
