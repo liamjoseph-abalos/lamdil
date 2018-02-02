@@ -11,6 +11,7 @@ Include Leveling by Lamdil.
 Include Shadow Enemies by Lamdil.
 Include Shadow Bosses by Lamdil.
 Include Secret Doors by Andrew Owen.
+Include Title Page by Jon Ingold.
 	
 Sound of levelup is the file "levelup.ogg".
 
@@ -198,12 +199,12 @@ When Shadow Finale begins:
 	say "He lifts his arm and points at the center of your body. Your body wrenches and squirms. You feel something deep in your body. It's not your heart... it's not your brain... You don't know what it is but you're not the same.";
 	wait for any key;
 	say "'Say 'Porteum' and you will be back in the prison. Good luck.' Ethiram blinks out of existence and you're left alone in the shadows.".
-Understand "Porteum" as casting Porteum.
-Casting Porteum is an action applying to nothing. 
-Carry out casting Porteum:
+Understand "xyzzy" as casting xyzzy.
+Casting xyzzy is an action applying to nothing. 
+Carry out casting xyzzy:
 	clear main window;
 	move the player to Prison Staircase. 
-Report casting Porteum:
+Report casting xyzzy:
 	say "You skeptically mutter the random jumble of letters Ethiram commands you to speak, and after a moment you appear back in the Prison and you can feel solid ground under your feet. You see a black cloud hovering over a pool of red. As you stare at the cloud, you feel a strange deepness in your soul. ".
 Shadow Finale is a scene.
 Shadow Finale ends when the player is in Prison Staircase.
@@ -1340,7 +1341,7 @@ When Heretic Fight ends:
 Heretic Tome is a scene.
 Heretic Tome begins when Heretic Fight ends.
 When Heretic tome begins:
-	say "The tome wielded by the Heretic drops to the floor as her body turns to ashes and is blown away by a mysterious wind. The tome lies on the cold stone floor of the chapel, vibrating and jittering in place.";
+	say "The tome wielded by the Heretic drops to the floor as her body turns to ashes and is blown away by a mysterious wind. The tome lies on the cold stone floor of the chapel, vibrating and jittering in place, waiting to be read.";
 	increase the unlock of the player by 1.
 Heretic Tome ends when the player is not in Desecrated Chapel.
 
@@ -1645,8 +1646,7 @@ When Twin Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "";
-	now the right hand status line is "";
-	increase the unlock of the player by 1.
+	now the right hand status line is "".
 Twin Reveal is a scene.
 Twin Reveal begins when Twin Fight ends.
 When Twin Reveal begins:
@@ -1659,6 +1659,8 @@ When Twin Reveal begins:
 	say "'Of course.'";
 	wait for any key;
 	say "The Cutthroat looks straight into your eyes and says, 'Kill. Ethiram.' Both of the brothers cough up blood and sit back to back in the center of the chamber and wait for death to come.".
+When Twin Reveal ends:
+	increase the unlock of the player by 1.
 Twin Reveal ends when the player is not in the Dilapidated Chamber.
 
 F87 is a room. F87 is east of Dilapidated Chamber.
@@ -1723,12 +1725,14 @@ Arsonist Fight ends when the time of day is 3:01 AM.
 When Arsonist Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "";
-	increase the unlock of the player by 1.
+	now the left hand status line is "".
 Arsonist Reveal is a scene.
 Arsonist Reveal begins when Arsonist Fight ends.
 When Arsonist Reveal begins:
 	say "Lying on the ground in a huddled mass, the Arsonist incoherently begins snarling and growling at himself. You can't make out much, but you can hear 'Ethiram...agh!...Bastard...Ethi...Ethirammmmm...cc..ccuuu...CURSE YOU!...curse you...' The Arsonist stops murmuring to himself and instead begins to cry softly as he rocks his body back and forth.".
+Arsonist Reveal ends when player is not in Scorched Wasteland.
+When Arsonist Reveal ends:
+	increase the unlock of the player by 1.
 
 F98 is a room. F98 is northeast of Scorched Wasteland. "[if the Arsonist is not dead]The floor is coated with charcoal and the air becomes hard to breath. The temperature of the area seems to have increased and you begin to sweat profusely.[else]".
 Rule for printing the name of F98:
@@ -1762,13 +1766,16 @@ F105 is a room. F105 is southeast of F104 and north of F89.
 Rule for printing the name of F105:
 	say "Sanctuary of the Forgotten".
 	
-F106 is a room. F106 is north of F104. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. Forcefield is below F106 and above Endless Void.
-Forcefield Scene is a recurring scene.
-Forcefield Scene begins when player is in F106.
-Every turn during Forcefield Scene:
-	If the unlock of the player is 3:
+F106 is a room. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. Forcefield is north of F104 and south of F106.
+Forcefield Block is a recurring scene.
+Forcefield Block begins when player is in F104.
+When Forcefield Block begins:
+	say "Ahead you can only see one more room to walk through.".
+Every turn during Forcefield Block:
+	if the unlock of the player is 3:
 		now Forcefield is revealed;
-		now Forcefield is open.
+		now Forcefield is open;
+		say "[if unlock of the player is not 3]A mysterious force prevents you from going forward.[else]With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all turned on Ethiram and warned you of the potential danger surrounding him...".
 Rule for printing the name of F106:
 	say "Mysterious Forcefield".
 	
