@@ -198,12 +198,12 @@ When Shadow Finale begins:
 	say "He lifts his arm and points at the center of your body. Your body wrenches and squirms. You feel something deep in your body. It's not your heart... it's not your brain... You don't know what it is but you're not the same.";
 	wait for any key;
 	say "'Say 'Porteum' and you will be back in the prison. Good luck.' Ethiram blinks out of existence and you're left alone in the shadows.".
-Understand "xyzzy" as casting xyzzy.
-Casting xyzzy is an action applying to nothing. 
-Carry out casting xyzzy:
+Understand "Porteum" as casting Porteum.
+Casting Porteum is an action applying to nothing. 
+Carry out casting Porteum:
 	clear main window;
 	move the player to Prison Staircase. 
-Report casting xyzzy:
+Report casting Porteum:
 	say "You skeptically mutter the random jumble of letters Ethiram commands you to speak, and after a moment you appear back in the Prison and you can feel solid ground under your feet. You see a black cloud hovering over a pool of red. As you stare at the cloud, you feel a strange deepness in your soul. ".
 Shadow Finale is a scene.
 Shadow Finale ends when the player is in Prison Staircase.
