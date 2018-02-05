@@ -1,3 +1,5 @@
+"Lamdil" by LAMDIL.
+
 Volume 1 - Mechanics
 
 Include Combat Mechanics by Lamdil.
@@ -11,13 +13,25 @@ Include Leveling by Lamdil.
 Include Shadow Enemies by Lamdil.
 Include Shadow Bosses by Lamdil.
 Include Secret Doors by Andrew Owen.
-Include Title Page by Jon Ingold.
 	
 Sound of levelup is the file "levelup.ogg".
 
 Use MAX_STATIC_DATA of 1000000.
 
 Volume 1 - Story 
+
+Section - Title Page
+
+When play begins:
+	center "[story title]";
+	center "[story headline]";
+	center "by [story author]";
+	say paragraph break;
+	center "Press SPACE to begin.";
+	wait for the SPACE key;
+	clear the screen;
+	say paragraph break.
+
 
 Book 1 - Inner Prison
 
@@ -1760,7 +1774,7 @@ Rule for printing the name of F103:
 	
 F104 is a room. F104 is east of F103.
 Rule for printing the name of F104:
-	say "Sanctuary of the Forgotten".
+	say "Mysterious Forcefield".
 	
 F105 is a room. F105 is southeast of F104 and north of F89.
 Rule for printing the name of F105:
@@ -1775,9 +1789,9 @@ Every turn during Forcefield Block:
 	if the unlock of the player is 3:
 		now Forcefield is revealed;
 		now Forcefield is open;
-		say "[if unlock of the player is not 3]A mysterious force prevents you from going forward.[else]With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all turned on Ethiram and warned you of the potential danger surrounding him...".
+		say "[if unlock of the player is not 3]A mysterious force prevents you from going forward.[else]With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all turned on Ethiram and warned you of the potential danger surrounding him...[line break]
 Rule for printing the name of F106:
-	say "Mysterious Forcefield".
+	say "Descent into ???".
 	
 Endless Void is a room. 
 
