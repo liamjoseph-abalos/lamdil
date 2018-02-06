@@ -136,7 +136,8 @@ Every turn during Prison Staircase Fight:
 Prison Staircase Fight ends when the Deranged Prisoner is dead.
 
 When Prison Staircase Fight ends:
-	say "The body of the deranged prisoner slowly disappears and turns into a black mist that hovers in the place of the body. You take a closer look at the mysterious hovering cloud. As your face nears the edges of the cloud, everything turns to black.".
+	say "The body of the deranged prisoner slowly disappears and turns into a black mist that hovers in the place of the body. You take a closer look at the mysterious hovering cloud. As your face nears the edges of the cloud, everything turns to black.";
+	now the time of day is 10:00 AM.
 
 Part 2 - Shadow Realm
 
@@ -263,7 +264,8 @@ Warden's Room Fight ends when the player is not in the Warden's Room.
 When Warden's Room Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	now the time of day is 10:00 AM.
 	
 Armoury Door is west of the Warden's Room. Armoury Door is a door. Armoury Door is scenery. Armoury Door is locked. Warden's Armoury is west of Armoury Door. Warden's Armoury is a dark room. "The walls of the room are stacked with weapons upon weapons. Random pieces of gear litter the floor. Armour Racks and Mannequins display full metal armour.[line break]A few weapons call to you: Sacrificial Kris, Steel Sword, and the Warden's Flail. It would be wise to only choose one of these three.[line break]You see enough pieces of equipment to complete a set of gear: Guard Helmet, Damaged Chainmail, Rusty Bracelets, Torn Trousers, Battered Shoes, and a Wooden Buckler.".
 Sacrificial Kris is in the Warden's Armoury. Steel Sword is in the Warden's Armoury. Warden's Flail is in the Warden's Armoury. Damaged Chainmail is in the Warden's Armoury. Rusty Bracelets is in the Warden's Armoury. Torn Trousers is in the Warden's Armoury. Battered Shoes is in the Warden's Armoury. Wooden Buckler is in the Warden's Armoury. Guard Helmet is in the Warden's Armoury.
@@ -427,7 +429,8 @@ Southern Tower Entrance Fight ends when the player is not in the Southern Tower 
 When Southern Tower Entrance Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	now the time of day is 10:00 AM.
 
 Jungle 10 is east of Southern Tower Entrance and north of Jungle 4. Jungle 10 is a room. "[if Southern Tower Sentinel is not dead]You feel someone watching you..."
 Rule for printing the name of Jungle 10:
@@ -503,7 +506,8 @@ Western Tower Entrance Fight ends when the player is not in the Western Tower En
 When Western Tower Entrance Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	now the time of day is 10:00 AM.
 	
 Eastern Tower Entrance is north of Jungle 18. Eastern Tower Entrance is a room. Eastern Tower Sentinel is a man in Eastern Tower Entrance. "[if Eastern Tower Sentinel is not dead]A sentinel sees you round the corner of his post and yells 'HALT!'. He readies his blade, awaiting your strike." Eastern Tower Door is west of Eastern Tower Entrance. Eastern Tower Door is east of Ground Floor 6. Eastern Tower Door is a secret door. Eastern Tower Door is locked. Eastern Tower Door is scenery.
 Eastern Tower Entrance Fight is a recurring scene.
@@ -523,7 +527,8 @@ Eastern Tower Entrance Fight ends when the player is not in the Eastern Tower En
 When Eastern Tower Entrance Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	now the time of day is 10:00 AM.
 	
 Jungle 26 is east of Eastern Tower Entrance and north of Jungle 19. Jungle 26 is a room. "[if Eastern Tower Sentinel is not dead]You feel someone watching you..."
 Rule for printing the name of Jungle 26:
@@ -673,7 +678,8 @@ Living Statue Fight ends when the player is not in Ground Floor 3.
 When Living Statue Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	now the time of day is 10:00 AM.
 	
 Ground Floor 4 is east of Western Tower Door. Ground Floor 4 is a room. "You notice that the walls are crystal clean and that everything remains polished. Extremely odd for a wretched island."
 Rule for printing the name of Ground Floor 4:
@@ -733,7 +739,8 @@ Dim Hallway Fight ends when the player is not in the Dim Hallway.
 When Dim Hallway Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	now the time of day is 10:00 AM.
 
 Second Floor Door is south of Dim Hallway. Second Floor Door is a door. Second Floor Door is locked. Second Floor Door is scenery.
 Southern Tower Window is south of Second Floor Door. Southern Tower Window is a room. "The prison does not look any better from above."
@@ -760,7 +767,8 @@ Tower Hallway Fight ends when the player is not in the Tower Hallway.
 When Tower Hallway Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	now the time of day is 10:00 AM.
 
 Third Floor Door is west of Tower Hallway. Third Floor Door is a door. Third Floor Door is locked. Third Floor Door is scenery.
 Western Tower Window is west of Third Floor Door. Western Tower Window is a room. "There are things stirring in the jungle."
@@ -803,7 +811,9 @@ Northern Outlook Fight ends when the player is not in the Northern Outlook.
 When Northern Outlook Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	now the time of day is 10:00 AM.
+	restart
 Overseer's Door is east of Northern Outlook. Overseer's Door is a door. Overseer's Door is locked. Overseer's Door is scenery.
 Overseer's Room is east of Overseer's Door. Overseer's Room is a room. Overseer's Exit is a secret door. Overseer's Exit is inside from Overseer's Room and outside from the Ground Floor Center.
 In Overseer's Room is an openable container called Overseer's Cache. Overseer's Cache is closed. Overseer's Cache is fixed in place. Understand "chest" as Overseer's Cache. "[if open]In the chest you see a key with a note attached to it that reads, 'The Cryptic Key will unlock what lies below the tower.'[else]The room is filled with fancy decor and a grandeur bed. At the foot of the bed is a chest. You see an opening in the floor that you believe will take you to the base of the tower." In Overseer's Cache is a thing called Cryptic Key.
@@ -885,21 +895,6 @@ Rule for printing the name of S5:
 S6 is a room. S6 is south of S4. In S6 is a man called the Ghostly Apparition 1. 
 Rule for printing the name of S6:
 	say "Plane of Nonexistence".
-S6 Fight is a scene.
-S6 Fight begins when the player is in S6.
-When S6 Fight begins:
-	say "You see a Ghostly Apparition";
-Every turn during S6 Fight: 
-	now the left hand status line is "Ghostly Apparition: [current hit points of Ghostly Apparition]";
-	now the player is hostile;
-	now the printed name of Ghostly Apparition 1 is "Ghostly Apparition";
-	now the Ghostly Apparition 1 is proper-named;
-	if the Ghostly Apparition 1 is dead:
-		now the player is docile;
-		now the player is notHit;
-		now the left hand status line is "Ghostly Apparition: Deceased";
-		now the Ghostly Apparition 1 is nowhere.
-S6 Fight ends when the Ghostly Apparition 1 is dead.
 	
 S7 is a room. S7 is south of S6.
 Rule for printing the name of S7:
@@ -1654,6 +1649,8 @@ Every turn during the Twin Fight:
 		if the Mercenary is dead:
 			now the player is notHit;
 			now the player is docile;
+			now the left hand status line is "Disciple of Death: Deceased";
+			now the right hand status line is "Herald of Agony: Deceased";
 			now the time of day is 3:00 AM.
 Twin Fight ends when the time of day is 3:01 AM.
 When Twin Fight ends:
@@ -1789,7 +1786,7 @@ Every turn during Forcefield Block:
 	if the unlock of the player is 3:
 		now Forcefield is revealed;
 		now Forcefield is open;
-		say "[if unlock of the player is not 3]A mysterious force prevents you from going forward.[else]With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all turned on Ethiram and warned you of the potential danger surrounding him...[line break]
+		say "[if unlock of the player is not 3]A mysterious force prevents you from going forward.[else]With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all turned on Ethiram and warned you of the potential danger surrounding him...[line break]".
 Rule for printing the name of F106:
 	say "Descent into ???".
 	
