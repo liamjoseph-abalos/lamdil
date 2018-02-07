@@ -632,7 +632,7 @@ Instead of going north when the player is in Beach 4:
 	say "Unfortunately you don't know how to swim. It would be unwise to jump into the water.";
 	stop the action.
 	
-Beach 5 is east of Beach 4 and north of Jungle 39. Beach 5 is a room. Dented Compass is in Beach 5.
+Beach 5 is east of Beach 4 and north of Jungle 39. Beach 5 is a room.
 Rule for printing the name of Beach 5:
 	say "Beach".
 Instead of going north when the player is in Beach 5:
@@ -1329,7 +1329,7 @@ Desecrated Chapel is a room. Desecrated Chapel is north of F18. "You see a woman
 Tome of Ancient Magicks is a thing in the Desecrated Chapel. The description of the Tome of Ancient Magicks is "It is unsafe for me to speak these words, however, if you are already reading this then I must be deceased. Perhaps that's for the better. Be warned Adventurer, Ethiram is not who he claims he is. He is a powerful and dangerous being. Stay wary and cautious at all times. Good luck.".
 Understand "Tome" as Tome of Ancient Magicks.
 The Heretic is a man in the Desecrated Chapel.
-Heretic Fight is a recurring scene.
+Heretic Fight is a scene.
 When Heretic Fight begins:
 	now the time of day is 1:00 AM.
 Heretic Fight begins when the player is in the Desecrated Chapel.
@@ -1346,12 +1346,12 @@ Heretic Fight ends when the time of day is 3:01 AM.
 When Heretic Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "".
+	now the left hand status line is "";
+	increase the unlock of the player by 1.
 Heretic Tome is a scene.
 Heretic Tome begins when Heretic Fight ends.
 When Heretic tome begins:
-	say "The tome wielded by the Heretic drops to the floor as her body turns to ashes and is blown away by a mysterious wind. The tome lies on the cold stone floor of the chapel, vibrating and jittering in place, waiting to be read.";
-	increase the unlock of the player by 1.
+	say "The tome wielded by the Heretic drops to the floor as her body turns to ashes and is blown away by a mysterious wind. The tome lies on the cold stone floor of the chapel, vibrating and jittering in place, waiting to be read.".
 Heretic Tome ends when the player is not in Desecrated Chapel.
 
 F19 is a room. F19 is west of Desecrated Chapel. "[if the Heretic is not dead]You hear demonic mumbling coming from the next room. As you get closer, the muttering intensifies and increases in speed. At this point it doesn't even sound human.[else]The cursed whispering and muttering was not a pleasant sound.".
@@ -1631,7 +1631,7 @@ Rule for printing the name of F86:
 	say "Sanctuary of the Forgotten".
 	
 Dilapidated Chamber is a room. Dilapidated Chamber is northeast of F86. The Cutthroat is a man in the Dilapidated Chamber. The Mercenary is a man in the Dilapidated Chamber. "Walking into the next area you see two men standing in the center of a broken down chamber, laughing and crying with each other. Your presence breaks their fun and they look at one another and grin."
-Twin Fight is a recurring scene.
+Twin Fight is a scene.
 Twin Fight begins when the player is in the Dilapidated Chamber.
 When Twin Fight begins:
 	now the time of day is 1:00 AM.
@@ -1649,18 +1649,13 @@ Every turn during the Twin Fight:
 		if the Mercenary is dead:
 			now the player is notHit;
 			now the player is docile;
-			now the left hand status line is "Disciple of Death: Deceased";
-			now the right hand status line is "Herald of Agony: Deceased";
 			now the time of day is 3:00 AM.
 Twin Fight ends when the time of day is 3:01 AM.
 When Twin Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "";
-	now the right hand status line is "".
-Twin Reveal is a scene.
-Twin Reveal begins when Twin Fight ends.
-When Twin Reveal begins:
+	now the right hand status line is "";
 	say "The two men bloodily kneel on the floor of the chamber. They acknowledge your battle prowess. The Mercenary says, 'Brother, I'm glad he won.'";
 	wait for any key;
 	say "'As am I.'";
@@ -1669,10 +1664,8 @@ When Twin Reveal begins:
 	wait for any key;
 	say "'Of course.'";
 	wait for any key;
-	say "The Cutthroat looks straight into your eyes and says, 'Kill. Ethiram.' Both of the brothers cough up blood and sit back to back in the center of the chamber and wait for death to come.".
-When Twin Reveal ends:
+	say "The Cutthroat looks straight into your eyes and says, 'Kill. Ethiram.' Both of the brothers cough up blood and sit with their backs against each other in the center of the chamber and wait for death to come.[line break] Standing in a desolate room, you see nothing but emptiness and the void. ";
 	increase the unlock of the player by 1.
-Twin Reveal ends when the player is not in the Dilapidated Chamber.
 
 F87 is a room. F87 is east of Dilapidated Chamber.
 Rule for printing the name of F87:
@@ -1740,7 +1733,7 @@ When Arsonist Fight ends:
 Arsonist Reveal is a scene.
 Arsonist Reveal begins when Arsonist Fight ends.
 When Arsonist Reveal begins:
-	say "Lying on the ground in a huddled mass, the Arsonist incoherently begins snarling and growling at himself. You can't make out much, but you can hear 'Ethiram...agh!...Bastard...Ethi...Ethirammmmm...cc..ccuuu...CURSE YOU!...curse you...' The Arsonist stops murmuring to himself and instead begins to cry softly as he rocks his body back and forth.".
+	say "Lying on the ground in a huddled mass, the Arsonist incoherently begins snarling and growling at himself. You can't make out much, but you can hear 'Ethiram...agh!...Bastard...Ethi...Ethirammmmm...cc..ccuuu...CURSE YOU!' The Arsonist stops murmuring to himself and begins crying softly as he rocks his body back and forth.".
 Arsonist Reveal ends when player is not in Scorched Wasteland.
 When Arsonist Reveal ends:
 	increase the unlock of the player by 1.
@@ -1769,7 +1762,23 @@ F103 is a room. F103 is southeast of F102.
 Rule for printing the name of F103:
 	say "Sanctuary of the Forgotten".
 	
-F104 is a room. F104 is east of F103.
+F104 is a room. F104 is east of F103. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. Forcefield is north of F104 and south of F106.
+Forcefield Block is a recurring scene.
+Forcefield Block begins when player is in F104.
+When Forcefield Block begins:
+	say "Ahead you can only see one more room to walk through.".
+Every turn during Forcefield Block:
+	if the unlock of the player is 0:
+		say "A mysterious force prevents you from going forward.";
+	if the unlock of the player is 1:
+		say "A mysterious force prevents you from going forward.";
+	if the unlock of the player is 2:
+		say "A mysterious force prevents you from going forward.";
+	if the unlock of the player is 3:
+		now Forcefield is revealed;
+		now Forcefield is open;
+		say "With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all turned on Ethiram and warned you of the potential danger surrounding him...[line break]".
+Forcefield Block ends when the player is not in F104.
 Rule for printing the name of F104:
 	say "Mysterious Forcefield".
 	
@@ -1777,20 +1786,33 @@ F105 is a room. F105 is southeast of F104 and north of F89.
 Rule for printing the name of F105:
 	say "Sanctuary of the Forgotten".
 	
-F106 is a room. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. Forcefield is north of F104 and south of F106.
-Forcefield Block is a recurring scene.
-Forcefield Block begins when player is in F104.
-When Forcefield Block begins:
-	say "Ahead you can only see one more room to walk through.".
-Every turn during Forcefield Block:
-	if the unlock of the player is 3:
-		now Forcefield is revealed;
-		now Forcefield is open;
-		say "[if unlock of the player is not 3]A mysterious force prevents you from going forward.[else]With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all turned on Ethiram and warned you of the potential danger surrounding him...[line break]".
+F106 is a room. 
+Descent is a scene. 
+Descent begins when the player is in F106.
+When Descent begins:
+	say "You walk into the next room and feel a gravity 10 times the force of Earth's pulling you down into the ground. At first you can't help but feel crushed under the weight of the room, but suddenly you are pulled through the floor at a speed that is incomprehensible. Everything is moving so fast, your mind can't begin to understand what is happening.[line break]Then he appears.";
+	wait for any key;
+	now the player is in Endless Void.
 Rule for printing the name of F106:
 	say "Descent into ???".
 	
 Endless Void is a room. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 F107 is a room.
 Rule for printing the name of F107:
