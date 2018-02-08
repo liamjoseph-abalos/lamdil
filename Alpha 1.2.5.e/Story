@@ -1648,14 +1648,15 @@ Every turn during the Twin Fight:
 	if the Cutthroat is dead:
 		if the Mercenary is dead:
 			now the player is notHit;
-			now the player is docile;
-			now the time of day is 3:00 AM.
-Twin Fight ends when the time of day is 3:01 AM.
+			now the player is docile.
+Twin Fight ends when the Mercenary is dead and the Cutthroat is dead.
 When Twin Fight ends:
 	now the player is docile;
 	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "";
+	wait for any key;
+	now the left hand status line is "Disciple of Death: Deceased";
+	now the right hand status line is "Herald of Agony: Deceased";
+	wait for any key;
 	say "The two men bloodily kneel on the floor of the chamber. They acknowledge your battle prowess. The Mercenary says, 'Brother, I'm glad he won.'";
 	wait for any key;
 	say "'As am I.'";
@@ -1665,6 +1666,8 @@ When Twin Fight ends:
 	say "'Of course.'";
 	wait for any key;
 	say "The Cutthroat looks straight into your eyes and says, 'Kill. Ethiram.' Both of the brothers cough up blood and sit with their backs against each other in the center of the chamber and wait for death to come.[line break] Standing in a desolate room, you see nothing but emptiness and the void. ";
+	now the right hand status line is "";
+	now the left hand status line is "";
 	increase the unlock of the player by 1.
 
 F87 is a room. F87 is east of Dilapidated Chamber.
@@ -1762,23 +1765,18 @@ F103 is a room. F103 is southeast of F102.
 Rule for printing the name of F103:
 	say "Sanctuary of the Forgotten".
 	
-F104 is a room. F104 is east of F103. Forcefield is a secret door. Forcefield is unrevealed. Forcefield is closed. Forcefield is north of F104 and south of F106.
-Forcefield Block is a recurring scene.
-Forcefield Block begins when player is in F104.
-When Forcefield Block begins:
-	say "Ahead you can only see one more room to walk through.".
-Every turn during Forcefield Block:
-	if the unlock of the player is 0:
-		say "A mysterious force prevents you from going forward.";
-	if the unlock of the player is 1:
-		say "A mysterious force prevents you from going forward.";
-	if the unlock of the player is 2:
-		say "A mysterious force prevents you from going forward.";
+F104 is a room. F104 is east of F103. Forcefield is a secret door. Forcefield is north of F104 and south of F106.
+Forcefield Scene is a scene.
+Forcefield Scene begins when the player is in F104.
+Instead of entering F106:
+	if the unlock of the player is less than 3:
+		Forcefield is unrevealed;
+		say "A myserious force prevents you from going forward.";
 	if the unlock of the player is 3:
 		now Forcefield is revealed;
 		now Forcefield is open;
-		say "With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all turned on Ethiram and warned you of the potential danger surrounding him...[line break]".
-Forcefield Block ends when the player is not in F104.
+		say "With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all warned you of the potential danger surrounding Ethiram...[line break]".
+Forcefield Scene ends when the player is not in F104.
 Rule for printing the name of F104:
 	say "Mysterious Forcefield".
 	
@@ -1790,7 +1788,9 @@ F106 is a room.
 Descent is a scene. 
 Descent begins when the player is in F106.
 When Descent begins:
-	say "You walk into the next room and feel a gravity 10 times the force of Earth's pulling you down into the ground. At first you can't help but feel crushed under the weight of the room, but suddenly you are pulled through the floor at a speed that is incomprehensible. Everything is moving so fast, your mind can't begin to understand what is happening.[line break]Then he appears.";
+	say "You walk into the next room and feel a gravity 10 times the force of Earth's pulling you down into the ground. At first you can't help but feel crushed under the weight of the room, but suddenly you are pulled through the floor at a speed that is incomprehensible. Everything is moving so fast, your mind can't begin to understand what is happening.";
+	wait for any key;
+	say "[line break]Then he appears.";
 	wait for any key;
 	now the player is in Endless Void.
 Rule for printing the name of F106:
