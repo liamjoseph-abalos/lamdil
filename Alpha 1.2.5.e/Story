@@ -13,7 +13,7 @@ Include Leveling by Lamdil.
 Include Shadow Enemies by Lamdil.
 Include Shadow Bosses by Lamdil.
 Include Secret Doors by Andrew Owen.
-	
+
 Sound of levelup is the file "levelup.ogg".
 
 Use MAX_STATIC_DATA of 1000000.
@@ -31,7 +31,6 @@ When play begins:
 	wait for the SPACE key;
 	clear the screen;
 	say paragraph break.
-
 
 Book 1 - Inner Prison
 
@@ -1237,7 +1236,8 @@ When Cannibal Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "";
-	now the Freed Prisoner is in Temple.
+	now the Freed Prisoner is in Temple;
+	now the time of day is 10:00 AM.
 Freed Talking is a scene. 
 Freed Talking begins when Cannibal Fight ends.
 Understand "Cannibal" and "him" as Freed Prisoner.
@@ -1347,7 +1347,8 @@ When Heretic Fight ends:
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "";
-	increase the unlock of the player by 1.
+	increase the unlock of the player by 1;
+	now the time of day is 10:00 AM.
 Heretic Tome is a scene.
 Heretic Tome begins when Heretic Fight ends.
 When Heretic tome begins:
@@ -1668,7 +1669,8 @@ When Twin Fight ends:
 	say "The Cutthroat looks straight into your eyes and says, 'Kill. Ethiram.' Both of the brothers cough up blood and sit with their backs against each other in the center of the chamber and wait for death to come.[line break] Standing in a desolate room, you see nothing but emptiness and the void. ";
 	now the right hand status line is "";
 	now the left hand status line is "";
-	increase the unlock of the player by 1.
+	increase the unlock of the player by 1;
+	now the time of day is 10:00 AM.
 
 F87 is a room. F87 is east of Dilapidated Chamber.
 Rule for printing the name of F87:
@@ -1739,7 +1741,8 @@ When Arsonist Reveal begins:
 	say "Lying on the ground in a huddled mass, the Arsonist incoherently begins snarling and growling at himself. You can't make out much, but you can hear 'Ethiram...agh!...Bastard...Ethi...Ethirammmmm...cc..ccuuu...CURSE YOU!' The Arsonist stops murmuring to himself and begins crying softly as he rocks his body back and forth.".
 Arsonist Reveal ends when player is not in Scorched Wasteland.
 When Arsonist Reveal ends:
-	increase the unlock of the player by 1.
+	increase the unlock of the player by 1;
+	now the time of day is 10:00 AM.
 
 F98 is a room. F98 is northeast of Scorched Wasteland. "[if the Arsonist is not dead]The floor is coated with charcoal and the air becomes hard to breath. The temperature of the area seems to have increased and you begin to sweat profusely.[else]".
 Rule for printing the name of F98:
@@ -1766,17 +1769,19 @@ Rule for printing the name of F103:
 	say "Sanctuary of the Forgotten".
 	
 F104 is a room. F104 is east of F103. Forcefield is a secret door. Forcefield is north of F104 and south of F106.
-Forcefield Scene is a scene.
+Forcefield Scene is a recurring scene.
 Forcefield Scene begins when the player is in F104.
-Instead of entering F106:
+When Forcefield Scene begins:
 	if the unlock of the player is less than 3:
-		Forcefield is unrevealed;
-		say "A myserious force prevents you from going forward.";
+		say "A mysterious force prevents you from going forward.";
 	if the unlock of the player is 3:
+		say "The force that once prevented your passage is no longer there. It appeared that those you had just fought were supposedly guardians of Ethiram, however, upon defear, they all warned you of the danger surrounding him...";
 		now Forcefield is revealed;
-		now Forcefield is open;
-		say "With what appeared to be Ethiram's guardians, a force no longer prevents you from advancing. Even though the guardians were out to kill you, upon defeat, they all warned you of the potential danger surrounding Ethiram...[line break]".
+		now Forcefield is closed.
 Forcefield Scene ends when the player is not in F104.
+When Forcefield Scene ends:
+	now Forcefield is unrevealed;
+	now Forcefield is closed.
 Rule for printing the name of F104:
 	say "Mysterious Forcefield".
 	
@@ -1791,12 +1796,49 @@ When Descent begins:
 	say "You walk into the next room and feel a gravity 10 times the force of Earth's pulling you down into the ground. At first you can't help but feel crushed under the weight of the room, but suddenly you are pulled through the floor at a speed that is incomprehensible. Everything is moving so fast, your mind can't begin to understand what is happening.";
 	wait for any key;
 	say "[line break]Then he appears.";
-	wait for any key;
 	now the player is in Endless Void.
+Descent ends when the Player is in Endless Void.
 Rule for printing the name of F106:
 	say "Descent into ???".
 	
-Endless Void is a room. 
+Endless Void is a room.
+[The End is a scene.
+The End begins when the player is in Endless Void.]
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
