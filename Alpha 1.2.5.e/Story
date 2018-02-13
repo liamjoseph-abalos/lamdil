@@ -1793,7 +1793,7 @@ F106 is a room.
 Descent is a scene. 
 Descent begins when the player is in F106.
 When Descent begins:
-	say "You walk into the next room and feel a gravity 10 times the force of Earth's pulling you down into the ground. At first you can't help but feel crushed under the weight of the room, but suddenly you are pulled through the floor at a speed that is incomprehensible. Everything is moving so fast, your mind can't begin to understand what is happening.";
+	say "You walk into the next room and feel a gravity 10 times the force of Earth's pulling you down into the ground. You can feel every bone, every muscle, every fiber in your body being crushed into the ground, but suddenly everything stops and your entire existence is pulled from below you. You descend to the depths below being pulled by an unknown force. Everything is moving so fast, your mind can't begin to understand what is happening.";
 	wait for any key;
 	say "[line break]Then he appears.";
 	now the player is in Endless Void.
@@ -1802,9 +1802,20 @@ Rule for printing the name of F106:
 	say "Descent into ???".
 	
 Endless Void is a room.
-[The End is a scene.
-The End begins when the player is in Endless Void.]
+The End is a scene.
+The End begins when the player is in Endless Void.
+When The End begins:
+	say "'You.'";
+	wait for any key;
+	"[line break]You look around. For the first time since leaving the real world, you feel a true sense of nothingness. Nothing is dark. Nothing is bright. Nothing is there. Nothing isn't. There are no shadows, no light, no shapes, and no forms. There truly is nothing. It's ineffable.";
+	wait for any key;
+	"[line break]";
+	wait for any key;
+	"[line break]";
+	wait for any key;
+	"[line break]";
 	
+
 
 
 
