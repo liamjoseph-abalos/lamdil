@@ -1795,6 +1795,7 @@ Descent begins when the player is in F106.
 When Descent begins:
 	say "You walk into the next room and feel a gravity 10 times the force of Earth's pulling you down into the ground. You can feel every bone, every muscle, every fiber in your body being crushed into the ground, but suddenly everything stops and your entire existence is pulled from below you. You descend to the depths below being pulled by an unknown force. Everything is moving so fast, your mind can't begin to understand what is happening.";
 	wait for any key;
+	clear main window;
 	say "[line break]Then he appears.";
 	now the player is in Endless Void.
 Descent ends when the Player is in Endless Void.
@@ -1802,18 +1803,40 @@ Rule for printing the name of F106:
 	say "Descent into ???".
 	
 Endless Void is a room.
-The End is a scene.
-The End begins when the player is in Endless Void.
-When The End begins:
-	say "'You.'";
+End of the Line is a scene.
+End of the Line begins when the player is in Endless Void.
+When End of the Line begins:
 	wait for any key;
-	"[line break]You look around. For the first time since leaving the real world, you feel a true sense of nothingness. Nothing is dark. Nothing is bright. Nothing is there. Nothing isn't. There are no shadows, no light, no shapes, and no forms. There truly is nothing. It's ineffable.";
+	say "'You...' a voice somewhere deep in the void snarls.";
 	wait for any key;
-	"[line break]";
+	say "[line break]You look around. For the first time since leaving the real world, you feel a true sense of nothingness. Nothing is dark. Nothing is bright. Nothing is there. Nothing isn't. There are no shadows, no light, no shapes, and no forms. There truly is nothing, completely ineffable.";
 	wait for any key;
-	"[line break]";
+	say "[line break]'What do you KNOW?!' the same voice demands angrily, growling and snapping.'";
 	wait for any key;
-	"[line break]";
+	say "[line break]The voice inflicts fear and paranoia into your mind. You can't find the words nor the will to speak.";
+	wait for any key;
+	say "[line break]The voice barks, 'Are you just going to STAND there?! FIGHT ME!'";
+	wait for any key;
+	decrease the current hit points of the player by 100;
+	say "[line break]It felt as if something threw your body across the void as you felt a crushing weight around your chest and found yourself dazed in a different location. A warm liquid drips from your nose as you pick yourself up. Your chest collapsed on itself and you can hardly breath. Now that you think about it, the voice [italic type]isn't a voice.[roman type] It's in your [bold type]mind[roman type].";
+	wait for any key;
+	say "[line break]'geeeeeEEEEEETTTTT UUUUUPPPPP'";
+	wait for any key;
+	now the current hit points of the player is the maximum hit points of the player;
+	say "[line break]You find yourself on your feet but somehow feeling better. The blood flow stopped and you feel okay.";
+	wait for any key;
+	say "[line break]A shade emerges and gracefully materializes in front of you. 'If you don't fight me now, you won't live to fight [italic type]period.";
+	wait for any key;
+	say "[line break][roman type]You try to ready your blade and stand your guard, but your feet slip from under you. You feel like a ragdoll as your suspended in the air, face to face with Ethiram.";
+	wait for any key;
+	say "[line break]'This is your future. This is what you deserve. This is what you get [alert style]fOr BEtrAYinG mE'";
+	wait for any key;
+	say "[line break][roman type]While suspended in the air, your body is struck by an immeasureable force and are flung a thousand feet behind you. In the blink of an eye Etthiram";
+
+[
+wait for any key;
+	say "[line break]";
+]
 	
 
 
