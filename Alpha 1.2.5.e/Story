@@ -1803,6 +1803,11 @@ Rule for printing the name of F106:
 	say "Descent into ???".
 	
 Endless Void is a room.
+Left Arm is a man in the Void. Right Arm is a man in the Void. Left Leg is a man in the Void. Right Leg is a man in the Void.
+The current hit points of the Left Arm is 4. The maximum hit points of the Left Arm is 4.
+The current hit points of the Left Leg is 4. The maximum hit points of the Left Leg is 4.
+The current hit points of the Right Arm is 4. The maximum hit points of the Right Arm is 4.
+The current hit points of the Right Leg is 4. The maximum hit points of the Right Leg is 4.
 End of the Line is a scene.
 End of the Line begins when the player is in Endless Void.
 When End of the Line begins:
@@ -1818,9 +1823,9 @@ When End of the Line begins:
 	say "[line break]The voice barks, 'Are you just going to STAND there?! FIGHT ME!'";
 	wait for any key;
 	decrease the current hit points of the player by 100;
-	say "[line break]It felt as if something threw your body across the void as you felt a crushing weight around your chest and found yourself dazed in a different location. A warm liquid drips from your nose as you pick yourself up. Your chest collapsed on itself and you can hardly breath. Now that you think about it, the voice [italic type]isn't a voice.[roman type] It's in your [bold type]mind[roman type].";
+	say "[line break]It felt as if something threw your body across the void as you felt a crushing weight around your chest and found yourself dazed in a different location. A warm liquid drips from your nose as you pick yourself up. Your chest collapsed on itself and you can hardly breath. Now that you think about it, the voice [italic type]isn't a voice.[roman type] It's in your [bold type]mind.";
 	wait for any key;
-	say "[line break]'geeeeeEEEEEETTTTT UUUUUPPPPP'";
+	say "[line break][roman type]'geeeeeEEEEEETTTTT UUUUUPPPPP'";
 	wait for any key;
 	now the current hit points of the player is the maximum hit points of the player;
 	say "[line break]You find yourself on your feet but somehow feeling better. The blood flow stopped and you feel okay.";
@@ -1829,9 +1834,33 @@ When End of the Line begins:
 	wait for any key;
 	say "[line break][roman type]You try to ready your blade and stand your guard, but your feet slip from under you. You feel like a ragdoll as your suspended in the air, face to face with Ethiram.";
 	wait for any key;
-	say "[line break]'This is your future. This is what you deserve. This is what you get [alert style]fOr BEtrAYinG mE'";
+	say "[line break]'This is your future. This is what you deserve. This is what you get FOR WHAT YOU'VE DONE TO ME!'";
 	wait for any key;
-	say "[line break][roman type]While suspended in the air, your body is struck by an immeasureable force and are flung a thousand feet behind you. In the blink of an eye Etthiram";
+	say "[line break][roman type]While suspended in the air, your body is struck by an immeasureable force and are flung a thousand feet behind you. Your feet and arms dangle through the air as your body feels beomes a ragdoll. In the blink of an eye Ethiram stands a few feet behind you, extends his arm and you freeze once again.";
+	wait for any key;
+	decrease the current hit points of the player by 3000;
+	say "[line break]A shadowy tendril extends from Ethiram's arm and begins to slowly engulf you. It starts at your arms and feet and slowly begins to envelope your entire body like a black vine growing on a wall. Ethiram retracts the tentacles and to your disbelief, your arms and legs are gone. In its place, 4 useless, bleeding stumps, and on the floor next to you, your appendages.";
+	wait for any key;
+	say "[line break]Completely and utterly confused, Ethiram drops you on the floor and you lie, helpless, contemplating what in God's Earth you did to enrage such an unstable and powerful being. You look at your stumps and a wave of panic begins to taint your mind.";
+	wait for any key;
+	say "[line break]'You see! I am a GOD! I can bend all the rules of physics to my will. If you think you can interfere with my purpose, you are [italic type]mistaken.";
+	wait for any key;
+	now the current hit points of the player is the maximum hit points of the player;
+	say "[line break][roman type]A new set of arms and legs suddenly reappear and fuse back together with your body. But from the four that Ethiram ripped from your body, four entities spawn and mindlessly walk towards you.";
+	wait for any key;
+	say "[line break]'SHOW ME YOUR POWER. Fight yourself and prove to me you are WORTHY!'";
+	now Left Arm is in Endless Void;
+	now Right Arm is in Endless Void;
+	now Left Leg is in Endless Void;
+	now Right Leg is in Endless Void.
+End of the Line ends when Right Leg is in Endless Void.
+
+End Fight is a scene.
+End Fight begins when End of the Line ends.
+When End Fight begins:
+	now the left hand status line is "Left Arm: [current hit points of Left Arm]	|	Left Leg: [current hit points of Left Leg]";
+	now the right hand status line is "Right Arm: [current hit points of Right Arm]	|	Right Leg: [current hit points of Right Leg]";
+Every turn during End Fight:
 
 [
 wait for any key;
