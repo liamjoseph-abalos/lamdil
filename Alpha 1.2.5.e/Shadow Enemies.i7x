@@ -11,14 +11,9 @@ Every turn during Spectral Fight 1:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Spectral Apparition 1 is nowhere.
 Spectral Fight 1 ends when the Spectral Apparition 1 is dead.
-When Spectral Fight 1 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Spectral Apparition 1 is a man. The Spectral Apparition 1 is in S6.
-The current hit points of the Spectral Apparition 1 is 10. The maximum hit points of the Spectral Apparition 1 is 10.
+The current hit points of the Spectral Apparition 1 is 100. The maximum hit points of the Spectral Apparition 1 is 100.
 The Spectral Apparition 1 is hostile. 
 The Spectral Apparition 1 carries a weapon called Animate Claws 1. The current turns of the Animate Claws 1 is 1.
 Setting action variables for an actor hitting:
@@ -86,6 +81,8 @@ Carry out Spectral Apparition 1 hitting the player:
 		
 Fiery Fight 1 is a scene.
 Fiery Fight 1 begins when the player is in the S47.
+When Fiery Fight 1 begins:
+	now the time of day is 1:00 AM.
 Every turn during Fiery Fight 1: 
 	now the left hand status line is "Ghostly Apparition: [current hit points of Fiery Apparition 1]";
 	now the player is hostile;
@@ -93,18 +90,23 @@ Every turn during Fiery Fight 1:
 		now the player is docile;
 		now the player is notHit;
 		now the left hand status line is "Ghostly Apparition: Deceased";
-		now the Fiery Apparition 1 is nowhere.
-Fiery Fight 1 ends when the Fiery Apparition 1 is dead. 
-When Fiery Fight 1 ends:
+		now the Fiery Apparition 1 is nowhere;
+		now the time of day is 3:00 AM.
+Fiery Fight 1 ends when the time of day is 3:01 AM.
+When Fiery Fight 1 ends: 
 	now the player is docile;
 	now the player is notHit;
 	now the left hand status line is "";
-	now the right hand status line is "".
+	now the time of day is 10:00 AM;
+	say "Your body absorbs the fiery power of the Apparition as a mark of fire ignites onto your arm.";
+	wait for any key;
+	increase the fpoints of the player by 1;
+	say "The fire settles as it leaves a strange marking on your arm.".
 
 The Fiery Apparition 1 is a man. The Fiery Apparition 1 is in S47.
 Rule for printing the name of Fiery Apparition 1:
 	say "Ghostly Apparition".
-The current hit points of the Fiery Apparition 1 is 10. The maximum hit points of the Fiery Apparition 1 is 10.
+The current hit points of the Fiery Apparition 1 is 100. The maximum hit points of the Fiery Apparition 1 is 100.
 The Fiery Apparition 1 is hostile. 
 The Fiery Apparition 1 carries a weapon called Living Fires 1. The current turns of the Living Fires 1 is 1.
 Setting action variables for an actor hitting:
@@ -174,16 +176,11 @@ Every turn during Bloody Fight 1:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 1 is nowhere.
 Bloody Fight 1 ends when the Bloody Apparition 1 is dead.
-When Bloody Fight 1 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Bloody Apparition 1 is a man. The Bloody Apparition 1 is in S52.
 Rule for printing the name of Bloody Apparition 1:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 1 is 10. The maximum hit points of the Bloody Apparition 1 is 10.
+The current hit points of the Bloody Apparition 1 is 100. The maximum hit points of the Bloody Apparition 1 is 100.
 The Bloody Apparition 1 is hostile. 
 The Bloody Apparition 1 carries a weapon called Blood Magic 1. The current turns of the Blood Magic 1 is 1.
 Setting action variables for an actor hitting:
@@ -250,14 +247,9 @@ Every turn during Spectral Fight 2:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Spectral Apparition 2 is nowhere.
 Spectral Fight 2 ends when the Spectral Apparition 2 is dead.
-When Spectral Fight 2 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Spectral Apparition 2 is a man. The Spectral Apparition 2 is in S70.
-The current hit points of the Spectral Apparition 2 is 10. The maximum hit points of the Spectral Apparition 2 is 10.
+The current hit points of the Spectral Apparition 2 is 100. The maximum hit points of the Spectral Apparition 2 is 100.
 The Spectral Apparition 2 is hostile. 
 The Spectral Apparition 2 carries a weapon called Animate Claws 2. The current turns of the Animate Claws 2 is 1.
 Setting action variables for an actor hitting:
@@ -334,16 +326,11 @@ Every turn during Fiery Fight 2:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Fiery Apparition 2 is nowhere.
 Fiery Fight 2 ends when the Fiery Apparition 2 is dead.
-When Fiery Fight 2 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Fiery Apparition 2 is a man. The Fiery Apparition 2 is in S64.
 Rule for printing the name of Fiery Apparition 2:
 	say "Ghostly Apparition".
-The current hit points of the Fiery Apparition 2 is 10. The maximum hit points of the Fiery Apparition 2 is 10.
+The current hit points of the Fiery Apparition 2 is 100. The maximum hit points of the Fiery Apparition 2 is 100.
 The Fiery Apparition 2 is hostile. 
 The Fiery Apparition 2 carries a weapon called Living Fires 2. The current turns of the Living Fires 2 is 1.
 Setting action variables for an actor hitting:
@@ -413,16 +400,11 @@ Every turn during Bloody Fight 2:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 2 is nowhere.
 Bloody Fight 2 ends when the Bloody Apparition 2 is dead.
-When Bloody Fight 2 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Bloody Apparition 2 is a man. The Bloody Apparition 2 is in S78.
 Rule for printing the name of Bloody Apparition 2:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 2 is 10. The maximum hit points of the Bloody Apparition 2 is 10.
+The current hit points of the Bloody Apparition 2 is 100. The maximum hit points of the Bloody Apparition 2 is 100.
 The Bloody Apparition 2 is hostile. 
 The Bloody Apparition 2 carries a weapon called Blood Magic 2. The current turns of the Blood Magic 2 is 1.
 Setting action variables for an actor hitting:
@@ -489,16 +471,11 @@ Every turn during Bloody Fight 3:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 3 is nowhere.
 Bloody Fight 3 ends when the Bloody Apparition 3 is dead.
-When Bloody Fight 3 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Bloody Apparition 3 is a man. The Bloody Apparition 3 is in S18.
 Rule for printing the name of Bloody Apparition 3:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 3 is 10. The maximum hit points of the Bloody Apparition 3 is 10.
+The current hit points of the Bloody Apparition 3 is 100. The maximum hit points of the Bloody Apparition 3 is 100.
 The Bloody Apparition 3 is hostile. 
 The Bloody Apparition 3 carries a weapon called Blood Magic 3. The current turns of the Blood Magic 3 is 1.
 Setting action variables for an actor hitting:
@@ -565,16 +542,11 @@ Every turn during Fiery Fight 3:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Fiery Apparition 3 is nowhere.
 Fiery Fight 3 ends when the Fiery Apparition 3 is dead.
-When Fiery Fight 3 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Fiery Apparition 3 is a man. The Fiery Apparition 3 is in S28.
 Rule for printing the name of Fiery Apparition 3:
 	say "Ghostly Apparition".
-The current hit points of the Fiery Apparition 3 is 10. The maximum hit points of the Fiery Apparition 3 is 10.
+The current hit points of the Fiery Apparition 3 is 100. The maximum hit points of the Fiery Apparition 3 is 100.
 The Fiery Apparition 3 is hostile. 
 The Fiery Apparition 3 carries a weapon called Living Fires 3. The current turns of the Living Fires 3 is 1.
 Setting action variables for an actor hitting:
@@ -644,14 +616,9 @@ Every turn during Spectral Fight 3:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Spectral Apparition 3 is nowhere.
 Spectral Fight 3 ends when the Spectral Apparition 3 is dead.
-When Spectral Fight 3 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Spectral Apparition 3 is a man. The Spectral Apparition 3 is in S57.
-The current hit points of the Spectral Apparition 3 is 10. The maximum hit points of the Spectral Apparition 3 is 10.
+The current hit points of the Spectral Apparition 3 is 100. The maximum hit points of the Spectral Apparition 3 is 100.
 The Spectral Apparition 3 is hostile. 
 The Spectral Apparition 3 carries a weapon called Animate Claws 3. The current turns of the Animate Claws 3 is 1.
 Setting action variables for an actor hitting:
@@ -728,14 +695,9 @@ Every turn during Spectral Fight 4:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Spectral Apparition 4 is nowhere.
 Spectral Fight 4 ends when the Spectral Apparition 4 is dead.
-When Spectral Fight 4 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Spectral Apparition 4 is a man. The Spectral Apparition 4 is in F82.
-The current hit points of the Spectral Apparition 4 is 10. The maximum hit points of the Spectral Apparition 4 is 10.
+The current hit points of the Spectral Apparition 4 is 100. The maximum hit points of the Spectral Apparition 4 is 100.
 The Spectral Apparition 4 is hostile. 
 The Spectral Apparition 4 carries a weapon called Animate Claws 4. The current turns of the Animate Claws 4 is 1.
 Setting action variables for an actor hitting:
@@ -812,16 +774,11 @@ Every turn during Fiery Fight 4:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Fiery Apparition 4 is nowhere.
 Fiery Fight 4 ends when the Fiery Apparition 4 is dead.
-When Fiery Fight 4 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Fiery Apparition 4 is a man. The Fiery Apparition 4 is in F10.
 Rule for printing the name of Fiery Apparition 4:
 	say "Ghostly Apparition".
-The current hit points of the Fiery Apparition 4 is 10. The maximum hit points of the Fiery Apparition 4 is 10.
+The current hit points of the Fiery Apparition 4 is 100. The maximum hit points of the Fiery Apparition 4 is 100.
 The Fiery Apparition 4 is hostile. 
 The Fiery Apparition 4 carries a weapon called Living Fires 4. The current turns of the Living Fires 4 is 1.
 Setting action variables for an actor hitting:
@@ -891,16 +848,11 @@ Every turn during Bloody Fight 4:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 4 is nowhere.
 Bloody Fight 4 ends when the Bloody Apparition 4 is dead.
-When Bloody Fight 4 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Bloody Apparition 4 is a man. The Bloody Apparition 4 is in F56.
 Rule for printing the name of Bloody Apparition 4:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 4 is 10. The maximum hit points of the Bloody Apparition 4 is 10.
+The current hit points of the Bloody Apparition 4 is 100. The maximum hit points of the Bloody Apparition 4 is 100.
 The Bloody Apparition 4 is hostile. 
 The Bloody Apparition 4 carries a weapon called Blood Magic 4. The current turns of the Blood Magic 4 is 1.
 Setting action variables for an actor hitting:
@@ -967,16 +919,11 @@ Every turn during Fiery Fight 5:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Fiery Apparition 5 is nowhere.
 Fiery Fight 5 ends when the Fiery Apparition 5 is dead.
-When Fiery Fight 5 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Fiery Apparition 5 is a man. The Fiery Apparition 5 is in F75.
 Rule for printing the name of Fiery Apparition 5:
 	say "Ghostly Apparition".
-The current hit points of the Fiery Apparition 5 is 10. The maximum hit points of the Fiery Apparition 5 is 10.
+The current hit points of the Fiery Apparition 5 is 100. The maximum hit points of the Fiery Apparition 5 is 100.
 The Fiery Apparition 5 is hostile. 
 The Fiery Apparition 5 carries a weapon called Living Fires 5. The current turns of the Living Fires 5 is 1.
 Setting action variables for an actor hitting:
@@ -1034,6 +981,7 @@ Carry out Fiery Apparition 5 hitting the player:
 			decrease the current hit points of the noun by the damage inflicted;
 		now the current turns of the Living Fires is 1;
 		stop the action.
+		
 
 Spectral Fight 5 is a scene.
 Spectral Fight 5 begins when the player is in the F17.
@@ -1046,14 +994,9 @@ Every turn during Spectral Fight 5:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Spectral Apparition 4 is nowhere.
 Spectral Fight 5 ends when the Spectral Apparition 5 is dead.
-When Spectral Fight 5 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Spectral Apparition 5 is a man. The Spectral Apparition 5 is in F17.
-The current hit points of the Spectral Apparition 5 is 10. The maximum hit points of the Spectral Apparition 5 is 10.
+The current hit points of the Spectral Apparition 5 is 100. The maximum hit points of the Spectral Apparition 5 is 100.
 The Spectral Apparition 5 is hostile. 
 The Spectral Apparition 5 carries a weapon called Animate Claws 5. The current turns of the Animate Claws 5 is 1.
 Setting action variables for an actor hitting:
@@ -1130,16 +1073,11 @@ Every turn during Bloody Fight 5:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 5 is nowhere.
 Bloody Fight 5 ends when the Bloody Apparition 5 is dead.
-When Bloody Fight 5 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Bloody Apparition 5 is a man. The Bloody Apparition 5 is in F90.
 Rule for printing the name of Bloody Apparition 5:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 5 is 10. The maximum hit points of the Bloody Apparition 5 is 10.
+The current hit points of the Bloody Apparition 5 is 100. The maximum hit points of the Bloody Apparition 5 is 100.
 The Bloody Apparition 5 is hostile. 
 The Bloody Apparition 5 carries a weapon called Blood Magic 5. The current turns of the Blood Magic 5 is 1.
 Setting action variables for an actor hitting:
@@ -1205,16 +1143,11 @@ Every turn during Bloody Fight 6:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 6 is nowhere.
 Bloody Fight 6 ends when the Bloody Apparition 6 is dead.
-When Bloody Fight 6 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Bloody Apparition 6 is a man. The Bloody Apparition 6 is in F68.
 Rule for printing the name of Bloody Apparition 6:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 6 is 10. The maximum hit points of the Bloody Apparition 6 is 10.
+The current hit points of the Bloody Apparition 6 is 100. The maximum hit points of the Bloody Apparition 6 is 100.
 The Bloody Apparition 6 is hostile. 
 The Bloody Apparition 6 carries a weapon called Blood Magic 6. The current turns of the Blood Magic 6 is 1.
 Setting action variables for an actor hitting:
@@ -1280,16 +1213,11 @@ Every turn during Bloody Fight 7:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 7 is nowhere.
 Bloody Fight 7 ends when the Bloody Apparition 7 is dead.
-When Bloody Fight 7 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Bloody Apparition 7 is a man. The Bloody Apparition 7 is in F100.
 Rule for printing the name of Bloody Apparition 7:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 7 is 10. The maximum hit points of the Bloody Apparition 7 is 10.
+The current hit points of the Bloody Apparition 7 is 100. The maximum hit points of the Bloody Apparition 7 is 100.
 The Bloody Apparition 7 is hostile. 
 The Bloody Apparition 7 carries a weapon called Blood Magic 7. The current turns of the Blood Magic 7 is 1.
 Setting action variables for an actor hitting:
@@ -1355,16 +1283,11 @@ Every turn during Fiery Fight 6:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Fiery Apparition 6 is nowhere.
 Fiery Fight 6 ends when the Fiery Apparition 6 is dead.
-When Fiery Fight 6 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Fiery Apparition 6 is a man. The Fiery Apparition 6 is in F39.
 Rule for printing the name of Fiery Apparition 6:
 	say "Ghostly Apparition".
-The current hit points of the Fiery Apparition 6 is 10. The maximum hit points of the Fiery Apparition 6 is 10.
+The current hit points of the Fiery Apparition 6 is 100. The maximum hit points of the Fiery Apparition 6 is 100.
 The Fiery Apparition 6 is hostile. 
 The Fiery Apparition 6 carries a weapon called Living Fires 6. The current turns of the Living Fires 6 is 1.
 Setting action variables for an actor hitting:
@@ -1433,14 +1356,9 @@ Every turn during Spectral Fight 6:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Spectral Apparition 4 is nowhere.
 Spectral Fight 6 ends when the Spectral Apparition 6 is dead.
-When Spectral Fight 6 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Spectral Apparition 6 is a man. The Spectral Apparition 6 is in F139.
-The current hit points of the Spectral Apparition 6 is 10. The maximum hit points of the Spectral Apparition 6 is 10.
+The current hit points of the Spectral Apparition 6 is 100. The maximum hit points of the Spectral Apparition 6 is 100.
 The Spectral Apparition 6 is hostile. 
 The Spectral Apparition 6 carries a weapon called Animate Claws 6. The current turns of the Animate Claws 6 is 1.
 Setting action variables for an actor hitting:
@@ -1517,16 +1435,11 @@ Every turn during Fiery Fight 7:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Fiery Apparition 7 is nowhere.
 Fiery Fight 7 ends when the Fiery Apparition 7 is dead.
-When Fiery Fight 7 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Fiery Apparition 7 is a man. The Fiery Apparition 7 is in F131.
 Rule for printing the name of Fiery Apparition 7:
 	say "Ghostly Apparition".
-The current hit points of the Fiery Apparition 7 is 10. The maximum hit points of the Fiery Apparition 7 is 10.
+The current hit points of the Fiery Apparition 7 is 100. The maximum hit points of the Fiery Apparition 7 is 100.
 The Fiery Apparition 7 is hostile. 
 The Fiery Apparition 7 carries a weapon called Living Fires 7. The current turns of the Living Fires 7 is 1.
 Setting action variables for an actor hitting:
@@ -1595,16 +1508,11 @@ Every turn during Bloody Fight 8:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 8 is nowhere.
 Bloody Fight 8 ends when the Bloody Apparition 8 is dead.
-When Bloody Fight 8 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
 
 The Bloody Apparition 8 is a man. The Bloody Apparition 8 is in F112.
 Rule for printing the name of Bloody Apparition 8:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 8 is 10. The maximum hit points of the Bloody Apparition 8 is 10.
+The current hit points of the Bloody Apparition 8 is 100. The maximum hit points of the Bloody Apparition 8 is 100.
 The Bloody Apparition 8 is hostile. 
 The Bloody Apparition 8 carries a weapon called Blood Magic 8. The current turns of the Blood Magic 8 is 1.
 Setting action variables for an actor hitting:
@@ -1670,17 +1578,10 @@ Every turn during Bloody Fight 9:
 		now the left hand status line is "Ghostly Apparition: Deceased";
 		now the Bloody Apparition 9 is nowhere.
 Bloody Fight 9 ends when the Bloody Apparition 9 is dead.
-When Bloody Fight 9 ends:
-	now the player is docile;
-	now the player is notHit;
-	now the left hand status line is "";
-	now the right hand status line is "".
-
-
 The Bloody Apparition 9 is a man. The Bloody Apparition 9 is in F70.
 Rule for printing the name of Bloody Apparition 9:
 	say "Ghostly Apparition".
-The current hit points of the Bloody Apparition 9 is 10. The maximum hit points of the Bloody Apparition 9 is 10.
+The current hit points of the Bloody Apparition 9 is 100. The maximum hit points of the Bloody Apparition 9 is 100.
 The Bloody Apparition 9 is hostile. 
 The Bloody Apparition 9 carries a weapon called Blood Magic 9. The current turns of the Blood Magic 9 is 1.
 Setting action variables for an actor hitting:
