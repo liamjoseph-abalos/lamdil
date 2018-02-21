@@ -5,7 +5,7 @@ Part 2 - Enemy Mechanics
 
 Chapter 1 - Inner Prison Enemies
 		
-The current hit points of the Deranged Prisoner is 4. The maximum hit points of the Deranged Prisoner is 4.
+The current hit points of the Deranged Prisoner is 9. The maximum hit points of the Deranged Prisoner is 9.
 The Deranged Prisoner is hostile. 
 The Deranged Prisoner carries a weapon called Broken Glass. The current turns of the Broken Glass is 1.
 Setting action variables for an actor hitting:
@@ -71,7 +71,7 @@ Carry out Deranged Prisoner hitting the player:
 		now the current turns of the Broken Glass is 1;
 		stop the action.	
 		
-The current hit points of the Mutated Prisoner is 15. The maximum hit points of the Mutated Prisoner is 15.
+The current hit points of the Mutated Prisoner is 45. The maximum hit points of the Mutated Prisoner is 45.
 The Mutated Prisoner is hostile. 
 The Mutatated Prisoner carries a weapon called Third Hand. The current turns of the Third Hand is 1.
 Setting action variables for an actor hitting:
@@ -138,7 +138,7 @@ Carry out Mutated Prisoner hitting the player:
 		stop the action.	
 
 
-The current hit points of the Warden is 25. The maximum hit points of the Warden is 25.
+The current hit points of the Warden is 20. The maximum hit points of the Warden is 20.
 The Warden is docile. 
 The Warden carries a weapon called Silver Sword. The current turns of the Silver Sword is 2.
 Setting action variables for an actor hitting:
@@ -152,18 +152,18 @@ Every turn when the player is in the Warden's Room:
 	if the Warden is hostile, try Warden hitting the player. 
 Report Warden hitting the player:
 	if the current turns of the Silver Sword is 1:
-		say "The Warden hoists his Silver Sword high into the air as it begins to draw in a massive amount of energy around it." instead;
+		say "The Warden drags the end of his sword against the floor as he approaches you." instead;
 	if the current turns of the Silver Sword is 0:
-		say "The Warden prepares to finish you in one blow as his silver sword begins to glow brighter, and brighter, as the energy around it crackles with power. " instead;
+		say "The Warden twirls his chain, preparing to attack." instead;
 	if the current turns of the Silver Sword is 2:
 		if the dodgeTrue of the player is 1:
-			say "The Warden unleashes a powerful beam of energy towards you, but you are able to quickly dodge it!";
+			say "The Warden lashes his chain towards you, but you quickly sidestep it.";
 			now the dodgeTrue is 0;
 		otherwise if the parryTrue of the player is 1:
-			say "Mustering all your strength you swing your weapon absorbing the incoming beam of energy and ready a counter attack![line break][line break]";
+			say "You grab the chain as the Warden flings it towards you, pulling the Warden off balance.[line break][line break]";
 			if the Warden is dead:
 				say "You riposte the Warden, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Warden clutches his chest as he breathes his last breath, and falls to the ground.";
+				say "The Warden clutches his chest as he clings to the last seconds of his life and falls to the ground.";
 				now the Warden is nowhere;
 				now the Warden is docile;
 			otherwise:
@@ -172,21 +172,21 @@ Report Warden hitting the player:
 		otherwise if the blockTrue of the the player is 1:
 			if damage inflicted > 0:
 				decrease the current hit points of the player by the damage inflicted;
-				say "A crackling beam of energy is hurled towards you from the Warden's Silver Sword and connects with your shield. You aren't able to absorb all of it dealing [damage inflicted] point[s] of damage!";
+				say "The Warden plunges his sword into your shield, dealing [damage inflicted] point[s] of damage!";
 			otherwise:
 				say "The Warden is unable to penetrate your shield.";
 			now the blockTrue of the player is 0;
 		otherwise if damage inflicted > 0:
-			say "The collected energy from the Warden's Silver Sword connects directly with your body, dealing a massive [damage inflicted] point[s] of damage!";
+			say "The Warden whips the side of your face and slashes your chest, dealing [damage inflicted] point[s] of damage!";
 		otherwise:
 			say "The Warden is unable to penetrate your armour.".	
 Report hitting a dead Warden:
-		say "The Warden clutches his chest as he breathes his last breath, and falls to the ground." instead.
+		say "The Warden clutches his chest as he clings to the last seconds of his life and falls to the ground." instead.
 
 Report Warden hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
-	say "The brute strength of the Warden is too much for your body to handle as he constantly pummels your body. Your vision is beginning to fade."; 
-	end the story saying "The Warden delivers a final blow to your head cutting it clean off."; 
+	say "The Warden lashes out his chain and it wraps around your throat."; 
+	end the story saying "With a vicious tug, the Warden pulls your head clean off"; 
 	stop the action.
 Carry out Warden hitting the player:
 	if the current turns of the Silver Sword is 2:
@@ -212,7 +212,7 @@ Carry out Warden hitting the player:
 
 Chapter 2 - Prison Island Enemies
 
-The current hit points of the Southern Tower Sentinel is 20. The maximum hit points of the Southern Tower Sentinel is 20.
+The current hit points of the Southern Tower Sentinel is 45. The maximum hit points of the Southern Tower Sentinel is 45.
 The Southern Tower Sentinel is hostile. 
 The Southern Tower Sentinel carries a weapon called Sentinel Spear. The current turns of the Sentinel Spear is 1.
 Setting action variables for an actor hitting:
@@ -265,7 +265,7 @@ Carry out Southern Tower Sentinel hitting the player:
 			decrease the current hit points of the noun by the damage inflicted;
 		stop the action.
 
-The current hit points of the Western Tower Sentinel is 15. The maximum hit points of the Western Tower Sentinel is 15.
+The current hit points of the Western Tower Sentinel is 45. The maximum hit points of the Western Tower Sentinel is 45.
 The Western Tower Sentinel is hostile. 
 The Western Tower Sentinel carries a weapon called Sentinel Sword. The current turns of the Sentinel Sword is 1.
 Setting action variables for an actor hitting:
@@ -319,7 +319,7 @@ Carry out Western Tower Sentinel hitting the player:
 		stop the action.
 		
 
-The current hit points of the Eastern Tower Sentinel is 30. The maximum hit points of the Eastern Tower Sentinel is 30.
+The current hit points of the Eastern Tower Sentinel is 45. The maximum hit points of the Eastern Tower Sentinel is 45.
 The Eastern Tower Sentinel is hostile. 
 The Eastern Tower Sentinel carries a weapon called Sentinel Mace. The current turns of the Sentinel Mace is 1.
 Setting action variables for an actor hitting:
@@ -383,12 +383,344 @@ Carry out Eastern Tower Sentinel hitting the player:
 		otherwise if damage inflicted > 0:
 			decrease the current hit points of the noun by the damage inflicted;
 		now the current turns of the Sentinel Mace is 1;
+		stop the action.
+		
+The current hit points of the Living Statue is 60. The maximum hit points of the Living Statue is 60.
+The Living Statue is docile. 
+The Deranged Prisoner carries a weapon called Runic Sword . The current turns of the Runic Sword is 1.
+Setting action variables for an actor hitting:
+	if the actor is Living Statue:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 5 and 10 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 5 and 10 minus x.
+Every turn when the player is in the Ground Floor 3: 
+	if the Living Statue is hostile, try Living Statue hitting the player. 
+Report Living Statue hitting the player:
+	if the current turns of the Runic Sword is 0:
+		say "The Living Statue draws its Runic Claymore, and readies itself to fight off any intruders." instead;
+	if the current turns of the Runic Sword is 1:
+		if the dodgeTrue of the player is 1:
+			say "The Living Statue's attack is easily dodged thanks to your superior speed.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "The Living Statue staggers back from your powerful attack![line break][line break]";
+			if the Living Statue is dead:
+				say "You riposte the Living Statue, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Living Statue crumbles into a pile of rubble.";
+				now the Living Statue is nowhere;
+				now the Living Statue is docile;
+			otherwise:
+				say "You riposte the Living Statue, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Living Statue's strikes your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Living Statue is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Living Statue lands a direct hit and slashes you with its Runic Claymore, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Living Statue is unable to penetrate your armour.".	
+Report hitting a dead Deranged Prisoner:
+		say "The Living Statue crumbles into a pile of rubble." instead.
+		
+Report Living Statue hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Living Statue's strength is too much to handle as it punctures its sword straight through your chest."; 
+	end the story saying "The Living Statue quickly rips its sword out and returns to its original position. Its eyes no longer glow."; 
+	stop the action.
+Carry out Living Statue hitting the player:
+	if the current turns of the Runic Sword is 1:
+		now the player is hit;
+		now the current turns of the Runic Sword is 0;
+		stop the action;
+	if the current turns of the Runic Sword is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Living Statue by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Runic Sword is 1;
 		stop the action.	
+
+
+
+The current hit points of the Armoured Guard is 60. The maximum hit points of the Armoured Guard is 60.
+The Armoured Guard is hostile. 
+The Armoured Guard carries a weapon called Heavy Shield. The current turns of the Heavy Shield is 1.
+Setting action variables for an actor hitting:
+	if the actor is Armoured Guard:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 7 and 10 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 7 and 10 minus x.
+Every turn when the player is in the Dim Hallway: 
+	if the Armoured Guard is hostile, try Armoured Guard hitting the player. 
+Report Armoured Guard hitting the player:
+	if the current turns of the Heavy Shield is 0:
+		say "The Armoured Guard grabs his shield with both hands." instead;
+	if the current turns of the Heavy Shield is 1:
+		if the dodgeTrue of the player is 1:
+			say "The Armoured Guard charges straight for you but with a quick roll you are able to get out of the way!";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "Using your own strength you are able to repel the Armoured Guard's shield bash with a well timed strike![line break][line break]";
+			if the Armoured Guard is dead:
+				say "You riposte the Armoured Guard, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Armoured Guard falls to the ground. His shield lands on top of his body and quickly dematerializes into a thick cloud of dust.";
+				now the Armoured Guard is nowhere;
+				now the Armoured Guard is docile;
+			otherwise:
+				say "You riposte the Armoured Guard, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Armoured Guard strikes your shield with his own, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Armoured Guard is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Armoured Guard bashes your head with his shield, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Armoured Guard is unable to penetrate your armour.".	
+Report hitting a dead Armoured Guard:
+		say "The Armoured Guard falls to the ground. His shield lands on top of his body and quickly dematerializes into a thick cloud of dust." instead.
+
+Report Armoured Guard hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Armoured Guard knocks you off your feet."; 
+	end the story saying "The Armoured Guard kicks you down and slams his shield straight through your heart, killing you instantly."; 
+	stop the action.
+Carry out Armoured Guard hitting the player:
+	if the current turns of the Heavy Shield is 1:
+		now the player is hit;
+		now the current turns of the Heavy Shield is 0;
+		stop the action;
+	if the current turns of the Heavy Shield is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Armoured Guard by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Heavy Shield is 1;
+		stop the action.	
+
+
+The current hit points of the Reinforced Guard is 80. The maximum hit points of the Reinforced Guard is 80.
+The Reinforced Guard is hostile. 
+The Reinforced Guard carries a weapon called Greatsword. The current turns of the Greatsword is 1.
+Setting action variables for an actor hitting:
+	if the actor is Reinforced Guard:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 5 and 12 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 5 and 12 minus x.
+Every turn when the player is in the Tower Hallway: 
+	if the Reinforced Guard is hostile, try Reinforced Guard hitting the player. 
+Report Reinforced Guard hitting the player:
+	if the current turns of the Greatsword is 1:
+		if the dodgeTrue of the player is 1:
+			say "The Reinforced Guard thursts his Greatsword into the air and just barely misses your body by a hair.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "Pushing yourself to your limits you decide to counter the Reinforced Guard's attacks with one of your own knocking him off guard![line break][line break]";
+			if the Reinforced Guard is dead:
+				say "You riposte the Reinforced Guard, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Reinforced Guard groans as he falls down.";
+				now the Reinforced Guard is nowhere;
+				now the Reinforced Guard is docile;
+			otherwise:
+				say "You riposte the Reinforced Guard, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Reinforced Guard strikes your shield with his Greatsword, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Reinforced Guard is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Reinforced Guard lands a clean hit on your body with a quick thurst of his sword, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Reinforced Guard is unable to penetrate your armour.".	
+Report hitting a dead Reinforced Guard:
+		say "The Reinforced Guard groans as he falls down." instead.
+
+Report Reinforced Guard hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Reinforced Guard pierces your body with his sword."; 
+	end the story saying "Blood gushes out your mouth as the Reinforced Guard pulls his sword from your stomach."; 
+	stop the action.
+Carry out Reinforced Guard hitting the player:
+	if the current turns of the Greatsword is 1:
+		now the player is hit;
+		if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		stop the action.
+
+
+The current hit points of the Overseer is 150. The maximum hit points of the Overseer is 80.
+The Overseer is hostile. 
+The Overseer carries a weapon called Spiked Flail. The current turns of the Spiked Flail is 1.
+Setting action variables for an actor hitting:
+	if the actor is Overseer:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 8 and 12 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 8 and 12 minus x.
+Every turn when the player is in the Northern Outlook: 
+	if the Overseer is hostile, try Overseer hitting the player.
+Report Overseer hitting the player:
+	if the current turns of the Spiked Flail is 0:
+		say "The Overseer brandishes his Spiked Flail and slams the ground as if to taunt you." instead;
+	if the current turns of the Spiked Flail is 1:
+		if the dodgeTrue of the player is 1:
+			say "Your raw speed and training are too much for the Overseer to handle as you quickly predict where he is about to strike and get out of the way! ";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "The Overseer's Spiked Flail connects with your sword, but you are able to overpower him knocking the flail out of his hand![line break][line break]";
+			if the Overseer is dead:
+				say "Using your opening, you riposte the Overseer, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "A strange being full of pure corrupted energy emerges from the Overseer's chest and slowly takes form. [line break][line break]";
+				say "The Corrupted Entity forms a weapon of pure dark energy; a massive Corrupted Dual Axe, and prepares to finish you off once and for all!";
+				now the Overseer is nowhere;
+				now the Overseer is docile;
+			otherwise:
+				say "You riposte the Overseer, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Overseer strikes your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Overseer is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Overseer charges and slashes you with Spiked Flail, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Overseer is unable to penetrate your armour.".	
+Report hitting a dead Overseer:
+	say "A strange being full of pure corrupted energy emerges from the Overseer's chest and slowly takes form. [line break][line break]";
+	say "The Corrupted Entity forms a weapon of pure dark energy; a massive Corrupted Dual Axe, and prepares to finish you off once and for all!" instead. 
+
+Report Overseer hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Overseer knocks your weapon out of your hands and laughs as his Spiked Flail wraps around your body crushing every bone you have left."; 
+	end the story saying "You've come so close but unfortunately your adventure has come to an end."; 
+	stop the action.
+Carry out Overseer hitting the player:
+	if the current turns of the Spiked Flail is 1:
+		now the player is hit;
+		now the current turns of the Spiked Flail is 0;
+		stop the action;
+	if the current turns of the Spiked Flail is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Overseer by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Spiked Flail is 1;
+		stop the action.	
+		
+
+Void is a room. The Corrupted Entity is a man in the Void. 
+The current hit points of the Corrupted Entity is 80. The maximum hit points of the Corrupted Entity is 80.
+The Corrupted Entity is hostile. 
+The Corrupted Entity carries a weapon called Corrupted Dual Axe. The current turns of the Corrupted Dual Axe is 2.
+Setting action variables for an actor hitting:
+	if the actor is Corrupted Entity:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 20 and 20 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 20 and 20 minus x.
+Every turn when the Corrupted Entity is in the Northern Outlook: 
+	if the Corrupted Entity is hostile, try Corrupted Entity hitting the player. 
+Report Corrupted Entity hitting the player:
+	if the current turns of the Corrupted Dual Axe is 1:
+		say "The Corrupted Entity grabs hold of your body locking you into place, as it prepares one last attack." instead;
+	if the current turns of the Corrupted Dual Axe is 0:
+		say "The Corrupted Entity squeezes every bone in your body as it raises its massive Corrupted Dual Axe high above your head. [line break][line break]";
+		say "If you want to survive you must finish the Corrupted Entity off now!" instead;
+	if the current turns of the Corrupted Dual Axe is 2:
+		if the dodgeTrue of the player is 1:
+			say "As the Corrupted Entity's grip loosens for just a fraction of a second, you are able to quickly sever yourself free and escape its attack!";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "Showing no fear you raise your own weapon above your head and connect with perfect timing parrying his finishing blow![line break][line break]";
+			if the Corrupted Entity is dead:
+				say "You riposte the Corrupted Entity, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Corrupted Entity explodes into a cloud of dark energy and dust as its remains fade into the floor.";
+				now the Corrupted Entity is nowhere;
+				now the Corrupted Entity is docile;
+			otherwise:
+				say "You riposte the Corrupted Entity, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "Your shield is nowhere near strong enough to repel the Corrupted Entity's final attack as you feel the sharp blow of his Corrupted Dual Axe collide with your body, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Corrupted Entity is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Corrupted Entity lands a massive gash into your neck draining any chance you have left at life, dealing a massive [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Corrupted Entity is unable to penetrate your armour.".	
+Report hitting a dead Corrupted Entity:
+		say "The Corrupted Entity explodes into a cloud of dark energy and dust, as its remains fade into the floor." instead.
+
+Report Corrupted Entity hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Corrupted Entity's Dual Axe comes down on your body slicing your head clean off."; 
+	end the story saying "With your last breath you see the Corrupted Entity rip your heart out, and squish it into nothing more but dust."; 
+	stop the action.
+Carry out Corrupted Entity hitting the player:
+	if the current turns of the Corrupted Dual Axe is 2:
+ 		now the player is notHit;
+ 		now the current turns of the Corrupted Dual Axe is 1;
+ 		stop the action;
+ 	if the current turns of the Corrupted Dual Axe is 1:
+ 		now the player is hit;
+ 		now the current turns of the Corrupted Dual Axe is 0;
+ 		stop the action;
+ 	if the current turns of the Corrupted Dual Axe is 0:
+ 		now the player is notHit;
+ 		if dodgeTrue of the player is 1:
+ 			do nothing;
+ 		otherwise if parryTrue of the player is 1:
+ 			decrease the current hit points of the Corrupted Entity by the riposteDamage of the player;
+ 		otherwise if blockTrue of the player is 1:
+ 			do nothing;
+ 		otherwise if damage inflicted > 0:
+ 			decrease the current hit points of the noun by the damage inflicted;
+ 		now the current turns of the Corrupted Dual Axe is 2;
+
 		
 The Prison Guard 1 is in Jungle 5. 
 Rule for printing the name of Prison Guard 1:
 	say "Prison Guard".
-The current hit points of the Prison Guard 1 is 25. The maximum hit points of the Prison Guard 1 is 25.
+The current hit points of the Prison Guard 1 is 36. The maximum hit points of the Prison Guard 1 is 36.
 The Prison Guard 1 is hostile. 
 The Prison Guard 1 carries a weapon called Iron Spear 1. The current turns of the Iron Spear 1 is 1.
 Setting action variables for an actor hitting:
@@ -444,7 +776,8 @@ Report Prison Guard 1 hitting the player:
 		otherwise:
 			say "The prison guard is unable to penetrate your armour.".	
 Report hitting a dead Prison Guard 1:
-		say "'We'll call it a draw...', the prison guard cries as he utters his last breath." instead.
+		say "'We'll call it a draw...', the prison guard cries as he utters his last breath.";
+		say "Upon further inspection of the guard's body you notice he is carrying a wrinkled note." instead.
 
 Report Prison Guard 1 hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
@@ -472,7 +805,7 @@ Carry out Prison Guard 1 hitting the player:
 The Prison Guard 2 is in Jungle 7. 
 Rule for printing the name of Prison Guard 2:
 	say "Prison Guard".
-The current hit points of the Prison Guard 2 is 25. The maximum hit points of the Prison Guard 2 is 25.
+The current hit points of the Prison Guard 2 is 36. The maximum hit points of the Prison Guard 2 is 36.
 The Prison Guard 2 is hostile. 
 The Prison Guard 2 carries a weapon called Iron Spear 2. The current turns of the Iron Spear 2 is 1.
 Setting action variables for an actor hitting:
@@ -555,7 +888,7 @@ Carry out Prison Guard 2 hitting the player:
 The Prison Guard 3 is in Jungle 34. 
 Rule for printing the name of Prison Guard 3:
 	say "Prison Guard".
-The current hit points of the Prison Guard 3 is 25. The maximum hit points of the Prison Guard 3 is 25.
+The current hit points of the Prison Guard 3 is 36. The maximum hit points of the Prison Guard 3 is 36.
 The Prison Guard 3 is hostile. 
 The Prison Guard 3 carries a weapon called Iron Spear 3. The current turns of the Iron Spear 3 is 1.
 Setting action variables for an actor hitting:
@@ -637,7 +970,7 @@ Carry out Prison Guard 3 hitting the player:
 The Prison Guard 4 is in Jungle 33. 
 Rule for printing the name of Prison Guard 4:
 	say "Prison Guard".
-The current hit points of the Prison Guard 4 is 25. The maximum hit points of the Prison Guard 4 is 25.
+The current hit points of the Prison Guard 4 is 36. The maximum hit points of the Prison Guard 4 is 36.
 The Prison Guard 4 is hostile. 
 The Prison Guard 4 carries a weapon called Iron Spear 4. The current turns of the Iron Spear 4 is 1.
 Setting action variables for an actor hitting:
@@ -716,334 +1049,21 @@ Carry out Prison Guard 4 hitting the player:
 		now the current turns of the Iron Spear 4 is 1;
 		stop the action.	
 
-The current hit points of the Armoured Guard is 20. The maximum hit points of the Armoured Guard is 20.
-The Armoured Guard is hostile. 
-The Armoured Guard carries a weapon called Heavy Shield. The current turns of the Heavy Shield is 1.
-Setting action variables for an actor hitting:
-	if the actor is Armoured Guard:
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 7 and 10 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 7 and 10 minus x.
-Every turn when the player is in the Dim Hallway: 
-	if the Armoured Guard is hostile, try Armoured Guard hitting the player. 
-Report Armoured Guard hitting the player:
-	if the current turns of the Heavy Shield is 0:
-		say "The Armoured Guard grabs his shield with both hands." instead;
-	if the current turns of the Heavy Shield is 1:
-		if the dodgeTrue of the player is 1:
-			say "The Armoured Guard charges straight for you but with a quick roll you are able to get out of the way!";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "Using your own strength you are able to repel the Armoured Guard's shield bash with a well timed strike![line break][line break]";
-			if the Armoured Guard is dead:
-				say "You riposte the Armoured Guard, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Armoured Guard falls to the ground. His shield lands on top of his body and quickly dematerializes into a thick cloud of dust.";
-				now the Armoured Guard is nowhere;
-				now the Armoured Guard is docile;
-			otherwise:
-				say "You riposte the Armoured Guard, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "The Armoured Guard strikes your shield with his own, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "The Armoured Guard is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "The Armoured Guard bashes your head with his shield, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "The Armoured Guard is unable to penetrate your armour.".	
-Report hitting a dead Armoured Guard:
-		say "The Armoured Guard falls to the ground. His shield lands on top of his body and quickly dematerializes into a thick cloud of dust." instead.
-
-Report Armoured Guard hitting the player when the player is dead:
-	now the current hit points of the player is 0; 
-	say "The Armoured Guard knocks you off your feet."; 
-	end the story saying "The Armoured Guard kicks you down and slams his shield straight through your heart, killing you instantly."; 
-	stop the action.
-Carry out Armoured Guard hitting the player:
-	if the current turns of the Heavy Shield is 1:
-		now the player is hit;
-		now the current turns of the Heavy Shield is 0;
-		stop the action;
-	if the current turns of the Heavy Shield is 0:
-		now the player is notHit;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Armoured Guard by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Heavy Shield is 1;
-		stop the action.	
 
 
-The current hit points of the Reinforced Guard is 25. The maximum hit points of the Reinforced Guard is 25.
-The Reinforced Guard is hostile. 
-The Reinforced Guard carries a weapon called Greatsword. The current turns of the Greatsword is 1.
-Setting action variables for an actor hitting:
-	if the actor is Reinforced Guard:
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 5 and 12 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 5 and 12 minus x.
-Every turn when the player is in the Tower Hallway: 
-	if the Reinforced Guard is hostile, try Reinforced Guard hitting the player. 
-Report Reinforced Guard hitting the player:
-	if the current turns of the Greatsword is 1:
-		if the dodgeTrue of the player is 1:
-			say "The Reinforced Guard thursts his Greatsword into the air and just barely misses your body by a hair.";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "Pushing yourself to your limits you decide to counter the Reinforced Guard's attacks with one of your own knocking him off guard![line break][line break]";
-			if the Reinforced Guard is dead:
-				say "You riposte the Reinforced Guard, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Reinforced Guard groans as he falls down.";
-				now the Reinforced Guard is nowhere;
-				now the Reinforced Guard is docile;
-			otherwise:
-				say "You riposte the Reinforced Guard, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "The Reinforced Guard strikes your shield with his Greatsword, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "The Reinforced Guard is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "The Reinforced Guard lands a clean hit on your body with a quick thurst of his sword, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "The Reinforced Guard is unable to penetrate your armour.".	
-Report hitting a dead Reinforced Guard:
-		say "The Reinforced Guard groans as he falls down." instead.
-
-Report Reinforced Guard hitting the player when the player is dead:
-	now the current hit points of the player is 0; 
-	say "The Reinforced Guard pierces your body with his sword."; 
-	end the story saying "Blood gushes out your mouth as the Reinforced Guard pulls his sword from your stomach."; 
-	stop the action.
-Carry out Reinforced Guard hitting the player:
-	if the current turns of the Greatsword is 1:
-		now the player is hit;
-		if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		stop the action.
-		
-
-The current hit points of the Living Statue is 10. The maximum hit points of the Living Statue is 10.
-The Living Statue is docile. 
-The Deranged Prisoner carries a weapon called Runic Sword . The current turns of the Runic Sword is 1.
-Setting action variables for an actor hitting:
-	if the actor is Living Statue:
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 5 and 10 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 5 and 10 minus x.
-Every turn when the player is in the Ground Floor 3: 
-	if the Living Statue is hostile, try Living Statue hitting the player. 
-Report Living Statue hitting the player:
-	if the current turns of the Runic Sword is 0:
-		say "The Living Statue draws its Runic Claymore, and readies itself to fight off any intruders." instead;
-	if the current turns of the Runic Sword is 1:
-		if the dodgeTrue of the player is 1:
-			say "The Living Statue's attack is easily dodged thanks to your superior speed.";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "The Living Statue staggers back from your powerful attack![line break][line break]";
-			if the Living Statue is dead:
-				say "You riposte the Living Statue, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Living Statue crumbles into a pile of rubble.";
-				now the Living Statue is nowhere;
-				now the Living Statue is docile;
-			otherwise:
-				say "You riposte the Living Statue, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "The Living Statue's strikes your shield, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "The Living Statue is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "The Living Statue lands a direct hit and slashes you with its Runic Claymore, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "The Living Statue is unable to penetrate your armour.".	
-Report hitting a dead Deranged Prisoner:
-		say "The Living Statue crumbles into a pile of rubble." instead.
-		
-Report Living Statue hitting the player when the player is dead:
-	now the current hit points of the player is 0; 
-	say "The Living Statue's strength is too much to handle as it punctures its sword straight through your chest."; 
-	end the story saying "The Living Statue quickly rips its sword out and returns to its original position. Its eyes no longer glow."; 
-	stop the action.
-Carry out Living Statue hitting the player:
-	if the current turns of the Runic Sword is 1:
-		now the player is hit;
-		now the current turns of the Runic Sword is 0;
-		stop the action;
-	if the current turns of the Runic Sword is 0:
-		now the player is notHit;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Living Statue by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Runic Sword is 1;
-		stop the action.
 
 
-The current hit points of the Overseer is 25. The maximum hit points of the Overseer is 25.
-The Overseer is hostile. 
-The Overseer carries a weapon called Spiked Flail. The current turns of the Spiked Flail is 1.
-Setting action variables for an actor hitting:
-	if the actor is Overseer:
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 8 and 12 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 8 and 12 minus x.
-Every turn when the player is in the Northern Outlook: 
-	if the Overseer is hostile, try Overseer hitting the player.
-Report Overseer hitting the player:
-	if the current turns of the Spiked Flail is 0:
-		say "The Overseer brandishes his Spiked Flail and slams the ground as if to taunt you." instead;
-	if the current turns of the Spiked Flail is 1:
-		if the dodgeTrue of the player is 1:
-			say "Your raw speed and training are too much for the Overseer to handle as you quickly predict where he is about to strike and get out of the way! ";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "The Overseer's Spiked Flail connects with your sword, but you are able to overpower him knocking the flail out of his hand![line break][line break]";
-			if the Overseer is dead:
-				say "Using your opening, you riposte the Overseer, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "A strange being full of pure corrupted energy emerges from the Overseer's chest and slowly takes form. [line break][line break]";
-				say "The Corrupted Entity forms a weapon of pure dark energy; a massive Corrupted Dual Axe, and prepares to finish you off once and for all!";
-				now the Overseer is nowhere;
-				now the Overseer is docile;
-			otherwise:
-				say "You riposte the Overseer, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "The Overseer strikes your shield, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "The Overseer is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "The Overseer charges and slashes you with Spiked Flail, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "The Overseer is unable to penetrate your armour.".	
-Report hitting a dead Overseer:
-	say "A strange being full of pure corrupted energy emerges from the Overseer's chest and slowly takes form. [line break][line break]";
-	say "The Corrupted Entity forms a weapon of pure dark energy; a massive Corrupted Dual Axe, and prepares to finish you off once and for all!" instead. 
 
-Report Overseer hitting the player when the player is dead:
-	now the current hit points of the player is 0; 
-	say "The Overseer knocks your weapon out of your hands and laughs as his Spiked Flail wraps around your body crushing every bone you have left."; 
-	end the story saying "You've come so close but unfortunately your adventure has come to an end."; 
-	stop the action.
-Carry out Overseer hitting the player:
-	if the current turns of the Spiked Flail is 1:
-		now the player is hit;
-		now the current turns of the Spiked Flail is 0;
-		stop the action;
-	if the current turns of the Spiked Flail is 0:
-		now the player is notHit;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Overseer by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Spiked Flail is 1;
-		stop the action.	
-		
-Corrupted is a room. The Corrupted Entity is a man in Corrupted. 
-The current hit points of the Corrupted Entity is 30. The maximum hit points of the Corrupted Entity is 30.
-The Corrupted Entity is hostile. 
-The Corrupted Entity carries a weapon called Corrupted Dual Axe. The current turns of the Corrupted Dual Axe is 2.
-Setting action variables for an actor hitting:
-	if the actor is Corrupted Entity:
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 20 and 20 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 20 and 20 minus x.
-Every turn when the Corrupted Entity is in the Northern Outlook: 
-	if the Corrupted Entity is hostile, try Corrupted Entity hitting the player. 
-Report Corrupted Entity hitting the player:
-	if the current turns of the Corrupted Dual Axe is 1:
-		say "The Corrupted Entity grabs hold of your body locking you into place, as it prepares one last attack." instead;
-	if the current turns of the Corrupted Dual Axe is 0:
-		say "The Corrupted Entity squeezes every bone in your body as it raises its massive Corrupted Dual Axe high above your head. [line break][line break]";
-		say "If you want to survive you must finish the Corrupted Entity off now!" instead;
-	if the current turns of the Corrupted Dual Axe is 2:
-		if the dodgeTrue of the player is 1:
-			say "As the Corrupted Entity's grip loosens for just a fraction of a second, you are able to quickly sever yourself free and escape its attack!";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "Showing no fear you raise your own weapon above your head and connect with perfect timing parrying his finishing blow![line break][line break]";
-			if the Corrupted Entity is dead:
-				say "You riposte the Corrupted Entity, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Corrupted Entity explodes into a cloud of dark energy and dust as its remains fade into the floor.";
-				now the Corrupted Entity is nowhere;
-				now the Corrupted Entity is docile;
-			otherwise:
-				say "You riposte the Corrupted Entity, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "Your shield is nowhere near strong enough to repel the Corrupted Entity's final attack as you feel the sharp blow of his Corrupted Dual Axe collide with your body, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "The Corrupted Entity is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "The Corrupted Entity lands a massive gash into your neck draining any chance you have left at life, dealing a massive [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "The Corrupted Entity is unable to penetrate your armour.".	
-Report hitting a dead Corrupted Entity:
-		say "The Corrupted Entity explodes into a cloud of dark energy and dust, as its remains fade into the floor." instead.
 
-Report Corrupted Entity hitting the player when the player is dead:
-	now the current hit points of the player is 0; 
-	say "The Corrupted Entity's Dual Axe comes clean down on your body slicing your head clean off."; 
-	end the story saying "With your last breath you see the Corrupted Entity rip your heart out and squish it into nothing more but dust."; 
-	stop the action.
-Carry out Corrupted Entity hitting the player:
-	if the current turns of the Corrupted Dual Axe is 2:
- 		now the player is notHit;
- 		now the current turns of the Corrupted Dual Axe is 1;
- 		stop the action;
- 	if the current turns of the Corrupted Dual Axe is 1:
- 		now the player is hit;
- 		now the current turns of the Corrupted Dual Axe is 0;
- 		stop the action;
- 	if the current turns of the Corrupted Dual Axe is 0:
- 		now the player is notHit;
- 		if dodgeTrue of the player is 1:
- 			do nothing;
- 		otherwise if parryTrue of the player is 1:
- 			decrease the current hit points of the Corrupted Entity by the riposteDamage of the player;
- 		otherwise if blockTrue of the player is 1:
- 			do nothing;
- 		otherwise if damage inflicted > 0:
- 			decrease the current hit points of the noun by the damage inflicted;
- 		now the current turns of the Corrupted Dual Axe is 2;
+
+
+
+
+
+
+
+
+
 
 
 	
