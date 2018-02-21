@@ -1,0 +1,1822 @@
+Volume 1 - Mechanics
+
+Include Combat Mechanics by Lamdil.
+Include Armour Mechanics by Lamdil.
+Include Enemy Mechanics by Lamdil.
+Include Miscellaneous Mechanics by Lamdil.
+Include Dope Weapons by Lamdil.
+Include Locksmith by Emily Short.
+Include Common Commands Sidebar by Alice Grove.
+Include Leveling by Lamdil.
+Include Shadow Enemies by Lamdil.
+Include Shadow Bosses by Lamdil.
+
+Use MAX_STATIC_DATA of 1000000.
+
+Volume 1 - Story 
+
+Book 1 - Inner Prison
+
+Part 1 - Prison Chapter
+
+When play begins:
+	now the left hand status line is "";
+	now the right hand status line is "";
+	
+Rule for listing nondescript items:
+	do nothing.
+	
+Cell 1 is a room. "You wake up in a cold, damp room that appears to look like a cell. Your head is throbbing as you wonder how you got here. With the light from a nearby torch in the room, you see a note.".
+Note is a thing in Cell 1.
+Flaming Torch is a thing in Cell 1. Flaming Torch is lit.  
+Rule for printing the name of Cell 1:
+	say "Cell".
+
+Walkway 1 is north of Cell 1. Walkway 1 is a dark room. "A strange silence fills the air. You look around and notice that you are in the corner cell and ahead of you is a long dark hallway and surrounding you are cold walls of stone."
+Rule for printing the name of Walkway 1:
+	say "Walkway".
+	
+Walkway 2 is east of Walkway 1. Walkway 2 is a dark room. "You take a step forward and see something odd. The cell to the south is open."
+Rule for printing the name of Walkway 2:
+	say "Walkway".
+
+Cell 2 is south of Walkway 2. Cell Key is in Cell 2. Cell 2 is a dark room. "There's a warmth here as if someone recently left. In the corner of the room you see what appears to be a key."
+The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is scenery. The Cell Door is locked. Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a dark room. The description of Walkway 3 is "[if Rusty Knife is in Cell 3]Your courage shakes as you take more steps. You wonder curiously about the note you just read.[end if][if Rusty Knife is not in Cell 3]You wonder what could lie ahead of you that requires a knife...[end if]".
+Rule for printing the name of Cell 2:
+	say "Cell".
+Rule for printing the name of Walkway 3:
+	say "Walkway".
+
+Cell 3 is south of Cell Door. Rusty Knife is in Cell 3. Cell 3 is a dark room. "[if Rusty Knife is in Cell 3]There's a page attached to a knife strangely laid in the center of the room."
+Torn Page is in Cell 3.  
+Rule for printing the name of Cell 3:
+	say "Cell".
+Walkway 4 is east of Walkway 3. Walkway 4 is a dark room. "[if Deranged Prisoner is not dead]You hear someone muttering quietly."
+Rule for printing the name of Walkway 4:
+	say "Walkway".
+Instead of listening to Walkway 4:
+	if Deranged Prisoner is not dead:
+		say "I'll kill those bastards... I'll kill 'em...";
+	otherwise:
+		say "You see the dark mist that replaced the body of the Deranged Prisoner.".
+
+Cell 4 is south of Cell Door 2. Cell 4 is a dark room. Cell Door 2 is south of Walkway 4. Cell Door 2 is a door. Cell Door 2 is scenery. Cell Door 2 is closed. The description of cell 4 is "In the cell there is an enormous hole in the center of the room. The edges are cracked and leave the foundation exposed. Something red and dry stain the corners of the cracks."
+Instead of listening to Cell 4:
+	if Mutated Prisoner is not dead:
+		say "As you enter the cell, you hear what appears to be a low growling underneath you.";
+	otherwise:
+		say "You're glad to be out of that hell hole.".
+Rule for printing the name of Cell Door 2:
+	say "Cell Door".
+Rule for printing the name of Cell 4:
+	say "Cell".
+
+Prison Tunnel is below Cell 4. Prison Tunnel is a dark room. The Mutated Prisoner is a man in the Prison Tunnel. "As you drop down the hole, a human-like body slowly turns its head around. As it realizes what you are - a human - it stands and charges at you."
+Prison Tunnel Fight is a recurring scene.
+Prison Tunnel Fight begins when the player is in the Prison Tunnel.
+Every turn during the Prison Tunnel Fight:
+	now the left hand status line is "Mutated Prisoner: [current hit points of Mutated Prisoner]";
+	now the player is hostile;
+	if the Mutated Prisoner is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Mutated Prisoner: Deceased";
+		now the Mutated Prisoner is nowhere.
+Prison Tunnel Fight ends when the player is not in the Prison Tunnel.	
+When Prison Tunnel Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+	
+The Tunnel Extension is south of Prison Tunnel. Tunnel Extension is a dark room. "[if Tunnel Wall is not broken]The wall here is oddly cracked and with the right tools you think you can break it down." The Tunnel Wall is in Tunnel Extension. The Tunnel Wall is scenery. Diamond Pickaxe is a thing.
+Tunnel Wall Breaking is a scene.
+Tunnel Wall Breaking begins when Tunnel Wall is broken.
+When Tunnel Wall Breaking begins:
+	say "With a forceful hit of your hammer, the wall crumbles and reveals to you a bright, shining diamond pickaxe.".
+Tunnel Wall Breaking ends when Tunnel Wall is nowhere.
+	
+The Prison Staircase is east of Walkway 4. Prison Staircase is a dark room. A Deranged Prisoner is a man in the Prison Staircase. "You step out into an open room and see a staircase at the end of the wall, but hear a gut-wrenching scream as from behind you what appears to be a mentally unstable prisoner lunges at you.".
+Prison Staircase Fight is a scene.
+Prison Staircase Fight begins when the player is in the Prison Staircase.
+Every turn during Prison Staircase Fight: 
+	now the left hand status line is "Deranged Prisoner: [current hit points of Deranged Prisoner]";
+	now the player is hostile;
+	if the Deranged Prisoner is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Deranged Prisoner: Deceased";
+		now the Staircase Door is unlocked;
+		now the Deranged Prisoner is nowhere.
+Prison Staircase Fight ends when the Deranged Prisoner is dead.
+
+When Prison Staircase Fight ends:
+	say "The body of the deranged prisoner slowly disappears and turns into a black mist that hovers in the place of the body. You take a closer look at the mysterious hovering cloud. As your face nears the edges of the cloud, everything turns to black.".
+
+Part 2 - Shadow Realm
+
+Shadow Introduction is a scene.
+Shadow Introduction begins when Prison Staircase Fight ends.
+Shadow Realm is an unmappable room.
+When Shadow Introduction begins:
+	wait for any key;
+	wait for any key;
+	clear main window;
+	move player to Shadow Realm;
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "";
+	say "You see nothing in the cloud and pull your head out, but when you do, you're no longer in the prison. You look around and see a mysterious entity that resembles a man. You want to look away, but feel the urge to examine him and see what he looks like.".
+In the Shadow Realm is a man called Mysterious Entity.
+Understand "Mysterious Man" and "Him" and "Man" as Mysterious Entity.
+Instead of examining the Mysterious Entity for the first time:
+	now the printed name of Mysterious Entity is "Ethiram";
+	now the Mysterious Entity is proper-named;
+	say "'You don't need to look that closely to figure out who I am,' says the mysterious entity. 'I am Ethiram,' and as he spoke his name, his body and face became unshadowed. 'I'm the one that's been communicating with you in what you perceive as the real world. Come with me, I want to show you something.' He takes a step forward and vanishes in a puff of black.";
+	wait for any key;
+	move player to Shadow Prison.
+Shadow Introduction ends when the player is in Shadow Prison.
+Shadow Prison Scene is a scene.
+Shadow Prison Scene begins when Shadow Introduction ends.
+Shadow Prison is an unmappable room.
+In Shadow Prison is a man called Ethiram.
+When Shadow Prison Scene begins:
+	say "You take a step forward and instantly you transport back into your cell. You stare at the door in front of you."
+Shadow Door is a thing in Shadow Prison. Shadow Door is fixed in place.
+Instead of opening Shadow Door:
+	say "Ethiram appears in front of you and says, 'Welcome to the prison. But this isn't the prison you grew to know. This is the prison I knew. I, along with many others, lived in the prison for decades. Just like you, we all awoke one day within the cold walls. In time, we met the Warden.'";
+	now the Shadow Door is nowhere;
+	wait for any key;
+	move player to The Warden's Quarters.
+Shadow Prison Scene ends when player is in The Warden's Quarters.
+Shadow Warden is a scene.
+Shadow Warden begins when Shadow Prison Scene ends.
+The Warden's Quarters is an unmappable room.
+When Shadow Warden begins:
+	say "After hearing the words, 'The Warden' you feel a gust of air and appear in another room. There is a man here, in full metal armour, grasping a chain in one hand and a sword in the other, getting ready to strike a man in ragged clothes. However, everything is frozen in time. Nothing is moving.";
+	wait for any key;
+	say "Except Ethiram.";
+	wait for any key;
+	say "He walks around the room and says, 'One by one we entered The Warden's Quarters. And one by one our numbers decreased. No one came back from that dreadful room.'";
+	wait for any key;
+	say "You watch Ethiram traipse around the room. When he finishes talking, he looks at you and says, 'Follow me,' and sinks into the floor.";
+	wait for any key;
+	say "You stare at your feet and notice you're not exactly standing on anything. There's a dark, purplish cloud where the ground should be, but it doesn't feel like anything. You think to yourself 'Sink'";
+	wait for any key;
+	say "[line break]You repeat it in your head. 'Sink'";
+	wait for any key;
+	say "[line break]'Sink'";
+	wait for any key;
+	say "[line break]'SINK'".
+Understand "sink" as casting sink.
+Casting sink is an action applying to nothing. 
+Carry out casting sink:
+	move the player to Shadow Dimension. 
+Shadow Warden ends when player is in Shadow Dimension.
+Shadow Dimension is an unmappable room.
+Rule for printing the name of Shadow Dimension:
+	say "Shadow Realm".				
+Shadow Finale is a scene.
+Shadow Finale begins when Shadow Warden ends.
+When Shadow Finale begins:
+	say "Your body passes through the purple clouds and you appear back where you first met Ethiram. He notices your presence.[line break]'He killed everyone...' his voice trails off.";
+	wait for any key;
+	say "'...but he didn't get me. Some prisoners and I made a break for it. We found a way out of the prison and we ran. We ran as far as our legs would take us. And we discovered, the Jungle. I need you to get to the Jungle. I'm trapped here, but with your help, you can get me out, and in turn, I'll take you back to your home.'";
+	wait for any key;
+	say "'You'll encounter another foe in The Jungle, much stronger than the Warden. Thus, I will infuse your soul with the ability to absorb the powers of those you've slain.'"; 
+	wait for any key;
+	say "He lifts his arm and points at the center of your body. Your body wrenches and squirms. You feel something deep in your body. It's not your heart... it's not your brain... You don't know what it is but you're not the same.";
+	wait for any key;
+	say "'Say 'xyzzy' and you will be back in the prison. Good luck.' Ethiram blinks out of existence and you're left alone in the shadows.".
+Understand "xyzzy" as casting xyzzy.
+Casting xyzzy is an action applying to nothing. 
+Carry out casting xyzzy:
+	clear main window;
+	move the player to Prison Staircase. 
+Report casting xyzzy:
+	say "You skeptically mutter the random jumble of letters Ethiram commands you to speak, and after a moment you appear back in the Prison and you can feel solid ground under your feet. You see a black cloud hovering over a pool of red. As you stare at the cloud, you feel a strange deepness in your soul. ".
+Shadow Finale is a scene.
+Shadow Finale ends when the player is in Prison Staircase.
+When Shadow Finale ends:
+	now the Staircase Door is unlocked.
+
+Part 3 - Captain's Chapter
+
+The Staircase Door is above the Prison Staircase. The Staircase Door is a door. The Staircase Door is scenery. The Staircase Door is locked. The Captain's Staircase is above the Staircase Door. The Captain's Staircase is a room. "There's not a soul in sight, but the air feels warm as if someone had scurried away in a hurry."
+The Guard's Quarters is west of the Captain's Staircase. The Guard's Quarters is a dark room. "You enter what appears to be the room where the guards of the prison sleep. By each bed is a chest full of belongings. Each chest is chained and locked shut, except for one. ".
+In the Guard's Quarters is an openable container called Chest. Chest is closed. The Chest is fixed in place. "[if open]The chest is open.[else]You see one chest, in the corner of the room hidden from the light, might be able to open if you pry enough." In Chest is a thing called Iron Key. In Chest is a thing called Stale Bread. In Chest is a thing called Guard's Satchel.
+Rule for printing the name of Guard's Chest: 
+	say "[printed name of Guard's Chest]";
+	omit contents in listing.
+	
+The Iron Door is east of the Captain's Staircase and west of the Armoury. The Iron Door is a door. The Iron Door is scenery. The Iron Door is locked. Iron Key unlocks the Iron Door. The Armoury is a dark room. "As you enter the room, the light from your torch reveals an armoury. However, little remains. You think to yourself that it was all taken in Ethiram's skirmish. Scrawled across the floor is a broken sowrd and a helmet." In the Armoury is Broken Sword and Rugged Cap.
+North of the Captain's Staircase is a Hallway. The Hallway is a dark room. 
+North of the Hallway is the Warden's Staircase. "You stare at the long hallway in front of you. You can't help but feel deja vu."
+Instead of listening to Warden's Staircase:
+	if Warden is not dead:
+		say "Above you hear heavy thuds and metal scraping across stone. You gulp. 'This is it' you think to yourself. You take a deep breath.";
+	otherwise:
+		say "You hear nothing unexpected.".
+
+Part 4 - Warden's Chapter
+
+The Warden's Staircase is below the Warden's Room. Above the Warden's Staircase is a dark room called the Warden's Room. The Warden is a man in the Warden's Room.
+Warden Introduction is a scene.
+Warden Introduction begins when the player is in the Warden's Room.
+When Warden Introduction begins:
+	say "Climbing up the staircase, you see a man in full metal armour.";
+	wait for any key;
+	say "'I've been waiting for you,' He patiently taps his steel sword against the stone cold floor and brandishes his steel chain awaiting your move.".
+Warden's Room Fight is a recurring scene.
+Warden's Room Fight begins when the player is in the Warden's Room.
+Every turn during Warden's Room Fight: 
+	now the left hand status line is "Warden: [current hit points of Warden]";
+	now the player is hostile;
+	if the Warden is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Warden: Deceased";
+		now the Prison Exit is unlocked;
+		say "Now the prison exit is unlocked.";
+		now the Warden is nowhere.
+Warden's Room Fight ends when the player is not in the Warden's Room.
+When Warden's Room Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+The Prison Exit is north of the Warden's Room. The Prison Exit is a door. The Prison Exit is scenery. The Prison Exit is locked. The Prison Opening is north of the Prison Exit. The Prison Opening is a room. "Its been awhile since you've seen sunlight."
+
+Part 4 - Yard Chapter
+
+Prison Yard 5 is north of the Prison Entrance. Prison Yard 5 is a room. "The walls surrounding the prison are preventing your escape."
+Rule for printing the name of Prison Yard 5:
+	say "Prison Yard". 
+
+Prison Yard 4 is west of Prison Yard 5. Prison Yard 4 is a room. "There is a wall here."
+Rule for printing the name of Prison Yard 4:
+	say "Prison Yard". 
+
+Prison Yard 6 is east of Prison Yard 5. Prison Yard 6 is a room. "There is a wall here."
+Rule for printing the name of Prison Yard 6:
+	say "Prison Yard". 
+
+Prison Yard 3 is north of Prison Yard 6. Prison Yard 3 is a room. Rock Hammer is in Prison Yard 3. "There is a rock hammer in the grass." 
+Rule for printing the name of Prison Yard 3:
+	say "Prison Yard". 
+
+Prison Yard 2 is east of Prison Yard 1 and north of Prison Yard 5 and west of Prison Yard 3. Prison Yard 2 is a room. "Freedom is within your grasp..." The Prison Gate is north of Prison Yard 2. The Prison Gate is a door. The Prison Gate is scenery. The Prison Gate is locked.
+Rule for printing the name of Prison Yard 2:
+	say "Prison Yard". 
+
+Prison Yard 1 is north of Prison Yard 4. Prison Yard 1 is a room. "[if Prison Wall is not broken]The wall here is a bit cracked.[else]You can now escape the prison." The Prison Wall is in Prison Yard 1. The Prison Wall is scenery.
+Rule for printing the name of Prison Yard 1:
+	say "Prison Yard". 
+Prison Wall Breaking is a scene.
+Prison Wall Breaking begins when Prison Wall is broken.
+When Prison Wall Breaking begins:
+	say "The wall gives away to reveal the outside world".
+Prison Wall Breaking ends when Prison Wall is nowhere.
+Instead of going north when the player is in Prison Yard 1:
+	if Prison Wall is not broken:
+		say "You can't go that way.";
+		stop the action;
+	otherwise:
+		move player to Near Prison 2.
+
+Book 2 - Prison Island
+
+Part 1 - Island Chapter
+
+Near Prison 2 is north of Prison Yard 1. Near Prison 2 is a room. "There is a dense jungle up ahead."
+Rule for printing the name of Near Prison 2:
+	say "Near Prison".
+Instead of going south when the player is in Near Prison 2:
+	move player to Prison Yard 1.
+	
+Near Prison 1 is west of Near Prison 2. Near Prison 1 is a room. 
+Rule for printing the name of Near Prison 1:
+	say "Near Prison".
+Instead of going west when the player is in Near Prison 1:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Front of Prison Gate is east of Near Prison 2 and north of Prison Gate. Front of Prison Gate is a room. "You won't miss the prison."
+Near Prison 4 is east of Front of Prison Gate. Near Prison 4 is a room.
+Rule for printing the name of Near Prison 4:
+	say "Near Prison".
+
+Near Prison 5 is east of Near Prison 4. Near Prison 5 is a room.
+Rule for printing the name of Near Prison 5:
+	say "Near Prison".
+Instead of going east when the player is in Near Prison 5:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 1 is north of Near Prison 1. Jungle 1 is a room. 
+Rule for printing the name of Jungle 1:
+	say "Jungle".
+Instead of going west when the player is in Jungle 1:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 2 is east of Jungle 1 and north of Near Prison 2. Jungle 2 is a room.
+Rule for printing the name of Jungle 2:
+	say "Jungle".
+	
+Jungle 3 is east of Jungle 2 and north of Front of Prison Gate. Jungle 3 is a room. "[if Southern Tower Sentinel is not dead]You feel someone watching you..."
+Rule for printing the name of Jungle 3:
+	say "Jungle".
+	
+Jungle 4 is east of Jungle 3 and north of Near Prison 4. Jungle 4 is a room.
+Rule for printing the name of Jungle 4:
+	say "Jungle".
+	
+Jungle 5 is east of Jungle 4 and north of Near Prison 5. Jungle 5 is a room.
+Rule for printing the name of Jungle 5:
+	say "Jungle".
+Instead of going east when the player is in Jungle 5:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 6 is west of Jungle 7. Jungle 6 is a room.
+Rule for printing the name of Jungle 6:
+	say "Jungle".
+Instead of going west when the player is in Jungle 6:
+	say "The trees prevent you from going further.";
+	stop the action.
+Instead of going south when the player is in Jungle 6:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 7 is north of Jungle 1. Jungle 7 is a room. 
+Rule for printing the name of Jungle 7:
+	say "Jungle".
+	
+Jungle 8 is east of Jungle 7 and north of Jungle 2. Jungle 8 is a room. "[if Southern Tower Sentinel is not dead]You feel someone watching you..."
+Rule for printing the name of Jungle 8:
+	say "Jungle".
+Instead of going north when the player is in Jungle 8:
+	say "There is a tall wall here.";
+	stop the action.
+	
+Southern Tower Entrance is east of Jungle 8 and north of Jungle 3. Southern Tower Entrance is a room. The Southern Tower Sentinel is a man in the Southern Tower Entrance. "[if Southern Tower Sentinel is not dead]The Southern Tower Sentinel gets into an offensive position." Southern Tower Door is north of Southern Tower Entrance. Southern Tower Door is a door. Southern Tower Door is locked. Southern Tower door is scenery.
+Southern Tower Entrance Fight is a recurring scene.
+Southern Tower Entrance Fight begins when the player is in the Southern Tower Entrance .
+Every turn during the Southern Tower Entrance Fight:
+	now the left hand status line is "Southern Tower Sentinel: [current hit points of Southern Tower Sentinel]";
+	now the player is hostile;
+	if the Southern Tower Sentinel is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Southern Tower Sentinel: Deceased";
+		now the Southern Tower Door is unlocked;
+		say "Now the southern tower door is unlocked.";
+		now the Southern Tower Sentinel is nowhere.
+Southern Tower Entrance Fight ends when the player is not in the Southern Tower Entrance .	
+When Southern Tower Entrance Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+Jungle 10 is east of Southern Tower Entrance and north of Jungle 4. Jungle 10 is a room. "[if Southern Tower Sentinel is not dead]You feel someone watching you..."
+Rule for printing the name of Jungle 10:
+	say "Jungle".
+Instead of going north when the player is in Jungle 10:
+	say "There is a tall wall here.";
+	stop the action.
+	
+Jungle 11 is east of Jungle 10 and north of Jungle 5. Jungle 11 is a room.
+Rule for printing the name of Jungle 11:
+	say "Jungle".
+	
+Jungle 12 is east of Jungle 11. Jungle 12 is a room.
+Rule for printing the name of Jungle 12:
+	say "Jungle".
+Instead of going south when the player is in Jungle 12:
+	say "The trees prevent you from going further.";
+	stop the action.
+Instead of going east when the player is in Jungle 12:
+	say "The trees prevent you from going further.";
+	stop the action.
+
+Jungle 13 is north of Jungle 6. Jungle 13 is a room.
+Rule for printing the name of Jungle 13:
+	say "Jungle".
+Instead of going west when the player is in Jungle 13:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 14 is east of Jungle 13 and north of Jungle 7. Jungle 14 is a room. "[if Western Tower Sentinel is not dead]You feel someone watching you..."
+Rule for printing the name Jungle 14:
+	say "Jungle".
+Instead of going east when the player is in Jungle 14:
+	say "There is a tall wall here.";
+	stop the action.
+	
+Jungle 18 is north of Jungle 11. Jungle 18 is a room. "[if Eastern Tower Sentinel is not dead]You feel someone watching you..."
+Rule for printing the name of Jungle 18:
+	say "Jungle".
+Instead of going west when the player is in Jungle 18:
+	say "There is a tall wall here.";
+	stop the action.
+	
+Jungle 19 is east of Jungle 18 and north of Jungle 12. Jungle 19 is a room.
+Rule for printing the name of Jungle 19:
+	say "Jungle".
+Instead of going east when the player is in Jungle 19:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 20 is north of Jungle 13. Jungle 20 is a room. "[if Western Tower Sentinel is not dead]You feel someone watching you."
+Rule for printing the name of Jungle 20:
+	say "Jungle".
+Instead of going west when the player is in Jungle 20:
+	say "The trees prevent you from going further.";
+	stop the action.
+
+Western Tower Entrance is east of Jungle 20 and north of Jungle 14. Western Tower Entrance is a room. Western Tower Sentinel is a man in Western Tower Entrance. "[If Western Tower Sentinel is not dead]The Western Tower Sentinel points his sword at you." Western Tower Door is east of Western Tower Entrance. Western Tower Door is a door. Western Tower Door is locked. Western Tower Door is scenery.
+Western Tower Entrance Fight is a recurring scene.
+Western Tower Entrance Fight begins when the player is in the Western Tower Entrance.
+Every turn during the Western Tower Entrance Fight:
+	now the left hand status line is "Western Tower Sentinel: [current hit points of Western Tower Sentinel]";
+	now the player is hostile;
+	if the Western Tower Sentinel is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Western Tower Sentinel: Deceased";
+		now the Western Tower Door is unlocked;
+		say "Now the western tower door is unlocked.";
+		now the Western Tower Sentinel is nowhere.
+Western Tower Entrance Fight ends when the player is not in the Western Tower Entrance.	
+When Western Tower Entrance Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+	
+Eastern Tower Entrance is north of Jungle 18. Eastern Tower Entrance is a room. Eastern Tower Sentinel is a man in Eastern Tower Entrance. "[if Eastern Tower Sentinel is not dead]The Eastern Tower Sentinel slowly moves from his rigid position." Eastern Tower Door is west of Eastern Tower Entrance. Eastern Tower Door is a door. Eastern Tower Door is locked. Eastern Tower Door is scenery.
+Eastern Tower Entrance Fight is a recurring scene.
+Eastern Tower Entrance Fight begins when the player is in the Eastern Tower Entrance.
+Every turn during the Eastern Tower Entrance Fight:
+	now the left hand status line is "Eastern Tower Sentinel: [current hit points of Eastern Tower Sentinel]";
+	now the player is hostile;
+	if the Eastern Tower Sentinel is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Eastern Tower Sentinel: Deceased";
+		now the Eastern Tower Door is unlocked;
+		say "Now the eastern tower door is unlocked.";
+		now the Eastern Tower Sentinel is nowhere.
+Eastern Tower Entrance Fight ends when the player is not in the Eastern Tower Entrance.	
+When Eastern Tower Entrance Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+	
+Jungle 26 is east of Eastern Tower Entrance and north of Jungle 19. Jungle 26 is a room. "[if Eastern Tower Sentinel is not dead]You feel someone watching you..."
+Rule for printing the name of Jungle 26:
+	say "Jungle".
+Instead of going east when the player is in Jungle 26:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 27 is north of Jungle 20. Jungle 27 is a room. 
+Rule for printing the name of Jungle 27:
+	say "Jungle".
+Instead of going west when the player is in Jungle 27:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 28 is east of Jungle 27 and north of Western Tower Entrance. Jungle 28 is a room. "[if Western Tower Sentinel is not dead]You feel someone watching you..."
+Rule for printing the name of Jungle 28:
+	say "Jungle".
+Instead of going east when the player is in Jungle 28:
+	say "There is a tall wall here.";
+	stop the action.
+	
+Jungle 32 is north of Eastern Tower Entrance. Jungle 32 is a room. "[if Eastern Tower Sentinel is not dead]You feel someone watching you..."
+Rule for printing the name of Jungle 32:
+	say "Jungle".
+Instead of going west when the player is in Jungle 32:
+	say "There is a tall wall here.";
+	stop the action.
+	
+Jungle 33 is east of Jungle 32 and north of Jungle 26. Jungle 33 is a room.
+Rule for printing the name of Jungle 33:
+	say "Jungle".
+Instead of going east when the player is in Jungle 33:
+	say "The trees prevent you from going further.";
+	stop the action.
+	
+Jungle 34 is north of Jungle 27. Jungle 34 is a room. 
+Rule for printing the name of Jungle 34:
+	say "Jungle".
+Instead of going west when the player is in Jungle 34:
+	say "The trees prevent you from going further.";
+	stop the action.
+Instead of going north when the player is in Jungle 34:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+	
+Jungle 35 is east of Jungle 34 and north of Jungle 28.
+Rule for printing the name of Jungle 35:
+	say "Jungle".
+	
+Jungle 36 is east of Jungle 35. Jungle 36 is a room.
+Rule for printing the name of Jungle 36:
+	say "Jungle".
+Instead of going south when the player is in Jungle 36:
+	say "There is a tall wall here.";
+	stop the action.
+	
+Northern Tower Entrance is east of Jungle 36. Northern Tower Entrance is a room. "The door here doesn't seem to be locked.[if Overseer is dead] The Overseer's body lies limp on the floor." Northern Tower Door is south of Northern Tower Entrance. Northern Tower Door is a door. Northern Tower Door is scenery. 
+Jungle 38 is east of Northern Tower Entrance. Jungle 38 is a room.
+Rule for printing the name of Jungle 38:
+	say "Jungle".
+Instead of going south when the player is in Jungle 38:
+	say "There is a tall wall here.";
+	stop the action.
+	
+Jungle 39 is east of Jungle 38 and north of Jungle 32. Jungle 39 is a room.
+Rule for printing the name of Jungle 39:
+	say "Jungle".
+
+Jungle 40 is east of Jungle 39 and north of Jungle 33. Jungle 40 is a room. 
+Rule for printing the name of Jungle 40:
+	say "Jungle".
+Instead of going east when the player is in Jungle 40:
+	say "The trees prevent you from going further.";
+	stop the action.
+Instead of going north when the player is in Jungle 40:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+	
+Beach 1 is north of Jungle 35. Beach 1 is a room. "The ocean breeze refreshes you."
+Rule for printing the name of Beach 1:
+	say "Beach".
+Instead of going west when the player is in Beach 1:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+Instead of going north when the player is in Beach 1:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+	
+Beach 2 is east of Beach 1 and north of Jungle 36. Beach 2 is a room. "The sand is warm against your feet."
+Rule for printing the name of Beach 2:
+	say "Beach".
+Instead of going north when the player is in Beach 2:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+	
+Beach 4 is east of Beach 3 and north of Jungle 38. Beach 4 is a room. "You squint your eyes to avoid the bright rays of the sun."
+Rule for printing the name of Beach 4:
+	say "Beach".
+Instead of going north when the player is in Beach 4:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+	
+Beach 5 is east of Beach 4 and north of Jungle 39. Beach 5 is a room. 
+
+Rule for printing the name of Beach 5:
+	say "Beach".
+Instead of going north when the player is in Beach 5:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+Instead of going east when the player is in Beach 5:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+	
+Beach 3 is east of Beach 2 and north of Northern Tower Entrance. Beach 3 is a room. "The vast sea stretches beyond the horizon."
+Rule for printing the name of Beach 3:
+	say "Beach".
+Instead of going north when the player is in Beach 3:
+	say "There are dangerous creatures in the water.";
+	stop the action.
+
+Part 2 - Overseer's Tower Chapter
+
+Ground Floor Staircase is west of Ground Floor 2 and north of Ground Floor 4. Ground Floor Staircase is a room. "[if Overseer is not dead]You fear what lies up in the tower."
+Ground Floor 2 is south of Northern Tower Door. Ground Floor 2 is a room. "It is musty in here."
+Rule for printing the name of Ground Floor 2:
+	say "Ground Floor".
+	
+Ground Floor 3 is east of Ground Floor 2 and north of Ground Floor 6. Ground Floor 3 is a room. Steel Sword is in Ground Floor 3. "There is a statue of a guard holding a steel sword."
+Rule for printing the name of Ground Floor 3:
+	say "Ground Floor".
+	
+Ground Floor 4 is east of Western Tower Door. Ground Floor 4 is a room. "The walls are molding."
+Rule for printing the name of Ground Floor 4:
+	say "Ground Floor".
+	
+Ground Floor 6 is east of Underground Entrance and west of Eastern Tower Door. Ground Floor 6 is a room. "The carpet here is torn and blood-stained."
+Rule for printing the name of Ground Floor 6:
+	say "Ground Floor".
+	
+Ground Floor 7 is south of Ground Floor 4. Ground Floor 7 is a room. "The room is decorated with statues."
+Rule for printing the name of Ground Floor 7:
+	say "Ground Floor".
+In Ground Floor 7 is an openable container called Overseer's Chest. Overseer's Chest is closed. The Overseer's Chest is fixed in place. "[if open]The Overseer's Chest is open.[else]The Overseer's Chest is closed." In Overseer's Chest is a thing called Dried Fish. In Overseer's Chest is a thing called Damaged Chainmail. In the Overseer's Chest is a thing called Leather Pouch.
+Rule for printing the name of Overseer's Chest:
+	say "[printed name of Overseer's Chest]";
+	omit contents in listing.
+	
+Ground Floor 8 is east of Ground Floor 7 and south of Underground Entrance and north of Southern Tower Door. Ground Floor 8 is a room. "The room is dimly lit."
+Rule for printing the name of Ground Floor 8:
+	say "Ground Floor".
+	
+Ground Floor 9 is east of Ground Floor 8 and south of Ground Floor 6. Ground Floor 9 is a room. Loose Stone is a thing in Ground Floor 9. Loose Stone is fixed in place."The stones in the wall are carved with images of death and war." Rusty Metal Key is a thing.
+Rule for printing the name of Ground Floor 9:
+	say "Ground Floor".
+
+Underground Entrance is east of Ground Floor 4 and south of Ground Floor 2. Underground Entrance is a room. "There's a metal grating on the floor. You wonder what is down there." Metal Grating is below Underground Entrance. Metal Grating is a door. Metal Grating is locked. The Cryptic Key unlocks the Metal Grating. Metal Grating is scenery.	
+
+Abandoned Cages is below Metal Grating. Abandoned Cages is a room. "You see eight empty cages in each direction."
+
+Second Floor Entrance is above Ground Floor Staircase. Second Floor Entrance is a room. "You wonder how long you've been on this island."
+Northern Tower Window is east of Second Floor Entrance. Northern Tower Window is a room. "You can see the edge of the island from here."
+Dim Hallway is south of Northern Tower Window. Dim Hallway is a room. Armoured Guard is a man in the Dim Hallway. "The Armoured Guard raises his shield."
+Dim Hallway Fight is a recurring scene.
+Dim Hallway Fight begins when the player is in the Dim Hallway.
+Every turn during the Dim Hallway Fight:
+	now the left hand status line is "Armoured Guard: [current hit points of Armoured Guard]";
+	now the player is hostile;
+	if the Armoured Guard is dead:
+		now the left hand status line is "Armoured Guard: Deceased";
+		now the player is docile;
+		now the player is notHit;
+		now the Second Floor Door is unlocked;
+		say "Now the second floor door is unlocked.";
+		now the Armoured Guard is nowhere.
+Dim Hallway Fight ends when the player is not in the Dim Hallway.	
+When Dim Hallway Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+Second Floor Door is south of Dim Hallway. Second Floor Door is a door. Second Floor Door is locked. Second Floor Door is scenery.
+Southern Tower Window is south of Second Floor Door. Southern Tower Window is a room. "The prison does not look any better from above."
+Tower Supply Closet is west of Southern Tower Window. Tower Supply Closet is a room. "The closet stinks as if it was not cleaned in ages."
+In Tower Supply Closet is an openable container called Supply Chest. Supply Chest is closed. Supply Chest is fixed in place. "[if open]The Supply Chest is open.[else]The Supply Chest is closed." In Supply Chest is a thing called Iron Bracelets. In Supply Chest is a thing called Iron Shoes. In Supply Chest is a thing called Iron Leggings. In Supply Chest is a thing called Tough Bread.
+
+Second Floor Staircase is east of Southern Tower Window. Second Floor Staircase is a room. "You wonder how high the tower is."
+Third Floor Entrance is above Second Floor Staircase. Third Floor Entrance is a room. "This room seems similar to the last one."
+Eastern Tower Window is north of Third Floor Entrance. Eastern Tower Window is a room. "You see birds flying out from the tops of trees."
+Tower Hallway is west of Eastern Tower Window. Tower Hallway is a room. Reinforced Guard is a man in the Tower Hallway. "The Reinforced Guard sees you approaching."
+Tower Hallway Fight is a recurring scene.
+Tower Hallway Fight begins when the player is in the Tower Hallway.
+Every turn during the Tower Hallway Fight:
+	now the left hand status line is "Reinforced Guard: [current hit points of Reinforced Guard]";
+	now the player is hostile;
+	if the Reinforced Guard is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Reinforced Guard: Deceased";
+		now the Third Floor Door is unlocked;
+		say "Now the third floor door is unlocked.";
+		now the Reinforced Guard is nowhere.
+Tower Hallway Fight ends when the player is not in the Tower Hallway.	
+When Tower Hallway Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+Third Floor Door is west of Tower Hallway. Third Floor Door is a door. Third Floor Door is locked. Third Floor Door is scenery.
+Western Tower Window is west of Third Floor Door. Western Tower Window is a room. "There are things stirring in the jungle."
+Third Floor Staircase is north of Western Tower Window. Third Floor Staircase is a room. "The stairs ahead are dark."
+Dusty Stairwell is above Third Floor Staircase. Dusty Stairwell is a room. "The dust from the steps make you cough."
+Dusty Stairwell Corner is east of Dusty Stairwell. Dusty Stairwell Corner is a room. "You see some light near the top of the stairwell."
+Rule for printing the name of Dusty Stairwell Corner:
+	say "Dusty Stairwell".
+	
+Dusty Stairwell End is south of Dusty Stairwell Corner. Dusty Stairwell End is a room. "The light is really bright here."
+Rule for printing the name of Dusty Stairwell End:
+	say "Dusty Stairwell".
+	
+Top Floor is above Dusty Stairwell End. Top Floor is a room. "[if Overseer is not dead]There is a person quietly looking out to the sea."
+Western Outlook is west of Top Floor. Western Outlook is a room. "The jungle stretches beyond the horizon."
+Eastern Outlook is east of Top Floor. Eastern Outlook is a room. "The jungle looks beautiful yet scary."
+Southern Outlook is south of Top Floor. Southern Outlook is a room. "The prison looks small in this immense jungle."
+Northern Outlook is north of Top Floor. Northern Outlook is a room. The Overseer is a man in Northern Outlook. "The Overseer turns around.[line break]Overseer: 'I can see fear in your eyes.'"
+Northern Outlook Fight is a recurring scene.
+Northern Outlook Fight begins when the player is in the Northern Outlook.
+Every turn during the Northern Outlook Fight:
+	now the left hand status line is "Overseer: [current hit points of Overseer]";
+	now the player is hostile;
+	if the Overseer is dead:
+		now the Overseer is nowhere; 
+		now the left hand status line is "Corrupted Entity: [current hit points of Corrupted Entity]";
+		now the Corrupted Entity is in the Northern Outlook;
+	if the Corrupted Entity is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Corrupted Entity: Deceased";
+		now the Overseer's Door is unlocked;
+		say "Now the Overseer's door is unlocked.";
+		now the Corrupted Entity is nowhere;
+		move the Overseer's Flail to Northern Tower Entrance.
+Northern Outlook Fight ends when the player is not in the Northern Outlook.	
+When Northern Outlook Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+Overseer's Door is east of Northern Outlook. Overseer's Door is a door. Overseer's Door is locked. Overseer's Door is scenery.
+Overseer's Room is east of Overseer's Door. Overseer's Room is a room. "The room is bare with the exception of a bed and table. At least it has a good view of the island."
+In Overseer's Room is an openable container called Overseer's Cache. Overseer's Cache is closed. Overseer's Cache is fixed in place. "[if open]The Overseer's Cache is open.[else]The Overseer's Cache is closed." In Overseer's Cache is a thing called Cryptic Key.
+
+Book 3 - Shadow Realm
+	
+Edge of Shadows is a room. "All around you is a foreboding darkness."
+Shadow Realm Starting is a scene.
+Shadow Realm Starting begins when the player is in Edge of Shadows.
+When Shadow Realm Starting begins:
+	say "'Oh no... something went wrong with my incantation... Hurry... find your way back to me...'".
+Shadow Realm Starting ends when the player is in Edge of Shadows.
+
+S1 is a room. S1 is north of Shadow Start. 
+Rule for printing the name of S1:
+	say "Plane of Nonexistence".
+	
+S2 is a room. S2 is west of Shadow Start.
+Rule for printing the name of S2:
+	say "Plane of Nonexistence".
+	
+S3 is a room. S3 is west of S2.
+Rule for printing the name of S3:
+	say "Plane of Nonexistence".
+	
+S4 is a room. S4 is south of S3.
+Rule for printing the name of S4:
+	say "Plane of Nonexistence".
+	
+S5 is a room. S5 is west of S4.
+Rule for printing the name of S5:
+	say "Plane of Nonexistence".
+	
+S6 is a room. S6 is south of S4.
+Rule for printing the name of S6:
+	say "Plane of Nonexistence".
+	
+S7 is a room. S7 is south of S6.
+Rule for printing the name of S7:
+	say "Plane of Nonexistence".
+	
+S8 is a room. S8 is southeast of S7.
+Rule for printing the name of S8:
+	say "Plane of Nonexistence".
+	
+S9 is a room. S9 is northeast of S8.
+Rule for printing the name of S9:
+	say "Plane of Nonexistence".
+	
+S10 is a room. S10 is southeast of S9.
+Rule for printing the name of S10:
+	say "Plane of Nonexistence".
+	
+S11 is a room. S11 is east of S10.
+Rule for printing the name of S11:
+	say "Plane of Nonexistence".
+	
+S12 is a room. S12 is east of S11.
+Rule for printing the name of S12:
+	say "Plane of Nonexistence".
+	
+S13 is a room. S13 is northeast of S12.
+Rule for printing the name of S13:
+	say "Plane of Nonexistence".
+	
+S14 is a room. S14 is northwest of S13.
+Rule for printing the name of S14:
+	say "Plane of Nonexistence".
+	
+S15 is a room. S15 is west of S14.
+Rule for printing the name of S15:
+	say "Plane of Nonexistence".
+	
+S16 is a room. S16 is north of S9.
+Rule for printing the name of S16:
+	say "Plane of Nonexistence".
+	
+S17 is a room. S17 is southeast of Shadow Start and northeast of S16 and northwest of S15.
+Rule for printing the name of S17:
+	say "Plane of Nonexistence".
+	
+S18 is a room. S18 is northeast of S14.
+Rule for printing the name of S18:
+	say "Plane of Nonexistence".
+	
+S19 is a room. S19 is east of S18.
+Rule for printing the name of S19:
+	say "Plane of Nonexistence".
+	
+S20 is a room. S20 is northeast of S19.
+Rule for printing the name of S20:
+	say "Plane of Nonexistence".
+	
+S21 is a room. S21 is southeast of S20.
+Rule for printing the name of S21:
+	say "Plane of Nonexistence".
+	
+S22 is a room. S22 is southeast of S21.
+Rule for printing the name of S22:
+	say "Plane of Nonexistence".
+	
+S23 is a room. S23 is east of S22.
+Rule for printing the name of S23:
+	say "Plane of Nonexistence".
+	
+S24 is a room. S24 is northeast of S23.
+Rule for printing the name of S24:
+	say "Plane of Nonexistence".
+	
+S25 is a room. S25 is north of S24.
+Rule for printing the name of S25:
+	say "Plane of Nonexistence".
+	
+S26 is a room. S26 is northwest of S25.
+Rule for printing the name of S26:
+	say "Plane of Nonexistence".
+	
+S27 is a room. S27 is northeast of S25.
+Rule for printing the name of S27:
+	say "Plane of Nonexistence".
+	
+S28 is a room. S28 is northeast of S26 and northwest of S27.
+Rule for printing the name of S28:
+	say "Plane of Nonexistence".
+	
+S29 is a room. S29 is north of S28.
+Rule for printing the name of S29:
+	say "Plane of Nonexistence".
+	
+S30 is a room. S30 is west of S29.
+Rule for printing the name of S30:
+	say "Plane of Nonexistence".
+	
+S31 is a room. S31 is west of S30.
+Rule for printing the name of S31:
+	say "Plane of Nonexistence".
+	
+S32 is a room. S32 is southwest of S31.
+Rule for printing the name of S32:
+	say "Plane of Nonexistence".
+	
+S33 is a room. S33 is west of S32.
+Rule for printing the name of S33:
+	say "Plane of Nonexistence".
+	
+S34 is a room. S34 is northwest of S33.
+Rule for printing the name of S34:
+	say "Plane of Nonexistence".
+	
+S35 is a room. S35 is southwest of S34.
+Rule for printing the name of S35:
+	say "Plane of Nonexistence".
+	
+S36 is a room. S36 is south of S35.
+Rule for printing the name of S36:
+	say "Plane of Nonexistence".
+	
+S37 is a room. S37 is west of S36.
+Rule for printing the name of S37:
+	say "Plane of Nonexistence".
+	
+S38 is a room. S38 is west of S37.
+Rule for printing the name of S38:
+	say "Plane of Nonexistence".
+	
+S39 is a room. S39 is northwest of S38 and northeast of S1.
+Rule for printing the name of S39:
+	say "Plane of Nonexistence".
+	
+S40 is a room. S40 is northwest of S5.
+Rule for printing the name of S40:
+	say "Plane of Nonexistence".
+	
+S41 is a room. S41 is north of S40.
+Rule for printing the name of S41:
+	say "Plane of Nonexistence".
+	
+S42 is a room. S42 is northeast of S41.
+Rule for printing the name of S42:
+	say "Plane of Nonexistence".
+	
+S43 is a room. S43 is northeast of S42.
+Rule for printing the name of S43:
+	say "Plane of Nonexistence".
+	
+S44 is a room. S44 is north of S43.
+Rule for printing the name of S44:
+	say "Plane of Nonexistence".
+	
+S45 is a room. S45 is west of S44.
+Rule for printing the name of S45:
+	say "Plane of Nonexistence".
+	
+S46 is a room. S46 is north of S45.
+Rule for printing the name of S46:
+	say "Plane of Nonexistence".
+	
+S47 is a room. S47 is west of S46.
+Rule for printing the name of S47:
+	say "Plane of Nonexistence".
+	
+S48 is a room. S48 is north of S46.
+Rule for printing the name of S48:
+	say "Plane of Nonexistence".
+	
+S49 is a room. S49 is northeast of S48.
+Rule for printing the name of S49:
+	say "Plane of Nonexistence".
+	
+S50 is a room. S50 is east of S49.
+Rule for printing the name of S50:
+	say "Plane of Nonexistence".
+	
+S51 is a room. S51 is east of S50.
+Rule for printing the name of S51:
+	say "Plane of Nonexistence".
+	
+S52 is a room. S52 is south of S51.
+Rule for printing the name of S52:
+	say "Plane of Nonexistence".
+	
+S53 is a room. S53 is southwest of S52 and northeast of S44.
+Rule for printing the name of S53:
+	say "Plane of Nonexistence".
+	
+S54 is a room. S54 is southeast of S53.
+Rule for printing the name of S54:
+	say "Plane of Nonexistence". 	
+	
+S55 is a room. S55 is south of S54.
+Rule for printing the name of S55:
+	say "Plane of Nonexistence".
+	
+S56 is a room. S56 is east of S55 and north of S39.
+Rule for printing the name of S56:
+	say "Plane of Nonexistence".
+	
+S57 is a room. S57 is north of S34.
+Rule for printing the name of S57:
+	say "Plane of Nonexistence". 	
+	
+S58 is a room. S58 is west of S57.
+Rule for printing the name of S58:
+	say "Plane of Nonexistence".
+	
+S59 is a room. S59 is north of S58.
+Rule for printing the name of S59:
+	say "Plane of Nonexistence".
+	
+S60 is a room. S60 is northwest of S59.
+Rule for printing the name of S60:
+	say "Plane of Nonexistence".
+	
+S61 is a room. S61 is west of S60.
+Rule for printing the name of S61:
+	say "Plane of Nonexistence".
+	
+S62 is a room. S62 is south of S61.
+Rule for printing the name of S62:
+	say "Plane of Nonexistence".
+	
+S63 is a room. S63 is north of S60.
+Rule for printing the name of S63:
+	say "Plane of Nonexistence".
+	
+S64 is a room. S64 is northeast of S63.
+Rule for printing the name of S64:
+	say "Plane of Nonexistence".
+	
+S65 is a room. S65 is northeast of S51.
+Rule for printing the name of S65:
+	say "Plane of Nonexistence".
+	
+S66 is a room. S66 is northwest of S65.
+Rule for printing the name of S66:
+	say "Plane of Nonexistence".
+	
+S67 is a room. S67 is north of S66.
+Rule for printing the name of S67:
+	say "Plane of Nonexistence".
+	
+S68 is a room. S68 is north of S67.
+Rule for printing the name of S68:
+	say "Plane of Nonexistence".
+	
+S69 is a room. S69 is east of S68.
+Rule for printing the name of S69:
+	say "Plane of Nonexistence".
+	
+S70 is a room. S70 is southeast of S69.
+Rule for printing the name of S70:
+	say "Plane of Nonexistence".
+	
+S71 is a room. S71 is east of S70.
+Rule for printing the name of S71:
+	say "Plane of Nonexistence".
+	
+S72 is a room. S72 is east of S71.
+Rule for printing the name of S72:
+	say "Plane of Nonexistence".
+	
+S73 is a room. S73 is north of S31.
+Rule for printing the name of S73:
+	say "Plane of Nonexistence".
+	
+S73 is a room. S73 is north of S31.
+Rule for printing the name of S73:
+	say "Plane of Nonexistence".
+	
+S74 is a room. S74 is west of S73.
+Rule for printing the name of S74:
+	say "Plane of Nonexistence".
+	
+S75 is a room. S75 is northeast of S73.
+Rule for printing the name of S75:
+	say "Plane of Nonexistence".
+	
+S76 is a room. S76 is northwest of S75.
+Rule for printing the name of S76:
+	say "Plane of Nonexistence".
+	
+S77 is a room. S77 is west of S76.
+Rule for printing the name of S77:
+	say "Plane of Nonexistence".
+	
+S78 is a room. S78 is north of S77.
+Rule for printing the name of S78:
+	say "Plane of Nonexistence".
+	
+S79 is a room. S79 is west of S78.
+Rule for printing the name of S79:
+	say "Plane of Nonexistence".
+	
+S80 is a room. S80 is north of S79.
+Rule for printing the name of S80:
+	say "Plane of Nonexistence".
+	
+S81 is a room. S81 is north of S80.
+Rule for printing the name of S81:
+	say "Plane of Nonexistence".
+	
+S82 is a room. S82 is west of S81 and southeast of S72 and northeast of S64.
+Rule for printing the name of S82:
+	say "Plane of Nonexistence".
+	
+S83 is a room. S83 is east of S80 and north of S78.
+Rule for printing the name of S83:
+	say "Plane of Nonexistence".
+	
+S84 is a room. S84 is east of S83.
+Rule for printing the name of S84:
+	say "Plane of Nonexistence".
+	
+Temple is a room. Temple is north of S84.  The Cannibal is a man in Temple.
+
+Cannibal Fight is a recurring scene.
+Cannibal Fight begins when the player is in the Temple.
+Every turn during the Cannibal Fight:
+	now the left hand status line is "Devourer of Flesh: [current hit points of Cannibal]";
+	now the player is hostile;
+	if the Cannibal is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Predator of Man: Deceased";
+		now the Cannibal is nowhere.
+Cannibal Fight ends when the player is not in the Temple.	
+When Cannibal Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+F1 is a room. F1 is below Temple.
+Rule for printing the name of F1:
+	say "Sanctuary of the Forgotten".
+	
+F2 is a room. F2 is north of F1.
+Rule for printing the name of F2:
+	say "Sanctuary of the Forgotten".
+	
+F3 is a room. F3 is east of F1.
+Rule for printing the name of F3:
+	say "Sanctuary of the Forgotten".
+	
+F4 is a room. F4 is east of F3.
+Rule for printing the name of F4:
+	say "Sanctuary of the Forgotten".
+	
+F5 is a room. F5 is north of F4.
+Rule for printing the name of F5:
+	say "Sanctuary of the Forgotten".
+	
+F6 is a room. F6 is southeast of F4.
+Rule for printing the name of F6:
+	say "Sanctuary of the Forgotten".
+	
+F7 is a room. F7 is east of F6.
+Rule for printing the name of F7:
+	say "Sanctuary of the Forgotten".
+	
+F8 is a room. F8 is south of F6.
+Rule for printing the name of F8:
+	say "Sanctuary of the Forgotten".
+	
+F9 is a room. F9 is southeast of F8.
+Rule for printing the name of F9:
+	say "Sanctuary of the Forgotten".
+	
+F10 is a room. F10 is east of F9.
+Rule for printing the name of F10:
+	say "Sanctuary of the Forgotten".
+	
+F11 is a room. F11 is southeast of F10.
+Rule for printing the name of F11:
+	say "Sanctuary of the Forgotten".
+	
+F12 is a room. F12 is east of F11.
+Rule for printing the name of F12:
+	say "Sanctuary of the Forgotten".
+	
+F13 is a room. F13 is northeast of F12.
+Rule for printing the name of F13:
+	say "Sanctuary of the Forgotten".
+	
+F13 is a room. F14 is northeast of F13.
+Rule for printing the name of F14:
+	say "Sanctuary of the Forgotten".
+	
+F15 is a room. F15 is east of F14.
+Rule for printing the name of F15:
+	say "Sanctuary of the Forgotten".
+	
+F16 is a room. F16 is east of F15.
+Rule for printing the name of F16:
+	say "Sanctuary of the Forgotten".
+	
+F17 is a room. F17 is north of F16.
+Rule for printing the name of F17:
+	say "Sanctuary of the Forgotten".
+	
+F18 is a room. F18 is northwest of F14.
+Rule for printing the name of F18:
+	say "Sanctuary of the Forgotten".
+	
+Desecrated Chapel is a room. Desecrated Chapel is north of F18. The Heretic is a man in Desecrated Chapel.
+
+Heretic Fight is a recurring scene.
+Heretic Fight begins when the player is in the Desecrated Chapel.
+Every turn during the Heretic Fight:
+	now the left hand status line is "Blasphemer of Gods: [current hit points of Heretic]";
+	now the player is hostile;
+	if the Heretic is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Blasphemer of Gods: Deceased";
+		now the Heretic is nowhere.
+Heretic Fight ends when the player is not in the Desecrated Chapel.	
+When Heretic Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+F19 is a room. F19 is west of Heretic's Arena.
+Rule for printing the name of F19:
+	say "Sanctuary of the Forgotten".
+	
+F20 is a room. F20 is northeast of F7.
+Rule for printing the name of F20:
+	say "Sanctuary of the Forgotten".
+	
+F21 is a room. F21 is northeast of F20 and northwest of F19.
+Rule for printing the name of F21:
+	say "Sanctuary of the Forgotten".
+	
+F22 is a room. F22 is northeast of F17.
+Rule for printing the name of F22:
+	say "Sanctuary of the Forgotten".
+	
+F23 is a room. F23 is north of F22.
+Rule for printing the name of F23:
+	say "Sanctuary of the Forgotten".
+	
+F24 is a room. F24 is northwest of F23.
+Rule for printing the name of F24:
+	say "Sanctuary of the Forgotten".
+	
+F25 is a room. F25 is northeast of F24.
+Rule for printing the name of F25:
+	say "Sanctuary of the Forgotten".
+	
+F26 is a room. F26 is northeast of F25.
+Rule for printing the name of F26:
+	say "Sanctuary of the Forgotten".
+	
+F27 is a room. F27 is southeast of F26.
+Rule for printing the name of F27:
+	say "Sanctuary of the Forgotten".
+	
+F28 is a room. F28 is south of F27.
+Rule for printing the name of F28:
+	say "Sanctuary of the Forgotten".
+	
+F29 is a room. F29 is southeast of F28.
+Rule for printing the name of F29:
+	say "Sanctuary of the Forgotten".
+	
+F30 is a room. F30 is east of F29.
+Rule for printing the name of F30:
+	say "Sanctuary of the Forgotten".
+	
+F31 is a room. F31 is northeast of F30.
+Rule for printing the name of F31:
+	say "Sanctuary of the Forgotten".
+	
+F32 is a room. F32 is north of F31.
+Rule for printing the name of F32:
+	say "Sanctuary of the Forgotten".
+	
+F33 is a room. F33 is northeast of F32.
+Rule for printing the name of F33:
+	say "Sanctuary of the Forgotten".
+	
+F34 is a room. F34 is east of F33.
+Rule for printing the name of F34:
+	say "Sanctuary of the Forgotten".
+	
+F35 is a room. F35 is north of F34.
+Rule for printing the name of F35:
+	say "Sanctuary of the Forgotten".
+	
+F36 is a room. F36 is northwest of F35.
+Rule for printing the name of F36:
+	say "Sanctuary of the Forgotten".
+	
+F37 is a room. F37 is west of F36.
+Rule for printing the name of F37:
+	say "Sanctuary of the Forgotten".
+	
+F38 is a room. F38 is southwest of F37.
+Rule for printing the name of F38:
+	say "Sanctuary of the Forgotten".
+	
+F39 is a room. F39 is southwest of F38 and northeast of F27.
+Rule for printing the name of F39:
+	say "Sanctuary of the Forgotten".
+	
+F40 is a room. F40 is northwest of F37.
+Rule for printing the name of F40:
+	say "Sanctuary of the Forgotten".
+	
+F41 is a room. F41 is northwest of F40.
+Rule for printing the name of F41:
+	say "Sanctuary of the Forgotten".
+	
+F42 is a room. F42 is north of F41.
+Rule for printing the name of F42:
+	say "Sanctuary of the Forgotten".
+	
+F43 is a room. F43 is west of F42.
+Rule for printing the name of F43:
+	say "Sanctuary of the Forgotten".
+	
+F44 is a room. F44 is west of F43.
+Rule for printing the name of F44:
+	say "Sanctuary of the Forgotten".
+	
+F45 is a room. F45 is south of F44.
+Rule for printing the name of F45:
+	say "Sanctuary of the Forgotten".
+	
+Scorched Wasteland is a room. Scorched Wasteland is south of F45. The Arsonist is a man in Scorched Wasteland.
+
+Arsonist Fight is a recurring scene.
+Arsonist Fight begins when the player is in the Scorched Wasteland.
+Every turn during the Arsonist Fight:
+	now the left hand status line is "Omen of Flame: [current hit points of Arsonist]";
+	now the player is hostile;
+	if the Arsonist is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Omen of Flame: Deceased";
+		now the Arsonist is nowhere.
+Arsonist Fight ends when the player is not in the Scorched Wasteland.	
+When Arsonist Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+F46 is a room. F46 is southwest of Scorched Wasteland.
+Rule for printing the name of F46:
+	say "Sanctuary of the Forgotten".
+	
+F47 is a room. F47 is south of F46.
+Rule for printing the name of F47:
+	say "Sanctuary of the Forgotten".
+	
+F48 is a room. F48 is east of F47 and north of F26.
+Rule for printing the name of F48:
+	say "Sanctuary of the Forgotten".
+	
+F49 is a room. F49 is north of F21.
+Rule for printing the name of F49:
+	say "Sanctuary of the Forgotten".
+	
+F50 is a room. F50 is northeast of F49.
+Rule for printing the name of F50:
+	say "Sanctuary of the Forgotten".
+	
+F51 is a room. F51 is southeast of F50.
+Rule for printing the name of F51:
+	say "Sanctuary of the Forgotten".
+	
+F52 is a room. F52 is northeast of F51.
+Rule for printing the name of F52:
+	say "Sanctuary of the Forgotten".
+	
+F53 is a room. F53 is east of F52 and northwest of F24.
+Rule for printing the name of F53:
+	say "Sanctuary of the Forgotten".
+	
+F54 is a room. F54 is northeast of F5.
+Rule for printing the name of F54:
+	say "Sanctuary of the Forgotten".
+	
+F55 is a room. F55 is north of F54.
+Rule for printing the name of F55:
+	say "Sanctuary of the Forgotten".
+	
+F56 is a room. F56 is east of F55.
+Rule for printing the name of F56:
+	say "Sanctuary of the Forgotten".
+	
+F57 is a room. F57 is northeast of F56.
+Rule for printing the name of F57:
+	say "Sanctuary of the Forgotten".
+	
+F58 is a room. F58 is east of F57 and northwest of F50.
+Rule for printing the name of F58:
+	say "Sanctuary of the Forgotten".
+	
+F59 is a room. F59 is northeast of F58.
+Rule for printing the name of F59:
+	say "Sanctuary of the Forgotten".
+	
+F60 is a room. F60 is northwest of F59.
+Rule for printing the name of F60:
+	say "Sanctuary of the Forgotten".
+	
+F61 is a room. F61 is north of F60.
+Rule for printing the name of F61:
+	say "Sanctuary of the Forgotten".
+	
+F62 is a room. F62 is northeast of F61.
+Rule for printing the name of F62:
+	say "Sanctuary of the Forgotten".
+	
+Charlatan Arena is a room. Charlatan Arena is east of F62.
+
+F63 is a room. F63 is northeast of Charlatan Arena.
+Rule for printing the name of F63:
+	say "Sanctuary of the Forgotten".
+	
+F64 is a room. F64 is southeast of F63.
+Rule for printing the name of F64:
+	say "Sanctuary of the Forgotten".
+	
+F65 is a room. F65 is south of F64.
+Rule for printing the name of F65:
+	say "Sanctuary of the Forgotten".
+	
+F66 is a room. F66 is southwest of F65.
+Rule for printing the name of F66:
+	say "Sanctuary of the Forgotten".
+	
+F67 is a room. F67 is southeast of F66.
+Rule for printing the name of F67:
+	say "Sanctuary of the Forgotten".
+	
+F68 is a room. F68 is south of F67 and north of F53.
+Rule for printing the name of F68:
+	say "Sanctuary of the Forgotten".
+	
+F69 is a room. F69 is northeast of F63.
+Rule for printing the name of F69:
+	say "Sanctuary of the Forgotten".
+	
+F70 is a room. F70 is east of F69.
+Rule for printing the name of F70:
+	say "Sanctuary of the Forgotten".
+	
+F71 is a room. F71 is east of F70 and northwest of F44.
+Rule for printing the name of F71:
+	say "Sanctuary of the Forgotten".
+	
+F72 is a room. F72 is northwest of F2.
+Rule for printing the name of F72:
+	say "Sanctuary of the Forgotten".
+	
+F73 is a room. F73 is north of F72.
+Rule for printing the name of F73:
+	say "Sanctuary of the Forgotten".
+	
+F74 is a room. F74 is northwest of F73.
+Rule for printing the name of F74:
+	say "Sanctuary of the Forgotten".
+	
+F75 is a room. F75 is north of F74.
+Rule for printing the name of F75:
+	say "Sanctuary of the Forgotten".
+	
+F76 is a room. F76 is west of F75.
+Rule for printing the name of F76:
+	say "Sanctuary of the Forgotten".
+	
+F77 is a room. F77 is northwest of F76.
+Rule for printing the name of F77:
+	say "Sanctuary of the Forgotten".
+	
+F78 is a room. F78 is southwest of F77.
+Rule for printing the name of F78:
+	say "Sanctuary of the Forgotten".
+	
+F79 is a room. F79 is south of F78.
+Rule for printing the name of F79:
+	say "Sanctuary of the Forgotten".
+	
+F80 is a room. F80 is southeast of F79.
+Rule for printing the name of F80:
+	say "Sanctuary of the Forgotten".
+	
+F81 is a room. F81 is southeast of F80.
+Rule for printing the name of F81:
+	say "Sanctuary of the Forgotten".
+	
+F82 is a room. F82 is east of F81 and west of F72.
+Rule for printing the name of F82:
+	say "Sanctuary of the Forgotten".
+	
+F83 is a room. F83 is northwest of F55.
+Rule for printing the name of F83:
+	say "Sanctuary of the Forgotten".
+	
+F84 is a room. F84 is west of F83.
+Rule for printing the name of F84:
+	say "Sanctuary of the Forgotten".
+	
+F85 is a room. F85 is northwest of F84.
+Rule for printing the name of F85:
+	say "Sanctuary of the Forgotten".
+	
+F86 is a room. F86 is north of F85.
+Rule for printing the name of F86:
+	say "Sanctuary of the Forgotten".
+	
+Dilapidated Chamber is a room. Dilapidated Chamber is northeast of F86. The Cutthroat is a man in Dilapidated Chamber. The Mercenary is a man in Dilapidated Chamber.
+
+Twin Fight is a recurring scene.
+Twin Fight begins when the player is in the Dilapidated Chamber.
+Every turn during the Twin Fight:
+	now the left hand status line is "Disciple of Death: [current hit points of Cutthroat]";
+	now the right hand status line is "Herald of Agony: [current hit points of Mercenary]";
+	now the player is hostile;
+	if the Cutthroat is dead:
+		now the left hand status line is "Disciple of Death: Deceased";
+		now the Cutthroat is nowhere;
+	if the Mercenary is dead:
+		now the right hand status line is "Herald of Agony: Deceased";
+		now the Mercenary is nowhere;
+	if the Cutthroat is dead:
+		if the Mercenary is dead:
+			now the player is notHit;
+			now the player is docile.
+Twin Fight ends when the player is not in the Dilapidated Chamber.	
+When Twin Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "";
+	now the right hand status line is "".
+
+F87 is a room. F87 is east of Dilapidated Chamber.
+Rule for printing the name of F87:
+	say "Sanctuary of the Forgotten".
+	
+F88 is a room. F88 is southeast of F87.
+Rule for printing the name of F88:
+	say "Sanctuary of the Forgotten".
+	
+F89 is a room. F89 is northeast of F88.
+Rule for printing the name of F89:
+	say "Sanctuary of the Forgotten".
+	
+F90 is a room. F90 is east of F89 and west of F61.
+Rule for printing the name of F90:
+	say "Sanctuary of the Forgotten".
+	
+F91 is a room. F91 is northwest of F86.
+Rule for printing the name of F91:
+	say "Sanctuary of the Forgotten".
+	
+F92 is a room. F92 is west of F91.
+Rule for printing the name of F92:
+	say "Sanctuary of the Forgotten".
+	
+F93 is a room. F93 is west of F92 and northeast of F77.
+Rule for printing the name of F93:
+	say "Sanctuary of the Forgotten".
+	
+F94 is a room. F94 is northwest of F93.
+Rule for printing the name of F94:
+	say "Sanctuary of the Forgotten".
+	
+F95 is a room. F95 is west of F94.
+Rule for printing the name of F95:
+	say "Sanctuary of the Forgotten".
+	
+F96 is a room. F96 is northwest of F95.
+Rule for printing the name of F96:
+	say "Sanctuary of the Forgotten".
+	
+F97 is a room. F97 is northeast of F96.
+Rule for printing the name of F97:
+	say "Sanctuary of the Forgotten".
+	
+Alchemist Arena is a room. Alchemist Arena is east of F97.
+
+F98 is a room. F98 is northeast of Alchemist Arena.
+Rule for printing the name of F98:
+	say "Sanctuary of the Forgotten".
+	
+F99 is a room. F99 is southeast of F98.
+Rule for printing the name of F99:
+	say "Sanctuary of the Forgotten".
+	
+F100 is a room. F100 is southeast of F99.
+Rule for printing the name of F100:
+	say "Sanctuary of the Forgotten".
+	
+F101 is a room. F101 is northeast of F100.
+Rule for printing the name of F101:
+	say "Sanctuary of the Forgotten".
+	
+F102 is a room. F102 is east of F101.
+Rule for printing the name of F102:
+	say "Sanctuary of the Forgotten".
+	
+F103 is a room. F103 is southeast of F102.
+Rule for printing the name of F103:
+	say "Sanctuary of the Forgotten".
+	
+F104 is a room. F104 is east of F103.
+Rule for printing the name of F104:
+	say "Sanctuary of the Forgotten".
+	
+F105 is a room. F105 is southeast of F104 and north of F89.
+Rule for printing the name of F105:
+	say "Sanctuary of the Forgotten".
+	
+F106 is a room. F106 is north of F104.
+Rule for printing the name of F106:
+	say "Sanctuary of the Forgotten".
+	
+F107 is a room. F107 is northeast of F106.
+Rule for printing the name of F107:
+	say "Sanctuary of the Forgotten".
+	
+F108 is a room. F108 is northwest of F107.
+Rule for printing the name of F108:
+	say "Sanctuary of the Forgotten".
+	
+F109 is a room. F109 is north of F108.
+Rule for printing the name of F109:
+	say "Sanctuary of the Forgotten".
+	
+F110 is a room. F110 is north of F109.
+Rule for printing the name of F110:
+	say "Sanctuary of the Forgotten".
+	
+F111 is a room. F111 is northeast of F110.
+Rule for printing the name of F111:
+	say "Sanctuary of the Forgotten".
+	
+F112 is a room. F112 is southeast of F111.
+Rule for printing the name of F112:
+	say "Sanctuary of the Forgotten".
+	
+F113 is a room. F113 is southeast of F112.
+Rule for printing the name of F113:
+	say "Sanctuary of the Forgotten".
+	
+F114 is a room. F114 is south of F113.
+Rule for printing the name of F114:
+	say "Sanctuary of the Forgotten".
+	
+F115 is a room. F115 is southeast of F114.
+Rule for printing the name of F115:
+	say "Sanctuary of the Forgotten".
+	
+F116 is a room. F116 is east of F115.
+Rule for printing the name of F116:
+	say "Sanctuary of the Forgotten".
+	
+F117 is a room. F117 is south of F116 and northwest of F63.
+Rule for printing the name of F117:
+	say "Sanctuary of the Forgotten".
+	
+F118 is a room. F118 is north of F116.
+Rule for printing the name of F118:
+	say "Sanctuary of the Forgotten".
+	
+F119 is a room. F119 is northeast of F112.
+Rule for printing the name of F119:
+	say "Sanctuary of the Forgotten".
+	
+F120 is a room. F120 is east of F119.
+Rule for printing the name of F120:
+	say "Sanctuary of the Forgotten".
+	
+F121 is a room. F121 is southeast of F120.
+Rule for printing the name of F121:
+	say "Sanctuary of the Forgotten".
+	
+F122 is a room. F122 is southeast of F121 and northeast of F118.
+Rule for printing the name of F122:
+	say "Sanctuary of the Forgotten".
+	
+F123 is a room. F123 is southeast of F122.
+Rule for printing the name of F123:
+	say "Sanctuary of the Forgotten".
+	
+F124 is a room. F124 is southeast of F123 and north of F70.
+Rule for printing the name of F124:
+	say "Sanctuary of the Forgotten".
+	
+Traitor Arena is a room. Traitor Arena is west of F108.
+
+F125 is a room. F125 is west of Traitor Arena.
+Rule for printing the name of F125:
+	say "Sanctuary of the Forgotten".
+	
+F126 is a room. F126 is west of F125.
+Rule for printing the name of F126:
+	say "Sanctuary of the Forgotten".
+	
+F127 is a room. F127 is north of F126.
+Rule for printing the name of F127:
+	say "Sanctuary of the Forgotten".
+	
+F128 is a room. F128 is northeast of F127.
+Rule for printing the name of F128:
+	say "Sanctuary of the Forgotten".
+	
+F129 is a room. F129 is north of F128.
+Rule for printing the name of F129:
+	say "Sanctuary of the Forgotten".
+	
+F130 is a room. F130 is northeast of F129.
+Rule for printing the name of F130:
+	say "Sanctuary of the Forgotten".
+	
+F131 is a room. F131 is northeast of F130.
+Rule for printing the name of F131:
+	say "Sanctuary of the Forgotten".
+	
+F132 is a room. F132 is east of F131.
+Rule for printing the name of F132:
+	say "Sanctuary of the Forgotten".
+	
+F133 is a room. F133 is south of F132 and north of F111.
+Rule for printing the name of F133:
+	say "Sanctuary of the Forgotten".
+	
+F134 is a room. F134 is northwest of F98.
+Rule for printing the name of F134:
+	say "Sanctuary of the Forgotten".
+	
+F135 is a room. F135 is north of F134.
+Rule for printing the name of F135:
+	say "Sanctuary of the Forgotten".
+	
+F136 is a room. F136 is northeast of F135.
+Rule for printing the name of F136:
+	say "Sanctuary of the Forgotten".
+	
+F137 is a room. F137 is east of F136.
+Rule for printing the name of F137:
+	say "Sanctuary of the Forgotten".
+	
+F138 is a room. F138 is northeast of F137.
+Rule for printing the name of F138:
+	say "Sanctuary of the Forgotten".
+	
+F139 is a room. F139 is north of F138.
+Rule for printing the name of F139:
+	say "Sanctuary of the Forgotten".
+	
+F140 is a room. F140 is east of F139 and northwest of F129.
+Rule for printing the name of F140:
+	say "Sanctuary of the Forgotten".
+	
+F141 is a room. F141 is west of F139.
+Rule for printing the name of F141:
+	say "Sanctuary of the Forgotten".
+	
+F142 is a room. F142 is northwest of F141.
+Rule for printing the name of F142:
+	say "Sanctuary of the Forgotten".
+	
+F143 is a room. F143 is northeast of F142.
+Rule for printing the name of F143:
+	say "Sanctuary of the Forgotten".
+	
+F144 is a room. F144 is northeast of F143.
+Rule for printing the name of F144:
+	say "Sanctuary of the Forgotten".
+	
+F145 is a room. F145 is east of F144.
+Rule for printing the name of F145:
+	say "Sanctuary of the Forgotten".
+	
+F146 is a room. F146 is east of F145.
+Rule for printing the name of F146:
+	say "Sanctuary of the Forgotten".
+	
+F147 is a room. F147 is southeast of F146 and northwest of F131.
+Rule for printing the name of F147:
+	say "Sanctuary of the Forgotten".
+	
+Descent Into the Abyss is a room. Descent Into the Abyss is northeast of F122.
+
+Endless Void is a room. Endless Void is below the Descent Into the Abyss. Undying Ethiram is a man in Endless Void.
+
+Undying Ethiram Fight is a recurring scene.
+Undying Ethiram Fight begins when the player is in the Endless Void. [change to when end fight ends]
+Every turn during the Undying Ethiram Fight:
+	now the left hand status line is "Undying Ethiram: [current hit points of Undying Ethiram]";
+	now the player is hostile;
+	if the Undying Ethiram is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Undying Ethiram: Deceased";
+		now the Undying Ethiram is nowhere.
+Undying Ethiram Fight ends when the player is not in the Endless Void.	
+When Undying Ethiram Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+Final Death is a scene.
+Final Death begins when Undying Ethiram is dead.
+When Final Death begins: 
+	wait for any key;
+	clear the screen;
+	say "[line break]Staring at the frail, dying necromancer, a sense of sadness overcomes you as you watch his body slowly decay.";
+	wait for any key;
+	say "[line break]'So... this... is what death feels like...'";
+	wait for any key;
+	say "[line break]The essence from Ethiram's body escapes from his corpse and engulfs you in a shroud of fog.";
+	wait for any key;
+	clear the screen;
+	say "[line break]The fog clears and you see yourself in a familiar prison cell. The sound of rioting prisoners can be heard in the distance.";
+	wait for any key;
+	say "[line break]'Run...! The Warden is coming!!!'";
+	wait for any key;
+	say "[line break]A metal chain rattles against the floor, the prisoners scream in agony as the Warden beats them to death. You run to a nearby cell, looking for escape.";
+	wait for any key;
+	say "[line break]'Everybody, get into the tunnel before it collapses!'";
+	wait for any key;
+	say "[line break]With no other choice left, you head into the tunnel and once again, the darkness surrounds you...";
+	clear the screen;
+	say "[line break]You run for what seems like an eternity but eventually you find your way to a mysterious ledge with a single torch in the center.";
+	wait for any key;
+	say "[line break]Cautiously, you lift the torch and the flame grows a bit brighter. You can hear someone groaning nearby.";
+	wait for any key;
+	say "[line break]'At last, our saviour has come... please... come closer... help me out of this cage... for I am dying...'";
+	wait for any key;
+	say "[line break]You take a few steps closer to the cage.";
+	wait for any key;
+	say "[line break]'How long I waited for someone like you... please accept this as a token of my gratitude...'";
+	wait for any key;
+	say "[line break]A long, bony arm reaches out from the darkness and pulls you into the cage. Throughout your body you feel unbearable pain, then your vision goes black...";
+	wait for any key;
+	clear the screen;
+	now the player is in Quiet Beach;
+	say "[line break]Your eyes slowly open and the smell of an ocean breeze greets your nose.";
+	wait for any key;
+	if the player is carrying the Flaming Torch:
+		say "[line break]You stand up and find yourself on a lonely beach. Out on the horizon, you can barely make out what looks like the sails of a ship. Remembering your torch, you take it out, ignite it, and wave it in the air while calling out to the ship.";
+		wait for any key;
+		say "[line break]The ship draws nearer.";
+		wait for any key;
+		end the story finally saying "You are overwhelmed by a sense of relief";
+	otherwise if the player is not carrying the Flaming Torch:
+		say "[line break]You stand up and find yourself on a lonely beach. Out on the horizon, you can barely make out what looks like the sails of a ship. Frantically, you scream at the boat to come rescue you.";
+		wait for any key;
+		end the story finally saying "The sails slowly disappear in the distance".
+	
+Final Death ends when Final Death begins.
+
+Quiet Beach is a room.
+
+Book 4 - Loot Tables
+
+[Mutated Prisoner Loot lol xd]
