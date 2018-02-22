@@ -12,8 +12,11 @@ Chapter - Food
 
 A food is a kind of thing. A food has a number called health restored.
 Stale Bread is a food. The health restored of Stale Bread is 10.  
-Dried Fish is a food. The health restored of Dried Fish is 15.
-Tough Bread is a food. The health restored of tough bread is 20.
+Dried Fish is a food. The health restored of Dried Fish is 18.
+Tough Bread is a food. The health restored of Tough Bread is 27.
+Old Cheese is a food. The health restored of Old Cheese is 44.
+Salted Beef is a food. The health restored of Salted Beef is 78.
+Cold Bacon is a food. The health restored of Cold Bacon is 146.
 
 Instead of eating a food (called the consumable):
 	if the current hit points of the player is less than the maximum hit points of the player:
