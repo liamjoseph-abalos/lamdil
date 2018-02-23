@@ -24,7 +24,7 @@ Report Cannibal hitting the player:
 			say "You slash the creature mid-air, causing it to stumble to the side.[line break][line break]";
 			if the Cannibal is dead:
 				say "Using your opening, you quickly jab the Cannibal, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Cannibal screams in agony as the soul of a prisoner escapes its body.[line break][line break]As the spirit fades away, it whispers to you, 'I have been set free...'";
+				say "With the last stroke of your blade, the Cannibal yelps in pain and crumples to the floor and begins shrinking in size. As he shrinks he softly mutters something under his breath, you briefly catch the word, 'Ethiram'. At the sound of the mysterious being, you rush to the Cannibal's dying side and want to talk to him.";
 				now the Cannibal is nowhere;
 				now the Cannibal is docile;
 			otherwise:
@@ -49,7 +49,7 @@ Report Cannibal hitting the player:
 			say "You catch the Cannibal off-guard, leaving it open for attack.[line break][line break]";
 			if the Cannibal is dead:
 				say "You swing at the Cannibal's head, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Cannibal screams in agony as the soul of a prisoner escapes its body.[line break][line break]As the spirit fades away, it whispers to you, 'I have been set free...'";
+				say "With the last stroke of your blade, the Cannibal yelps in pain and crumples to the floor and begins shrinking in size. As he shrinks he softly mutters something under his breath, you briefly catch the word, 'Ethiram'. At the sound of the mysterious being, you rush to the Cannibal's dying side and want to talk to him.";
 				now the Cannibal is nowhere;
 				now the Cannibal is docile;
 			otherwise:
@@ -74,7 +74,7 @@ Report Cannibal hitting the player:
 			say "You push the creature back as it attempts to grab you.[line break][line break]";
 			if the Cannibal is dead:
 				say "You slam your weapon down onto the Cannibal, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The Cannibal screams in agony as the soul of a prisoner escapes its body.[line break][line break]As the spirit fades away, it whispers to you, 'I have been set free...'";
+				say "With the last stroke of your blade, the Cannibal yelps in pain and crumples to the floor and begins shrinking in size. As he shrinks he softly mutters something under his breath, you briefly catch the word, 'Ethiram'. At the sound of the mysterious being, you rush to the Cannibal's dying side and want to talk to him.";
 				now the Cannibal is nowhere;
 				now the Cannibal is docile;
 			otherwise:
@@ -94,7 +94,7 @@ Report Cannibal hitting the player:
 	if the current turns of the Vicious Claws is 4:
 		say "The Cannibal breathes heavily to catch its breath." instead.
 Report hitting a dead Cannibal:
-		say "The Cannibal screams in agony as the soul of a prisoner escapes its body.[line break][line break]As the spirit fades away, it whispers to you, 'I have been set free...'" instead.
+		say "With the last stroke of your blade, the Cannibal yelps in pain and crumples to the floor and begins shrinking in size. As he shrinks he softly mutters something under his breath, you briefly catch the word, 'Ethiram'. At the sound of the mysterious being, you rush to the Cannibal's dying side and want to talk to him." instead.
 
 Report Cannibal hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
@@ -327,7 +327,7 @@ Report Arsonist hitting the player:
 			say "The Arsonist stumbles back as you thrust your weapon towards his chest.[line break][line break]";
 			if the Arsonist is dead:
 				say "Taking advantage of the Arsonist's weakened state, you riposte him, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The flame extinguishes from the Arsonist's eyes, and his body falls to ashes.[line break][line break]You watch as a spectre quickly escapes from the Arsonist's body.";
+				say "The flame extinguishes from the Arsonist's eyes as he falls to the ground.[line break][line break]You watch as a spectre quickly escapes from the Arsonist's body.";
 				now the Arsonist is nowhere;
 				now the Arsonist is docile;
 			otherwise:
@@ -354,7 +354,7 @@ Report Arsonist hitting the player:
 			say "You sidestep the flames and knock the Arsonist across the side of his head.[line break][line break]";
 			if the Arsonist is dead:
 				say "You follow up with a lethal swing, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The flame extinguishes from the Arsonist's eyes, and his body falls to ashes.[line break][line break]You watch as a spectre quickly escapes from the Arsonist's body.";
+				say "The flame extinguishes from the Arsonist's eyes as he falls to the ground.[line break][line break]You watch as a spectre quickly escapes from the Arsonist's body.";
 				now the Arsonist is nowhere;
 				now the Arsonist is docile;
 			otherwise:
@@ -383,7 +383,7 @@ Report Arsonist hitting the player:
 			say "You weave through the pillars of flame erupting from the ground.[line break][line break]";
 			if the Arsonist is dead:
 				say "You get close enough to the Arsonist to strike him across the chest, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "The flame extinguishes from the Arsonist's eyes, and his body falls to ashes.[line break][line break]You watch as a spectre quickly escapes from the Arsonist's body.";
+				say "The flame extinguishes from the Arsonist's eyes as he falls to the ground.[line break][line break]You watch as a spectre quickly escapes from the Arsonist's body.";
 				now the Arsonist is nowhere;
 				now the Arsonist is docile;
 			otherwise:
@@ -401,7 +401,7 @@ Report Arsonist hitting the player:
 		otherwise:
 			say "The Arsonist is unable to penetrate your armour.".
 Report hitting a dead Arsonist:
-		say "The flame extinguishes from the Arsonist's eyes, and his body falls to ashes.[line break][line break]You watch as a spectre quickly escapes from the Arsonist's body." instead.
+		say "The flame extinguishes from the Arsonist's eyes as he falls to the ground.[line break][line break]You watch as a spectre quickly escapes from the Arsonist's body." instead.
 
 Report Arsonist hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
