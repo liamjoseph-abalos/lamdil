@@ -56,30 +56,33 @@ Scene Change ends when the time of day is 9:59 AM.
 Cell 1 is a room. "You wake up in a cold, damp room that appears to look like a cell. Your head is throbbing as you wonder how you got here. With the light from a nearby torch in the room, you see a note.".
 Note is a thing in Cell 1.
 Flaming Torch is a thing in Cell 1. Flaming Torch is lit.
+Rule for printing the name of Cell 1:
+	say "Cell".
+	
 Walkway 1 is north of Cell 1. Walkway 1 is a dark room. "A strange silence fills the air. You look around and notice that you are in the corner cell and ahead of you is a long dark hallway and surrounding you are cold walls of stone."
 Rule for printing the name of Walkway 1:
 	say "Walkway".
-Rule for printing the name of Cell 1:
-	say "Cell".
 	
 Walkway 2 is east of Walkway 1. Walkway 2 is a dark room. "You take a step forward and see something odd. The cell to the south is open."
 Rule for printing the name of Walkway 2:
 	say "Walkway".
 
 Cell 2 is south of Walkway 2. Cell Key is in Cell 2. Cell 2 is a dark room. "There's a warmth here as if someone recently left. In the corner of the room you see what appears to be a key."
-The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is scenery. The Cell Door is locked. Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a dark room. The description of Walkway 3 is "[if Rusty Knife is in Cell 3]Your courage shakes as you take more steps. You wonder curiously about the note you just read.[end if][if Rusty Knife is not in Cell 3]You wonder what could lie ahead of you that requires a knife...[end if]".
-Rule for printing the name of Walkway 3:
-	say "Walkway".
 Rule for printing the name of Cell 2:
 	say "Cell".
 
+The Cell Door is south of Walkway 3. The Cell Door is a door. The Cell Door is scenery. The Cell Door is locked. Cell Key unlocks the Cell Door. Walkway 3 is east of Walkway 2. Walkway 3 is a dark room. The description of Walkway 3 is "[if Rusty Knife is in Cell 3]Your courage shakes as you take more steps. You wonder curiously about the note you just read.[end if][if Rusty Knife is not in Cell 3]You wonder what could lie ahead of you that requires a knife...[end if]".
+Rule for printing the name of Walkway 3:
+	say "Walkway".
+
 Cell 3 is south of Cell Door. Rusty Knife is in Cell 3. Cell 3 is a dark room. "[if Rusty Knife is in Cell 3]There's a page attached to a knife strangely laid in the center of the room."
 Page is in Cell 3.
+Rule for printing the name of Cell 3:
+	say "Cell".
+	
 Walkway 4 is east of Walkway 3. Walkway 4 is a dark room. "[if Deranged Prisoner is not dead]You hear someone muttering quietly and a slight rumble in the floor beneath you."
 Rule for printing the name of Walkway 4:
 	say "Walkway".
-Rule for printing the name of Cell 3:
-	say "Cell".
 Instead of listening to Walkway 4:
 	if Deranged Prisoner is not dead:
 		say "I'll kill those bastards... I'll kill 'em...";
@@ -1897,3 +1900,77 @@ When End Fight ends:
 	wait for any key;
 	now the current hit points of the player is the maximum hit points of the player;
 	say "[line break][roman type]Now fight [italic type]me[line break][roman type]Ethiram blinks out of existence. You prepare to fight".
+
+Undying Ethiram is a man in Endless Void.
+Undying Ethiram Fight is a recurring scene.
+Undying Ethiram Fight begins when End Fight ends. [change to when end fight ends]
+Every turn during the Undying Ethiram Fight:
+	now the left hand status line is "Undying Ethiram: [current hit points of Undying Ethiram]";
+	now the player is hostile;
+	if the Undying Ethiram is dead:
+		now the player is docile;
+		now the player is notHit;
+		now the left hand status line is "Undying Ethiram: Deceased";
+		now the Undying Ethiram is nowhere.
+Undying Ethiram Fight ends when the player is not in the Endless Void.	
+When Undying Ethiram Fight ends:
+	now the player is docile;
+	now the player is notHit;
+	now the left hand status line is "".
+
+Final Death is a scene.
+Final Death begins when Undying Ethiram is dead.
+When Final Death begins: 
+	wait for any key;
+	clear the screen;
+	say "[line break]Staring at the frail, dying necromancer, a sense of sadness overcomes you as you watch his body slowly decay.";
+	wait for any key;
+	say "[line break]'So... this... is what death feels like...'";
+	wait for any key;
+	say "[line break]The essence from Ethiram's body escapes from his corpse and engulfs you in a shroud of fog.";
+	wait for any key;
+	clear the screen;
+	say "[line break]The fog clears and you see yourself in a familiar prison cell. The sound of rioting prisoners can be heard in the distance.";
+	wait for any key;
+	say "[line break]'Run...! The Warden is coming!!!'";
+	wait for any key;
+	say "[line break]A metal chain rattles against the floor, the prisoners scream in agony as the Warden beats them to death. You run to a nearby cell, looking for escape.";
+	wait for any key;
+	say "[line break]'Everybody, get into the tunnel before it collapses!'";
+	wait for any key;
+	say "[line break]With no other choice left, you head into the tunnel and once again, the darkness surrounds you...";
+	clear the screen;
+	say "[line break]You run for what seems like an eternity but eventually you find your way to a mysterious ledge with a single torch in the center.";
+	wait for any key;
+	say "[line break]Cautiously, you lift the torch and the flame grows a bit brighter. You can hear someone groaning nearby.";
+	wait for any key;
+	say "[line break]'At last, our saviour has come... please... come closer... help me out of this cage... for I am dying...'";
+	wait for any key;
+	say "[line break]You take a few steps closer to the cage.";
+	wait for any key;
+	say "[line break]'How long I waited for someone like you... please accept this as a token of my gratitude...'";
+	wait for any key;
+	say "[line break]A long, bony arm reaches out from the darkness and pulls you into the cage. Throughout your body you feel unbearable pain, then your vision goes black...";
+	wait for any key;
+	clear the screen;
+	now the player is in Quiet Beach;
+	say "[line break]Your eyes slowly open and the smell of an ocean breeze greets your nose.";
+	wait for any key;
+	if the player is carrying the Flaming Torch:
+		say "[line break]You stand up and find yourself on a lonely beach. Out on the horizon, you can barely make out what looks like the sails of a ship. Remembering your torch, you take it out, ignite it, and wave it in the air while calling out to the ship.";
+		wait for any key;
+		say "[line break]The ship draws nearer.";
+		wait for any key;
+		end the story finally saying "You are overwhelmed by a sense of relief";
+	otherwise if the player is not carrying the Flaming Torch:
+		say "[line break]You stand up and find yourself on a lonely beach. Out on the horizon, you can barely make out what looks like the sails of a ship. Frantically, you scream at the boat to come rescue you.";
+		wait for any key;
+		end the story finally saying "The sails slowly disappear in the distance".
+	
+Final Death ends when Final Death begins.
+
+Quiet Beach is a room.
+
+Book 4 - Loot Tables
+
+[Mutated Prisoner Loot lol xd]
