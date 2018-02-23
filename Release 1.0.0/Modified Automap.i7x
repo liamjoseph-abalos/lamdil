@@ -741,9 +741,9 @@ Before constructing the status line (this is the automap add adjacent rooms to m
 
 Table of Lamdil Status
 left	central	right
-"[location]"	"Level: [level of the player]"	"Dodge: %" 
-"[left hand status line]"	"HP: [current hit points of the player]/[maximum hit points of the player]"	"Parry: % "
-"[right hand status line]"	"Damage Reduction: [damageReduction of the player]"	"Block: % "
+"[location]"	"Level: [level of the player]"	"Dodge: [100 minus minDodge of the player]%" " 
+"[left hand status line]"	"HP: [current hit points of the player]/[maximum hit points of the player]"	"Parry: [100 minus minParry of the player]%"
+"[right hand status line]"	"Damage Reduction: [damageReduction of the player]"	"Block: [maxBlock of the player] uses"
 ""	"[time of day]"	""
 
 Rule for constructing the status line (this is the automap standard status line rule):
@@ -772,7 +772,7 @@ Array Automap_Unicode_Conv -->
 Array Automap_Font_0_Conv -> 0 45 166 73 79 73 105 45 105 63 63 11 12 13 14 15 ! 0 - 15
 	 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 ! 16 - 31
 	 32 33 34 47 92 32 45 45 166 166 45 45 166 166 45 45 ! 32 - 47
-	 45 45 47 92 47 92 42 45 45 166 166 45 45 166 166 45 ! 48 - 63
+	 45 45 45 45 45 45 42 45 45 166 166 45 45 166 166 45 ! 48 - 63
 	 45 45 45 45 45 45 45 71 72 73 74 75 76 77 78 79 ! 64 - 79
 	 80 81 82 83 84 85 86 87 88 89 88 43 85 68 59 45 ! 80 - 95
 	 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 45 ! 96 - 111
