@@ -1,6 +1,6 @@
 Shadow Bosses by Lamdil begins here.
 
-Understand "Devourer of Flesh" and "Devourere" as Cannibal.
+Understand "Devourer of Flesh" and "Devourer" as Cannibal.
 The current hit points of the Cannibal is 4. The maximum hit points of the Cannibal is 4.
 The Cannibal is hostile. 
 The Cannibal carries a weapon called Vicious Claws. The current turns of the Vicious Claws is 4.
