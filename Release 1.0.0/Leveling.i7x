@@ -83,11 +83,13 @@ When Reinforced Guard Alive ends:
 	say "The soul of the Reinforced Guard flies out and enters your body | +5 to max hp | +3 to damage reduction".
 	
 Overseer Alive is a scene.
-Overseer Alive begins when the player is in Northern Outlook.
+Overseer Alive begins when the player is in Top Floor.
 Overseer Alive ends when the Overseer is dead.
 When Overseer Alive ends:
 	increase the level of the player by 1;
 	say ".                                                                                                                                ~~))[line break]~~))                                                                                                                             ,||.[line break].   ,||~------------------------------------------------------------------------ í    |[line break].  |    |             __         _____ __             __  ____ _              __       __  ____                    |    |[line break].  |    |             |  |       |   ____\   \        /   / ____|  |            |   |     |   |   __  \    |   |         |    |[line break].  |    |             |  |       |  |__     \   \    /   /|  |__   |  |            |   |     |   |  |__)  |   |   |         |    |[line break].  |    |             |  |       |   __|      \   \/   /  |   __|  |  |            |   |     |   |   ___/    |__|         |    |[line break].  |    |             |  |____|   |____     \     /    |  |____|  |____     |   |___|   |   |           __          |    |[line break].  |    |             |______|______|      \ /      |______|______|    \______/|__|          |__|         |    |[line break].  |    |                                                                                                                           |    |[line break].  |    ;¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯`||'[line break].   `||'                                                                                                                        ~~))[line break]~~))[line break][line break]";
+	say "A strange being born of corrupted energy emerges from the Overseer's chest and slowly takes form. [line break][line break]";
+	say "The Corrupted Entity summons a pair of weapons containing the souls of the damned and mutters a curse as he approaches you.";
 	increase maximum hit points of the player by 5;
 	increase damageReduction of the player by 5;
 	say "The soul of the Overseer flies out and enters your body | +3 to max hp | +5 to damage reduction".
