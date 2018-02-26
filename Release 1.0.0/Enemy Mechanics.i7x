@@ -154,7 +154,7 @@ Report Warden hitting the player:
 	if the current turns of the Silver Sword is 1:
 		say "The Warden drags the end of his sword against the floor as he approaches you." instead;
 	if the current turns of the Silver Sword is 0:
-			say "The Warden twirls his chain, preparing to attack." instead;
+		say "The Warden twirls his chain, preparing to attack." instead;
 	if the current turns of the Silver Sword is 2:
 		if the dodgeTrue of the player is 1:
 			say "The Warden lashes his chain towards you, but you quickly sidestep it.";

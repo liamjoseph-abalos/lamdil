@@ -14,30 +14,14 @@ A secret switch can be revealed or unrevealed.
 A secret switch is unrevealed.
 A secret switch is scenery.
 
-To print the you can't go message:
-	(- L__M(##Go, 2, 0); -).
-
-To print the you can't see message:
-	(- L__M(##Miscellany, 30, 0); -).
-
 Before going through a secret door which is unrevealed:
-	print the you can't go message instead.
+	say "You can't go that way.".
 
 Before doing something to a secret door which is unrevealed:
-	print the you can't see message instead.
-
-Before doing something when when a secret door is the second noun and
-the
-second noun is unrevealed:
-	print the you can't see message instead.
+	say "You can't go that way.".
 
 Before doing something to a secret switch which is unrevealed:
-	print the you can't see message instead.
-
-Before doing something when when a secret switch is the second noun and
-the
-second noun is unrevealed:
-	print the you can't see message instead.
+	say "You can't see anything to operate on.".
 
 Secret Doors ends here.
 
