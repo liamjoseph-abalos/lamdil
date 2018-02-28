@@ -402,8 +402,8 @@ Report hitting a dead Arsonist:
 
 Report Arsonist hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
-	say "The Deranged Prisoner quickly stabs your throat."; 
-	end the story saying "The blood drains out your neck and you fall to the ground"; 
+	say "The Arsonist touches your chest, causing your insides to incinerate."; 
+	end the story saying "You let out an agonizing scream as your body is consumed by flames"; 
 	stop the action.
 Carry out Arsonist hitting the player:
 	if the current turns of the Flaming Orb is 6:
