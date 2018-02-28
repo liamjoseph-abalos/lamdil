@@ -7,24 +7,6 @@ Use automap hide paths through closed doors.
 When play begins:
 	now current zoom is map zoomed in;
 	now current displayness is map display ascii.
-Check the player zooming out:
-	say "That's not a verb I recognize.";
-	stop the action.
-Check map displaying fancy:
-	say "That's not a verb I recognize.";
-	stop the action.
-Check map displaying unicode:
-	say "That's not a verb I recognize.";
-	stop the action.
-Check map viewing:
-	say "That's not a verb I recognize.";
-	stop the action.
-Check map dumping:
-	say "That's not a verb I recognize.";
-	stop the action.
-Check map link dumping:
-	say "That's not a verb I recognize.";
-	stop the action.
 	
 Chapter - Food
 
@@ -53,15 +35,15 @@ Section - Breaking Walls
 A breakable wall is a kind of thing. A breakable wall has a number called maximum break points. A breakable wall has a number called current break points. 
 Definition: a breakable wall is broken if its current break points is less than 1. 
 A wall breaker is a kind of thing. A wall breaker has a number called the maximum break damage.
-Understand the commands "break" and "destroy" and "smash" and "wreck" and "demolish" and "crack" as something new. 
-Breaking is an action applying to one visible thing. Understand "break [breakable wall]" as breaking. 
-Understand the commands "destroy" and "smash" and "wreck" and "demolish" and "crack" as "break".
-Breaking action has a number called the break damage.
-Check an actor breaking (this is the can't break without holding a wall breaker rule): 
-	if the player is not carrying a wall breaker: 
-		if the actor is the player, say "You don't have anything to break walls with."; 
+Understand the commands "break" and "destroy" and "smash" and "wreck" and "demolish" as something new. 
+Breaking it with is an action applying to one visible thing and one carried thing. Understand "break [breakable wall] with [something preferably held]" as breaking it with. 
+Understand the commands "destroy" and "smash" and "wreck" and "demolish" as "break".
+Breaking it with action has a number called the break damage.
+Check an actor breaking something with something (this is the can't break with something that isn't a wall breaker rule): 
+	if the second noun is not a wall breaker: 
+		if the actor is the player, say "You can't break walls with [the second noun]."; 
 		stop the action. 	
-Check an actor breaking (this is the can't break a non-breakable wall rule): 
+Check an actor breaking something with something (this is the can't break a non-breakable wall rule): 
 	if the noun is not a breakable wall: 
 		if the actor is the player, say "You can't break that."; 
 		stop the action. 
@@ -69,33 +51,29 @@ Check an actor breaking (this is the can't break a non-breakable wall rule):
 Section - Wall Breakers
 
 Rock Hammer is a wall breaker. The maximum break damage of the Rock Hammer is 1.
-Setting action variables for breaking: 
-	if the player is carrying Rock Hammer: 
-		let the maximum breakage be the maximum break damage of the Rock Hammer; 
+Setting action variables for breaking something with something: 
+	if the second noun is a Rock Hammer: 
+		let the maximum breakage be the maximum break damage of the second noun; 
 		now the break damage is a random number between 1 and the maximum breakage. 
 	
 Section - Types of Walls
 
 The Tunnel Wall is a breakable wall. The maximum break points of the Tunnel Wall is 1. The current break points of the Tunnel Wall is 1.
-Report breaking (this is the normal breaking Tunnel Wall report rule):
-	if the noun is Tunnel Wall: 
-		say "You slam the wall with great force." instead. 
-Carry out an actor breaking (this is the standard breaking Tunnel Wall with a wall breaker rule):
-	if the noun is Tunnel Wall:
-		decrease the current break points of the noun by the break damage; 
-		if the noun is broken:
-			now the noun is nowhere;
-			move Diamond Pickaxe to Tunnel Extension.
+Report breaking Tunnel Wall with something (this is the normal breaking Tunnel Wall report rule): 
+	say "You slam the wall with great force." instead. 
+Carry out an actor breaking Tunnel Wall with something (this is the standard breaking Tunnel Wall with a wall breaker rule): 
+	decrease the current break points of the noun by the break damage; 
+	if the noun is broken:
+		now the noun is nowhere;
+		move Diamond Pickaxe to Tunnel Extension.
 		
 The Prison Wall is a breakable wall. The maximum break points of the Prison Wall is 1. The current break points of the Prison Wall is 1.
-Report breaking (this is the normal breaking Prison Wall report rule):
-	if the noun is Prison Wall:
-		say "You strike the cracked wall." instead. 
-Carry out an actor breaking (this is the standard breaking Prison Wall with a wall breaker rule):
-	if the noun is Prison Wall:
-		decrease the current break points of the noun by the break damage; 
-		if the noun is broken:
-			now the noun is nowhere.
+Report breaking Prison Wall with something (this is the normal breaking Prison Wall report rule): 
+	say "You strike the cracked wall." instead. 
+Carry out an actor breaking Prison Wall with something (this is the standard breaking Prison Wall with a wall breaker rule): 
+	decrease the current break points of the noun by the break damage; 
+	if the noun is broken:
+		now the noun is nowhere.
 		
 Section - Inventory
 
@@ -112,5 +90,23 @@ Instead of taking Leather Pouch:
 	now the carrying capacity of the player is inventory space plus 5;
 	say "You can now hold 5 more items.";
 	remove the noun from play.
+
+Understand "t [something]" as taking.
+
+Section - Ethiram
+
+The maximum hit points of Ethiram is 5000. The current hit points of Ethiram is 5000.
+Ethiram wears Ethiram Robes.
+Report Player hitting Ethiram:
+	say "'You think you can fight me?!' Ethiram rises above you and a beam of pure energy strikes your chest and pummels your body into the Earth.";
+	end the story saying "Now is not the time to fight this being. Learn from your mistakes when you try to fight a Mysterious Entity."; 
+	stop the action.
+	
+Section - Player Numbers
+
+[Forcefied]
+The player has a number called Unlock. The unlock of the player is 0.
+[Catch These Hands]
+The player has a number called Body Parts. The Body Parts of the player is 0.
 
 Miscellaneous Mechanics ends here.

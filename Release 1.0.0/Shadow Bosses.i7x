@@ -1,6 +1,5 @@
 Shadow Bosses by Lamdil begins here.
 
-Understand "Devourer of Flesh" and "Devourer" as Cannibal.
 The current hit points of the Cannibal is 4. The maximum hit points of the Cannibal is 4.
 The Cannibal is hostile. 
 The Cannibal carries a weapon called Vicious Claws. The current turns of the Vicious Claws is 4.
@@ -155,9 +154,8 @@ Carry out Cannibal hitting the player:
 	if the current turns of the Vicious Claws is 0:
 		now the player is notHit;
 		now the current turns of the Vicious Claws is 4;
-		stop the action.	
-	
-Understand "Blasphemer of Gods" and "Blasphemer" as Heretic.
+		stop the action.
+
 The player has a number called curse. The curse of the player is 0.
 The player has a number called dread. The dread of the player is 0.
 The current hit points of the Heretic is 4. The maximum hit points of the Heretic is 4.
@@ -302,7 +300,6 @@ Every turn when the dread of the player is greater than 0:
 	if the player is dead:
 		end the story saying "As you lie dying on the ground, you can feel you soul being dragged to Hell".
 		
-Understand "Omen of Flame" and "Omen" as Arsonist.
 The player has a number called ignite. The ignite of the player is 0.
 The current hit points of the Arsonist is 4. The maximum hit points of the Arsonist is 4.
 The Arsonist is docile. 
@@ -489,8 +486,7 @@ Every turn when the ignite of the player is greater than 0:
 		say "Flames dance across your body, dealing [x] point[s] of damage.";
 		if the player is dead:
 			end the story saying "Your body becomes engulfed in blazes, reducing you to ashes".
-		
-Understand "Disciple of Death" and "Disciple" as Cutthroat.	
+			
 The current hit points of the Cutthroat is 4. The maximum hit points of the Cutthroat is 4.
 The Cutthroat is hostile. 
 The Cutthroat carries a weapon called Steel Knives. The current turns of the Steel Knives is 8.
@@ -689,7 +685,6 @@ Carry out Cutthroat hitting the player:
 		now the current turns of the Steel Knives is 8;
 		stop the action.
 	
-Understand "Herald of Agony" and "Herald" as Mercenary.
 The current hit points of the Mercenary is 4. The maximum hit points of the Mercenary is 4.
 The Mercenary is hostile. 
 The Mercenary carries a weapon called Jagged Blade. The current turns of the Jagged Blade is 8.
@@ -890,333 +885,5 @@ Carry out Mercenary hitting the player:
 			decrease the current hit points of the noun by the damage inflicted;
 		now the current turns of the Jagged Blade is 8;
 		stop the action.
-
-Understand "Ethiram" and "Undying" as Undying Ethiram.
-The player has a number called decay. The decay of the player is 0.
-The player has a number called drain. The drain of the player is 0.
-The current hit points of the Undying Ethiram is 4. The maximum hit points of the Undying Ethiram is 4.
-The Undying Ethiram is hostile. 
-The Undying Ethiram carries a weapon called Abyssal Aura. The current turns of the Abyssal Aura is 11.
-Setting action variables for an actor hitting:
-	if the actor is Undying Ethiram:
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 3 and 5 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 3 and 5 minus x.
-Every turn when the player is in the Endless Void: 
-	if the Undying Ethiram is hostile, try Undying Ethiram hitting the player. 
-Report Undying Ethiram hitting the player:
-	if the current turns of the Abyssal Aura is 10:
-		say "With a wave of his hand, Ethiram scatters the void with decaying corpses." instead;
-	if the current turns of the Abyssal Aura is 9:
-		say "Ethiram resurrects two nearby corpses." instead;
-	if the current turns of the Abyssal Aura is 8:
-		if the dodgeTrue of the player is 1:
-			say "The corpses frantically run towards you but you roll out of the way as their bodies explode in a blast of limbs.";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "You kill the reanimated corpses as they run towards you.[line break][line break]";
-			if the Undying Ethiram is dead:
-				say "You charge towards Ethiram and strike him, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "Ethiram falls to his knees, gasping for air.[line break][line break]'Why... are you being so difficult... I gave you freedom... I gave you power...'";
-				now the Undying Ethiram is nowhere;
-				now the Undying Ethiram is docile;
-			otherwise:
-				say "You charge towards Ethiram and strike him, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "The corpses run towards you and your shield absorbs part of the blast as the corpses combust, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "Ethiram is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "The corpses frantically run at you and explode in a gory blast of limbs, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "Ethiram is unable to penetrate your armour.";
-	if the current turns of the Abyssal Aura is 7:
-		if the dodgeTrue of the player is 1:
-			say "You dodge the body that Ethiram hurls at you.";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "Ethiram hurls a corpse at you but you hit it out of the way.[line break][line break]";
-			if the Undying Ethiram is dead:
-				say "You leap towards Ethiram and slam your weapon down on him, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "Ethiram falls to his knees, gasping for air.[line break][line break]'Why... are you being so difficult... I gave you freedom... I gave you power...'";
-				now the Undying Ethiram is nowhere;
-				now the Undying Ethiram is docile;
-			otherwise:
-				say "You leap towards Ethiram and slam your weapon down on him, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "Ethiram hurls the body of a prisoner at your shield, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "Ethiram is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "Ethiram hurls a body of a prisoner at you, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "Ethiram is unable to penetrate your armour.";
-	if the current turns of the Abyssal Aura is 6:
-		say "Ethiram consumes the soul of a corpse, temporarily giving him more power." instead;
-	if the current turns of the Abyssal Aura is 5:
-		say "Ethiram surrounds the void in an aura of decay." instead;
-	if the current turns of the Abyssal Aura is 4:
-		if the dodgeTrue of the player is 1:
-			say "Ethiram releases a current of energy from his hands, but you sidestep it in time.";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "Before Ethiram can attack, you temporarily incapacitate him.[line break][line break]";
-			if the Undying Ethiram is dead:
-				say "While Ethiram is weak, you brutally strike him, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "Ethiram falls to his knees, gasping for air.[line break][line break]'Why... are you being so difficult... I gave you freedom... I gave you power...'";
-				now the Undying Ethiram is nowhere;
-				now the Undying Ethiram is docile;
-			otherwise:
-				say "While Ethiram is weak, you brutally strike him, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "Ethiram blasts you with a gust of energy, but your shield prevents you from flying backwards, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "Ethiram is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "Ethiram blasts you with a gust of energy, temporarily knocking the breath out of you, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "Ethiram is unable to penetrate your armour.";
-	if the current turns of the Abyssal Aura is 3:
-		if the dodgeTrue of the player is 1:
-			say "Ethiram temporarily raises the corpse of the Warden with his life force; the Warden misses as he tries to slash you across the chest. The Warden's body expires as Ethiram stops channeling energy into the corpse.";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "Ethiram raises the corpse of the Warden with his life force; the Warden tries to lacerate you with his sword but you parry the attack.[line break][line break]";
-			if the Undying Ethiram is dead:
-				say "You stab the Warden straight through the heart, killing him, and damaging Ethiram's life force, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "Ethiram falls to his knees, gasping for air.[line break][line break]'Why... are you being so difficult... I gave you freedom... I gave you power...'";
-				now the Undying Ethiram is nowhere;
-				now the Undying Ethiram is docile;
-			otherwise:
-				say "You stab the Warden straight through the heart, killing him, and damaging Ethiram's life force, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "Ethiram temporarily raises the corpse of the Warden with his life force; the Warden whips his chain at your shield before expiring, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "Ethiram is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "Ethiram temporarily raises the corpse of the Warden with his life force; the Warden lashes you with his chain before expiring, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "Ethiram is unable to penetrate your armour.";
-	if the current turns of the Abyssal Aura is 2:
-		say "Ethiram starts draining energy from the dead corpses on the floor; his arms begin to glow ominously red." instead;
-	if the current turns of the Abyssal Aura is 1:
-		if the dodgeTrue of the player is 1:
-			say "Ethiram opens his palm and shoots a stream of corrupted energy at you but barely misses your head.";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "Ethiram opens his palm and a stream of corrupted energy shoots out but you deflect the attack.[line break][line break]";
-			if the Undying Ethiram is dead:
-				say "You dash towards Ethiram and swing your weapon into his side, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "Ethiram falls to his knees, gasping for air.[line break][line break]'Why... are you being so difficult... I gave you freedom... I gave you power...'";
-				now the Undying Ethiram is nowhere;
-				now the Undying Ethiram is docile;
-			otherwise:
-				say "You dash towards Ethiram and swing your weapon into his side, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "Ethiram opens his palm and a stream of corrupted energy shoots out at your shield, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "Ethiram is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "Ethiram opens his palm and a stream of corrupted energy shoots out at you, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "Ethiram is unable to penetrate your armour.";
-	if the current turns of the Abyssal Aura is 0:
-		if the dodgeTrue of the player is 1:
-			say "Ethiram sends a ball of corrupting energy towards you but your reflexes allow you to avoid the attack.";
-			now the dodgeTrue is 0;
-		otherwise if the parryTrue of the player is 1:
-			say "Ethiram raises his hand for another attack, but you stun him with a quick blow.[line break][line break]";
-			if the Undying Ethiram is dead:
-				say "As Ethiram struggles to regain his footing, you swiftly strike his jaw, dealing [riposteDamage of the player] damage![line break][line break]";
-				say "Ethiram falls to his knees, gasping for air.[line break][line break]'Why... are you being so difficult... I gave you freedom... I gave you power...'";
-				now the Undying Ethiram is nowhere;
-				now the Undying Ethiram is docile;
-			otherwise:
-				say "As Ethiram struggles to regain his footing, you swiftly strike his jaw, dealing [riposteDamage of the player] damage!";
-			now the parryTrue is 0;
-		otherwise if the blockTrue of the the player is 1:
-			if damage inflicted > 0:
-				decrease the current hit points of the player by the damage inflicted;
-				say "Ethiram sends an orb of corrupted energy into your shield, dealing [damage inflicted] point[s] of damage!";
-			otherwise:
-				say "Ethiram is unable to penetrate your shield.";
-			now the blockTrue of the player is 0;
-		otherwise if damage inflicted > 0:
-			say "Ethiram sends an orb of corrupted energy into your chest, planting a parasite inside you, dealing [damage inflicted] point[s] of damage!";
-		otherwise:
-			say "Ethiram is unable to penetrate your armour.";
-	if the current turns of the Abyssal Aura is 11:
-		say "Ethiram relaxes himself and drains the energy from nearby corpses." instead.
-Report hitting a dead Undying Ethiram:
-		say "Ethiram falls to his knees, gasping for air.[line break][line break]'Why... are you being so difficult... I gave you freedom... I gave you power...'" instead.
-
-Report Undying Ethiram hitting the player when the player is dead:
-	now the current hit points of the player is 0; 
-	say "Ethiram knocks you unconscious with a gust of corrupted energy."; 
-	end the story saying "'You look like a promising host... Hold still... This won't hurt one bit...'"; 
-	stop the action.
-Carry out Undying Ethiram hitting the player:
-	if the current turns of the Abyssal Aura is 11:
-		now the player is notHit;
-		now the current turns of the Abyssal Aura is 10;
-		stop the action;
-	if the current turns of the Abyssal Aura is 10:
-		now the player is hit;
-		now the current turns of the Abyssal Aura is 9;
-		stop the action;
-	if the current turns of the Abyssal Aura is 9: 
-		now the player is hit;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Undying Ethiram by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Abyssal Aura is 8;
-		stop the action;
-	if the current turns of the Abyssal Aura is 8: 
-		now the player is notHit;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Undying Ethiram by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Abyssal Aura is 7;
-		stop the action;
-	if the current turns of the Abyssal Aura is 7:
-		now the player is notHit;
-		now the current turns of the Abyssal Aura is 6;
-		stop the action;
-	if the current turns of the Abyssal Aura is 6: 
-		now the player is hit;
-		increase the decay of the player by 4;
-		now the current turns of the Abyssal Aura is 5;
-		stop the action;
-	if the current turns of the Abyssal Aura is 5: 
-		now the player is hit;
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 9 and 11 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 9 and 11 minus x;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Undying Ethiram by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Abyssal Aura is 4;
-		stop the action;
-	if the current turns of the Abyssal Aura is 4: 
-		now the player is notHit;
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 9 and 11 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 9 and 11 minus x;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Undying Ethiram by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Abyssal Aura is 3;
-		stop the action;
-	if the current turns of the Abyssal Aura is 3:
-		now the player is hit;
-		now the current turns of the Abyssal Aura is 2;
-		stop the action;
-	if the current turns of the Abyssal Aura is 2: 
-		now the player is hit;
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 12 and 14 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 12 and 14 minus x;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Undying Ethiram by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-		now the current turns of the Abyssal Aura is 1;
-		stop the action;
-	if the current turns of the Abyssal Aura is 1: 
-		now the player is notHit;
-		if the blockTrue of the player is 0:
-			now the damage inflicted is a random number between 12 and 14 minus the damageReduction of the player;
-		otherwise:
-			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 12 and 14 minus x;
-		if dodgeTrue of the player is 1:
-			do nothing;
-		otherwise if parryTrue of the player is 1:
-			decrease the current hit points of the Undying Ethiram by the riposteDamage of the player;
-		otherwise if blockTrue of the player is 1:
-			do nothing;
-		otherwise if damage inflicted > 0:
-			decrease the current hit points of the noun by the damage inflicted;
-			now the drain of the player is 4;
-		now the current turns of the Abyssal Aura is 0;
-		stop the action;
-	if the current turns of the Abyssal Aura is 0: 
-		now the player is notHit;
-		now the current turns of the Abyssal Aura is 10;
-		stop the action.
-Every turn when the decay of the player is greater than 0:
-	decrease the decay of the player by 1;
-	if the decay of the player is greater than 0:
-		increase the minDodge of the player by 2;
-		increase the minParry of the player by 1;
-		say "You feel yourself become slower and heavier as if you were shackled to the ground.";
-	if the decay of the player is 4:
-		decrease the maxBlock of the player by 1;
-		if the maxBlock of the player is less than 1:
-			now the maxBlock of the player is 0;
-	if the decay of the player is 0:
-		decrease the minDodge of the player by 6;
-		decrease the minParry of the player by 3;
-		say "You feel a massive weight lifted off your shoulders and your agility returns to you.".
-Every turn when the drain of the player is greater than 0:
-	decrease the drain of the player by 1;
-	if the drain of the player is greater than 0:
-		decrease the current hit points of the player by 2;
-		increase the current hit points of Undying Ethiram by 1;
-		say "The parasite inside your body eats away your life force, dealing 2 points of damage to you and returning 1 point of health to Ethiram.";
-	otherwise:
-		say "The parasite in your body disintegrates.".
 
 Shadow Bosses ends here.

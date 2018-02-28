@@ -6,7 +6,7 @@ Chapter 1 - Weapon Descriptions
 
 Section 1 - Light Weapons
 
-The description of Warden’s Chain is “[line break].                         ,        ,[line break](¦:¦:¦:¦:¦:¦:¦:¦)>=-{X-=-{X-=._     ,[line break].                         `        `        ¯¨-{X-=._     ,[line break].                                                 `       ¯¨-{X-=.,[line break].                                                                `        \\ ,[line break].                                                                           {X.,[line break].                                                                           ` {¦}[line break].                                                                            `{X}'[line break].                                                                            /.| |.\[line break].                                                                               V[line break][line break]- Deals 2-8 damage[line break]- Deals 9 riposte damage[line break]- 3% decreased parry chance[line break]- 1% increased dodge chance[line break]- Attacks 2 times per turn”.
+The description of Steel Chain is “[line break].                         ,        ,[line break](¦:¦:¦:¦:¦:¦:¦:¦)>=-{X-=-{X-=._     ,[line break].                         `        `        ¯¨-{X-=._     ,[line break].                                                 `       ¯¨-{X-=.,[line break].                                                                `        \\ ,[line break].                                                                           {X.,[line break].                                                                           ` {¦}[line break].                                                                            `{X}'[line break].                                                                            /.| |.\[line break].                                                                               V[line break][line break]- Deals 2-8 damage[line break]- Deals 9 riposte damage[line break]- 3% decreased parry chance[line break]- 1% increased dodge chance[line break]- Attacks 2 times per turn”.
 [
 .                         ,        ,
 (¦:¦:¦:¦:¦:¦:¦:¦)>=-{X-=-{X-=._     ,
@@ -53,7 +53,7 @@ The description of Underworld Claws is "._______________________________________
 .    ________..............---------¨¨¨¨¨¯¯¯/¯/¯--<{/          |_|
 .¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ ¯
 ]
-The description of Syth's Covenant is ".   _...--¨¨¯¯                         _/                                   ___.....------¨¨¨¨¨¨/¯¯/¯¯/¯¯/¯¯/¯|  |                 |¦¦|        |¦¦|[line break]<{                                <x({=============<{            <:X::X::X::X::X::X::X::X::X:|   |                |¦¦|        |¦¦|[line break].   ¯¨¨--...__                         ¯\                                   ¯¯¯¨¨¨------..........\__\__\__\__\_|  |                 |¦¦|        |¦¦|[line break].                 ¯¯¨¨¨---......._____ ¯¯¯¨¨¨¨¨¨¨-----------------------------<<<<<<<<|  |                 /--\___/--\[line break].                                              ¯¯¯¯¯¯¯¨¨¨¨¨¨¨¨---------.................__/\__/\__/\__/\__|   ¯¨¨----¨¨\_/\_|¯|_/\_/¯¨¨--------¨¨¨¨¨¨¨¨¯¯|[line break].                                                                                                                                      ¯¯¯¯¯¯¯¯¯¯¯\__|¯¯¯¯¯¯|__/¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯[line break][line break]- Deals 10-40 damage[line break]- Deals 47 riposte damage[line break]- 3% decreased parry chance[line break]- 3% increased dodge chance[line break]- Attacks 2 timers per turn[line break]- Corrupted with Syth's dread".
+The description of Syth's Covenant is ".   _...--¨¨¯¯                         _/                                   ___.....------¨¨¨¨¨¨/¯¯/¯¯/¯¯/¯¯/¯|  |                 |¦¦|        |¦¦|[line break]<{                                <x({=============<{            <:X::X::X::X::X::X::X::X::X:|   |                |¦¦|        |¦¦|[line break].   ¯¨¨--...__                         ¯\                                   ¯¯¯¨¨¨------..........\__\__\__\__\_|  |                 |¦¦|        |¦¦|[line break].                 ¯¯¨¨¨---......._____ ¯¯¯¨¨¨¨¨¨¨-----------------------------<<<<<<<<|  |                 /--\___/--\[line break].                                              ¯¯¯¯¯¯¯¨¨¨¨¨¨¨¨---------.................__/\__/\__/\__/\__|   ¯¨¨----¨¨\_/\_|¯|_/\_/¯¨¨--------¨¨¨¨¨¨¨¨¯¯|[line break].                                                                                                                                      ¯¯¯¯¯¯¯¯¯¯¯\__|¯¯¯¯¯¯|__/¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯[line break][line break]- Deals 10-40 damage[line break]- Deals 47 riposte damage[line break]- 3% decreased parry chance[line break]- 3% increased dodge chance[line break]- Attacks 2 times per turn[line break]- Corrupted with Syth's dread".
 [Dual Katar
 .____________________/¯¯|______|¯¯\___________
 |__.............--------..._/¯\/¯|_|¯\/¯\_...----..._   |¯¯\/¯¯\/¯¯\/¯¯\/¯¯¨¨¨¨¨¨¨¨¨¨---------............._______
@@ -77,13 +77,13 @@ The description of Syth's Covenant is ".   _...--¨¨¯¯                       
 
 Section 2 - Medium Weapons
 
-The description of the Rusty Knife is "[line break]/o└v v v v/¯¯¯\______________[line break]\o/ ¯¯¯¯¯¯\  `------------     /[line break].                  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯[line break][line break]The blade of the knife is barely sharp enough to cut a loaf of bread. But it looks sturdy enough to drive straight into someone's stomach given enough force.[line break]- Deals 3-5 damage[line break]- Deals 5 riposte damage[line break]- 1% decreased parry chance[line break]- 1% increased dodge chance" .
+The description of the Rusty Knife is "[line break]/o└v v v v/¯¯¯\______________[line break]\o/ ¯¯¯¯¯¯\  `------------     /[line break].                  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯[line break][line break]The blade of the knife is barely sharp enough to cut a loaf of bread. But it looks sturdy enough to drive straight into someone's stomach given enough force.[line break]- Deals 3-5 damage[line break]- Deals 5 riposte damage[line break]- 1% increased parry chance[line break]- 1% increased dodge chance".
 [
 /o└v v v v/¯¯¯\______________
 \o/ ¯¯¯¯¯¯\  `------------     /
 .                  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯       
 ]
-The description of the Broken Sword is "[line break].                            ____[line break]./¯_ _ _ _ _ _ _ _ _ _ ¯¯\  \___________________,[line break]( {O}-K########|{{ =}  ~~~~~~~/¯¯¯¯[line break].\_¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯__/  /¯¯¯¯¯¯¯¯¯¯¯¯[line break].                            ¯¯¯¯[line break][line break]The blade is merely a shell of what it once was. Thankfully it is still quite sharp and could probably pack a punch.[line break]- Medium weapon[line break]- Deals 6-12 damage[line break]- Deals 13 riposte damage[line break]- 1% increased parry chance[line break]- 1% increased dodge chance".
+The description of the Broken Sword is "[line break].                            ____[line break]./¯_ _ _ _ _ _ _ _ _ _ ¯¯\  \___________________,[line break]( {O}-K########|{{ =}  ~~~~~~~/¯¯¯¯[line break].\_¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯ ¯__/  /¯¯¯¯¯¯¯¯¯¯¯¯[line break].                            ¯¯¯¯[line break][line break]The blade is merely a shell of what it once was. Thankfully it is still quite sharp and could probably pack a punch.[line break]- Deals 6-12 damage[line break]- Deals 13 riposte damage[line break]- 1% decreased parry chance[line break]- 1% increased dodge chance" .
 [
 .                            ____
 ./¯_ _ _ _ _ _ _ _ _ _ ¯¯\  \___________________,
@@ -155,7 +155,7 @@ The description of the Diamond Pickaxe is "[line break].                        
 .                                    ¯¯¯¯¯¯¯¯¯  
 ]
 
-The description of the Overseer’s Flail is “[line break].   /_                          ,[line break]<(@}}≈|==|≈|==|≈)}+=~(X>._[line break].   \¯                          `                  ¯¨+=~(X>+=~(X.__                           /\[line break].                                                                                    ¯¯¨+=~(X+=<({ Ø })>[line break].                                                                                                                \/[line break][line break]The spiked ball is stained with the blood of the Overseer. It probably fell on him when he died.[line break]- Deals 22-26 damage[line break]- Deals 38 riposte damage[line break]- 2% decreased parry chance[line break]- 1% decreased dodge chance[line break]- Adds 4 damage reduction[line break]- Takes 2 turns to hit”.
+The description of the Warden's Flail is “[line break].   /_                          ,[line break]<(@}}≈|==|≈|==|≈)}+=~(X>._[line break].   \¯                          `                  ¯¨+=~(X>+=~(X.__                           /\[line break].                                                                                    ¯¯¨+=~(X+=<({ Ø })>[line break].                                                                                                                \/[line break][line break]The spiked ball is stained with the blood of the Overseer. It probably fell on him when he died.[line break]- Deals 22-26 damage[line break]- Deals 38 riposte damage[line break]- 2% decreased parry chance[line break]- 1% decreased dodge chance[line break]- Adds 4 damage reduction[line break]- Takes 2 turns to hit”.
 [
 .   /_                          ,
 <(@}}≈|==|≈|==|≈)}+=~(X>._
@@ -213,7 +213,7 @@ The description of Wyvir's Judgement is ". \|¯\|                               
 
 Chapter 2 - Wall Breakers
 
-The description of the Rock Hammer is "This hammer looks like it could easily destroy a weak wall. Too bad most of the prison is completely solid.[line break]- Can be used to break weak walls".
+The description of the Rock Hammer is "This hammer looks like it could easily destroy a weak wall. Too bad most of the prison is completely solid.".
 
 Chapter 3 - Consumable Descriptions
 
@@ -226,11 +226,12 @@ Chapter 4 - Object Descriptions
 Section 1 - Quest Items
 
 The description of Note is "It's unfortunate for you to have arrived here. This is a prison. This is where we all died. However, there is a way out. Make your way to the Warden's room and end his miserable, little life. Further instructions will be given IF you can make it there."
-The description of Torn Page is "Just a little something to help you in the nearby future. Good luck."
+The description of Page is "Just a little something to help you in the nearby future. Good luck."
 The description of the Cell Key is “It looks like one of the old keys the guards used to carry around the prison. With the right luck you might find a use for this.” 
 The description of the Iron Key is "The key is in relatively good condition. You should probably save it for something later." 
-The description of the Dented Compass is “It’s fairly used, but is still in usable condition.”
-The description of the Sea Map is “A dusty parchment written in an ancient language, but the drawings indicate that there is a way out of this island.”
+The description of Paper is "You might find some luck with this if you hit the right spot on a wall."
+The description of the Lantern is "You hesitantly reach out to grab the lantern by the handle. With it, you can illuminate your way forward."
+The description of Cryptic Key is "The moment you touch the handle of the key, you feel a coldness run through your arm. Time stops and Ethiram appears before you.[line break]'The key will unlock the secrets of this isle. Find your way to me. A passage will open, and through it, you will find yourself in my chambers in the Shadow Realm. Come quickly, we are running out of time.'"
 
 Section 2 - Miscellaneous
 

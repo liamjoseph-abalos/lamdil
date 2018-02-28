@@ -1,7 +1,6 @@
 Enemy Mechanics by Lamdil begins here.
 
 Part 2 - Enemy Mechanics
-	
 
 Chapter 1 - Inner Prison Enemies
 		
@@ -85,7 +84,7 @@ Every turn when the player is in the Prison Tunnel:
 	if the Mutated Prisoner is hostile, try Mutated Prisoner hitting the player. 
 Report Mutated Prisoner hitting the player:
 	if the current turns of the Third Hand is 0:
-		say "The Mutated Prisoner's arm, pertruding from his stomach, claws the air as he searches for a target. " instead;
+		say "The Mutated Prisoner's third arm, pertruding from his stomach, claws the air as he searches for a target. " instead;
 	if the current turns of the Third Hand is 1:
 		if the dodgeTrue of the player is 1:
 			say "Upon gaining sight of you the Mutated Prisoner lunges forward but misses drastically.";
@@ -186,7 +185,7 @@ Report hitting a dead Warden:
 Report Warden hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
 	say "The Warden lashes out his chain and it wraps around your throat."; 
-	end the story saying "With a vicious tug, the Warden pulls your head clean off"; 
+	end the story saying "With a vicious tug, the Warden pulls your head clean off";  
 	stop the action.
 Carry out Warden hitting the player:
 	if the current turns of the Silver Sword is 2:
@@ -333,7 +332,7 @@ Every turn when the player is in the Eastern Tower Entrance:
 	if the Eastern Tower Sentinel is hostile, try Eastern Tower Sentinel hitting the player. 
 Report Eastern Tower Sentinel hitting the player:
 	if the current turns of the Sentinel Mace is 0:
-		say "The Eastern Tower Sentinel draws his mace and slams it on the ground, as if to taunt you." instead;
+		say "The Eastern Tower Sentinel draws his mace and slams it on the ground, as if means to taunt you." instead;
 	if the current turns of the Sentinel Mace is 1:
 		if the dodgeTrue of the player is 1:
 			say "Right as the Eastern Tower Sentinel swings his mace you swiftly duck under his blow.";
@@ -365,7 +364,7 @@ Report hitting a dead Eastern Tower Sentinel:
 Report Eastern Tower Sentinel hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
 	say "The Eastern Tower Guard knocks you unconscious."; 
-	end the story saying "The Eastern Tower Sentinel smashes his mace down onto your head, reducing it to bits of brain and skull"; 
+	end the story saying "The Eastern Tower Sentinel smashes his mace down onto your head, reducing it to bits of brain and skull";
 	stop the action.
 Carry out Eastern Tower Sentinel hitting the player:
 	if the current turns of the Sentinel Mace is 1:
@@ -403,7 +402,7 @@ Report Armoured Guard hitting the player:
 		say "The Armoured Guard grabs his shield with both hands." instead;
 	if the current turns of the Heavy Shield is 1:
 		if the dodgeTrue of the player is 1:
-			say "The Armoured Guard charges straight for you, but you roll out of the way.";
+			say "The Armoured Guard charges straight for you, but you roll out of the way.";	
 			now the dodgeTrue is 0;
 		otherwise if the parryTrue of the player is 1:
 			say "Using your own strength, you forcefully kick the Armoured Guard's shield as he charges towards you, leaving him open for an attack.[line break][line break]";
@@ -497,13 +496,81 @@ Report hitting a dead Reinforced Guard:
 Report Reinforced Guard hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
 	say "The Reinforced Guard pierces your body with his sword."; 
-	end the story saying "Blood gushes out your mouth as the Reinforced Guard pulls his sword from your stomach"; 
+	end the story saying "Blood gushes out your mouth as the Reinforced Guard pulls his sword from your stomach."; 
 	stop the action.
 Carry out Reinforced Guard hitting the player:
 	if the current turns of the Greatsword is 1:
 		now the player is hit;
 		if damage inflicted > 0:
 			decrease the current hit points of the noun by the damage inflicted;
+		stop the action.
+		
+
+The current hit points of the Living Statue is 10. The maximum hit points of the Living Statue is 10.
+The Living Statue is hostile. 
+The Deranged Prisoner carries a weapon called Runic Sword . The current turns of the Runic Sword is 1.
+Setting action variables for an actor hitting:
+	if the actor is Living Statue:
+		if the blockTrue of the player is 0:
+			now the damage inflicted is a random number between 5 and 10 minus the damageReduction of the player;
+		otherwise:
+			let x be the damageReduction of the player plus the damagePrevented of the player;
+			now the damage inflicted is a random number between 5 and 10 minus x.
+Every turn when the player is in the Ground Floor 3: 
+	if the Living Statue is in Ground Floor 3:
+		if the Living Statue is hostile, try Living Statue hitting the player. 
+Report Living Statue hitting the player:
+	if the current turns of the Runic Sword is 0:
+		say "The Living Statue draws its claymore and raises it menacingly." instead;
+	if the current turns of the Runic Sword is 1:
+		if the dodgeTrue of the player is 1:
+			say "The Living Statue's attack is easily dodged thanks to your superior speed.";
+			now the dodgeTrue is 0;
+		otherwise if the parryTrue of the player is 1:
+			say "The Living Statue staggers back from your powerful attack![line break][line break]";
+			if the Living Statue is dead:
+				say "You riposte the Living Statue, dealing [riposteDamage of the player] damage![line break][line break]";
+				say "The Living Statue crumbles into a pile of rubble.";
+				now the Living Statue is nowhere;
+				now the Living Statue is docile;
+			otherwise:
+				say "You riposte the Living Statue, dealing [riposteDamage of the player] damage!";
+			now the parryTrue is 0;
+		otherwise if the blockTrue of the the player is 1:
+			if damage inflicted > 0:
+				decrease the current hit points of the player by the damage inflicted;
+				say "The Living Statue's strikes your shield, dealing [damage inflicted] point[s] of damage!";
+			otherwise:
+				say "The Living Statue is unable to penetrate your shield.";
+			now the blockTrue of the player is 0;
+		otherwise if damage inflicted > 0:
+			say "The Living Statue lands a direct hit and slashes you with its claymore, dealing [damage inflicted] point[s] of damage!";
+		otherwise:
+			say "The Living Statue is unable to penetrate your armour.".	
+Report hitting a dead Deranged Prisoner:
+		say "The Living Statue crumbles into a pile of rubble." instead.
+		
+Report Living Statue hitting the player when the player is dead:
+	now the current hit points of the player is 0; 
+	say "The Living Statue's strength is too much to handle as it punctures its sword straight through your chest."; 
+	end the story saying "The Living Statue quickly rips its sword out and returns to its original position. Its eyes no longer glow."; 
+	stop the action.
+Carry out Living Statue hitting the player:
+	if the current turns of the Runic Sword is 1:
+		now the player is hit;
+		now the current turns of the Runic Sword is 0;
+		stop the action;
+	if the current turns of the Runic Sword is 0:
+		now the player is notHit;
+		if dodgeTrue of the player is 1:
+			do nothing;
+		otherwise if parryTrue of the player is 1:
+			decrease the current hit points of the Living Statue by the riposteDamage of the player;
+		otherwise if blockTrue of the player is 1:
+			do nothing;
+		otherwise if damage inflicted > 0:
+			decrease the current hit points of the noun by the damage inflicted;
+		now the current turns of the Runic Sword is 1;
 		stop the action.
 
 
@@ -553,8 +620,8 @@ Report hitting a dead Overseer:
 
 Report Overseer hitting the player when the player is dead:
 	now the current hit points of the player is 0; 
-	say "The Overseer knocks your weapon out of your hands and wraps his flail around your throat."; 
-	end the story saying "The flail's chain digs into your throat, releasing blood everywhere as you bleed to death"; 
+	say "The Overseer knocks your weapon out of your hands and wraps his flail around your throat.";
+	end the story saying "The flail's chain digs into your throat, releasing blood everywhere as you bleed to death";
 	stop the action.
 Carry out Overseer hitting the player:
 	if the current turns of the Spiked Flail is 1:
@@ -574,7 +641,6 @@ Carry out Overseer hitting the player:
 		now the current turns of the Spiked Flail is 1;
 		stop the action.	
 		
-
 Void is a room. The Corrupted Entity is a man in the Void. 
 The current hit points of the Corrupted Entity is 30. The maximum hit points of the Corrupted Entity is 30.
 The Corrupted Entity is hostile. 
@@ -593,6 +659,7 @@ Report Corrupted Entity hitting the player:
 		say "The Corrupted Entity lets out a piercing shriek, turning the world around you to darkness." instead;
 	if the current turns of the Corrupted Dual Axe is 0:
 		say "The screams of the dead can be heard as the Corrupted Entity raises his axes high above his head.[line break][line break]" instead;
+		say "If you want to survive you must finish the Corrupted Entity off now!" instead;
 	if the current turns of the Corrupted Dual Axe is 2:
 		if the dodgeTrue of the player is 1:
 			say "As the Corrupted Entity's grip loosens for just a fraction of a second, you are able to quickly sever yourself free and escape its attack!";
@@ -646,5 +713,19 @@ Carry out Corrupted Entity hitting the player:
  		otherwise if damage inflicted > 0:
  			decrease the current hit points of the noun by the damage inflicted;
  		now the current turns of the Corrupted Dual Axe is 2.
+
+
+	
+
+
+
+
+
+
+
+ 
+	
+
+	
 
 Enemy Mechanics ends here.
