@@ -998,7 +998,7 @@ Setting action variables for an actor hitting:
 			now the damage inflicted is a random number between 41 and 51 minus the damageReduction of the player;
 		otherwise:
 			let x be the damageReduction of the player plus the damagePrevented of the player;
-			now the damage inflicted is a random number between 41 minus and 51 minus x.
+			now the damage inflicted is a random number between 41 minus x and 51 minus x.
 Every turn when the player is in the F56: 
 	if the Bloody Apparition 4 is hostile, try Bloody Apparition 4 hitting the player. 
 Report Bloody Apparition 4 hitting the player:
