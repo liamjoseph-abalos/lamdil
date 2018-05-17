@@ -6,7 +6,7 @@ Chapter 1 - Weapon Descriptions
 
 Section 1 - Light Weapons
 
-The description of Steel Chain is “[line break].                         ,        ,[line break](¦:¦:¦:¦:¦:¦:¦:¦)>=-{X-=-{X-=._     ,[line break].                         `        `        ¯¨-{X-=._     ,[line break].                                                 `       ¯¨-{X-=.,[line break].                                                                `        \\ ,[line break].                                                                           {X.,[line break].                                                                           ` {¦}[line break].                                                                            `{X}'[line break].                                                                            /.| |.\[line break].                                                                               V[line break][line break]- Deals 2-8 damage[line break]- Deals 9 riposte damage[line break]- 3% decreased parry chance[line break]- 1% increased dodge chance[line break]- Attacks 2 times per turn”.
+The description of Warden's Chain is “[line break].                         ,        ,[line break](¦:¦:¦:¦:¦:¦:¦:¦)>=-{X-=-{X-=._     ,[line break].                         `        `        ¯¨-{X-=._     ,[line break].                                                 `       ¯¨-{X-=.,[line break].                                                                `        \\ ,[line break].                                                                           {X.,[line break].                                                                           ` {¦}[line break].                                                                            `{X}'[line break].                                                                            /.| |.\[line break].                                                                               V[line break][line break]- Deals 2-8 damage[line break]- Deals 9 riposte damage[line break]- 3% decreased parry chance[line break]- 1% increased dodge chance[line break]- Attacks 2 times per turn”.
 [
 .                         ,        ,
 (¦:¦:¦:¦:¦:¦:¦:¦)>=-{X-=-{X-=._     ,
@@ -155,7 +155,7 @@ The description of the Diamond Pickaxe is "[line break].                        
 .                                    ¯¯¯¯¯¯¯¯¯  
 ]
 
-The description of the Warden's Flail is “[line break].   /_                          ,[line break]<(@}}≈|==|≈|==|≈)}+=~(X>._[line break].   \¯                          `                  ¯¨+=~(X>+=~(X.__                           /\[line break].                                                                                    ¯¯¨+=~(X+=<({ Ø })>[line break].                                                                                                                \/[line break][line break]The spiked ball is stained with the blood of the Overseer. It probably fell on him when he died.[line break]- Deals 22-26 damage[line break]- Deals 38 riposte damage[line break]- 2% decreased parry chance[line break]- 1% decreased dodge chance[line break]- Adds 4 damage reduction[line break]- Takes 2 turns to hit”.
+The description of the Overseer's Flail is “[line break].   /_                          ,[line break]<(@}}≈|==|≈|==|≈)}+=~(X>._[line break].   \¯                          `                  ¯¨+=~(X>+=~(X.__                           /\[line break].                                                                                    ¯¯¨+=~(X+=<({ Ø })>[line break].                                                                                                                \/[line break][line break]The spiked ball is stained with the blood of the Overseer. It probably fell on him when he died.[line break]- Deals 22-26 damage[line break]- Deals 38 riposte damage[line break]- 2% decreased parry chance[line break]- 1% decreased dodge chance[line break]- Adds 4 damage reduction[line break]- Takes 2 turns to hit”.
 [
 .   /_                          ,
 <(@}}≈|==|≈|==|≈)}+=~(X>._
@@ -232,6 +232,9 @@ The description of the Iron Key is "The key is in relatively good condition. You
 The description of Paper is "You might find some luck with this if you hit the right spot on a wall."
 The description of the Lantern is "You hesitantly reach out to grab the lantern by the handle. With it, you can illuminate your way forward."
 The description of Cryptic Key is "The moment you touch the handle of the key, you feel a coldness run through your arm. Time stops and Ethiram appears before you.[line break]'The key will unlock the secrets of this isle. Find your way to me. A passage will open, and through it, you will find yourself in my chambers in the Shadow Realm. Come quickly, we are running out of time.'"
+The description of the Wrinkled Note is "The note seems to be dated from yesterday's date. It reads 'REPORT TO GROUND FLOOR 4 TO BEGIN WEAPON PROTECTION DUTIES FOR THE DAY.'"
+The description of the Fancy Key is "The key is engraved with the same crest you recognize from the armour the Prison Guards were wearing. It looks like it opens some sort of display case." 
+
 
 Section 2 - Miscellaneous
 
