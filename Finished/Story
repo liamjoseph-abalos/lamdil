@@ -22,11 +22,6 @@ Volume 1 - Story
 
 Section - Title Page
 
-The player name is some text that varies. 
-
-To decide whether collecting names:
-	if the command prompt is "What is your name? ", yes;
-	 no.
 	
 When play begins:
 	center "[story title]";
