@@ -109,17 +109,6 @@ The player has a number called Unlock. The unlock of the player is 0.
 [Catch These Hands]
 The player has a number called Body Parts. The Body Parts of the player is 0.
 
-Section - Godly Robes
-
-Godly Robes is body equipment. The bodyPoints of the Godly Robes is 980. The bodyDamageReduction of the Godly Robes is 1000. The player carries Godly Robes.
-	
-The player carries Treacherous Zweihander.
-
-Understand "Full Heal Meh" as casting Full Heal Meh.
-Casting Full Heal Meh is an action applying to nothing. 
-Carry out casting Full Heal Meh:
-	now the current hit points of the player is the maximum hit points of the player.
-	
 Section -Weapon Unlocks
 
 The player has a number called fpoints. The fpoints of the player is 0. 
