@@ -32,3 +32,5 @@ an AP Computer Science course. To make the game, Inform 7 was used, an interacti
 design system based off of natural language instead of "complicated computer code". The game
 has been through many stages of story and gameplay to finally end up with the version you 
 see before you.
+
+http://textadventures.co.uk/games/view/oa5roi7wxea3wd-hlet9ig/lamdil
